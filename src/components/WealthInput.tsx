@@ -3,6 +3,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { type CountryData, findPercentile } from "@/data/wealth-data";
 import { formatCurrency, getCurrencySymbol } from "@/lib/format";
+import { getPercentileLine } from "@/data/comedic-lines";
 
 interface WealthInputProps {
   readonly country: CountryData;
@@ -12,15 +13,7 @@ interface WealthInputProps {
 type InputMode = "wealth" | "income";
 
 function getComedicResponse(percentile: number, countryName: string): string {
-  if (percentile >= 99.9) return "Congrats, you're basically a rounding error away from ruling the world.";
-  if (percentile >= 99) return "Top 1%. You probably have a financial advisor who has a financial advisor.";
-  if (percentile >= 95) return "Doing very well. Your problems are mostly about which problems to solve first.";
-  if (percentile >= 90) return "Top 10%. The system is working... for you at least.";
-  if (percentile >= 75) return "Above average. You can afford to worry about retirement, which is a luxury in itself.";
-  if (percentile >= 50) return "Welcome to the middle. The American Dream brochure was... optimistic.";
-  if (percentile >= 25) return `Most people in ${countryName} have more than you. Let that sink in.`;
-  if (percentile >= 10) return "You're poorer than 3 out of 4 people around you. It's not your imagination — things are tough.";
-  return "You are in the bottom 10%. The system wasn't built for you — and the data proves it.";
+  return getPercentileLine(percentile, countryName);
 }
 
 function estimateWealthFromIncome(annualIncome: number, country: CountryData): number {

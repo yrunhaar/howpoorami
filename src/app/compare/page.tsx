@@ -4,8 +4,10 @@ import { useState, useMemo, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ALL_COUNTRY_MAP, type AllCountryCode } from "@/data/countries-extended";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
-import { formatCurrency, formatNumber, getCurrencySymbol } from "@/lib/format";
+import { formatCurrency, formatNumber } from "@/lib/format";
+import { getYearsToMatchLine } from "@/data/comedic-lines";
 import CountrySelector from "@/components/CountrySelector";
+import CurrencySelector from "@/components/CurrencySelector";
 import FormattedNumber from "@/components/FormattedNumber";
 import TimeComparisons from "@/components/TimeComparisons";
 import { useGeoCountry } from "@/hooks/useGeoCountry";
@@ -13,6 +15,7 @@ import { useGeoCountry } from "@/hooks/useGeoCountry";
 export default function ComparePage() {
   const [selectedCountry, setSelectedCountry] = useState<AllCountryCode>("US");
   const [salary, setSalary] = useState("");
+  const [globalCurrency, setGlobalCurrency] = useState("USD");
   const geoCountry = useGeoCountry();
 
   useEffect(() => {
@@ -25,7 +28,11 @@ export default function ComparePage() {
     setSelectedCountry(code as AllCountryCode);
   }, []);
 
-  const country = ALL_COUNTRY_MAP[selectedCountry];
+  const isGlobal = selectedCountry === "GLOBAL";
+  const rawCountry = ALL_COUNTRY_MAP[selectedCountry];
+  const country = isGlobal
+    ? { ...rawCountry, currency: globalCurrency }
+    : rawCountry;
   const richest = RICHEST_BY_COUNTRY[selectedCountry] ?? null;
 
   const salaryValue = useMemo(() => {
@@ -55,6 +62,15 @@ export default function ComparePage() {
     const secondsInYear = 365.25 * 24 * 3600;
     return richest.netWorth / secondsInYear;
   }, [richest]);
+
+  const comedicLine = useMemo(() => {
+    if (!richest) return "";
+    return getYearsToMatchLine(
+      yearsToMatch,
+      richest.name,
+      formatNumber(yearsToMatch),
+    );
+  }, [yearsToMatch, richest]);
 
   const handleSalaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value.replace(/[^0-9]/g, "");
@@ -106,7 +122,19 @@ export default function ComparePage() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mb-10"
           >
-            <CountrySelector selected={selectedCountry} onSelect={handleCountrySelect} />
+            <div className="flex flex-col items-center gap-3">
+              <CountrySelector selected={selectedCountry} onSelect={handleCountrySelect} />
+              {isGlobal && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  className="flex items-center gap-2"
+                >
+                  <span className="text-text-muted text-xs">Currency:</span>
+                  <CurrencySelector selected={globalCurrency} onSelect={setGlobalCurrency} />
+                </motion.div>
+              )}
+            </div>
           </motion.div>
 
           {/* The richest person card */}
@@ -187,7 +215,13 @@ export default function ComparePage() {
               to match {richest.name}&apos;s wealth
             </p>
 
-            <div className="mt-8 pt-6 border-t border-border-subtle/50">
+            {comedicLine && (
+              <p className="text-text-muted text-sm italic mt-6 max-w-lg mx-auto">
+                {comedicLine}
+              </p>
+            )}
+
+            <div className="mt-6 pt-6 border-t border-border-subtle/50">
               <p className="text-text-muted text-sm">
                 That&apos;s roughly <span className="text-accent-amber font-semibold">{formatNumber(lifetimes)} human lifetimes</span> (at 80 years each)
               </p>

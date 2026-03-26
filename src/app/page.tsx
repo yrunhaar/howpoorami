@@ -6,6 +6,7 @@ import { ALL_COUNTRY_MAP, type AllCountryCode } from "@/data/countries-extended"
 import { TAX_RATES } from "@/data/tax-rates";
 import { PURCHASING_POWER } from "@/data/purchasing-power";
 import CountrySelector from "@/components/CountrySelector";
+import CurrencySelector from "@/components/CurrencySelector";
 import WealthInput from "@/components/WealthInput";
 import WealthDistributionChart from "@/components/WealthDistributionChart";
 import WealthShareBars from "@/components/WealthShareBars";
@@ -21,6 +22,7 @@ import { useGeoCountry } from "@/hooks/useGeoCountry";
 export default function Home() {
   const [selectedCountry, setSelectedCountry] = useState<AllCountryCode>("US");
   const [userPercentile, setUserPercentile] = useState<number | null>(null);
+  const [globalCurrency, setGlobalCurrency] = useState("USD");
   const geoCountry = useGeoCountry();
 
   // Auto-select country on first load based on geolocation
@@ -30,7 +32,12 @@ export default function Home() {
     }
   }, [geoCountry]);
 
-  const country = ALL_COUNTRY_MAP[selectedCountry];
+  const isGlobal = selectedCountry === "GLOBAL";
+  const rawCountry = ALL_COUNTRY_MAP[selectedCountry];
+  // When Global is selected, override the currency with the user's choice
+  const country = isGlobal
+    ? { ...rawCountry, currency: globalCurrency }
+    : rawCountry;
 
   const handlePercentileChange = useCallback((p: number | null) => {
     setUserPercentile(p);
@@ -71,10 +78,26 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mb-8"
           >
-            <CountrySelector
-              selected={selectedCountry}
-              onSelect={handleCountrySelect}
-            />
+            <div className="flex flex-col items-center gap-3">
+              <CountrySelector
+                selected={selectedCountry}
+                onSelect={handleCountrySelect}
+              />
+              {isGlobal && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="flex items-center gap-2"
+                >
+                  <span className="text-text-muted text-xs">Currency:</span>
+                  <CurrencySelector
+                    selected={globalCurrency}
+                    onSelect={setGlobalCurrency}
+                  />
+                </motion.div>
+              )}
+            </div>
           </motion.div>
 
           {/* Wealth Input */}

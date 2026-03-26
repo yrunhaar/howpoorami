@@ -42,8 +42,8 @@ export type ExtendedCountryCode =
   | "ES" | "PT" | "PL" | "CZ" | "AT"
   | "BE" | "IE" | "NZ" | "SG" | "CL";
 
-/** Union of core and extended country codes */
-export type AllCountryCode = import("./wealth-data").CountryCode | ExtendedCountryCode;
+/** Union of core, extended, and global country codes */
+export type AllCountryCode = import("./wealth-data").CountryCode | ExtendedCountryCode | "GLOBAL";
 
 /**
  * Type alias for extended country data. Uses Omit/intersection to allow
@@ -1987,8 +1987,84 @@ export const EXTENDED_COUNTRY_MAP: Readonly<Record<ExtendedCountryCode, CountryD
   CZ: czechRepublic as unknown as CountryData,
 };
 
+// ---------------------------------------------------------------------------
+// GLOBAL (aggregate)
+// ---------------------------------------------------------------------------
+
+/**
+ * GLOBAL — World aggregate
+ *
+ * Sources:
+ * - World Inequality Report 2022, Chapter 3
+ * - WID.world global wealth and income distribution 2023
+ * - Credit Suisse Global Wealth Report 2023
+ *
+ * Uses USD as default currency. Users can switch currency in the UI.
+ */
+const globalData: Omit<CountryData, "code"> & { readonly code: "GLOBAL" } = {
+  code: "GLOBAL",
+  name: "Global",
+  flag: "\u{1F30D}",
+  currency: "USD",
+  wealthShares: {
+    top1: 37.8,
+    top10: 75.6,
+    middle40: 22.4,
+    bottom50: 2.0,
+  },
+  incomeShares: {
+    top1: 19.0,
+    top10: 52.0,
+    middle40: 39.5,
+    bottom50: 8.5,
+  },
+  giniWealth: 0.88,
+  giniIncome: 0.67,
+  medianWealthPerAdult: 8654,
+  meanWealthPerAdult: 87489,
+  population: 8100, // ~8.1 billion
+  medianIncome: 12000, // global median ~$12K USD PPP
+  historicalWealthTop1: [
+    { year: 1995, share: 30.0 },
+    { year: 2000, share: 33.0 },
+    { year: 2005, share: 34.5 },
+    { year: 2010, share: 35.8 },
+    { year: 2015, share: 36.5 },
+    { year: 2020, share: 37.1 },
+    { year: 2023, share: 37.8 },
+  ],
+  historicalWealthTop10: [
+    { year: 1995, share: 68.0 },
+    { year: 2000, share: 71.0 },
+    { year: 2005, share: 72.5 },
+    { year: 2010, share: 73.8 },
+    { year: 2015, share: 74.5 },
+    { year: 2020, share: 75.0 },
+    { year: 2023, share: 75.6 },
+  ],
+  historicalWealthBottom50: [
+    { year: 1995, share: 3.5 },
+    { year: 2000, share: 3.0 },
+    { year: 2005, share: 2.8 },
+    { year: 2010, share: 2.5 },
+    { year: 2015, share: 2.3 },
+    { year: 2020, share: 2.1 },
+    { year: 2023, share: 2.0 },
+  ],
+  historicalGini: [
+    { year: 1995, gini: 0.82 },
+    { year: 2000, gini: 0.84 },
+    { year: 2005, gini: 0.85 },
+    { year: 2010, gini: 0.86 },
+    { year: 2015, gini: 0.87 },
+    { year: 2020, gini: 0.87 },
+    { year: 2023, gini: 0.88 },
+  ],
+};
+
 /**
  * Combined array of all 30 countries (core 5 + extended 25).
+ * Global is NOT included here — it's a special entry shown separately.
  */
 export const ALL_COUNTRIES: readonly CountryData[] = [
   ...COUNTRIES,
@@ -1996,9 +2072,13 @@ export const ALL_COUNTRIES: readonly CountryData[] = [
 ];
 
 /**
- * Combined map of all 30 country codes to data.
+ * Combined map of all country codes to data, including Global.
  */
 export const ALL_COUNTRY_MAP: Readonly<Record<AllCountryCode, CountryData>> = {
   ...COUNTRY_MAP,
   ...EXTENDED_COUNTRY_MAP,
+  GLOBAL: globalData as unknown as CountryData,
 } as Readonly<Record<AllCountryCode, CountryData>>;
+
+/** The global aggregate entry, exported separately for UI usage */
+export const GLOBAL_COUNTRY = globalData as unknown as CountryData;

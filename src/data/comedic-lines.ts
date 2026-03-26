@@ -1,0 +1,416 @@
+/**
+ * Comedic response lines for the wealth percentile calculator and compare page.
+ *
+ * Each tier has multiple variants. A random one is selected on each calculation
+ * to keep the experience fresh. Lines range from dry wit to absurdist humor,
+ * but always circle back to the serious point about inequality.
+ */
+
+// ---------------------------------------------------------------------------
+// HOW POOR AM I — Percentile-based comedic lines
+// ---------------------------------------------------------------------------
+
+export interface PercentileTier {
+  readonly min: number;
+  readonly max: number;
+  readonly lines: readonly string[];
+}
+
+/**
+ * Tiers for the "How Poor Am I?" page.
+ * {country} is replaced with the country name at render time.
+ */
+export const PERCENTILE_LINES: readonly PercentileTier[] = [
+  // -------------------------------------------------------------------------
+  // BOTTOM 10% (0 - 10)
+  // -------------------------------------------------------------------------
+  {
+    min: 0,
+    max: 10,
+    lines: [
+      "You are in the bottom 10%. The system wasn't built for you — and the data proves it.",
+      "9 out of 10 people around you have more. That's not a personal failing — it's structural.",
+      "Bottom 10%. The economy isn't broken — it's working exactly as designed. Just not for you.",
+      "If wealth were height, you'd need a stepladder to see the curb.",
+      "You're not poor because you're lazy. You're poor because the pie was cut before you sat down.",
+      "The bottom 10%. Even your wallet has an existential crisis.",
+      "You own less than 90% of the country. The game was rigged before you learned the rules.",
+      "Rock bottom has a basement, and the rent there is still too high.",
+      "If money talks, yours is whispering \"help.\"",
+      "You're in the bracket where 'financial planning' means checking if you can afford lunch.",
+      "The economy forgot your address. And your zip code. And your existence.",
+      "Your bank account is so low, it's basically a rounding error in the national GDP.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // BOTTOM QUARTER (10 - 25)
+  // -------------------------------------------------------------------------
+  {
+    min: 10,
+    max: 25,
+    lines: [
+      "Most people in {country} have more than you. Let that sink in.",
+      "You're poorer than 3 out of 4 people around you. It's not your imagination — things are tough.",
+      "Bottom quarter. You're not alone here, but that's actually the problem.",
+      "Three quarters of {country} is doing better. The system calls this 'opportunity.'",
+      "If the economy were a party, you'd be outside looking at Instagram posts of it.",
+      "You're in the 'I should probably not look at my bank account today' zone.",
+      "Bottom 25%. The good news? You have company. The bad news? That's a lot of people struggling.",
+      "Your financial situation is what economists politely call 'constrained.'",
+      "If wealth distribution were a group project, you got assigned all the work and none of the credit.",
+      "Three out of four people in {country} have more. Not because they work harder — because math.",
+      "You're in the zone where 'treat yourself' means buying name-brand cereal.",
+      "Bottom quarter crew. The bootstraps everyone mentions? You can't afford boots.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // BELOW MEDIAN (25 - 50)
+  // -------------------------------------------------------------------------
+  {
+    min: 25,
+    max: 50,
+    lines: [
+      "Below the median. You're in the bottom half — welcome to the majority.",
+      "More than half the country has more wealth. The American Dream brochure was... optimistic.",
+      "Below average, but not by much. The gap between you and the middle is smaller than the gap between the middle and the top.",
+      "You're closer to zero than to the average. That says more about the average than about you.",
+      "Half the country is richer. But the half above you isn't doing great either — it's turtles all the way up.",
+      "Below median. In a fair world, this would be the starting line. Instead, it's the ceiling for millions.",
+      "You're technically in the bottom half. But 'the top' starts so high, most people are down here.",
+      "If wealth were a race, you started 10 miles behind and they called it 'equal opportunity.'",
+      "Below the 50th percentile. Society measures success by a number you were never given fair access to.",
+      "Half of {country} is ahead of you. The other half is waving from the same boat.",
+      "You're in the 'one emergency away from financial disaster' bracket. Spoiler: most people are.",
+      "Below median. The system isn't failing — it's succeeding. You're just not the intended beneficiary.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // MEDIAN ZONE (50 - 65)
+  // -------------------------------------------------------------------------
+  {
+    min: 50,
+    max: 65,
+    lines: [
+      "Welcome to the middle. You're the backbone of the economy and the most ignored part of it.",
+      "Dead center. You're doing exactly average — which in this economy is honestly impressive.",
+      "The statistical middle. Politicians love talking about you. Helping you? Less so.",
+      "50th percentile. You are the median. The human average. The statistical everyperson.",
+      "Right in the middle. You earn too much for sympathy, too little for comfort.",
+      "Congratulations, you're average. In a deeply unequal system, that's not the compliment it sounds like.",
+      "The median. You're the person every policy claims to help and every tax plan somehow misses.",
+      "You're the middle of the middle. The elusive 'middle class' that everyone campaigns for and nobody funds.",
+      "Smack in the center. You're what the economy pretends everyone is.",
+      "You ARE the median. You're the line on every graph. The pivot of every pie chart. The most normal person statistically possible.",
+      "Average wealth in an above-average crisis. You're doing fine, if you never get sick or need a car repair.",
+      "The exact middle. You're so average, you could be a textbook example. And textbooks are expensive now.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // UPPER MIDDLE (65 - 80)
+  // -------------------------------------------------------------------------
+  {
+    min: 65,
+    max: 80,
+    lines: [
+      "Above average. You're doing better than most — but probably still stressed about money.",
+      "Upper half. You can breathe, but you're not exactly relaxed either.",
+      "You're ahead of most people. Doesn't feel like it though, does it?",
+      "65th-80th percentile. The 'comfortable but not secure' zone. One layoff from the other side.",
+      "You're doing better than most. But 'most' includes a lot of people doing terribly, so...",
+      "Upper middle. You've got enough to worry about losing it, but not enough to stop worrying.",
+      "You're above the median. The bad news? The gap between you and the top 10% is a canyon.",
+      "Doing better than average. You're the person who says 'I can't complain' while definitely complaining.",
+      "You're in the 'I'm fine, everything's fine' tax bracket. It's not fine, but it could be worse.",
+      "Above average wealth. Enough to feel guilty scrolling past GoFundMes. Not enough to fix them.",
+      "The 'we can afford the vacation but we're staying at the budget hotel' tier.",
+      "You're in the zone where financial advisors start returning your calls. Barely.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // WELL OFF (80 - 90)
+  // -------------------------------------------------------------------------
+  {
+    min: 80,
+    max: 90,
+    lines: [
+      "Top 20%. You're ahead of 4 out of 5 people. The system is... sort of working for you.",
+      "Better off than 80% of the country. You can afford to be optimistic about the economy.",
+      "You're in the top fifth. Most people would trade places with you. You might still feel broke.",
+      "80th-90th percentile. You're doing well. Not yacht-well. Not even boat-well. But well.",
+      "Top 20%. You've got a 401(k) and opinions about mortgage rates. You've made it.",
+      "You're richer than 4 out of 5 people. And yet you still check the price before ordering guac.",
+      "The 'I own my home but it owns me back' bracket.",
+      "Top fifth. You're comfortable enough to read about inequality as a curiosity, not a crisis.",
+      "You're doing well by any reasonable metric. But metrics stopped being reasonable years ago.",
+      "Top 20%. Financial stability achieved. Emotional stability regarding finances? Still pending.",
+      "Richer than 80% of {country}. That's the good news. The bad news is how little that bar is.",
+      "You're in the bracket where you can afford organic groceries but still feel like you're behind.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // TOP 10% (90 - 95)
+  // -------------------------------------------------------------------------
+  {
+    min: 90,
+    max: 95,
+    lines: [
+      "Top 10%. The system is working... for you at least.",
+      "You're richer than 9 out of 10 people. That either feels great or deeply uncomfortable.",
+      "Top 10%. You're doing well. The question is: at whose expense?",
+      "90th percentile. You're in the elite — statistically. You probably still think you're 'middle class.'",
+      "Top 10%. Congratulations. You're now part of the group that the bottom 90% resents.",
+      "You're in the top tenth. Most of the country would consider your problems luxurious.",
+      "Top 10%. You have what most people dream of. Weird that it still doesn't feel like enough.",
+      "Richer than 90% of the population. You can afford to feel bad about it. Most can't.",
+      "You're in the bracket where 'budget' means 'only one European vacation this year.'",
+      "Top 10%. You're doing so well that complaining about money would make people dislike you.",
+      "The 'my problems are existential, not financial' tier. Must be nice.",
+      "Top 10%. If the economy is a game, you're winning. The other 90% would like a word.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // TOP 5% (95 - 99)
+  // -------------------------------------------------------------------------
+  {
+    min: 95,
+    max: 99,
+    lines: [
+      "Top 5%. You've crossed from 'doing well' into 'doing really well.'",
+      "Richer than 95% of the country. Your 'problems' would make most people laugh.",
+      "Top 5%. You probably have a financial advisor. They probably have a boat.",
+      "95th percentile. You're so rich that you reading this site is basically tourism.",
+      "Top 5%. The wealth gap isn't just a concept for you — it's the view from your side.",
+      "You're in the top 5%. At this point, 'how poor am I?' is more of a philosophical exercise.",
+      "Top 5%. You're wealthy enough that most political upheaval is just an inconvenience.",
+      "You have more than 19 out of 20 people. Statistically, everyone you know is poorer than you.",
+      "Top 5%. Money can't buy happiness, but it can buy the therapy to figure out why.",
+      "The 'second home is a realistic goal' tier. Most people can barely afford the first.",
+      "Top 5%. You've won capitalism. Please don't ask what it cost everyone else.",
+      "You're so far above average that 'average' is a concept you read about in articles.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // TOP 1% (99 - 99.9)
+  // -------------------------------------------------------------------------
+  {
+    min: 99,
+    max: 99.9,
+    lines: [
+      "Top 1%. You probably have a financial advisor who has a financial advisor.",
+      "The 1%. You're not just rich — you're a statistic that makes other statistics angry.",
+      "Top 1%. You have more wealth than 99 people out of 100. Let that marinate.",
+      "Welcome to the 1%. The rest of the country would like their share back.",
+      "Top 1%. At this level, money makes money and you just watch.",
+      "You're in the 1%. This site was basically made to show how much more you have than everyone else.",
+      "Top 1%. Congratulations. You're the reason the Gini coefficient is so high.",
+      "The 1%. You could literally change someone's life with your spare change. Several someones.",
+      "You're in the top percentile. Your net worth has more digits than most people's phone numbers.",
+      "Top 1%. You've probably been on a private flight. The other 99% has been on a budget airline. Maybe.",
+      "The 1% club. Where 'retail therapy' means buying the retail store.",
+      "Top 1%. 'How poor am I?' For you, this is a comedy show, not a reality check.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // TOP 0.1% (99.9 - 100)
+  // -------------------------------------------------------------------------
+  {
+    min: 99.9,
+    max: 100,
+    lines: [
+      "Top 0.1%. You're basically a rounding error away from ruling the world.",
+      "You're in the 0.1%. Democracy was not designed with your wealth level in mind.",
+      "Top 0.1%. At this point, you don't earn money — money earns you.",
+      "The 0.1%. Your accountant's accountant has an accountant.",
+      "You're so rich that this website can't meaningfully visualize your position on any chart.",
+      "Top 0.1%. You have more wealth than small countries. Plural.",
+      "The 0.1%. 'How poor am I?' — you're not. You're the reason this site exists.",
+      "Top 0.1%. You could fund a hospital, a school, and a small space program. Before lunch.",
+      "You're in the ultra-elite. The chart literally can't show you — you broke the scale.",
+      "Top 0.1%. If money is power, you have enough to rival a small government.",
+      "The 0.1%. Your spare change could end homelessness in a mid-size city.",
+      "Top 0.1%. You're reading this for entertainment. Everyone else is reading it in horror.",
+    ],
+  },
+] as const;
+
+// ---------------------------------------------------------------------------
+// HOW LONG — Years-to-match-based comedic lines for the compare page
+// ---------------------------------------------------------------------------
+
+export interface YearsTier {
+  readonly min: number;
+  readonly max: number;
+  readonly lines: readonly string[];
+}
+
+/**
+ * Tiers for the "How Long Would It Take?" page.
+ * {name} is replaced with the billionaire's name.
+ * {years} is replaced with the formatted years count.
+ */
+export const YEARS_TO_MATCH_LINES: readonly YearsTier[] = [
+  // -------------------------------------------------------------------------
+  // "Only" a few years (0 - 100)
+  // -------------------------------------------------------------------------
+  {
+    min: 0,
+    max: 100,
+    lines: [
+      "Only {years} years? You're practically neighbors on the wealth spectrum.",
+      "A mere {years} years. That's... actually kind of close. For a billionaire comparison.",
+      "{years} years. You could theoretically outlive that gap. Theoretically.",
+      "Just {years} years of nonstop work. No food, no sleep, no Netflix. Easy.",
+      "At {years} years, this is almost within human reach. Almost.",
+      "Only {years} years. That's fewer than some mortgage terms. Barely.",
+      "{years} years. You're in the 'wildly optimistic but mathematically possible' zone.",
+      "A quick {years} years. Just give up eating, sleeping, and having fun.",
+      "{years} years — if you started at birth and never spent a cent. Simple.",
+      "Only a lifetime or so of work. The meritocracy is alive and well, clearly.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // Several lifetimes (100 - 1,000)
+  // -------------------------------------------------------------------------
+  {
+    min: 100,
+    max: 1_000,
+    lines: [
+      "{years} years. So you'd need to be reincarnated a few times. No big deal.",
+      "Only {years} years. That's longer than most countries have existed.",
+      "{years} years of saving every penny. Hope you like ramen. For centuries.",
+      "That's {years} years. Civilization hasn't even been around that long in some places.",
+      "If you started when the Magna Carta was signed, you'd still be short.",
+      "{years} years. Even with compound interest, you're going to need a miracle. Or several.",
+      "Multiple human lifetimes. But sure, 'anyone can make it if they work hard enough.'",
+      "{years} years — roughly the time between now and when {name} forgets their car in a parking lot.",
+      "At {years} years, you'd need to outlive every tree currently alive on Earth.",
+      "A few centuries of labor. But who's counting? Oh wait, you should be.",
+      "{years} years. In that time, the sun will be fine. You, however, will not.",
+      "Only a few lifetimes. The bootstraps must be made of titanium.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // Millennia (1,000 - 10,000)
+  // -------------------------------------------------------------------------
+  {
+    min: 1_000,
+    max: 10_000,
+    lines: [
+      "{years} years. Empires have risen and fallen in less time.",
+      "That's {years} years. Longer than most religions have existed.",
+      "{years} years. The Great Wall of China was built faster than you'd earn this.",
+      "If you started saving when Rome was founded, you'd be... still saving.",
+      "{years} years of work. Writing was invented more recently than that.",
+      "Multiple millennia. At this point, we're not talking about a career — we're talking about a geological era.",
+      "{years} years. In that time, languages would evolve, die, and be replaced twice.",
+      "Only {years} years. That's roughly how long humans have been doing agriculture.",
+      "If you started when the pyramids were built, you might be almost halfway there.",
+      "{years} years. {name} earned this in a single lifetime. You'd need the span of a civilization.",
+      "Several thousand years. The meritocracy brochure failed to mention the fine print.",
+      "That's more years than humanity has had written language. But sure, just work harder.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // Deep time (10,000 - 1,000,000)
+  // -------------------------------------------------------------------------
+  {
+    min: 10_000,
+    max: 1_000_000,
+    lines: [
+      "{years} years. The last Ice Age was more recent than that.",
+      "At {years} years, you're now operating on archaeological timescales.",
+      "{years} years. Homo sapiens might not even exist anymore by the time you'd finish.",
+      "If every human who ever lived pooled their paychecks... it still might not be enough.",
+      "{years} years. The concept of 'money' will have been replaced multiple times.",
+      "We're past human history now. We're into 'what species comes after us?' territory.",
+      "{years} years of labor. The mammoths would like a word about patience.",
+      "At this point, the years are so numerous they've stopped meaning anything. Which is the point.",
+      "{years} years. New species would have time to evolve, thrive, and go extinct.",
+      "If you started when humans first painted cave walls, you'd need to keep going.",
+      "{years} years. Forget about you — entire civilizations couldn't accumulate this.",
+      "The number of years is so large, it's not a timeline anymore. It's a cosmic joke.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // Geological time (1,000,000 - 1,000,000,000)
+  // -------------------------------------------------------------------------
+  {
+    min: 1_000_000,
+    max: 1_000_000_000,
+    lines: [
+      "{years} years. We're now measuring in geological epochs. Continents move faster than your savings.",
+      "At {years} years, the Earth's magnetic poles would flip several times before you finish.",
+      "{years} years. Mountain ranges would form and erode. You'd still be working.",
+      "We're past any human frame of reference. {name}'s wealth exists on a planetary timescale.",
+      "{years} years. Species would evolve, dominate, and go extinct. Repeatedly.",
+      "If dinosaurs could have earned a wage, they still wouldn't have made it in {years} years.",
+      "We're in geological time now. The concept of 'money' is younger than the time you'd need.",
+      "{years} years. In that time, the Sahara would be ocean, and the ocean would be desert.",
+      "At this scale, we should measure in continental drifts, not calendar years.",
+      "You'd need to work for longer than mammals have existed. But yes, keep grinding.",
+      "{years} years — enough time for an asteroid to hit, life to recover, and new billionaires to emerge.",
+      "The Earth would barely recognize itself by the time you'd caught up.",
+    ],
+  },
+  // -------------------------------------------------------------------------
+  // Cosmic time (1,000,000,000+)
+  // -------------------------------------------------------------------------
+  {
+    min: 1_000_000_000,
+    max: Infinity,
+    lines: [
+      "{years} years. The sun will have burned out long before you get there.",
+      "At {years} years, we're talking about cosmic timescales. Stars are born and die faster.",
+      "{years} years. The universe might not exist that long. Neither will money.",
+      "If the entire universe started saving from the Big Bang... maybe. Maybe.",
+      "{years} years. The Milky Way and Andromeda will have merged before your paycheck catches up.",
+      "We're beyond physics now. This wealth gap is older than most stars.",
+      "{years} years. By then, protons may have decayed. Literally everything will have ended.",
+      "The heat death of the universe arrives sooner. But {name} has the money now.",
+      "At this point, the number of years exceeds the age of everything that has ever existed. Combined.",
+      "This isn't a wealth gap. It's a wealth abyss that swallows spacetime itself.",
+      "{years} years. Even light, traveling since the Big Bang, hasn't gone far enough to represent this gap.",
+      "The universe: 13.8 billion years old. Your savings plan: needs more time than that. Cool.",
+    ],
+  },
+] as const;
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+/**
+ * Get a random comedic line for a given wealth percentile.
+ * Uses a seeded approach based on percentile to keep it consistent per value
+ * but different across values.
+ */
+export function getPercentileLine(
+  percentile: number,
+  countryName: string,
+): string {
+  const tier = PERCENTILE_LINES.find(
+    (t) => percentile >= t.min && percentile < t.max,
+  ) ?? PERCENTILE_LINES[PERCENTILE_LINES.length - 1];
+
+  // Use percentile value to pick a semi-random but consistent line
+  const index = Math.floor((percentile * 7.3) % tier.lines.length);
+  return tier.lines[index].replace(/\{country\}/g, countryName);
+}
+
+/**
+ * Get a random comedic line for the years-to-match comparison.
+ */
+export function getYearsToMatchLine(
+  years: number,
+  billionaireName: string,
+  formattedYears: string,
+): string {
+  const tier = YEARS_TO_MATCH_LINES.find(
+    (t) => years >= t.min && years < t.max,
+  ) ?? YEARS_TO_MATCH_LINES[YEARS_TO_MATCH_LINES.length - 1];
+
+  const index = Math.floor((years * 3.7) % tier.lines.length);
+  return tier.lines[index]
+    .replace(/\{name\}/g, billionaireName)
+    .replace(/\{years\}/g, formattedYears);
+}

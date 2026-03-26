@@ -80,7 +80,14 @@ export default function WealthDistributionChart({
   const [zoom, setZoom] = useState<ZoomLevel>("overview");
   const [expandedLabels, setExpandedLabels] = useState<ReadonlySet<string>>(new Set());
 
-  const shares = DETAILED_SHARES[country.code];
+  const shares = DETAILED_SHARES[country.code] ?? {
+    bottom50: country.wealthShares.bottom50,
+    middle40: country.wealthShares.middle40,
+    next9: country.wealthShares.top10 - country.wealthShares.top1,
+    next09: country.wealthShares.top1 * 0.55,
+    next009: country.wealthShares.top1 * 0.28,
+    top001: country.wealthShares.top1 * 0.17,
+  };
   const segments = useMemo(() => getSegments(shares, zoom), [shares, zoom]);
 
   const populationAdults = country.population * 0.78;

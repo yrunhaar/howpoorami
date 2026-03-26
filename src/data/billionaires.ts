@@ -230,6 +230,13 @@ export const RICHEST_BY_COUNTRY: Readonly<Record<string, BillionaireData>> = {
     country: "CZ",
     photoDescription: "Owner of PPF Group",
   },
+  GLOBAL: {
+    name: "Elon Musk",
+    netWorth: 650_000_000_000,
+    source: "Tesla, SpaceX, X",
+    country: "GLOBAL",
+    photoDescription: "World's richest person",
+  },
 } as const;
 
 /**
@@ -308,4 +315,5 @@ export const DETAILED_SHARES: Readonly<Record<string, DetailedWealthShares>> = {
   ES: { bottom50: 6.0, middle40: 36.0, next9: 34.5, next09: 13.5, next009: 6.5, top001: 3.5 },
   SG: { bottom50: 3.0, middle40: 30.0, next9: 34.0, next09: 17.0, next009: 9.5, top001: 6.5 },
   IE: { bottom50: 4.5, middle40: 34.5, next9: 35.0, next09: 14.5, next009: 7.5, top001: 4.0 },
+  GLOBAL: { bottom50: 2.0, middle40: 22.4, next9: 37.8, next09: 19.5, next009: 11.0, top001: 7.3 },
 } as const;

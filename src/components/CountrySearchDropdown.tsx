@@ -56,9 +56,10 @@ const REGION_MAP: Record<string, string> = {
   ZA: "Africa",
 };
 
-const REGION_ORDER = ["Americas", "Europe", "Asia-Pacific", "Africa"] as const;
+const REGION_ORDER = ["Global", "Americas", "Europe", "Asia-Pacific", "Africa"] as const;
 
 function regionOf(code: string): string {
+  if (code === "GLOBAL") return "Global";
   return REGION_MAP[code] ?? "Other";
 }
 
