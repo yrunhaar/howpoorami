@@ -22,7 +22,7 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         <Link
           href="/"
-          className="font-[family-name:var(--font-heading)] text-lg text-text-primary hover:text-accent-periwinkle transition-colors"
+          className="font-[family-name:var(--font-heading)] text-lg font-bold text-text-primary hover:text-accent-periwinkle transition-colors"
         >
           How Poor Am I?
         </Link>

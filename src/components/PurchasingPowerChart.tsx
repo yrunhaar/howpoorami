@@ -104,6 +104,11 @@ export default function PurchasingPowerChart({
         }
       }
 
+      const tooltipY = Math.min(
+        Math.max(MARGIN.top, point.y),
+        MARGIN.top + innerHeight
+      );
+
       showTooltip({
         tooltipData: {
           year: closest.year,
@@ -112,7 +117,7 @@ export default function PurchasingPowerChart({
           housePriceIndex: closest.housePriceIndex,
         },
         tooltipLeft: xScale(closest.year) + MARGIN.left,
-        tooltipTop: point.y,
+        tooltipTop: tooltipY,
       });
     },
     [data, xScale, showTooltip],
@@ -268,10 +273,11 @@ export default function PurchasingPowerChart({
       {/* Tooltip */}
       {tooltipData && (
         <TooltipWithBounds
-          left={tooltipLeft}
-          top={tooltipTop}
+          left={(tooltipLeft ?? 0) + 12}
+          top={(tooltipTop ?? 0) - 12}
           className="!bg-bg-card !border !border-border-subtle !rounded-lg !shadow-lg !px-3 !py-2"
           unstyled
+          style={{ pointerEvents: "none" }}
         >
           <p className="text-text-primary text-sm font-semibold mb-1.5">
             {tooltipData.year}

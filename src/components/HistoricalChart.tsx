@@ -85,6 +85,11 @@ export default function HistoricalChart({
         0
       );
 
+      const tooltipY = Math.min(
+        Math.max(MARGIN.top, coords.y),
+        MARGIN.top + innerHeight
+      );
+
       showTooltip({
         tooltipData: {
           year: country.historicalWealthTop1[closestIdx].year,
@@ -93,7 +98,7 @@ export default function HistoricalChart({
           bottom50: country.historicalWealthBottom50[closestIdx]?.share ?? 0,
         },
         tooltipLeft: xScale(country.historicalWealthTop1[closestIdx].year) + MARGIN.left,
-        tooltipTop: coords.y,
+        tooltipTop: tooltipY,
       });
     },
     [country, xScale, showTooltip]
@@ -263,10 +268,11 @@ export default function HistoricalChart({
 
       {tooltipOpen && tooltipData && (
         <TooltipWithBounds
-          left={tooltipLeft}
-          top={tooltipTop}
+          left={(tooltipLeft ?? 0) + 12}
+          top={(tooltipTop ?? 0) - 12}
           className="!bg-transparent !p-0"
           unstyled
+          style={{ pointerEvents: "none" }}
         >
           <div className="bg-bg-card rounded-xl px-4 py-3 border border-border-subtle shadow-xl">
             <p className="text-text-primary font-semibold tabular-nums text-sm">

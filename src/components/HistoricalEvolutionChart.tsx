@@ -182,6 +182,11 @@ export default function HistoricalEvolutionChart({
       const idx = findClosestIndex(stackedData, x0);
       const point = stackedData[idx];
 
+      const tooltipY = Math.min(
+        Math.max(MARGIN.top, coords.y),
+        MARGIN.top + innerHeight
+      );
+
       showTooltip({
         tooltipData: {
           year: point.year,
@@ -191,7 +196,7 @@ export default function HistoricalEvolutionChart({
           top1: point.top1,
         },
         tooltipLeft: xScale(point.year) + MARGIN.left,
-        tooltipTop: coords.y,
+        tooltipTop: tooltipY,
       });
     },
     [stackedData, xScale, showTooltip]
@@ -414,10 +419,11 @@ export default function HistoricalEvolutionChart({
       {/* Tooltip */}
       {tooltipOpen && tooltipData && (
         <TooltipWithBounds
-          left={tooltipLeft}
-          top={tooltipTop}
+          left={(tooltipLeft ?? 0) + 12}
+          top={(tooltipTop ?? 0) - 12}
           className="!bg-transparent !p-0"
           unstyled
+          style={{ pointerEvents: "none" }}
         >
           <div className="bg-bg-card rounded-xl px-4 py-3 border border-border-subtle shadow-xl">
             <p className="text-text-primary font-semibold tabular-nums text-sm">
