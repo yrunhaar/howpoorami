@@ -1,26 +1,162 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+ * Theme: Dark Mode (default)
+ * ========================================================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #0b0f1a;
+  --bg-secondary: #101724;
+  --bg-card: #151d2e;
+  --bg-card-hover: #1c2640;
+  --text-primary: #e4e7ed;
+  --text-secondary: #919bb0;
+  --text-muted: #5b6478;
+  --accent-rose: #d4878f;
+  --accent-amber: #c9a87c;
+  --accent-sage: #7eb8a8;
+  --accent-periwinkle: #929ee8;
+  --accent-lavender: #b49ad4;
+  --border-subtle: #1f2942;
+  --scrollbar-track: #0b0f1a;
+  --scrollbar-thumb: #1f2942;
+  --scrollbar-thumb-hover: #5b6478;
+  --selection-bg: rgba(146, 158, 232, 0.3);
 }
 
+/* ==========================================================================
+ * Theme: Light Mode
+ * ========================================================================== */
+[data-theme="light"] {
+  --bg-primary: #f8f9fc;
+  --bg-secondary: #eef0f5;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f2f7;
+  --text-primary: #1a1d2b;
+  --text-secondary: #4a5068;
+  --text-muted: #8890a4;
+  --accent-rose: #c0616b;
+  --accent-amber: #a67d4b;
+  --accent-sage: #4a9a87;
+  --accent-periwinkle: #5c6bc0;
+  --accent-lavender: #8e6abf;
+  --border-subtle: #d8dce6;
+  --scrollbar-track: #f8f9fc;
+  --scrollbar-thumb: #d8dce6;
+  --scrollbar-thumb-hover: #8890a4;
+  --selection-bg: rgba(92, 107, 192, 0.2);
+}
+
+/* ==========================================================================
+ * Tailwind Theme Tokens
+ * ========================================================================== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-rose: var(--accent-rose);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-periwinkle: var(--accent-periwinkle);
+  --color-accent-lavender: var(--accent-lavender);
+  --color-border-subtle: var(--border-subtle);
+  --font-sans: var(--font-raleway);
+  --font-serif: var(--font-bitter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==========================================================================
+ * Base Styles
+ * ========================================================================== */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-raleway), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme transition for all themed elements */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Exclude animations/transforms from theme transition override */
+[class*="animate-"],
+[class*="transition-"],
+.motion-safe\:animate- {
+  transition-property: all;
+}
+
+/* ==========================================================================
+ * Scrollbar
+ * ========================================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ==========================================================================
+ * Utilities
+ * ========================================================================== */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+ * Accessibility: Reduced motion
+ * ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+ * Accessibility: Focus visible
+ * ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--accent-periwinkle);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Light mode card shadow */
+[data-theme="light"] .shadow-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
