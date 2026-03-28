@@ -353,7 +353,7 @@ function ShareButtons({
   const url = `https://howpoorami.org/${countryCode.toLowerCase()}`;
 
   const btnClass =
-    "px-2.5 py-1 rounded-lg text-[11px] font-medium bg-bg-card border border-border-subtle text-text-secondary hover:text-text-primary hover:border-accent-periwinkle/30 transition-all cursor-pointer";
+    "px-2.5 py-1 rounded-lg text-[11px] font-medium min-h-[44px] min-w-[44px] bg-bg-card border border-border-subtle text-text-secondary hover:text-text-primary hover:border-accent-periwinkle/30 transition-all cursor-pointer";
 
   return (
     <div className="flex items-center justify-center gap-2 mt-4">
@@ -388,7 +388,7 @@ function ShareButtons({
       </button>
       <button
         type="button"
-        onClick={() => navigator.clipboard.writeText(url)}
+        onClick={() => navigator.clipboard.writeText(url).catch(() => { /* silent fallback */ })}
         className={btnClass}
         aria-label="Copy link"
       >

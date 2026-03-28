@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 // ---------------------------------------------------------------------------
@@ -49,16 +49,31 @@ interface CurrencySelectorProps {
 
 export default function CurrencySelector({ selected, onSelect }: CurrencySelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const [dropdownPos, setDropdownPos] = useState<{ top: number; right: number; width: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const listboxRef = useRef<HTMLUListElement>(null);
+
+  const instanceId = useId();
+  const listboxId = `${instanceId}-currency-listbox`;
 
   const selectedCurrency = useMemo(
     () => CURRENCIES.find((c) => c.code === selected) ?? CURRENCIES[0],
     [selected],
   );
 
-  const close = useCallback(() => setIsOpen(false), []);
+  const activeOptionId =
+    activeIndex >= 0 && activeIndex < CURRENCIES.length
+      ? `${instanceId}-currency-option-${CURRENCIES[activeIndex].code}`
+      : undefined;
+
+  // Callbacks ----------------------------------------------------------------
+
+  const close = useCallback(() => {
+    setIsOpen(false);
+    setActiveIndex(-1);
+  }, []);
 
   const open = useCallback(() => {
     if (containerRef.current) {
@@ -70,6 +85,7 @@ export default function CurrencySelector({ selected, onSelect }: CurrencySelecto
       });
     }
     setIsOpen(true);
+    setActiveIndex(-1);
   }, []);
 
   const toggle = useCallback(() => {
@@ -80,7 +96,16 @@ export default function CurrencySelector({ selected, onSelect }: CurrencySelecto
     }
   }, [isOpen, close, open]);
 
-  // Click-outside (checks both trigger and portal)
+  const selectCurrency = useCallback(
+    (code: string) => {
+      onSelect(code);
+      close();
+    },
+    [onSelect, close],
+  );
+
+  // Click-outside (checks both trigger and portal) --------------------------
+
   useEffect(() => {
     if (!isOpen) return;
     function handleClickOutside(e: MouseEvent) {
@@ -95,7 +120,8 @@ export default function CurrencySelector({ selected, onSelect }: CurrencySelecto
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen, close]);
 
-  // Reposition on scroll / resize
+  // Reposition on scroll / resize -------------------------------------------
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -118,11 +144,83 @@ export default function CurrencySelector({ selected, onSelect }: CurrencySelecto
     };
   }, [isOpen]);
 
+  // Scroll active option into view ------------------------------------------
+
+  useEffect(() => {
+    if (activeIndex < 0 || !listboxRef.current) return;
+    const active = listboxRef.current.querySelector(
+      `[data-index="${activeIndex}"]`,
+    );
+    active?.scrollIntoView({ block: "nearest" });
+  }, [activeIndex]);
+
+  // Keyboard ----------------------------------------------------------------
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (!isOpen) {
+        if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
+        return;
+      }
+
+      switch (e.key) {
+        case "ArrowDown": {
+          e.preventDefault();
+          setActiveIndex((prev) =>
+            prev < CURRENCIES.length - 1 ? prev + 1 : 0,
+          );
+          break;
+        }
+        case "ArrowUp": {
+          e.preventDefault();
+          setActiveIndex((prev) =>
+            prev > 0 ? prev - 1 : CURRENCIES.length - 1,
+          );
+          break;
+        }
+        case "Enter": {
+          e.preventDefault();
+          if (activeIndex >= 0 && activeIndex < CURRENCIES.length) {
+            selectCurrency(CURRENCIES[activeIndex].code);
+          }
+          break;
+        }
+        case "Escape": {
+          e.preventDefault();
+          close();
+          break;
+        }
+        case "Home": {
+          e.preventDefault();
+          setActiveIndex(0);
+          break;
+        }
+        case "End": {
+          e.preventDefault();
+          setActiveIndex(CURRENCIES.length - 1);
+          break;
+        }
+        default:
+          break;
+      }
+    },
+    [isOpen, activeIndex, open, close, selectCurrency],
+  );
+
   return (
     <div ref={containerRef} className="relative inline-block">
       <button
         type="button"
         onClick={toggle}
+        onKeyDown={handleKeyDown}
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        aria-controls={listboxId}
+        aria-label={`Select currency, current: ${selectedCurrency.code}`}
+        aria-activedescendant={isOpen ? activeOptionId : undefined}
         className="
           flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
           bg-accent-periwinkle/10 text-accent-periwinkle border border-accent-periwinkle/20
@@ -167,32 +265,49 @@ export default function CurrencySelector({ selected, onSelect }: CurrencySelecto
                 animate-dropdown-in
               "
             >
-              <ul className="max-h-52 overflow-y-auto py-1">
-                {CURRENCIES.map((currency) => {
+              <ul
+                ref={listboxRef}
+                id={listboxId}
+                role="listbox"
+                aria-label="Currencies"
+                className="max-h-52 overflow-y-auto py-1"
+              >
+                {CURRENCIES.map((currency, idx) => {
                   const isSelected = currency.code === selected;
+                  const isActive = idx === activeIndex;
+
                   return (
-                    <li key={currency.code}>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          onSelect(currency.code);
-                          close();
-                        }}
-                        className={`
-                          w-full flex items-center gap-3 px-3 py-2 text-sm cursor-pointer
-                          transition-colors duration-100
-                          ${isSelected
-                            ? "bg-accent-periwinkle/15 text-accent-periwinkle"
-                            : "text-text-secondary hover:bg-accent-periwinkle/10 hover:text-text-primary"
-                          }
-                        `}
-                      >
-                        <span className="w-8 text-right tabular-nums font-medium shrink-0">
-                          {currency.symbol}
-                        </span>
-                        <span className="flex-1 text-left">{currency.label}</span>
-                        <span className="text-text-muted text-xs">{currency.code}</span>
-                      </button>
+                    <li
+                      key={currency.code}
+                      id={`${instanceId}-currency-option-${currency.code}`}
+                      role="option"
+                      data-index={idx}
+                      aria-selected={isSelected}
+                      className={`
+                        flex items-center gap-3 px-3 py-2 text-sm cursor-pointer
+                        transition-colors duration-100
+                        ${isActive ? "bg-accent-periwinkle/15 text-accent-periwinkle" : ""}
+                        ${isSelected && !isActive
+                          ? "bg-accent-periwinkle/15 text-accent-periwinkle"
+                          : ""
+                        }
+                        ${!isActive && !isSelected
+                          ? "text-text-secondary hover:bg-accent-periwinkle/10 hover:text-text-primary"
+                          : ""
+                        }
+                      `}
+                      onMouseEnter={() => setActiveIndex(idx)}
+                      onMouseDown={(e) => {
+                        // Prevent focus loss before selection registers
+                        e.preventDefault();
+                      }}
+                      onClick={() => selectCurrency(currency.code)}
+                    >
+                      <span className="w-8 text-right tabular-nums font-medium shrink-0">
+                        {currency.symbol}
+                      </span>
+                      <span className="flex-1 text-left">{currency.label}</span>
+                      <span className="text-text-muted text-xs">{currency.code}</span>
                     </li>
                   );
                 })}

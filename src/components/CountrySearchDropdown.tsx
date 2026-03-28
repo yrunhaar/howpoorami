@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 // ---------------------------------------------------------------------------
 // Types
@@ -130,13 +130,15 @@ export default function CountrySearchDropdown({
     );
   }, [countries, query]);
 
-  /** Flat list of items in display order (region-grouped). */
-  const flatItems = useMemo(() => {
-    const groups = groupByRegion(filtered);
-    return groups.flatMap((g) => g.items);
-  }, [filtered]);
-
   const grouped = useMemo(() => groupByRegion(filtered), [filtered]);
+
+  /** Flat list of items in display order (region-grouped). */
+  const flatItems = useMemo(() => grouped.flatMap((g) => g.items), [grouped]);
+
+  const itemIndexMap = useMemo(
+    () => new Map(flatItems.map((item, i) => [item, i])),
+    [flatItems],
+  );
 
   // Callbacks ----------------------------------------------------------------
 
@@ -290,7 +292,8 @@ export default function CountrySearchDropdown({
 
   // IDs for ARIA -------------------------------------------------------------
 
-  const listboxId = "country-search-listbox";
+  const generatedId = useId();
+  const listboxId = `${generatedId}-listbox`;
   const activeOptionId =
     activeIndex >= 0 ? `country-option-${flatItems[activeIndex]?.code}` : undefined;
 
@@ -359,8 +362,7 @@ export default function CountrySearchDropdown({
       </div>
 
       {/* Dropdown — rendered as portal to escape stacking contexts */}
-      {typeof document !== "undefined" &&
-        createPortal(
+      {typeof document !== "undefined" && createPortal(
           isOpen && dropdownPos ? (
             <div
               ref={dropdownRef}
@@ -403,7 +405,7 @@ export default function CountrySearchDropdown({
                     </span>
                     <ul role="group" aria-label={group.region}>
                       {group.items.map((country) => {
-                        const idx = flatItems.indexOf(country);
+                        const idx = itemIndexMap.get(country) ?? -1;
                         const isActive = idx === activeIndex;
                         const isSelected = country.code === selected;
 

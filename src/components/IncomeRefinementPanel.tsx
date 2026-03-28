@@ -27,6 +27,7 @@ function ChevronIcon({ open }: { readonly open: boolean }) {
       height="16"
       viewBox="0 0 16 16"
       fill="none"
+      aria-hidden="true"
       className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
     >
       <path
@@ -69,7 +70,7 @@ function ConfidenceBar({ filled }: { readonly filled: number }) {
           style={{ width: `${Math.max(5, pct)}%` }}
         />
       </div>
-      <span className="text-[10px] text-text-muted whitespace-nowrap tabular-nums">
+      <span className="text-xs text-text-muted whitespace-nowrap tabular-nums">
         {label} ({filled}/{MAX_FACTORS})
       </span>
     </div>
@@ -132,7 +133,7 @@ function SegmentedButtons({
           key={val}
           type="button"
           onClick={() => onSelect(val)}
-          className={`px-2 py-1 rounded-md text-[10px] font-medium border transition-all cursor-pointer ${
+          className={`px-2 py-1 rounded-md text-xs font-medium border transition-all cursor-pointer ${
             value === val
               ? activeClass
               : "bg-bg-primary text-text-muted border-border-subtle hover:text-text-secondary"
@@ -162,7 +163,7 @@ function SmallInput({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-[10px] text-text-muted mb-0.5">
+      <label htmlFor={id} className="block text-xs text-text-muted mb-0.5">
         {label}
       </label>
       <input
@@ -215,6 +216,7 @@ export default function IncomeRefinementPanel({
       <button
         type="button"
         onClick={onToggle}
+        aria-expanded={isOpen}
         className="w-full flex items-center justify-between px-4 py-3 bg-bg-card hover:bg-bg-secondary/60 transition-colors cursor-pointer"
       >
         <div className="flex items-center gap-2">
@@ -222,14 +224,14 @@ export default function IncomeRefinementPanel({
             Refine estimate
           </span>
           {filled > 0 && (
-            <span className="text-[10px] tabular-nums text-accent-periwinkle bg-accent-periwinkle/10 px-1.5 py-0.5 rounded-full">
+            <span className="text-xs tabular-nums text-accent-periwinkle bg-accent-periwinkle/10 px-1.5 py-0.5 rounded-full">
               ±{spreadPct}%
             </span>
           )}
         </div>
         <div className="flex items-center gap-2 text-text-muted">
           {filled > 0 && !isOpen && (
-            <span className="text-[10px] tabular-nums">
+            <span className="text-xs tabular-nums">
               {filled} factor{filled !== 1 ? "s" : ""}
             </span>
           )}
@@ -276,7 +278,7 @@ export default function IncomeRefinementPanel({
 
               {/* Education */}
               <div className="mb-2">
-                <span className="block text-[10px] text-text-muted mb-1">
+                <span className="block text-xs text-text-muted mb-1">
                   Education
                 </span>
                 <SegmentedButtons
@@ -294,7 +296,7 @@ export default function IncomeRefinementPanel({
 
               {/* Employment type */}
               <div className="mb-2">
-                <span className="block text-[10px] text-text-muted mb-1">
+                <span className="block text-xs text-text-muted mb-1">
                   Employment
                 </span>
                 <SegmentedButtons
@@ -313,7 +315,7 @@ export default function IncomeRefinementPanel({
 
               {/* Marital status */}
               <div>
-                <span className="block text-[10px] text-text-muted mb-1">
+                <span className="block text-xs text-text-muted mb-1">
                   Marital status
                 </span>
                 <SegmentedButtons
@@ -335,7 +337,7 @@ export default function IncomeRefinementPanel({
               <SectionLegend>Financial profile</SectionLegend>
 
               <div className="mb-2">
-                <span className="block text-[10px] text-text-muted mb-1">
+                <span className="block text-xs text-text-muted mb-1">
                   Savings habit
                 </span>
                 <SegmentedButtons
@@ -467,7 +469,7 @@ export default function IncomeRefinementPanel({
                 />
                 {factors.hasDebts && (
                   <div className="ml-1">
-                    <span className="block text-[10px] text-text-muted mb-1">
+                    <span className="block text-xs text-text-muted mb-1">
                       Debt level (excl. mortgage)
                     </span>
                     <SegmentedButtons
@@ -487,7 +489,7 @@ export default function IncomeRefinementPanel({
             </fieldset>
 
             {/* Methodology note */}
-            <p className="text-[10px] text-text-muted/70 leading-relaxed pt-2 border-t border-border-subtle">
+            <p className="text-xs text-text-muted/70 leading-relaxed pt-2 border-t border-border-subtle">
               Based on Federal Reserve SCF, OECD, ECB HFCS, and Credit Suisse
               data. Model: income × age × education × employment × marital ×
               savings × assets − debts. Currently ±{spreadPct}% uncertainty.

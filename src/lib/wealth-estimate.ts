@@ -134,7 +134,7 @@ const MARITAL_MULTIPLIERS: Record<string, number> = {
 // ── Factor counting ────────────────────────────────────────────────
 
 /** All trackable factor keys with their "filled" test. */
-function isFactorFilled(factors: IncomeFactors, key: string): boolean {
+function isFactorFilled(factors: IncomeFactors, key: keyof IncomeFactors): boolean {
   switch (key) {
     case "age": return factors.age.length > 0;
     case "householdSize": return factors.householdSize.length > 0;
@@ -193,9 +193,9 @@ export function computeSpreadFactor(factors: IncomeFactors): number {
 
 // ── Helpers ────────────────────────────────────────────────────────
 
-function parsePositiveInt(raw: string): number {
+function parseNonNegativeInt(raw: string): number {
   const val = parseInt(raw.replace(/[^0-9]/g, ""), 10);
-  return Number.isFinite(val) && val > 0 ? val : NaN;
+  return Number.isFinite(val) && val >= 0 ? val : NaN;
 }
 
 // ── Core estimation ────────────────────────────────────────────────
@@ -209,7 +209,7 @@ export function estimateWealthRange(
   const incomeRatio = annualIncome / medianIncome;
 
   // 1. Age-based wealth-to-income ratio (SCF lifecycle pattern)
-  const age = parsePositiveInt(factors.age);
+  const age = parseNonNegativeInt(factors.age);
   const ageBracket = Number.isFinite(age)
     ? AGE_BRACKETS.find((b) => age >= b.min && age <= b.max)
     : undefined;
@@ -232,8 +232,8 @@ export function estimateWealthRange(
   let propertyAddon = 0;
   let propertyMul = 1.0;
   if (factors.hasProperty) {
-    const propVal = parsePositiveInt(factors.propertyValue);
-    if (Number.isFinite(propVal)) {
+    const propVal = parseNonNegativeInt(factors.propertyValue);
+    if (Number.isFinite(propVal) && propVal > 0) {
       propertyAddon = propVal * 0.7; // ~70% avg equity
     } else {
       propertyMul = 1.8;
@@ -243,12 +243,12 @@ export function estimateWealthRange(
   // 5. Mortgage — subtracts from property equity
   let mortgageDeduction = 0;
   if (factors.hasMortgage) {
-    const mortVal = parsePositiveInt(factors.mortgageRemaining);
+    const mortVal = parseNonNegativeInt(factors.mortgageRemaining);
     if (Number.isFinite(mortVal)) {
       mortgageDeduction = mortVal;
     } else if (factors.hasProperty) {
       // Estimate: avg mortgage is ~60% of property value
-      const propVal = parsePositiveInt(factors.propertyValue);
+      const propVal = parseNonNegativeInt(factors.propertyValue);
       mortgageDeduction = Number.isFinite(propVal) ? propVal * 0.6 : annualIncome * 3;
     }
   }
@@ -265,8 +265,8 @@ export function estimateWealthRange(
   let investmentAddon = 0;
   let investmentMul = 1.0;
   if (factors.hasInvestments) {
-    const invVal = parsePositiveInt(factors.investmentValue);
-    if (Number.isFinite(invVal)) {
+    const invVal = parseNonNegativeInt(factors.investmentValue);
+    if (Number.isFinite(invVal) && invVal > 0) {
       investmentAddon = invVal;
     } else {
       investmentMul = 1.35;
@@ -277,8 +277,8 @@ export function estimateWealthRange(
   let retirementAddon = 0;
   let retirementMul = 1.0;
   if (factors.hasRetirement) {
-    const retVal = parsePositiveInt(factors.retirementValue);
-    if (Number.isFinite(retVal)) {
+    const retVal = parseNonNegativeInt(factors.retirementValue);
+    if (Number.isFinite(retVal) && retVal > 0) {
       retirementAddon = retVal;
     } else {
       retirementMul = 1.25;
@@ -289,13 +289,13 @@ export function estimateWealthRange(
   const inheritanceMul = factors.hasInheritance ? 1.5 : 1.0;
 
   // 10. Years worked — more time = more accumulation
-  const yrsWorked = parsePositiveInt(factors.yearsWorked);
+  const yrsWorked = parseNonNegativeInt(factors.yearsWorked);
   const yrsMultiplier = Number.isFinite(yrsWorked)
     ? Math.max(0.3, Math.min(2.0, 0.5 + yrsWorked * 0.04))
     : 1.0;
 
   // 11. Household size — OECD modified equivalence scale
-  const hhSize = parsePositiveInt(factors.householdSize);
+  const hhSize = parseNonNegativeInt(factors.householdSize);
   const hhMultiplier = Number.isFinite(hhSize) && hhSize > 1
     ? 1 / Math.sqrt(hhSize)
     : 1.0;
@@ -328,13 +328,18 @@ export function estimateWealthRange(
 
   // Add explicit asset values, subtract mortgage
   const totalAddons = propertyAddon + investmentAddon + retirementAddon - mortgageDeduction;
-  const mid = Math.max(0, Math.round(baseWealth + totalAddons));
+  const mid = Math.round(baseWealth + totalAddons);
 
   const spread = computeSpreadFactor(factors);
-  const low = Math.max(0, Math.round(mid * (1 - spread)));
+  const low = Math.round(mid * (1 - spread));
   const high = Math.round(mid * (1 + spread));
 
-  return { low, mid, high };
+  // If mid is negative, swap low/high so low < mid < high
+  return {
+    low: Math.min(low, high),
+    mid,
+    high: Math.max(low, high),
+  };
 }
 
 // ── Percentile range from wealth range ─────────────────────────────

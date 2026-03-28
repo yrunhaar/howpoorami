@@ -199,14 +199,17 @@ export default function WealthHoardingChart({
   // Fallback: when WID.world detailed splits are unavailable, estimate
   // sub-percentile breakdown using typical distribution ratios (55/28/17).
   // These are approximations, not sourced data.
-  const shares = DETAILED_SHARES[country.code] ?? {
-    bottom50: country.wealthShares.bottom50,
-    middle40: country.wealthShares.middle40,
-    next9: country.wealthShares.top10 - country.wealthShares.top1,
-    next09: country.wealthShares.top1 * 0.55,
-    next009: country.wealthShares.top1 * 0.28,
-    top001: country.wealthShares.top1 * 0.17,
-  };
+  const shares = useMemo(
+    () => DETAILED_SHARES[country.code] ?? {
+      bottom50: country.wealthShares.bottom50,
+      middle40: country.wealthShares.middle40,
+      next9: country.wealthShares.top10 - country.wealthShares.top1,
+      next09: country.wealthShares.top1 * 0.55,
+      next009: country.wealthShares.top1 * 0.28,
+      top001: country.wealthShares.top1 * 0.17,
+    },
+    [country.code, country.wealthShares.bottom50, country.wealthShares.middle40, country.wealthShares.top10, country.wealthShares.top1, country.population],
+  );
 
   const innerWidth = width - MARGIN.left - MARGIN.right;
   const innerHeight = height - MARGIN.top - MARGIN.bottom;
@@ -240,11 +243,31 @@ export default function WealthHoardingChart({
     []
   );
 
+  const handleTouchStart = useCallback(
+    (rect: RectData, e: React.TouchEvent<SVGRectElement>) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      const svg = e.currentTarget.closest("svg");
+      if (!svg) return;
+      const point = svg.getBoundingClientRect();
+      setTooltipPos({
+        x: touch.clientX - point.left,
+        y: touch.clientY - point.top,
+      });
+      setHoveredRect(rect);
+    },
+    []
+  );
+
+  const handleTouchEnd = useCallback(() => {
+    setHoveredRect(null);
+  }, []);
+
   const handleMouseLeave = useCallback(() => {
     setHoveredRect(null);
   }, []);
 
-  if (width < 10 || !shares) return null;
+  if (width < 10) return null;
 
   const topPeopleCount = topGroup?.peopleCount ?? 0;
   const bottomPeopleCount = bottomGroup?.peopleCount ?? 0;
@@ -267,11 +290,10 @@ export default function WealthHoardingChart({
               return (
                 <motion.g
                   key={rect.key}
-                  initial={{ opacity: 0, x: rect.x, width: 0 }}
+                  initial={{ opacity: 0, x: rect.x }}
                   animate={{
                     opacity: 1,
                     x: rect.x,
-                    width: rect.w,
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
@@ -289,6 +311,8 @@ export default function WealthHoardingChart({
                     style={{ opacity: 0.88, cursor: "pointer" }}
                     onMouseMove={(e) => handleMouseMove(rect, e)}
                     onMouseLeave={handleMouseLeave}
+                    onTouchStart={(e) => handleTouchStart(rect, e)}
+                    onTouchEnd={handleTouchEnd}
                   />
 
                   {showLabel && (
