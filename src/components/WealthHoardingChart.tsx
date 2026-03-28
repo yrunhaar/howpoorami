@@ -122,12 +122,14 @@ function buildRectangles(
   });
 }
 
-function shouldShowLabel(rect: RectData, innerWidth: number): boolean {
-  return rect.w > innerWidth * 0.035;
+function shouldShowLabel(rect: RectData): boolean {
+  // Only show label if the bar is wide enough for text to be readable (min ~40px)
+  return rect.w >= 40;
 }
 
-function shouldShowPercent(rect: RectData, innerWidth: number): boolean {
-  return rect.w > innerWidth * 0.055;
+function shouldShowPercent(rect: RectData): boolean {
+  // Need a bit more room for the percentage line (~60px)
+  return rect.w >= 60;
 }
 
 function PopulationDots({
@@ -255,8 +257,8 @@ export default function WealthHoardingChart({
         <Group left={MARGIN.left} top={MARGIN.top}>
           <AnimatePresence mode="wait">
             {rectangles.map((rect) => {
-              const showLabel = shouldShowLabel(rect, innerWidth);
-              const showPercent = shouldShowPercent(rect, innerWidth);
+              const showLabel = shouldShowLabel(rect);
+              const showPercent = shouldShowPercent(rect);
               const textColor =
                 rect.key === "bottom50" || rect.key === "middle40" || rect.key === "next9"
                   ? "#1a1a2e"
