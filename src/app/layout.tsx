@@ -74,6 +74,13 @@ export const metadata: Metadata = {
       "Enter your income or wealth and see where you stand. Interactive wealth inequality data for 30+ countries.",
     images: ["https://howpoorami.org/og-image.png"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+  },
   robots: {
     index: true,
     follow: true,
@@ -115,7 +122,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
