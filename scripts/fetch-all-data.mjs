@@ -54,11 +54,12 @@ async function fetchJSON(url, headers = {}) {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const WID_API = process.env.WID_API_URL || "https://rfap9nitz6.execute-api.eu-west-1.amazonaws.com/prod";
-const WID_KEY = process.env.WID_API_KEY;
-if (!WID_KEY) {
-  console.error("ERROR: WID_API_KEY environment variable is required. Get a key at https://wid.world/data/");
-  process.exit(1);
-}
+
+// Public API key extracted from the official WID R package (sysdata.rda).
+// This is a shared key distributed with the open-source wid-r-tool package
+// (https://github.com/world-inequality-database/wid-r-tool), not a secret.
+// Override via WID_API_KEY env var if WID issues a dedicated key in the future.
+const WID_KEY = process.env.WID_API_KEY || "rYFByOB0ioaPATwHtllMI71zLOZSK0Ic5veQonJP";
 
 async function fetchWID(countries, variables) {
   const url = `${WID_API}/countries-variables?countries=${countries.join(",")}&variables=${encodeURIComponent(variables.join(","))}`;
