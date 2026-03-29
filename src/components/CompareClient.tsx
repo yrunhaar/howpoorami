@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ALL_COUNTRY_MAP, type AllCountryCode, isAllCountryCode } from "@/data/countries-extended";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
@@ -286,6 +287,30 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
               Wealth fluctuates daily — these are approximate figures for illustration.
             </p>
           </motion.div>
+
+          {/* Cross-link to wealth distribution page */}
+          {!isGlobal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-12"
+            >
+              <Link
+                href={`/${selectedCountry.toLowerCase()}`}
+                className="block bg-accent-periwinkle/8 border border-accent-periwinkle/20 rounded-2xl p-6 sm:p-8 text-center hover:bg-accent-periwinkle/12 hover:border-accent-periwinkle/30 transition-all duration-300"
+              >
+                <p className="text-text-secondary text-base sm:text-lg">
+                  See where you stand in{" "}
+                  <span className="text-accent-periwinkle font-medium">{country.name}&apos;s</span>{" "}
+                  wealth distribution
+                </p>
+                <span className="inline-block mt-3 text-accent-periwinkle text-sm font-medium">
+                  Explore wealth inequality &rarr;
+                </span>
+              </Link>
+            </motion.div>
+          )}
         </div>
       </section>
     </main>

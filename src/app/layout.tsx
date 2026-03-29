@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 const playfairDisplay = Playfair_Display({
@@ -140,6 +141,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Navigation />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -52,5 +52,40 @@ export default async function CompareCountryPage({ params }: CompareCountryPageP
   const code = resolveCountryCode(slug);
   if (!code) notFound();
 
-  return <CompareClient initialCountry={code} />;
+  const { name } = await import("@/data/countries-extended").then((m) => m.ALL_COUNTRY_MAP[code]);
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "How Long?",
+        item: `${SITE_URL}/compare`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name,
+        item: `${SITE_URL}/compare/${slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <CompareClient initialCountry={code} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+    </>
+  );
 }

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ALL_COUNTRY_MAP, type AllCountryCode, isAllCountryCode } from "@/data/countries-extended";
+import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import { TAX_RATES } from "@/data/tax-rates";
 import { PURCHASING_POWER } from "@/data/purchasing-power";
 import CountrySelector from "@/components/CountrySelector";
@@ -57,6 +59,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
 
   const hasTaxData = selectedCountry in TAX_RATES;
   const hasPurchasingPowerData = selectedCountry in PURCHASING_POWER;
+  const hasRichestData = selectedCountry in RICHEST_BY_COUNTRY;
 
   return (
     <main className="min-h-screen pt-14">
@@ -350,6 +353,26 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
                 </ResponsiveChart>
               </ErrorBoundary>
             </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* Cross-link to Compare page */}
+      {hasRichestData && !isGlobal && (
+        <section className="px-4 sm:px-6 lg:px-8 py-10">
+          <div className="max-w-6xl mx-auto">
+            <Link
+              href={`/compare/${selectedCountry.toLowerCase()}`}
+              className="block bg-accent-periwinkle/8 border border-accent-periwinkle/20 rounded-2xl p-6 sm:p-8 text-center hover:bg-accent-periwinkle/12 hover:border-accent-periwinkle/30 transition-all duration-300"
+            >
+              <p className="text-text-secondary text-base sm:text-lg">
+                See how long it would take you to earn as much as the richest person in{" "}
+                <span className="text-accent-periwinkle font-medium">{country.name}</span>
+              </p>
+              <span className="inline-block mt-3 text-accent-periwinkle text-sm font-medium">
+                Try the billionaire comparison &rarr;
+              </span>
+            </Link>
           </div>
         </section>
       )}
