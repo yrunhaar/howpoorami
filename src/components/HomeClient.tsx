@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ALL_COUNTRY_MAP, type AllCountryCode, isAllCountryCode } from "@/data/countries-extended";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
@@ -16,46 +15,13 @@ import ResponsiveChart from "@/components/ResponsiveChart";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useGeoCountry } from "@/hooks/useGeoCountry";
 
-const chartLoadingFallback = (
-  <div className="h-64 flex items-center justify-center text-text-secondary">
-    Loading chart…
-  </div>
-);
-
-const WealthDistributionChart = dynamic(
-  () => import("@/components/WealthDistributionChart"),
-  { ssr: false, loading: () => chartLoadingFallback }
-);
-
-const WealthShareBars = dynamic(
-  () => import("@/components/WealthShareBars"),
-  { ssr: false, loading: () => chartLoadingFallback }
-);
-
-const WealthHoardingChart = dynamic(
-  () => import("@/components/WealthHoardingChart"),
-  { ssr: false, loading: () => chartLoadingFallback }
-);
-
-const TaxRateChart = dynamic(
-  () => import("@/components/TaxRateChart"),
-  { ssr: false, loading: () => chartLoadingFallback }
-);
-
-const PurchasingPowerChart = dynamic(
-  () => import("@/components/PurchasingPowerChart"),
-  { ssr: false, loading: () => chartLoadingFallback }
-);
-
-const HistoricalEvolutionChart = dynamic(
-  () => import("@/components/HistoricalEvolutionChart"),
-  { ssr: false, loading: () => chartLoadingFallback }
-);
-
-const StatisticsSection = dynamic(
-  () => import("@/components/StatisticsSection"),
-  { ssr: false, loading: () => chartLoadingFallback }
-);
+import WealthDistributionChart from "@/components/WealthDistributionChart";
+import WealthShareBars from "@/components/WealthShareBars";
+import WealthHoardingChart from "@/components/WealthHoardingChart";
+import TaxRateChart from "@/components/TaxRateChart";
+import PurchasingPowerChart from "@/components/PurchasingPowerChart";
+import HistoricalEvolutionChart from "@/components/HistoricalEvolutionChart";
+import StatisticsSection from "@/components/StatisticsSection";
 
 interface HomeClientProps {
   readonly initialCountry?: AllCountryCode;
