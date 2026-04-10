@@ -59,10 +59,19 @@ function AnimatedFormattedNumber({
   const ref = useRef<HTMLSpanElement>(null);
   const [displayValue, setDisplayValue] = useState(value);
   const hasAnimated = useRef(false);
+  const rafId = useRef<number | null>(null);
 
+  // Sync immediately when value changes after initial animation
+  useEffect(() => {
+    if (hasAnimated.current) {
+      setDisplayValue(value);
+    }
+  }, [value]);
+
+  // Animate from 0 → value when element first scrolls into view
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || hasAnimated.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -76,17 +85,27 @@ function AnimatedFormattedNumber({
           const progress = Math.min((now - startTime) / 2000, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
           setDisplayValue(eased * value);
-          if (progress < 1) requestAnimationFrame(tick);
+          if (progress < 1) {
+            rafId.current = requestAnimationFrame(tick);
+          } else {
+            rafId.current = null;
+          }
         }
 
         setDisplayValue(0);
-        requestAnimationFrame(tick);
+        rafId.current = requestAnimationFrame(tick);
       },
       { threshold: 0.1 },
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
+        rafId.current = null;
+      }
+    };
   }, [value]);
 
   return (
