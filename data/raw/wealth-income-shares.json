@@ -1,436 +1,455 @@
 {
+  "_meta": {
+    "description": "Wealth and income distribution shares from WID.world",
+    "sources": {
+      "wealthShares": "WID.world shweal variables (net personal wealth shares)",
+      "incomeShares": "WID.world sptinc variables (pre-tax national income shares)"
+    },
+    "variables": [
+      "shweal_p99p100_992_j",
+      "shweal_p90p100_992_j",
+      "shweal_p0p50_992_j",
+      "sptinc_p99p100_992_j",
+      "sptinc_p90p100_992_j",
+      "sptinc_p0p50_992_j"
+    ],
+    "methodology": "middle40 = 100 - top10 - bottom50",
+    "citation": "Chancel, L., Piketty, T., Saez, E., Zucman, G. et al. World Inequality Database, https://wid.world",
+    "generatedBy": "scripts/fetch-all-data.mjs",
+    "fetchedAt": "2026-04-11T18:09:20.438Z"
+  },
   "US": {
     "wealthShares": {
-      "top1": 34.9,
-      "top10": 71.1,
-      "middle40": 27.4,
-      "bottom50": 1.5
+      "top1": 34.8,
+      "top10": 69.5,
+      "middle40": 29.5,
+      "bottom50": 1
     },
     "incomeShares": {
-      "top1": 21.4,
-      "top10": 46.4,
-      "middle40": 40.6,
-      "bottom50": 13
+      "top1": 20.7,
+      "top10": 46.8,
+      "middle40": 39.8,
+      "bottom50": 13.4
     }
   },
   "GB": {
     "wealthShares": {
-      "top1": 22.6,
-      "top10": 57.4,
-      "middle40": 36.8,
-      "bottom50": 5.8
+      "top1": 21.3,
+      "top10": 57.1,
+      "middle40": 38.3,
+      "bottom50": 4.6
     },
     "incomeShares": {
-      "top1": 14.6,
-      "top10": 35.3,
-      "middle40": 42.9,
-      "bottom50": 21.8
+      "top1": 13.1,
+      "top10": 36.2,
+      "middle40": 43.4,
+      "bottom50": 20.4
     }
   },
   "FR": {
     "wealthShares": {
-      "top1": 24.7,
-      "top10": 59.3,
-      "middle40": 35,
-      "bottom50": 5.7
+      "top1": 27.7,
+      "top10": 59.9,
+      "middle40": 35.3,
+      "bottom50": 4.8
     },
     "incomeShares": {
-      "top1": 12.5,
-      "top10": 32.8,
-      "middle40": 44.9,
-      "bottom50": 22.3
+      "top1": 11.8,
+      "top10": 34,
+      "middle40": 45.7,
+      "bottom50": 20.3
     }
   },
   "DE": {
     "wealthShares": {
-      "top1": 23.4,
-      "top10": 59.8,
-      "middle40": 35.7,
-      "bottom50": 4.5
+      "top1": 27.9,
+      "top10": 58.5,
+      "middle40": 38.1,
+      "bottom50": 3.4
     },
     "incomeShares": {
       "top1": 13.3,
-      "top10": 36.6,
-      "middle40": 42.7,
-      "bottom50": 20.7
+      "top10": 37.7,
+      "middle40": 43.5,
+      "bottom50": 18.8
     }
   },
   "NL": {
     "wealthShares": {
-      "top1": 24.2,
-      "top10": 60.1,
-      "middle40": 37,
-      "bottom50": 2.9
+      "top1": 14,
+      "top10": 45.5,
+      "middle40": 44.7,
+      "bottom50": 9.8
     },
     "incomeShares": {
-      "top1": 10.4,
-      "top10": 30.5,
-      "middle40": 44.8,
-      "bottom50": 24.7
+      "top1": 7.1,
+      "top10": 30.4,
+      "middle40": 48.8,
+      "bottom50": 20.8
     }
   },
   "CA": {
     "wealthShares": {
-      "top1": 25.7,
-      "top10": 57.8,
-      "middle40": 36.2,
-      "bottom50": 6
+      "top1": 28.6,
+      "top10": 59.8,
+      "middle40": 26.2,
+      "bottom50": 14
     },
     "incomeShares": {
-      "top1": 14.2,
-      "top10": 36.1,
-      "middle40": 42.5,
-      "bottom50": 21.4
+      "top1": 12.1,
+      "top10": 36.8,
+      "middle40": 46.3,
+      "bottom50": 16.9
     }
   },
   "AU": {
     "wealthShares": {
-      "top1": 22.9,
-      "top10": 52.3,
-      "middle40": 39.5,
-      "bottom50": 8.2
+      "top1": 23.7,
+      "top10": 57.7,
+      "middle40": 37.4,
+      "bottom50": 4.9
     },
     "incomeShares": {
-      "top1": 12.8,
-      "top10": 33.9,
-      "middle40": 43.5,
-      "bottom50": 22.6
-    }
-  },
-  "NZ": {
-    "wealthShares": {
-      "top1": 20.2,
-      "top10": 51.8,
-      "middle40": 39.5,
-      "bottom50": 8.7
-    },
-    "incomeShares": {
-      "top1": 11.5,
-      "top10": 32,
-      "middle40": 44,
-      "bottom50": 24
+      "top1": 11,
+      "top10": 35.2,
+      "middle40": 47.7,
+      "bottom50": 17.1
     }
   },
   "JP": {
     "wealthShares": {
-      "top1": 18.8,
-      "top10": 58.5,
+      "top1": 24.6,
+      "top10": 59.1,
       "middle40": 36.3,
-      "bottom50": 5.2
+      "bottom50": 4.6
     },
     "incomeShares": {
-      "top1": 13.1,
-      "top10": 34.5,
-      "middle40": 43,
-      "bottom50": 22.5
+      "top1": 12.7,
+      "top10": 43.5,
+      "middle40": 38.3,
+      "bottom50": 18.2
     }
   },
   "KR": {
     "wealthShares": {
-      "top1": 25.4,
-      "top10": 58.5,
-      "middle40": 35.8,
-      "bottom50": 5.7
+      "top1": 26.1,
+      "top10": 66.4,
+      "middle40": 31.9,
+      "bottom50": 1.7
     },
     "incomeShares": {
-      "top1": 14.7,
-      "top10": 35.8,
-      "middle40": 42,
-      "bottom50": 22.2
+      "top1": 14.1,
+      "top10": 37.8,
+      "middle40": 44.6,
+      "bottom50": 17.6
     }
   },
   "CN": {
     "wealthShares": {
-      "top1": 31.1,
-      "top10": 67.8,
-      "middle40": 26.4,
-      "bottom50": 5.8
+      "top1": 30.4,
+      "top10": 68.1,
+      "middle40": 25.6,
+      "bottom50": 6.3
     },
     "incomeShares": {
-      "top1": 15.7,
-      "top10": 41.7,
-      "middle40": 42.3,
-      "bottom50": 16
-    }
-  },
-  "SG": {
-    "wealthShares": {
-      "top1": 33.9,
-      "top10": 67.7,
-      "middle40": 27.8,
-      "bottom50": 4.5
-    },
-    "incomeShares": {
-      "top1": 14.3,
-      "top10": 36.5,
-      "middle40": 42,
-      "bottom50": 21.5
+      "top1": 15.8,
+      "top10": 43.5,
+      "middle40": 43,
+      "bottom50": 13.5
     }
   },
   "IN": {
     "wealthShares": {
       "top1": 40.1,
-      "top10": 72.6,
-      "middle40": 23.6,
-      "bottom50": 3.8
+      "top10": 65,
+      "middle40": 28.6,
+      "bottom50": 6.4
     },
     "incomeShares": {
-      "top1": 22.6,
-      "top10": 57.1,
-      "middle40": 29.7,
-      "bottom50": 13.2
+      "top1": 23.1,
+      "top10": 58.9,
+      "middle40": 27.8,
+      "bottom50": 13.3
     }
   },
   "BR": {
     "wealthShares": {
-      "top1": 48.9,
-      "top10": 79,
-      "middle40": 18.3,
-      "bottom50": 2.7
+      "top1": 39.5,
+      "top10": 71.9,
+      "middle40": 26.1,
+      "bottom50": 2
     },
     "incomeShares": {
-      "top1": 28.3,
-      "top10": 58.6,
-      "middle40": 29.4,
-      "bottom50": 12
+      "top1": 26.5,
+      "top10": 59.1,
+      "middle40": 31.6,
+      "bottom50": 9.3
     }
   },
   "MX": {
     "wealthShares": {
-      "top1": 46.9,
-      "top10": 78.2,
-      "middle40": 18.8,
-      "bottom50": 3
+      "top1": 39.8,
+      "top10": 72.1,
+      "middle40": 25.9,
+      "bottom50": 2
     },
     "incomeShares": {
-      "top1": 28.7,
-      "top10": 57.4,
-      "middle40": 30.4,
-      "bottom50": 12.2
-    }
-  },
-  "CL": {
-    "wealthShares": {
-      "top1": 42.5,
-      "top10": 74.5,
-      "middle40": 22,
-      "bottom50": 3.5
-    },
-    "incomeShares": {
-      "top1": 23.5,
-      "top10": 54.2,
-      "middle40": 33,
-      "bottom50": 12.8
+      "top1": 25.6,
+      "top10": 59.1,
+      "middle40": 33.2,
+      "bottom50": 7.7
     }
   },
   "ZA": {
     "wealthShares": {
-      "top1": 55.1,
-      "top10": 85.6,
-      "middle40": 12.7,
-      "bottom50": 1.7
+      "top1": 54.9,
+      "top10": 85.7,
+      "middle40": 16.8,
+      "bottom50": -2.5
     },
     "incomeShares": {
-      "top1": 19.2,
-      "top10": 65.3,
-      "middle40": 23.8,
-      "bottom50": 10.9
+      "top1": 21.9,
+      "top10": 66.5,
+      "middle40": 28.2,
+      "bottom50": 5.3
     }
   },
   "SE": {
     "wealthShares": {
-      "top1": 35.6,
-      "top10": 69.8,
-      "middle40": 26.4,
-      "bottom50": 3.8
+      "top1": 27.5,
+      "top10": 68.2,
+      "middle40": 42.7,
+      "bottom50": -10.9
     },
     "incomeShares": {
-      "top1": 10.6,
-      "top10": 30.1,
-      "middle40": 45.2,
-      "bottom50": 24.7
+      "top1": 9.5,
+      "top10": 29,
+      "middle40": 46.6,
+      "bottom50": 24.4
     }
   },
   "NO": {
     "wealthShares": {
-      "top1": 27.5,
-      "top10": 60.2,
-      "middle40": 34,
-      "bottom50": 5.8
+      "top1": 23.5,
+      "top10": 52.7,
+      "middle40": 43.7,
+      "bottom50": 3.6
     },
     "incomeShares": {
-      "top1": 11.5,
-      "top10": 30.8,
-      "middle40": 44.5,
-      "bottom50": 24.7
+      "top1": 9.5,
+      "top10": 30.6,
+      "middle40": 45.4,
+      "bottom50": 24
     }
   },
   "DK": {
     "wealthShares": {
-      "top1": 28.8,
-      "top10": 64,
-      "middle40": 31.8,
-      "bottom50": 4.2
+      "top1": 20.8,
+      "top10": 50.3,
+      "middle40": 45.6,
+      "bottom50": 4.1
     },
     "incomeShares": {
-      "top1": 10.8,
-      "top10": 29.8,
-      "middle40": 45.5,
-      "bottom50": 24.7
-    }
-  },
-  "FI": {
-    "wealthShares": {
-      "top1": 19.4,
-      "top10": 52.5,
-      "middle40": 39.5,
-      "bottom50": 8
-    },
-    "incomeShares": {
-      "top1": 10.3,
-      "top10": 30.5,
-      "middle40": 45,
-      "bottom50": 24.5
+      "top1": 12.4,
+      "top10": 33.4,
+      "middle40": 44.9,
+      "bottom50": 21.7
     }
   },
   "CH": {
     "wealthShares": {
-      "top1": 42.3,
-      "top10": 74.7,
-      "middle40": 22.8,
-      "bottom50": 2.5
+      "top1": 31.5,
+      "top10": 62.8,
+      "middle40": 33.5,
+      "bottom50": 3.7
     },
     "incomeShares": {
-      "top1": 11.3,
-      "top10": 32,
-      "middle40": 44.8,
-      "bottom50": 23.2
+      "top1": 10.3,
+      "top10": 31.5,
+      "middle40": 45.5,
+      "bottom50": 23
     }
   },
   "IT": {
     "wealthShares": {
       "top1": 22,
-      "top10": 56.7,
-      "middle40": 37,
-      "bottom50": 6.3
+      "top10": 56.1,
+      "middle40": 41.4,
+      "bottom50": 2.5
     },
     "incomeShares": {
-      "top1": 13.8,
-      "top10": 35.2,
-      "middle40": 43,
-      "bottom50": 21.8
+      "top1": 9.1,
+      "top10": 32.3,
+      "middle40": 46.1,
+      "bottom50": 21.6
     }
   },
   "ES": {
     "wealthShares": {
-      "top1": 21.3,
-      "top10": 55.7,
-      "middle40": 37.5,
-      "bottom50": 6.8
+      "top1": 24.2,
+      "top10": 57.4,
+      "middle40": 35.9,
+      "bottom50": 6.7
     },
     "incomeShares": {
       "top1": 12.1,
-      "top10": 33.5,
-      "middle40": 43.8,
-      "bottom50": 22.7
-    }
-  },
-  "PT": {
-    "wealthShares": {
-      "top1": 20.5,
-      "top10": 54.8,
-      "middle40": 38,
-      "bottom50": 7.2
-    },
-    "incomeShares": {
-      "top1": 12.5,
       "top10": 34,
-      "middle40": 43.5,
-      "bottom50": 22.5
+      "middle40": 44.6,
+      "bottom50": 21.4
     }
   },
-  "AT": {
+  "SG": {
     "wealthShares": {
-      "top1": 25.2,
-      "top10": 61.8,
-      "middle40": 33.2,
-      "bottom50": 5
+      "top1": 28.4,
+      "top10": 61.5,
+      "middle40": 34.2,
+      "bottom50": 4.3
     },
     "incomeShares": {
-      "top1": 11,
-      "top10": 31.5,
-      "middle40": 44.5,
-      "bottom50": 24
-    }
-  },
-  "BE": {
-    "wealthShares": {
-      "top1": 18.6,
-      "top10": 50.5,
-      "middle40": 40.5,
-      "bottom50": 9
-    },
-    "incomeShares": {
-      "top1": 9.8,
-      "top10": 29.8,
-      "middle40": 45.5,
-      "bottom50": 24.7
+      "top1": 14.2,
+      "top10": 46.3,
+      "middle40": 37,
+      "bottom50": 16.7
     }
   },
   "IE": {
     "wealthShares": {
-      "top1": 22.8,
-      "top10": 56.5,
-      "middle40": 36.8,
-      "bottom50": 6.7
+      "top1": 23.3,
+      "top10": 66.3,
+      "middle40": 37.1,
+      "bottom50": -3.4
     },
     "incomeShares": {
-      "top1": 12.8,
-      "top10": 34.5,
-      "middle40": 43,
-      "bottom50": 22.5
+      "top1": 13,
+      "top10": 36.9,
+      "middle40": 43.6,
+      "bottom50": 19.5
+    }
+  },
+  "BE": {
+    "wealthShares": {
+      "top1": 15.5,
+      "top10": 52.6,
+      "middle40": 40,
+      "bottom50": 7.4
+    },
+    "incomeShares": {
+      "top1": 8.7,
+      "top10": 32.9,
+      "middle40": 46.8,
+      "bottom50": 20.3
+    }
+  },
+  "AT": {
+    "wealthShares": {
+      "top1": 30.2,
+      "top10": 61.7,
+      "middle40": 35.2,
+      "bottom50": 3.1
+    },
+    "incomeShares": {
+      "top1": 8.9,
+      "top10": 31.8,
+      "middle40": 45,
+      "bottom50": 23.2
     }
   },
   "PL": {
     "wealthShares": {
-      "top1": 20.3,
-      "top10": 57,
-      "middle40": 36.5,
-      "bottom50": 6.5
+      "top1": 29.9,
+      "top10": 61.7,
+      "middle40": 39,
+      "bottom50": -0.7
     },
     "incomeShares": {
-      "top1": 14.1,
-      "top10": 36.5,
-      "middle40": 42,
-      "bottom50": 21.5
+      "top1": 15.1,
+      "top10": 37.7,
+      "middle40": 42.9,
+      "bottom50": 19.4
     }
   },
   "CZ": {
     "wealthShares": {
-      "top1": 17.5,
-      "top10": 53,
-      "middle40": 39,
-      "bottom50": 8
+      "top1": 26.3,
+      "top10": 58.7,
+      "middle40": 36.5,
+      "bottom50": 4.8
     },
     "incomeShares": {
-      "top1": 11.2,
-      "top10": 30.5,
-      "middle40": 44.5,
-      "bottom50": 25
+      "top1": 10.1,
+      "top10": 29.1,
+      "middle40": 45.6,
+      "bottom50": 25.3
+    }
+  },
+  "NZ": {
+    "wealthShares": {
+      "top1": 22.7,
+      "top10": 57.1,
+      "middle40": 37.9,
+      "bottom50": 5
+    },
+    "incomeShares": {
+      "top1": 12.1,
+      "top10": 35,
+      "middle40": 44.6,
+      "bottom50": 20.4
+    }
+  },
+  "PT": {
+    "wealthShares": {
+      "top1": 25,
+      "top10": 60,
+      "middle40": 36.4,
+      "bottom50": 3.6
+    },
+    "incomeShares": {
+      "top1": 10.4,
+      "top10": 35.5,
+      "middle40": 44.1,
+      "bottom50": 20.4
+    }
+  },
+  "CL": {
+    "wealthShares": {
+      "top1": 39.6,
+      "top10": 72,
+      "middle40": 26,
+      "bottom50": 2
+    },
+    "incomeShares": {
+      "top1": 26.7,
+      "top10": 59.5,
+      "middle40": 32.3,
+      "bottom50": 8.2
+    }
+  },
+  "FI": {
+    "wealthShares": {
+      "top1": 18,
+      "top10": 55.5,
+      "middle40": 42.4,
+      "bottom50": 2.1
+    },
+    "incomeShares": {
+      "top1": 9.4,
+      "top10": 30.7,
+      "middle40": 46.6,
+      "bottom50": 22.7
     }
   },
   "GLOBAL": {
     "wealthShares": {
-      "top1": 37.8,
-      "top10": 75.6,
-      "middle40": 22.4,
-      "bottom50": 2
+      "top1": 42,
+      "top10": 81.5,
+      "middle40": 17.6,
+      "bottom50": 0.9
     },
     "incomeShares": {
-      "top1": 19,
-      "top10": 52,
-      "middle40": 39.5,
-      "bottom50": 8.5
+      "top1": 24.8,
+      "top10": 63.3,
+      "middle40": 32.3,
+      "bottom50": 4.4
     }
   }
 }

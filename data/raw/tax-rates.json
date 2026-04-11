@@ -6,7 +6,13 @@
       "OECD Tax Database 2024",
       "EU Tax Observatory, Global Tax Evasion Report 2024",
       "Advani, Chamberlain & Summers (2023)",
-      "Landais, Saez & Zucman (2020)"
+      "Landais, Saez & Zucman (2020)",
+      "NZ Inland Revenue, High-Wealth Individuals Research Project (April 2023)",
+      "Statistics Finland, Income Distribution Statistics",
+      "Statbel, Fiscal Statistics on Income (Belgium)",
+      "Revenue Commissioners Ireland, Income Tax Distribution Tables",
+      "Statistik Austria, Integrated Wage and Income Tax Statistics",
+      "SII Chile & WID.world Chile distributional accounts"
     ],
     "methodology": "Effective rate = total taxes paid (income, payroll, corporate, property, estate, consumption) / total pre-tax economic income"
   },
@@ -185,5 +191,71 @@
     "nominalTopRate": 45.0,
     "source": "SARS Tax Statistics; Chatterjee, Czajka & Gethin (2022), WID.world; National Treasury",
     "year": 2021
+  },
+  "NZ": {
+    "bottom50": 18.0,
+    "middle40": 24.0,
+    "top10to1": 28.0,
+    "top1to01": 23.0,
+    "top01to001": 12.0,
+    "top001": 8.9,
+    "nominalTopRate": 39.0,
+    "source": "NZ Inland Revenue, High-Wealth Individuals Research Project (April 2023): median effective rate of 8.9% for 311 high-wealth individuals on economic income incl. unrealised gains, vs 20.2% for middle NZ. Lower brackets from NZ Treasury distributional analysis. No general capital gains tax.",
+    "year": 2023
+  },
+  "FI": {
+    "bottom50": 25.0,
+    "middle40": 35.0,
+    "top10to1": 40.0,
+    "top1to01": 38.0,
+    "top01to001": 36.0,
+    "top001": 33.0,
+    "nominalTopRate": 51.4,
+    "source": "Statistics Finland income distribution statistics; Verohallinto public tax data. Finland's dual income tax system: progressive earned income tax up to ~51.4%, flat 30–34% capital income tax. Sub-percentile rates estimated from capital vs labour income shares. OECD Taxing Wages 2025: average net tax rate 30.3%.",
+    "year": 2023
+  },
+  "CL": {
+    "bottom50": 24.0,
+    "middle40": 22.0,
+    "top10to1": 20.0,
+    "top1to01": 15.0,
+    "top01to001": 10.0,
+    "top001": 5.0,
+    "nominalTopRate": 40.0,
+    "source": "SII (Servicio de Impuestos Internos) bracket data; WID.world Chile distributional accounts; López & Figueroa (Harvard CID). Highly regressive due to 19% IVA consumption tax burden on lower incomes and favourable capital income treatment. Top 1% earn ~25% of pre-tax income (WID). Sub-percentile effective rates estimated.",
+    "year": 2024
+  },
+  "BE": {
+    "bottom50": 30.0,
+    "middle40": 40.0,
+    "top10to1": 43.0,
+    "top1to01": 40.0,
+    "top01to001": 35.0,
+    "top001": 30.0,
+    "nominalTopRate": 50.0,
+    "source": "Statbel fiscal income statistics (decile distribution of net taxable income, total tax, and average tax rate, income year 2023). Very high social contributions (~13% employee). No general capital gains tax; 30% withholding on dividends. Sub-percentile rates estimated from OECD/WID capital income concentration.",
+    "year": 2023
+  },
+  "IE": {
+    "bottom50": 18.0,
+    "middle40": 30.0,
+    "top10to1": 36.0,
+    "top1to01": 35.0,
+    "top01to001": 30.0,
+    "top001": 28.0,
+    "nominalTopRate": 48.0,
+    "source": "Revenue Commissioners income tax distribution tables; CSO Ireland's Tax Statistics 2024; Social Justice Ireland effective rate analysis (10.3% at €25K, 39.0% at €120K). Top rate = 40% income tax + 8% USC. Top 1% (>€203K) pay ~19% of personal tax. Entrepreneur relief (10% CGT) benefits top brackets.",
+    "year": 2024
+  },
+  "AT": {
+    "bottom50": 28.0,
+    "middle40": 35.0,
+    "top10to1": 39.0,
+    "top1to01": 38.0,
+    "top01to001": 35.0,
+    "top001": 32.0,
+    "nominalTopRate": 55.0,
+    "source": "Statistik Austria, Integrierte Lohn- und Einkommensteuerstatistik (integrated wage and income tax statistics). Social contributions ~18% employee share, capped. Flat 27.5% KESt on capital income reduces effective rates for top brackets. Sub-percentile rates estimated from capital income concentration data.",
+    "year": 2023
   }
 }

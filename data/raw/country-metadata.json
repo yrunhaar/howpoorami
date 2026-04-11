@@ -1,343 +1,482 @@
 {
+  "_meta": {
+    "description": "Country metadata — all monetary values in USD",
+    "sources": {
+      "meanWealth": "WID.world ahweal_p0p100_992_j (mean net personal wealth per adult)",
+      "medianWealth": "WID.world thweal_p50p100_992_j (wealth threshold to enter top 50%)",
+      "wealthGini": "WID.world ghweal_p0p100_992_j",
+      "meanIncome": "WID.world aptinc_p0p100_992_j (mean pre-tax national income per adult)",
+      "medianIncome": "WID.world tptinc_p50p100_992_j (income threshold to enter top 50%)",
+      "incomeGini": "WID.world gptinc_p0p100_992_j",
+      "population": "World Bank SP.POP.TOTL (millions)",
+      "exchangeRates": "ECB via Frankfurter API"
+    },
+    "citation": "Chancel, L., Piketty, T., Saez, E., Zucman, G. et al. World Inequality Database, https://wid.world",
+    "methodology": "WID values are in local currency; converted to USD using ECB exchange rates at fetch time",
+    "generatedBy": "scripts/fetch-all-data.mjs",
+    "fetchedAt": "2026-04-11T18:09:20.432Z",
+    "dataYears": {
+      "US": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "GB": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "FR": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "DE": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "NL": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "CA": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "AU": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "JP": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "KR": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "CN": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "IN": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "BR": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "MX": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "ZA": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "SE": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "NO": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "DK": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "CH": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "IT": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "ES": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "SG": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "IE": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "BE": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "AT": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "PL": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "CZ": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "NZ": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "PT": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "CL": {
+        "wealth": 2024,
+        "income": 2024
+      },
+      "FI": {
+        "wealth": 2024,
+        "income": 2024
+      }
+    }
+  },
   "US": {
     "name": "United States",
     "flag": "🇺🇸",
     "currency": "USD",
-    "population": 334.9,
-    "medianIncome": 40480,
-    "medianWealthPerAdult": 107740,
-    "meanWealthPerAdult": 551350,
-    "giniWealth": 0.85,
-    "giniIncome": 0.48
+    "population": 340.1,
+    "medianIncome": 50704,
+    "medianWealthPerAdult": 81373,
+    "meanWealthPerAdult": 511300,
+    "giniWealth": 0.83,
+    "giniIncome": 0.59
   },
   "GB": {
     "name": "United Kingdom",
     "flag": "🇬🇧",
     "currency": "GBP",
-    "population": 68.3,
-    "medianIncome": 29588,
-    "medianWealthPerAdult": 151084,
-    "meanWealthPerAdult": 308462,
-    "giniWealth": 0.75,
-    "giniIncome": 0.37
+    "population": 69.2,
+    "medianIncome": 47015,
+    "medianWealthPerAdult": 97006,
+    "meanWealthPerAdult": 294987,
+    "giniWealth": 0.73,
+    "giniIncome": 0.47
   },
   "FR": {
     "name": "France",
     "flag": "🇫🇷",
     "currency": "EUR",
-    "population": 68.5,
-    "medianIncome": 24330,
-    "medianWealthPerAdult": 133927,
-    "meanWealthPerAdult": 322048,
-    "giniWealth": 0.73,
-    "giniIncome": 0.33
+    "population": 68.6,
+    "medianIncome": 42838,
+    "medianWealthPerAdult": 119447,
+    "meanWealthPerAdult": 312709,
+    "giniWealth": 0.74,
+    "giniIncome": 0.46
   },
   "DE": {
     "name": "Germany",
     "flag": "🇩🇪",
     "currency": "EUR",
-    "population": 84.5,
-    "medianIncome": 27756,
-    "medianWealthPerAdult": 65374,
-    "meanWealthPerAdult": 294559,
-    "giniWealth": 0.77,
-    "giniIncome": 0.35
+    "population": 83.5,
+    "medianIncome": 43415,
+    "medianWealthPerAdult": 128875,
+    "meanWealthPerAdult": 374835,
+    "giniWealth": 0.75,
+    "giniIncome": 0.49
   },
   "NL": {
     "name": "The Netherlands",
     "flag": "🇳🇱",
     "currency": "EUR",
-    "population": 17.9,
-    "medianIncome": 30192,
-    "medianWealthPerAdult": 116950,
-    "meanWealthPerAdult": 365806,
-    "giniWealth": 0.78,
-    "giniIncome": 0.3
+    "population": 18,
+    "medianIncome": 58082,
+    "medianWealthPerAdult": 203857,
+    "meanWealthPerAdult": 432653,
+    "giniWealth": 0.62,
+    "giniIncome": 0.43
   },
   "CA": {
     "name": "Canada",
     "flag": "🇨🇦",
     "currency": "CAD",
-    "population": 40.1,
-    "medianIncome": 35070,
-    "medianWealthPerAdult": 137633,
-    "meanWealthPerAdult": 369577,
-    "giniWealth": 0.76,
-    "giniIncome": 0.36
+    "population": 41.3,
+    "medianIncome": 44102,
+    "medianWealthPerAdult": 187178,
+    "meanWealthPerAdult": 365719,
+    "giniWealth": 0.63,
+    "giniIncome": 0.5
   },
   "AU": {
     "name": "Australia",
     "flag": "🇦🇺",
     "currency": "AUD",
-    "population": 26.4,
-    "medianIncome": 36550,
-    "medianWealthPerAdult": 247450,
-    "meanWealthPerAdult": 496820,
-    "giniWealth": 0.71,
-    "giniIncome": 0.34
-  },
-  "NZ": {
-    "name": "New Zealand",
-    "flag": "🇳🇿",
-    "currency": "NZD",
-    "population": 5.2,
-    "medianIncome": 31800,
-    "medianWealthPerAdult": 171640,
-    "meanWealthPerAdult": 388820,
-    "giniWealth": 0.71,
-    "giniIncome": 0.33
+    "population": 27.2,
+    "medianIncome": 58461,
+    "medianWealthPerAdult": 196825,
+    "meanWealthPerAdult": 523007,
+    "giniWealth": 0.73,
+    "giniIncome": 0.49
   },
   "JP": {
     "name": "Japan",
     "flag": "🇯🇵",
     "currency": "JPY",
-    "population": 125.1,
-    "medianIncome": 28820,
-    "medianWealthPerAdult": 122980,
-    "meanWealthPerAdult": 270958,
-    "giniWealth": 0.65,
-    "giniIncome": 0.35
+    "population": 124,
+    "medianIncome": 24057,
+    "medianWealthPerAdult": 65524,
+    "meanWealthPerAdult": 181690,
+    "giniWealth": 0.74,
+    "giniIncome": 0.51
   },
   "KR": {
     "name": "South Korea",
     "flag": "🇰🇷",
     "currency": "KRW",
-    "population": 51.7,
-    "medianIncome": 26230,
-    "medianWealthPerAdult": 108977,
-    "meanWealthPerAdult": 265697,
-    "giniWealth": 0.74,
-    "giniIncome": 0.36
+    "population": 51.8,
+    "medianIncome": 21067,
+    "medianWealthPerAdult": 28303,
+    "meanWealthPerAdult": 194680,
+    "giniWealth": 0.8,
+    "giniIncome": 0.5
   },
   "CN": {
     "name": "China",
     "flag": "🇨🇳",
     "currency": "CNY",
-    "population": 1425.7,
-    "medianIncome": 8560,
-    "medianWealthPerAdult": 26752,
-    "meanWealthPerAdult": 75731,
-    "giniWealth": 0.7,
-    "giniIncome": 0.47
-  },
-  "SG": {
-    "name": "Singapore",
-    "flag": "🇸🇬",
-    "currency": "SGD",
-    "population": 5.9,
-    "medianIncome": 33530,
-    "medianWealthPerAdult": 86717,
-    "meanWealthPerAdult": 382957,
-    "giniWealth": 0.78,
-    "giniIncome": 0.37
+    "population": 1409,
+    "medianIncome": 9028,
+    "medianWealthPerAdult": 24861,
+    "meanWealthPerAdult": 84417,
+    "giniWealth": 0.76,
+    "giniIncome": 0.57
   },
   "IN": {
     "name": "India",
     "flag": "🇮🇳",
     "currency": "INR",
-    "population": 1428.6,
-    "medianIncome": 2840,
-    "medianWealthPerAdult": 3755,
-    "meanWealthPerAdult": 16500,
-    "giniWealth": 0.83,
-    "giniIncome": 0.53
+    "population": 1450.9,
+    "medianIncome": 1420,
+    "medianWealthPerAdult": 4471,
+    "meanWealthPerAdult": 13992,
+    "giniWealth": 0.75,
+    "giniIncome": 0.64
   },
   "BR": {
     "name": "Brazil",
     "flag": "🇧🇷",
     "currency": "BRL",
-    "population": 216.4,
-    "medianIncome": 6680,
-    "medianWealthPerAdult": 5765,
-    "meanWealthPerAdult": 42039,
-    "giniWealth": 0.89,
-    "giniIncome": 0.53
+    "population": 212,
+    "medianIncome": 5332,
+    "medianWealthPerAdult": 10223,
+    "meanWealthPerAdult": 45243,
+    "giniWealth": 0.84,
+    "giniIncome": 0.69
   },
   "MX": {
     "name": "Mexico",
     "flag": "🇲🇽",
     "currency": "MXN",
-    "population": 128.9,
-    "medianIncome": 7500,
-    "medianWealthPerAdult": 18920,
-    "meanWealthPerAdult": 55274,
-    "giniWealth": 0.79,
-    "giniIncome": 0.52
-  },
-  "CL": {
-    "name": "Chile",
-    "flag": "🇨🇱",
-    "currency": "CLP",
-    "population": 19.6,
-    "medianIncome": 10870,
-    "medianWealthPerAdult": 16048,
-    "meanWealthPerAdult": 68211,
-    "giniWealth": 0.83,
-    "giniIncome": 0.5
+    "population": 130.9,
+    "medianIncome": 6717,
+    "medianWealthPerAdult": 12297,
+    "meanWealthPerAdult": 54674,
+    "giniWealth": 0.84,
+    "giniIncome": 0.71
   },
   "ZA": {
     "name": "South Africa",
     "flag": "🇿🇦",
     "currency": "ZAR",
-    "population": 60.4,
-    "medianIncome": 4880,
-    "medianWealthPerAdult": 1388,
-    "meanWealthPerAdult": 28029,
-    "giniWealth": 0.93,
-    "giniIncome": 0.63
+    "population": 64,
+    "medianIncome": 2134,
+    "medianWealthPerAdult": 2455,
+    "meanWealthPerAdult": 29159,
+    "giniWealth": 0.96,
+    "giniIncome": 0.76
   },
   "SE": {
     "name": "Sweden",
     "flag": "🇸🇪",
     "currency": "SEK",
-    "population": 10.5,
-    "medianIncome": 33120,
-    "medianWealthPerAdult": 89942,
-    "meanWealthPerAdult": 336940,
-    "giniWealth": 0.87,
-    "giniIncome": 0.3
+    "population": 10.6,
+    "medianIncome": 67987,
+    "medianWealthPerAdult": 50055,
+    "meanWealthPerAdult": 341594,
+    "giniWealth": 0.98,
+    "giniIncome": 0.39
   },
   "NO": {
     "name": "Norway",
     "flag": "🇳🇴",
     "currency": "NOK",
-    "population": 5.5,
-    "medianIncome": 41320,
-    "medianWealthPerAdult": 117950,
-    "meanWealthPerAdult": 353380,
-    "giniWealth": 0.79,
-    "giniIncome": 0.28
+    "population": 5.6,
+    "medianIncome": 99973,
+    "medianWealthPerAdult": 197920,
+    "meanWealthPerAdult": 401007,
+    "giniWealth": 0.73,
+    "giniIncome": 0.41
   },
   "DK": {
     "name": "Denmark",
     "flag": "🇩🇰",
     "currency": "DKK",
-    "population": 5.9,
-    "medianIncome": 38520,
-    "medianWealthPerAdult": 165621,
-    "meanWealthPerAdult": 386733,
+    "population": 6,
+    "medianIncome": 68091,
+    "medianWealthPerAdult": 135238,
+    "meanWealthPerAdult": 447847,
+    "giniWealth": 0.7,
+    "giniIncome": 0.44
+  },
+  "CH": {
+    "name": "Switzerland",
+    "flag": "🇨🇭",
+    "currency": "CHF",
+    "population": 9,
+    "medianIncome": 92973,
+    "medianWealthPerAdult": 257891,
+    "meanWealthPerAdult": 883850,
+    "giniWealth": 0.76,
+    "giniIncome": 0.42
+  },
+  "IT": {
+    "name": "Italy",
+    "flag": "🇮🇹",
+    "currency": "EUR",
+    "population": 59,
+    "medianIncome": 33489,
+    "medianWealthPerAdult": 87986,
+    "meanWealthPerAdult": 254540,
+    "giniWealth": 0.75,
+    "giniIncome": 0.44
+  },
+  "ES": {
+    "name": "Spain",
+    "flag": "🇪🇸",
+    "currency": "EUR",
+    "population": 48.8,
+    "medianIncome": 30734,
+    "medianWealthPerAdult": 99165,
+    "meanWealthPerAdult": 230401,
+    "giniWealth": 0.71,
+    "giniIncome": 0.45
+  },
+  "SG": {
+    "name": "Singapore",
+    "flag": "🇸🇬",
+    "currency": "SGD",
+    "population": 6,
+    "medianIncome": 70138,
+    "medianWealthPerAdult": 162289,
+    "meanWealthPerAdult": 479548,
+    "giniWealth": 0.76,
+    "giniIncome": 0.55
+  },
+  "IE": {
+    "name": "Ireland",
+    "flag": "🇮🇪",
+    "currency": "EUR",
+    "population": 5.4,
+    "medianIncome": 63014,
+    "medianWealthPerAdult": 111163,
+    "meanWealthPerAdult": 381956,
+    "giniWealth": 0.88,
+    "giniIncome": 0.48
+  },
+  "BE": {
+    "name": "Belgium",
+    "flag": "🇧🇪",
+    "currency": "EUR",
+    "population": 11.9,
+    "medianIncome": 49554,
+    "medianWealthPerAdult": 187533,
+    "meanWealthPerAdult": 409664,
+    "giniWealth": 0.68,
+    "giniIncome": 0.45
+  },
+  "AT": {
+    "name": "Austria",
+    "flag": "🇦🇹",
+    "currency": "EUR",
+    "population": 9.2,
+    "medianIncome": 51044,
+    "medianWealthPerAdult": 113693,
+    "meanWealthPerAdult": 324673,
+    "giniWealth": 0.77,
+    "giniIncome": 0.42
+  },
+  "PL": {
+    "name": "Poland",
+    "flag": "🇵🇱",
+    "currency": "PLN",
+    "population": 36.6,
+    "medianIncome": 19636,
+    "medianWealthPerAdult": 55198,
+    "meanWealthPerAdult": 117185,
+    "giniWealth": 0.85,
+    "giniIncome": 0.49
+  },
+  "CZ": {
+    "name": "Czech Republic",
+    "flag": "🇨🇿",
+    "currency": "CZK",
+    "population": 10.9,
+    "medianIncome": 29487,
+    "medianWealthPerAdult": 55296,
+    "meanWealthPerAdult": 150443,
+    "giniWealth": 0.74,
+    "giniIncome": 0.38
+  },
+  "NZ": {
+    "name": "New Zealand",
+    "flag": "🇳🇿",
+    "currency": "NZD",
+    "population": 5.3,
+    "medianIncome": 42224,
+    "medianWealthPerAdult": 148368,
+    "meanWealthPerAdult": 388284,
+    "giniWealth": 0.73,
+    "giniIncome": 0.46
+  },
+  "PT": {
+    "name": "Portugal",
+    "flag": "🇵🇹",
+    "currency": "EUR",
+    "population": 10.7,
+    "medianIncome": 22903,
+    "medianWealthPerAdult": 78971,
+    "meanWealthPerAdult": 218377,
+    "giniWealth": 0.76,
+    "giniIncome": 0.47
+  },
+  "CL": {
+    "name": "Chile",
+    "flag": "🇨🇱",
+    "currency": "CLP",
+    "population": 19.8,
+    "medianIncome": 8064,
+    "medianWealthPerAdult": 17568,
+    "meanWealthPerAdult": 78078,
     "giniWealth": 0.84,
-    "giniIncome": 0.29
+    "giniIncome": 0.71
   },
   "FI": {
     "name": "Finland",
     "flag": "🇫🇮",
     "currency": "EUR",
     "population": 5.6,
-    "medianIncome": 32370,
-    "medianWealthPerAdult": 89170,
-    "meanWealthPerAdult": 196050,
-    "giniWealth": 0.74,
-    "giniIncome": 0.28
-  },
-  "CH": {
-    "name": "Switzerland",
-    "flag": "🇨🇭",
-    "currency": "CHF",
-    "population": 8.8,
-    "medianIncome": 42380,
-    "medianWealthPerAdult": 171057,
-    "meanWealthPerAdult": 685226,
-    "giniWealth": 0.88,
-    "giniIncome": 0.33
-  },
-  "IT": {
-    "name": "Italy",
-    "flag": "🇮🇹",
-    "currency": "EUR",
-    "population": 58.8,
-    "medianIncome": 22190,
-    "medianWealthPerAdult": 118885,
-    "meanWealthPerAdult": 269364,
-    "giniWealth": 0.69,
-    "giniIncome": 0.36
-  },
-  "ES": {
-    "name": "Spain",
-    "flag": "🇪🇸",
-    "currency": "EUR",
-    "population": 47.4,
-    "medianIncome": 20850,
-    "medianWealthPerAdult": 105831,
-    "meanWealthPerAdult": 247135,
-    "giniWealth": 0.7,
-    "giniIncome": 0.35
-  },
-  "PT": {
-    "name": "Portugal",
-    "flag": "🇵🇹",
-    "currency": "EUR",
-    "population": 10.3,
-    "medianIncome": 15420,
-    "medianWealthPerAdult": 80510,
-    "meanWealthPerAdult": 183570,
-    "giniWealth": 0.69,
-    "giniIncome": 0.35
-  },
-  "AT": {
-    "name": "Austria",
-    "flag": "🇦🇹",
-    "currency": "EUR",
-    "population": 9.1,
-    "medianIncome": 30760,
-    "medianWealthPerAdult": 72380,
-    "meanWealthPerAdult": 275690,
-    "giniWealth": 0.78,
-    "giniIncome": 0.31
-  },
-  "BE": {
-    "name": "Belgium",
-    "flag": "🇧🇪",
-    "currency": "EUR",
-    "population": 11.7,
-    "medianIncome": 29650,
-    "medianWealthPerAdult": 249937,
-    "meanWealthPerAdult": 393740,
-    "giniWealth": 0.67,
-    "giniIncome": 0.28
-  },
-  "IE": {
-    "name": "Ireland",
-    "flag": "🇮🇪",
-    "currency": "EUR",
-    "population": 5.1,
-    "medianIncome": 32450,
-    "medianWealthPerAdult": 184820,
-    "meanWealthPerAdult": 386710,
-    "giniWealth": 0.74,
-    "giniIncome": 0.35
-  },
-  "PL": {
-    "name": "Poland",
-    "flag": "🇵🇱",
-    "currency": "PLN",
-    "population": 36.8,
-    "medianIncome": 16280,
-    "medianWealthPerAdult": 30713,
-    "meanWealthPerAdult": 90432,
-    "giniWealth": 0.73,
-    "giniIncome": 0.36
-  },
-  "CZ": {
-    "name": "Czech Republic",
-    "flag": "🇨🇿",
-    "currency": "CZK",
-    "population": 10.8,
-    "medianIncome": 17930,
-    "medianWealthPerAdult": 43970,
-    "meanWealthPerAdult": 108230,
-    "giniWealth": 0.7,
-    "giniIncome": 0.27
+    "medianIncome": 48175,
+    "medianWealthPerAdult": 72809,
+    "meanWealthPerAdult": 187170,
+    "giniWealth": 0.75,
+    "giniIncome": 0.42
   },
   "GLOBAL": {
     "name": "Global",
     "flag": "🌍",
     "currency": "USD",
-    "population": 8100,
-    "medianIncome": 12000,
-    "medianWealthPerAdult": 8654,
-    "meanWealthPerAdult": 87489,
+    "population": 8141.8,
+    "medianIncome": 3819,
+    "medianWealthPerAdult": 10079,
+    "meanWealthPerAdult": 87317,
     "giniWealth": 0.88,
-    "giniIncome": 0.67
+    "giniIncome": 0.76
   }
 }

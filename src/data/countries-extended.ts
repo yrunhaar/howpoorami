@@ -41,8 +41,8 @@ type RawShares = Record<string, {
 }>;
 
 function buildCountryData(cc: string): CountryData {
-  const meta = (rawMetadata as RawMeta)[cc];
-  const shares = (rawShares as RawShares)[cc];
+  const meta = (rawMetadata as unknown as RawMeta)[cc];
+  const shares = (rawShares as unknown as RawShares)[cc];
   const hist = getHistoricalData(cc);
 
   return {

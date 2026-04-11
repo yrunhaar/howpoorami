@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllCountrySeo, resolveCountryCode, SITE_URL } from "@/lib/seo";
@@ -83,7 +84,9 @@ export default async function CompareCountryPage({ params }: CompareCountryPageP
 
   return (
     <>
-      <CompareClient initialCountry={code} />
+      <Suspense>
+        <CompareClient initialCountry={code} />
+      </Suspense>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

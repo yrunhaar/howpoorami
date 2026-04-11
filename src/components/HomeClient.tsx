@@ -9,6 +9,7 @@ import { TAX_RATES } from "@/data/tax-rates";
 import { PURCHASING_POWER } from "@/data/purchasing-power";
 import CountrySelector from "@/components/CountrySelector";
 import CurrencySelector from "@/components/CurrencySelector";
+import DataProvenanceBanner from "@/components/DataProvenanceBanner";
 import WealthInput from "@/components/WealthInput";
 import SourcesSection from "@/components/SourcesSection";
 import ResponsiveChart from "@/components/ResponsiveChart";
@@ -82,6 +83,9 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
               Enter your income or wealth and discover where you really stand.
             </p>
           </m.div>
+
+          {/* Data provenance disclaimer */}
+          <DataProvenanceBanner />
 
           {/* Country Selector */}
           <m.div

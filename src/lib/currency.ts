@@ -1,33 +1,19 @@
 /**
- * Approximate exchange rates: units of local currency per 1 USD.
- * Used to convert user input (local currency) → USD for percentile lookup.
+ * Currency conversion utilities.
  *
- * Source: approximate market rates as of early 2025.
- * Since WID wealth data is itself approximate, small FX fluctuations
- * don't materially affect the percentile result.
+ * Exchange rates are fetched at build time by scripts/fetch-all-data.mjs
+ * from the ECB via Frankfurter API, stored in data/raw/exchange-rates.json.
+ *
+ * Rates are "units of local currency per 1 USD".
  */
+
+import rawRates from "../../data/raw/exchange-rates.json";
+
+const rates = (rawRates as { rates: Record<string, number> }).rates ?? {};
+
 const RATES_PER_USD: Readonly<Record<string, number>> = {
   USD: 1,
-  GBP: 0.79,
-  EUR: 0.92,
-  CAD: 1.44,
-  AUD: 1.57,
-  NZD: 1.72,
-  JPY: 150,
-  KRW: 1450,
-  CNY: 7.25,
-  SGD: 1.34,
-  INR: 85,
-  BRL: 5.8,
-  MXN: 20.5,
-  CLP: 980,
-  ZAR: 18.2,
-  SEK: 10.8,
-  NOK: 11.0,
-  DKK: 6.85,
-  CHF: 0.9,
-  PLN: 4.05,
-  CZK: 23.5,
+  ...rates,
 };
 
 /** Convert a local-currency amount to USD. */

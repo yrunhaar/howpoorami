@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import Link from "next/link";
 import { type CountryData, findPercentile } from "@/data/wealth-data";
 import { formatCurrency, getCurrencySymbol } from "@/lib/format";
 import { toUSD, fromUSD } from "@/lib/currency";
 import { getPercentileLine } from "@/data/comedic-lines";
+import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import {
   type IncomeFactors,
   type PercentileRange,
@@ -280,7 +282,16 @@ export default function WealthInput({
             </p>
           )}
 
-          {percentile < 50 && (
+          {/* Negative wealth context */}
+          {mode === "wealth" && inputValue.startsWith("-") && (
+            <p className="text-text-muted text-xs mt-2 max-w-sm mx-auto">
+              Negative net wealth (debt exceeding assets) is common.
+              In many countries, 10-20% of adults have negative net wealth.
+              WID.world data includes these individuals in the bottom percentiles.
+            </p>
+          )}
+
+          {percentile < 50 && !(mode === "wealth" && inputValue.startsWith("-")) && (
             <p className="text-text-muted text-xs mt-2">
               Below the median wealth of{" "}
               {formatCurrency(
@@ -301,6 +312,51 @@ export default function WealthInput({
             countryName={country.name}
             countryCode={country.code}
           />
+
+          {/* Cross-link to How Long page */}
+          {(() => {
+            const richest = RICHEST_BY_COUNTRY[country.code];
+            if (!richest || country.code === "GLOBAL") return null;
+
+            // Estimate annual income in local currency for the link
+            const incomeForLink = mode === "income" && inputValue
+              ? inputValue
+              : null;
+
+            const compareUrl = incomeForLink
+              ? `/compare/${country.code.toLowerCase()}?income=${incomeForLink}`
+              : `/compare/${country.code.toLowerCase()}`;
+
+            // Calculate gap to top 1%
+            const totalWealth = country.meanWealthPerAdult * country.population * 1_000_000;
+            const adults = country.population * 1_000_000;
+            const avgTop1Wealth = (totalWealth * country.wealthShares.top1 / 100) / (adults * 0.01);
+            const avgTop1Local = fromUSD(avgTop1Wealth, country.currency);
+
+            return (
+              <div className="mt-5 pt-4 border-t border-border-subtle/50 max-w-sm mx-auto">
+                <p className="text-text-muted text-xs mb-1">
+                  Average top 1% wealth:{" "}
+                  <span className="text-text-secondary font-medium">
+                    {formatCurrency(avgTop1Local, country.currency)}
+                  </span>
+                </p>
+                <p className="text-text-muted text-xs mb-3">
+                  Richest in {country.name}:{" "}
+                  <span className="text-text-secondary font-medium">
+                    {richest.name}
+                  </span>{" "}
+                  ({formatCurrency(fromUSD(richest.netWorth, country.currency), country.currency)})
+                </p>
+                <Link
+                  href={compareUrl}
+                  className="inline-block text-accent-periwinkle text-xs font-medium hover:underline"
+                >
+                  See how long it would take to match them &rarr;
+                </Link>
+              </div>
+            );
+          })()}
         </div>
       )}
 

@@ -166,8 +166,8 @@ type RawShares = Record<string, {
 }>;
 
 function buildCountryData(cc: string): CountryData {
-  const meta = (rawMetadata as RawMeta)[cc];
-  const shares = (rawShares as RawShares)[cc];
+  const meta = (rawMetadata as unknown as RawMeta)[cc];
+  const shares = (rawShares as unknown as RawShares)[cc];
   const hist = getHistoricalData(cc);
 
   return {
@@ -267,8 +267,8 @@ export function findPercentile(wealthUSD: number, country: CountryData): number 
 
 // ─── Global statistics ───────────────────────────────────────────────────────
 
-const globalShares = (rawShares as RawShares).GLOBAL;
-const globalMeta = (rawMetadata as RawMeta).GLOBAL;
+const globalShares = (rawShares as unknown as RawShares).GLOBAL;
+const globalMeta = (rawMetadata as unknown as RawMeta).GLOBAL;
 
 export const GLOBAL_STATS = {
   globalTop1WealthShare: globalShares.wealthShares.top1,

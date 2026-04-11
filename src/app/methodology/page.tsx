@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TaxSourcesTable from "@/components/TaxSourcesTable";
 
 export const metadata: Metadata = {
   title: "Methodology — How Poor Am I?",
@@ -148,6 +149,19 @@ export default function MethodologyPage() {
 
         <section className="mb-10">
           <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold mb-4">
+            Tax Rate Data Sources
+          </h2>
+          <p className="text-text-secondary leading-relaxed mb-6">
+            Effective tax rates by wealth class are compiled from academic
+            research and government statistics. Unlike wealth distribution data,
+            these are not available through a single API and are maintained
+            manually from the published sources below.
+          </p>
+          <TaxSourcesTable />
+        </section>
+
+        <section className="mb-10">
+          <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold mb-4">
             Limitations
           </h2>
           <ul className="list-disc list-inside text-text-secondary leading-relaxed space-y-2 ml-2">
@@ -180,11 +194,22 @@ export default function MethodologyPage() {
           <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold mb-4">
             Data Freshness
           </h2>
-          <p className="text-text-secondary leading-relaxed">
+          <p className="text-text-secondary leading-relaxed mb-4">
             All data is bundled at build time and served statically — no external
-            API calls are made when you use the tool. Datasets are updated
-            periodically as new releases become available from WID.world, OECD,
-            SWIID, and Forbes.
+            API calls are made when you use the tool. A single fetch script
+            (<code className="text-text-primary text-sm bg-bg-card px-1.5 py-0.5 rounded">
+            scripts/fetch-all-data.mjs</code>) pulls data from:
+          </p>
+          <ul className="list-disc list-inside text-text-secondary leading-relaxed space-y-1 ml-2 mb-4">
+            <li><strong className="text-text-primary">WID.world API</strong> — wealth shares, income shares, mean/median wealth, Gini coefficients</li>
+            <li><strong className="text-text-primary">World Bank API</strong> — population (SP.POP.TOTL)</li>
+            <li><strong className="text-text-primary">ECB / Frankfurter API</strong> — exchange rates for currency conversion</li>
+            <li><strong className="text-text-primary">Forbes RTB API</strong> — billionaire net worth data</li>
+            <li><strong className="text-text-primary">OECD / FRED</strong> — wages, CPI, house price indices</li>
+          </ul>
+          <p className="text-text-secondary leading-relaxed">
+            Tax rate data is the exception — it comes from academic papers and is
+            maintained manually with full source citations (see table above).
           </p>
         </section>
 

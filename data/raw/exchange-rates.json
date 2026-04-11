@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "description": "Exchange rates: units of local currency per 1 USD",
+    "source": "European Central Bank via Frankfurter API (https://api.frankfurter.app)",
+    "fallbacks": {
+      "CLP": "World Bank PA.NUS.FCRF or approximate market rate"
+    },
+    "date": "2026-04-10",
+    "generatedBy": "scripts/fetch-all-data.mjs",
+    "fetchedAt": "2026-04-11T18:09:17.255Z"
+  },
+  "rates": {
+    "USD": 1,
+    "AUD": 1.4141,
+    "BRL": 5.0543,
+    "CAD": 1.3822,
+    "CHF": 0.78909,
+    "CNY": 6.8284,
+    "CZK": 20.805,
+    "DKK": 6.3809,
+    "EUR": 0.8539,
+    "GBP": 0.74379,
+    "INR": 92.89,
+    "JPY": 159.19,
+    "KRW": 1483.27,
+    "MXN": 17.3495,
+    "NOK": 9.4924,
+    "NZD": 1.7107,
+    "PLN": 3.6235,
+    "SEK": 9.2528,
+    "SGD": 1.2739,
+    "ZAR": 16.4281,
+    "CLP": 840.066526651499
+  }
+}

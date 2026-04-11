@@ -47,9 +47,24 @@ const FAQ_ITEMS: readonly FaqItem[] = [
       "It is an approximation. When you enter your income instead of net wealth directly, the tool uses up to 18 factors — including age, homeownership, savings rate, and debt — to estimate your likely net wealth. A range is shown to reflect the inherent uncertainty. For the most accurate result, enter your net wealth directly.",
   },
   {
+    question: "Why does my standing change when I change my education level?",
+    answer:
+      "Education level is used as a statistical proxy for wealth accumulation patterns, not as a direct measure of worth. Data from the U.S. Survey of Consumer Finances (SCF) and similar studies consistently show that college graduates hold 3-4x the net wealth of non-graduates at the same income level. This correlation reflects factors like savings rates, investment behavior, career trajectory, inheritance likelihood, and access to employer-sponsored retirement plans — not education itself causing wealth. The tool adjusts the income-to-wealth multiplier accordingly: no degree (0.6x), high school (0.8x), bachelor's (1.0x baseline), master's (1.15x), doctorate (1.3x). Each factor narrows the uncertainty range of your wealth estimate.",
+  },
+  {
+    question: "Is this based on individuals or households?",
+    answer:
+      "The underlying WID.world data uses per-adult figures with the equal-split method for couples — meaning each partner in a couple is assigned half the household's total wealth. This is the standard approach in inequality research. When you enter your wealth, enter YOUR share of joint assets (typically half if you share finances with a partner). The population denominator is adults aged 20+, not total population including children.",
+  },
+  {
+    question: "Why are pensions and public benefits not included?",
+    answer:
+      "The WID.world data measures personal net wealth: privately owned assets minus debts. Public pension entitlements (like Social Security in the US, or state pensions in Europe) are excluded because they are not transferable, sellable, or inheritable — you cannot liquidate them. This means countries with strong public pension systems (like the Nordics) may appear to have lower median wealth than they would if pension wealth were included. Some countries like Australia, where retirement savings go into private superannuation accounts, capture more of this in the wealth statistics. This is a known limitation of all personal wealth measurement.",
+  },
+  {
     question: "Where does the data come from?",
     answer:
-      "Wealth distribution data comes from WID.world (World Inequality Database), maintained by economists including Thomas Piketty. Economic indicators come from the OECD. Gini coefficients are sourced from the SWIID (Standardized World Income Inequality Database). Billionaire net worth figures come from the Forbes Real-Time Billionaires list.",
+      "All data is fetched programmatically from public APIs by a single open-source script. Wealth shares, income shares, mean/median wealth, and Gini coefficients come from the WID.world API (World Inequality Database), maintained by economists including Thomas Piketty. Population data comes from the World Bank API. Exchange rates come from the European Central Bank. Billionaire net worth comes from the Forbes Real-Time Billionaires list. Tax rate data is the one exception — it is manually compiled from academic papers and government tax statistics, with full citations listed on the methodology page.",
   },
   {
     question: "Why does the bottom 50% own so little?",
@@ -74,7 +89,7 @@ const FAQ_ITEMS: readonly FaqItem[] = [
   {
     question: "How often is the data updated?",
     answer:
-      "The data is bundled into the application at build time and updated periodically as new datasets become available from WID.world, OECD, SWIID, and Forbes. Because the underlying research databases are typically updated annually, the data reflects the most recent available year for each country.",
+      "All data is fetched at build time from public APIs — no external calls are made when you use the tool. The fetch script can be re-run at any time to pull the latest data from WID.world, World Bank, ECB, and Forbes. In practice, the underlying research databases are updated annually, so the data typically reflects the most recent available year for each country (2022-2024 depending on the variable and country).",
   },
   {
     question: "Is How Poor Am I? open source?",

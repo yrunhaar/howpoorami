@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ALL_COUNTRY_MAP, type AllCountryCode, isAllCountryCode } from "@/data/countries-extended";
@@ -22,9 +23,18 @@ interface CompareClientProps {
 
 export default function CompareClient({ initialCountry }: CompareClientProps) {
   const [selectedCountry, setSelectedCountry] = useState<AllCountryCode>(initialCountry ?? "US");
+  const searchParams = useSearchParams();
   const [salary, setSalary] = useState("");
   const [globalCurrency, setGlobalCurrency] = useState("USD");
   const geoCountry = useGeoCountry();
+
+  // Pre-fill salary from URL param (e.g. /compare/us?income=50000)
+  useEffect(() => {
+    const incomeParam = searchParams.get("income");
+    if (incomeParam && /^\d+$/.test(incomeParam) && salary === "") {
+      setSalary(incomeParam);
+    }
+  }, [searchParams, salary]);
 
   useEffect(() => {
     if (!initialCountry && geoCountry) {

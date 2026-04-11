@@ -202,6 +202,129 @@ function parseNonNegativeInt(raw: string): number {
   return Number.isFinite(val) && val >= 0 ? val : NaN;
 }
 
+// ── Factor impact analysis ────────────────────────────────────────
+
+export interface FactorImpact {
+  readonly key: string;
+  readonly label: string;
+  /** > 0 pushes wealth estimate UP, < 0 pushes DOWN, 0 = neutral/default */
+  readonly direction: "up" | "down" | "neutral";
+  /** Human-readable reason */
+  readonly reason: string;
+}
+
+/**
+ * Analyse which filled factors push the wealth estimate up or down
+ * relative to the "baseline" (all defaults / no factors filled).
+ */
+export function computeFactorImpacts(factors: IncomeFactors): readonly FactorImpact[] {
+  const impacts: FactorImpact[] = [];
+
+  // Age
+  const age = parseInt(factors.age.replace(/[^0-9]/g, ""), 10);
+  if (Number.isFinite(age) && age > 0) {
+    const bracket = AGE_BRACKETS.find((b) => age >= b.min && age <= b.max);
+    const mul = bracket?.multiplier ?? 2.0;
+    const baseline = 2.0; // default when no age given
+    if (mul > baseline + 0.1) {
+      impacts.push({ key: "age", label: "Age", direction: "up", reason: `Age ${age}: older adults accumulate more wealth` });
+    } else if (mul < baseline - 0.1) {
+      impacts.push({ key: "age", label: "Age", direction: "down", reason: `Age ${age}: younger people have had less time to accumulate` });
+    }
+  }
+
+  // Education
+  const eduMul = EDUCATION_MULTIPLIERS[factors.educationLevel];
+  if (eduMul !== undefined) {
+    if (eduMul > 1.0) {
+      impacts.push({ key: "education", label: "Education", direction: "up", reason: "Higher education correlates with higher wealth-to-income ratios (SCF)" });
+    } else if (eduMul < 1.0) {
+      impacts.push({ key: "education", label: "Education", direction: "down", reason: "Lower education correlates with lower wealth accumulation (SCF)" });
+    }
+  }
+
+  // Employment
+  const empMul = EMPLOYMENT_MULTIPLIERS[factors.employmentType];
+  if (empMul !== undefined) {
+    if (empMul > 1.0) {
+      impacts.push({ key: "employment", label: "Employment", direction: "up", reason: "Self-employed & business owners tend to have higher net worth" });
+    } else if (empMul < 1.0) {
+      impacts.push({ key: "employment", label: "Employment", direction: "down", reason: "Part-time or unemployed status correlates with lower wealth" });
+    }
+  }
+
+  // Marital
+  const marMul = MARITAL_MULTIPLIERS[factors.maritalStatus];
+  if (marMul !== undefined) {
+    if (marMul > 1.0) {
+      impacts.push({ key: "marital", label: "Marital status", direction: "up", reason: "Married/partnered households accumulate more (dual income, shared costs)" });
+    } else if (marMul < 1.0) {
+      impacts.push({ key: "marital", label: "Marital status", direction: "down", reason: "Single/divorced status correlates with lower household wealth" });
+    }
+  }
+
+  // Savings
+  const savMul = SAVINGS_MULTIPLIERS[factors.savingsRate];
+  if (savMul !== undefined && factors.savingsRate !== "moderate") {
+    if (savMul > 1.0) {
+      impacts.push({ key: "savings", label: "Savings rate", direction: "up", reason: "Above-average savings accelerates wealth accumulation" });
+    } else if (savMul < 1.0) {
+      impacts.push({ key: "savings", label: "Savings rate", direction: "down", reason: "Below-average savings slows wealth accumulation" });
+    }
+  }
+
+  // Property
+  if (factors.hasProperty) {
+    impacts.push({ key: "property", label: "Property", direction: "up", reason: "Homeownership is the largest wealth component for most households" });
+  }
+
+  // Mortgage
+  if (factors.hasMortgage) {
+    impacts.push({ key: "mortgage", label: "Mortgage", direction: "down", reason: "Mortgage debt reduces net wealth" });
+  }
+
+  // Debts
+  if (factors.hasDebts) {
+    const debtMul = DEBT_LEVEL_MULTIPLIERS[factors.debtLevel] ?? 0.5;
+    const severity = debtMul < 0.4 ? "significantly" : "moderately";
+    impacts.push({ key: "debt", label: "Non-mortgage debt", direction: "down", reason: `Debt ${severity} reduces estimated net wealth` });
+  }
+
+  // Investments
+  if (factors.hasInvestments) {
+    impacts.push({ key: "investments", label: "Investments", direction: "up", reason: "Investment portfolio adds directly to net wealth" });
+  }
+
+  // Retirement
+  if (factors.hasRetirement) {
+    impacts.push({ key: "retirement", label: "Retirement fund", direction: "up", reason: "Retirement savings add to net wealth" });
+  }
+
+  // Inheritance
+  if (factors.hasInheritance) {
+    impacts.push({ key: "inheritance", label: "Inheritance", direction: "up", reason: "Inherited wealth is a significant wealth multiplier" });
+  }
+
+  // Years worked
+  const yrs = parseInt(factors.yearsWorked.replace(/[^0-9]/g, ""), 10);
+  if (Number.isFinite(yrs) && yrs > 0) {
+    const yrsMul = Math.max(0.3, Math.min(2.0, 0.5 + yrs * 0.04));
+    if (yrsMul > 1.1) {
+      impacts.push({ key: "yearsWorked", label: "Years worked", direction: "up", reason: `${yrs} years of work: longer careers accumulate more wealth` });
+    } else if (yrsMul < 0.9) {
+      impacts.push({ key: "yearsWorked", label: "Years worked", direction: "down", reason: `${yrs} years of work: early-career wealth is typically low` });
+    }
+  }
+
+  // Household size
+  const hh = parseInt(factors.householdSize.replace(/[^0-9]/g, ""), 10);
+  if (Number.isFinite(hh) && hh > 1) {
+    impacts.push({ key: "household", label: "Household size", direction: "down", reason: `${hh}-person household: per-capita wealth is lower in larger households` });
+  }
+
+  return impacts;
+}
+
 // ── Core estimation ────────────────────────────────────────────────
 
 export function estimateWealthRange(

@@ -3,9 +3,11 @@
 import { type ReactNode, useCallback } from "react";
 import {
   type IncomeFactors,
+  type FactorImpact,
   countFilledFactors,
   MAX_FACTORS,
   computeSpreadFactor,
+  computeFactorImpacts,
 } from "@/lib/wealth-estimate";
 
 interface IncomeRefinementPanelProps {
@@ -190,6 +192,47 @@ function SectionLegend({ children }: { readonly children: string }) {
   );
 }
 
+function FactorImpactSummary({ impacts }: { readonly impacts: readonly FactorImpact[] }) {
+  if (impacts.length === 0) return null;
+
+  const upFactors = impacts.filter((i) => i.direction === "up");
+  const downFactors = impacts.filter((i) => i.direction === "down");
+
+  return (
+    <div className="pt-3 border-t border-border-subtle space-y-2">
+      <p className="text-[11px] font-semibold text-text-secondary uppercase tracking-wider">
+        What&apos;s influencing your estimate
+      </p>
+      {upFactors.length > 0 && (
+        <div className="space-y-1">
+          {upFactors.map((f) => (
+            <div key={f.key} className="flex items-start gap-2 text-xs">
+              <span className="text-accent-sage mt-0.5 flex-shrink-0" aria-hidden="true">↑</span>
+              <div>
+                <span className="font-medium text-accent-sage">{f.label}</span>
+                <span className="text-text-muted ml-1">— {f.reason}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      {downFactors.length > 0 && (
+        <div className="space-y-1">
+          {downFactors.map((f) => (
+            <div key={f.key} className="flex items-start gap-2 text-xs">
+              <span className="text-accent-rose mt-0.5 flex-shrink-0" aria-hidden="true">↓</span>
+              <div>
+                <span className="font-medium text-accent-rose">{f.label}</span>
+                <span className="text-text-muted ml-1">— {f.reason}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main component ─────────────────────────────────────────────────
 
 export default function IncomeRefinementPanel({
@@ -201,6 +244,7 @@ export default function IncomeRefinementPanel({
   const filled = countFilledFactors(factors);
   const spread = computeSpreadFactor(factors);
   const spreadPct = Math.round(spread * 100);
+  const impacts = computeFactorImpacts(factors);
 
   const numChange = useCallback(
     (key: keyof IncomeFactors, raw: string, maxLen = 3) => {
@@ -487,6 +531,9 @@ export default function IncomeRefinementPanel({
                 )}
               </div>
             </fieldset>
+
+            {/* Factor impact summary */}
+            <FactorImpactSummary impacts={impacts} />
 
             {/* Methodology note */}
             <p className="text-xs text-text-muted/70 leading-relaxed pt-2 border-t border-border-subtle">
