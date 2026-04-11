@@ -161,7 +161,7 @@ export const PERCENTILE_LINES: readonly PercentileTier[] = [
     lines: [
       "Top 10%. The system is working... for you at least.",
       "You're richer than 9 out of 10 people. That either feels great or deeply uncomfortable.",
-      "Top 10%. You're doing well. The question is: at whose expense?",
+      "Top 10%. You're doing well. And still closer to the bottom 50% than to the top 1%.",
       "90th percentile. You're in the elite — statistically. You probably still think you're 'middle class.'",
       "Top 10%. Congratulations. You're now part of the group that the bottom 90% resents.",
       "You're in the top tenth. Most of the country would consider your problems luxurious.",
