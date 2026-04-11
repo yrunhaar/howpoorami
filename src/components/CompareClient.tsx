@@ -7,6 +7,7 @@ import { ALL_COUNTRY_MAP, type AllCountryCode, isAllCountryCode } from "@/data/c
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import { getCountryEconomics } from "@/data/country-economics";
 import { formatCurrency, formatNumber } from "@/lib/format";
+import { toUSD, fromUSD } from "@/lib/currency";
 import CountrySelector from "@/components/CountrySelector";
 import CurrencySelector from "@/components/CurrencySelector";
 import FormattedNumber from "@/components/FormattedNumber";
@@ -55,12 +56,17 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
     return formatCurrency(salaryValue, country.currency);
   }, [salaryValue, country.currency]);
 
-  const incomeToUse = salaryValue ?? country.medianIncome;
-  const safeIncome = incomeToUse > 0 ? incomeToUse : 1;
+  // salaryValue is in local currency; medianIncome is in USD → convert to local for fallback
+  const medianIncomeLocal = fromUSD(country.medianIncome, country.currency);
+  const incomeLocal = salaryValue ?? medianIncomeLocal;
+  const incomeUSD = salaryValue
+    ? toUSD(salaryValue, country.currency)
+    : country.medianIncome;
+  const safeIncomeUSD = incomeUSD > 0 ? incomeUSD : 1;
 
   const yearsToMatch = useMemo(
-    () => (richest ? Math.round(richest.netWorth / safeIncome) : 0),
-    [richest, safeIncome]
+    () => (richest ? Math.round(richest.netWorth / safeIncomeUSD) : 0),
+    [richest, safeIncomeUSD]
   );
 
   const dollarsPerSecond = useMemo(() => {
@@ -179,7 +185,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
               inputMode="numeric"
               value={displaySalary}
               onChange={handleSalaryChange}
-              placeholder={formatCurrency(country.medianIncome, country.currency)}
+              placeholder={formatCurrency(medianIncomeLocal, country.currency)}
               className="
                 w-full px-6 py-4 rounded-2xl text-center text-2xl font-medium tabular-nums
                 bg-bg-card border border-border-subtle
@@ -189,7 +195,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
               "
             />
             <p className="text-text-muted text-xs text-center mt-2">
-              {!salaryValue && `Using median income: ${formatCurrency(country.medianIncome, country.currency)}/year`}
+              {!salaryValue && `Using median income: ${formatCurrency(medianIncomeLocal, country.currency)}/year`}
               {salaryValue && "Your data stays in your browser."}
             </p>
           </m.div>
@@ -202,7 +208,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
             className="bg-gradient-to-br from-accent-rose/8 to-accent-amber/8 border border-accent-rose/15 rounded-3xl p-8 sm:p-12 text-center mb-8"
           >
             <p className="text-text-secondary text-lg sm:text-xl mb-4">
-              At {formatCurrency(safeIncome, country.currency)}/year, you would need
+              At {formatCurrency(incomeLocal, country.currency)}/year, you would need
             </p>
             <div className="text-5xl sm:text-6xl lg:text-8xl font-bold text-accent-rose font-[family-name:var(--font-heading)]">
               <FormattedNumber value={yearsToMatch} />
@@ -234,21 +240,21 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
             />
             <ComparisonCard
               label="Your daily earnings"
-              value={formatCurrency(safeIncome / 365, country.currency)}
+              value={formatCurrency(incomeLocal / 365, country.currency)}
               sublabel={`vs. ${richest.name}'s ${formatCurrency(richest.netWorth * ANNUAL_RETURN_RATE / 365, "USD", true)}/day`}
               accent="sage"
               delay={0.1}
             />
             <ComparisonCard
               label="Wealth ratio"
-              value={`${formatNumber(Math.round(richest.netWorth / safeIncome))}x`}
+              value={`${formatNumber(Math.round(richest.netWorth / safeIncomeUSD))}x`}
               sublabel={`${richest.name}'s wealth vs. your annual income`}
               accent="rose"
               delay={0.2}
             />
             <ComparisonCard
               label="If they gave you $1M"
-              value={`${formatCurrency(safeIncome * (1_000_000 / richest.netWorth), country.currency)}`}
+              value={`${formatCurrency(incomeLocal * (1_000_000 / richest.netWorth), country.currency)}`}
               sublabel={`Would feel like losing this from your annual income`}
               accent="periwinkle"
               delay={0.3}

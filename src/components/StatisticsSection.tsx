@@ -3,6 +3,7 @@
 import AnimatedCounter from "./AnimatedCounter";
 import { type CountryData, GLOBAL_STATS } from "@/data/wealth-data";
 import { formatCurrency } from "@/lib/format";
+import { fromUSD } from "@/lib/currency";
 
 interface StatisticsSectionProps {
   readonly country: CountryData;
@@ -45,6 +46,13 @@ export default function StatisticsSection({ country }: StatisticsSectionProps) {
   const avgTop1Wealth = (country.wealthShares.top1 / 100) * country.meanWealthPerAdult / 0.01;
   const yearsToEarnTop1 = Math.round(avgTop1Wealth / country.medianIncome);
 
+  // Convert USD values to local currency for display
+  const cc = country.currency;
+  const meanLocal = fromUSD(country.meanWealthPerAdult, cc);
+  const medianLocal = fromUSD(country.medianWealthPerAdult, cc);
+  const medianIncomeLocal = fromUSD(country.medianIncome, cc);
+  const avgTop1Local = fromUSD(avgTop1Wealth, cc);
+
   return (
     <div className="space-y-16">
       <div>
@@ -63,10 +71,10 @@ export default function StatisticsSection({ country }: StatisticsSectionProps) {
             <AnimatedCounter end={country.giniWealth} decimals={2} />
           </StatCard>
           <StatCard label="Mean wealth per adult" accent="amber" sublabel="Skewed upward by the ultra-wealthy">
-            {formatCurrency(country.meanWealthPerAdult, country.currency, true)}
+            {formatCurrency(meanLocal, cc, true)}
           </StatCard>
           <StatCard label="Median wealth per adult" accent="periwinkle" sublabel="What the typical person actually has">
-            {formatCurrency(country.medianWealthPerAdult, country.currency, true)}
+            {formatCurrency(medianLocal, cc, true)}
           </StatCard>
           <StatCard label="Mean / Median ratio" accent="rose" sublabel="Higher = more skewed distribution">
             <AnimatedCounter end={meanToMedianRatio} suffix="x" decimals={1} />
@@ -86,8 +94,8 @@ export default function StatisticsSection({ country }: StatisticsSectionProps) {
           to accumulate the average wealth of the top 1%
         </p>
         <p className="text-text-muted text-sm mt-6">
-          Based on median income of {formatCurrency(country.medianIncome, country.currency)}/year vs. average
-          top 1% wealth of {formatCurrency(avgTop1Wealth, country.currency, true)}
+          Based on median income of {formatCurrency(medianIncomeLocal, cc)}/year vs. average
+          top 1% wealth of {formatCurrency(avgTop1Local, cc, true)}
         </p>
       </div>
 

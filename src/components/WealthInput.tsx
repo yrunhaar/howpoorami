@@ -3,6 +3,7 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { type CountryData, findPercentile } from "@/data/wealth-data";
 import { formatCurrency, getCurrencySymbol } from "@/lib/format";
+import { toUSD, fromUSD } from "@/lib/currency";
 import { getPercentileLine } from "@/data/comedic-lines";
 import {
   type IncomeFactors,
@@ -85,7 +86,8 @@ export default function WealthInput({
       }
 
       setZeroIncomeMessage(null);
-      const wRange = estimateWealthRange(value, country, factors);
+      const valueUSD = toUSD(value, country.currency);
+      const wRange = estimateWealthRange(valueUSD, country, factors);
       const pRange = computePercentileRange(wRange, country);
 
       setPercentile(pRange.mid);
@@ -110,7 +112,9 @@ export default function WealthInput({
       if (mode === "income") {
         computeFromIncome(raw, incomeFactors);
       } else if (raw.length > 0) {
-        const p = findPercentile(parseInt(raw, 10), country);
+        const localAmount = parseInt(raw, 10);
+        const usdAmount = toUSD(localAmount, country.currency);
+        const p = findPercentile(usdAmount, country);
         setPercentile(p);
         setPercentileRange(null);
         onPercentileChange(p);
@@ -160,7 +164,15 @@ export default function WealthInput({
     if (mode !== "income" || inputValue.length === 0) return null;
     const value = parseInt(inputValue, 10);
     if (!Number.isFinite(value)) return null;
-    return estimateWealthRange(value, country, incomeFactors);
+    const valueUSD = toUSD(value, country.currency);
+    const rangeUSD = estimateWealthRange(valueUSD, country, incomeFactors);
+    // Convert back to local currency for display
+    const rate = value / valueUSD; // local per USD
+    return {
+      low: Math.round(rangeUSD.low * rate),
+      mid: Math.round(rangeUSD.mid * rate),
+      high: Math.round(rangeUSD.high * rate),
+    };
   }, [mode, inputValue, country, incomeFactors]);
 
   const isRange = mode === "income" && percentileRange !== null;
@@ -269,7 +281,7 @@ export default function WealthInput({
             <p className="text-text-muted text-xs mt-2">
               Below the median wealth of{" "}
               {formatCurrency(
-                country.medianWealthPerAdult,
+                fromUSD(country.medianWealthPerAdult, country.currency),
                 country.currency,
               )}
             </p>
