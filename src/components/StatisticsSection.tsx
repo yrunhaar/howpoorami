@@ -94,7 +94,7 @@ export default function StatisticsSection({ country }: StatisticsSectionProps) {
           to accumulate the average wealth of the top 1%
         </p>
         <p className="text-text-muted text-sm mt-6">
-          Based on median income of {formatCurrency(medianIncomeLocal, cc)}/year vs. average
+          Based on median pre-tax national income of {formatCurrency(medianIncomeLocal, cc)}/year vs. average
           top 1% wealth of {formatCurrency(avgTop1Local, cc, true)}
         </p>
       </div>
@@ -162,7 +162,7 @@ function BarRow({ label, value, color }: { readonly label: string; readonly valu
       <div className="h-2.5 bg-bg-primary rounded-full overflow-hidden">
         <div
           className="h-full rounded-full"
-          style={{ backgroundColor: color, width: `${value}%` }}
+          style={{ backgroundColor: color, width: `${Math.max(0, value)}%` }}
         />
       </div>
     </div>

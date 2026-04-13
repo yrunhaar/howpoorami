@@ -211,7 +211,7 @@ export default function WealthInput({
         <input
           id="wealth-input"
           type="text"
-          inputMode="numeric"
+          inputMode={mode === "wealth" ? "text" : "numeric"}
           value={displayValue}
           onChange={handleChange}
           placeholder={`${getCurrencySymbol(country.currency)}0`}
@@ -233,6 +233,7 @@ export default function WealthInput({
             isOpen={refinePanelOpen}
             onToggle={() => setRefinePanelOpen((o) => !o)}
             onChange={updateFactor}
+            currencyCode={country.currency}
           />
         </div>
       )}

@@ -61,7 +61,7 @@ export default function WealthShareBars({ country }: WealthShareBarsProps) {
             <motion.div
               key={seg.key}
               initial={{ width: 0 }}
-              animate={isInView ? { width: `${shares[i]}%` } : {}}
+              animate={isInView ? { width: `${Math.max(0, shares[i])}%` } : {}}
               transition={{ duration: 1, delay: 0.5 + i * 0.1, ease: "easeOut" }}
               className="flex items-center justify-center text-xs font-medium"
               style={{ backgroundColor: seg.color }}

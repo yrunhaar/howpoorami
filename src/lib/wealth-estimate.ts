@@ -364,10 +364,17 @@ export function estimateWealthRange(
   // 4. Property — additive if value given, multiplicative otherwise
   let propertyAddon = 0;
   let propertyMul = 1.0;
+  const propVal = factors.hasProperty ? parseLocalToUSD(factors.propertyValue) : NaN;
+  const mortVal = factors.hasMortgage ? parseLocalToUSD(factors.mortgageRemaining) : NaN;
+
   if (factors.hasProperty) {
-    const propVal = parseLocalToUSD(factors.propertyValue);
     if (Number.isFinite(propVal) && propVal > 0) {
       propertyAddon = propVal * 0.7; // ~70% avg equity
+    } else if (Number.isFinite(mortVal) && mortVal > 0) {
+      // No property value given but mortgage is known — estimate property
+      // from mortgage assuming ~70% LTV (mortgage ≈ 70% of property value)
+      const estimatedProperty = mortVal / 0.7;
+      propertyAddon = estimatedProperty * 0.7; // equity portion
     } else {
       propertyMul = 1.8;
     }
@@ -376,13 +383,13 @@ export function estimateWealthRange(
   // 5. Mortgage — subtracts from property equity
   let mortgageDeduction = 0;
   if (factors.hasMortgage) {
-    const mortVal = parseLocalToUSD(factors.mortgageRemaining);
-    if (Number.isFinite(mortVal)) {
+    if (Number.isFinite(mortVal) && mortVal > 0) {
       mortgageDeduction = mortVal;
     } else if (factors.hasProperty) {
       // Estimate: avg mortgage is ~60% of property value
-      const propVal = parseLocalToUSD(factors.propertyValue);
-      mortgageDeduction = Number.isFinite(propVal) ? propVal * 0.6 : annualIncome * 3;
+      mortgageDeduction = Number.isFinite(propVal) && propVal > 0
+        ? propVal * 0.6
+        : annualIncome * 3;
     }
   }
 

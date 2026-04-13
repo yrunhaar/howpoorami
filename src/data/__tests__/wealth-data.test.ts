@@ -71,9 +71,11 @@ describe("findPercentile", () => {
     expect(pct).toBeLessThanOrEqual(99.99);
   });
 
-  it("returns 0 for zero wealth", () => {
+  it("returns a low percentile for zero wealth (above negative-wealth segment)", () => {
     const pct = findPercentile(0, US);
-    expect(pct).toBe(0);
+    // ~12% of US adults have negative net wealth, so $0 ≈ 12th percentile
+    expect(pct).toBeGreaterThan(5);
+    expect(pct).toBeLessThan(25);
   });
 
   it("returns a very low (possibly negative) percentile for negative wealth", () => {

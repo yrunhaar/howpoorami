@@ -18,6 +18,7 @@ interface IncomeRefinementPanelProps {
     key: K,
     value: IncomeFactors[K],
   ) => void;
+  readonly currencyCode?: string;
 }
 
 // ── Small UI primitives ────────────────────────────────────────────
@@ -240,6 +241,7 @@ export default function IncomeRefinementPanel({
   isOpen,
   onToggle,
   onChange,
+  currencyCode = "USD",
 }: IncomeRefinementPanelProps) {
   const filled = countFilledFactors(factors);
   const spread = computeSpreadFactor(factors);
@@ -431,7 +433,7 @@ export default function IncomeRefinementPanel({
                   {factors.hasInvestments && (
                     <SmallInput
                       id="ref-inv-val"
-                      label="Investment value"
+                      label={`Investment value (${currencyCode})`}
                       value={factors.investmentValue}
                       placeholder="e.g. 50000"
                       onChange={(v) => numChange("investmentValue", v, 10)}
@@ -441,7 +443,7 @@ export default function IncomeRefinementPanel({
                   {factors.hasRetirement && (
                     <SmallInput
                       id="ref-ret-val"
-                      label="Retirement value"
+                      label={`Retirement value (${currencyCode})`}
                       value={factors.retirementValue}
                       placeholder="e.g. 80000"
                       onChange={(v) => numChange("retirementValue", v, 10)}
@@ -479,7 +481,7 @@ export default function IncomeRefinementPanel({
                     {factors.hasProperty && (
                       <SmallInput
                         id="ref-prop-val"
-                        label="Property value"
+                        label={`Property value (${currencyCode})`}
                         value={factors.propertyValue}
                         placeholder="e.g. 350000"
                         onChange={(v) => numChange("propertyValue", v, 10)}
@@ -489,7 +491,7 @@ export default function IncomeRefinementPanel({
                     {factors.hasMortgage && (
                       <SmallInput
                         id="ref-mort-val"
-                        label="Mortgage remaining"
+                        label={`Mortgage remaining (${currencyCode})`}
                         value={factors.mortgageRemaining}
                         placeholder="e.g. 200000"
                         onChange={(v) => numChange("mortgageRemaining", v, 10)}

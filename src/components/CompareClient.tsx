@@ -205,7 +205,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
               "
             />
             <p className="text-text-muted text-xs text-center mt-2">
-              {!salaryValue && `Using median income: ${formatCurrency(medianIncomeLocal, country.currency)}/year`}
+              {!salaryValue && `Using median pre-tax national income: ${formatCurrency(medianIncomeLocal, country.currency)}/year`}
               {salaryValue && "Your data stays in your browser."}
             </p>
           </m.div>
@@ -243,7 +243,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-16">
             <ComparisonCard
               label={`${richest.name} earns per second`}
-              value={`${formatCurrency(dollarsPerSecond, "USD")}`}
+              value={`${formatCurrency(fromUSD(dollarsPerSecond, country.currency), country.currency)}`}
               sublabel={`If their wealth grew at ${ANNUAL_RETURN_RATE * 100}%/year`}
               accent="amber"
               delay={0}
@@ -251,7 +251,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
             <ComparisonCard
               label="Your daily earnings"
               value={formatCurrency(incomeLocal / 365, country.currency)}
-              sublabel={`vs. ${richest.name}'s ${formatCurrency(richest.netWorth * ANNUAL_RETURN_RATE / 365, "USD", true)}/day`}
+              sublabel={`vs. ${richest.name}'s ${formatCurrency(fromUSD(richest.netWorth * ANNUAL_RETURN_RATE / 365, country.currency), country.currency, true)}/day`}
               accent="sage"
               delay={0.1}
             />
@@ -263,7 +263,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
               delay={0.2}
             />
             <ComparisonCard
-              label="If they gave you $1M"
+              label={`If they gave you ${formatCurrency(fromUSD(1_000_000, country.currency), country.currency)}`}
               value={`${formatCurrency(incomeLocal * (1_000_000 / richest.netWorth), country.currency)}`}
               sublabel={`Would feel like losing this from your annual income`}
               accent="periwinkle"
@@ -289,7 +289,8 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
           <div className="mt-16 text-center">
             <p className="text-text-muted text-xs max-w-xl mx-auto leading-relaxed">
               Net worth estimates from Forbes Real-Time Billionaires (March 2026).
-              Median income data from OECD and national statistics offices.
+              Default income is median pre-tax national income from WID.world (includes capital income
+              and imputed corporate profits — typically 30–50% higher than wage-only statistics).
               Wealth fluctuates daily — these are approximate figures for illustration.
             </p>
           </div>

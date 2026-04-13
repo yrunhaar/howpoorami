@@ -95,6 +95,7 @@ export default function WealthDistributionChart({
     return "Top 0.01%";
   }, [userPercentile]);
 
+  // Approximate adult (20+) fraction — varies by country (75–85%), 78% is OECD average
   const populationAdults = country.population * 0.78;
 
   const maxWealth = useMemo(

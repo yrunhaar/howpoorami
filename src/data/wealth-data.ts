@@ -11,6 +11,7 @@
 import rawMetadata from "../../data/raw/country-metadata.json";
 import rawShares from "../../data/raw/wealth-income-shares.json";
 import rawHistorical from "../../data/raw/wid-historical.json";
+import rawDetailedShares from "../../data/raw/wid-detailed-shares.json";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -213,53 +214,145 @@ export function generateLorenzCurve(country: CountryData): readonly LorenzPoint[
   ];
 }
 
+// ─── Detailed shares lookup ────────────────────────────────────────────────
+
+interface DetailedShares {
+  readonly bottom50: number;
+  readonly middle40: number;
+  readonly next9: number;
+  readonly next09: number;
+  readonly next009: number;
+  readonly top001: number;
+}
+
+type RawDetailedShares = Record<string, DetailedShares>;
+
+function getDetailedSharesForCountry(cc: string): DetailedShares | null {
+  const entry = (rawDetailedShares as unknown as RawDetailedShares)[cc];
+  return entry ?? null;
+}
+
+// ─── Percentile estimation ─────────────────────────────────────────────────
+
+/**
+ * Estimate the Pareto tail exponent from the ratio of wealth shares.
+ *
+ * For a Pareto tail: share(topX) / share(topY) = (X/Y)^(1 - 1/α)
+ * We compute α from the top1/top10 share ratio.
+ */
+function estimateParetoAlpha(top1Share: number, top10Share: number): number {
+  if (top10Share <= 0 || top1Share <= 0 || top1Share >= top10Share) return 1.5;
+  const ratio = top1Share / top10Share;
+  // ratio = 0.1^(1 - 1/α) → ln(ratio) = (1 - 1/α) * ln(0.1)
+  const exponent = Math.log(ratio) / Math.log(0.1);
+  if (exponent <= 0 || exponent >= 1) return 1.5;
+  const alpha = 1 / (1 - exponent);
+  return Math.max(1.1, Math.min(3.0, alpha));
+}
+
+/**
+ * Estimate the fraction of adults with negative net wealth.
+ *
+ * Based on the bottom-50% wealth share: lower/negative share → more people
+ * below zero. Calibrated against SCF (US ≈ 12.5% negative).
+ */
+function estimateNegativeFraction(bottom50Share: number): number {
+  if (bottom50Share < -5) return 0.25;
+  if (bottom50Share < 0) return 0.18;
+  if (bottom50Share < 3) return 0.12;
+  if (bottom50Share < 8) return 0.08;
+  return 0.05;
+}
+
 /**
  * Estimate percentile position given a wealth amount in USD.
  *
- * Uses a piecewise linear interpolation across wealth distribution segments:
- * bottom 50% → middle 40% → next 9% → top 1% → top 0.1% → top 0.01%
+ * Uses the known median (p50 threshold from WID) as the primary anchor,
+ * Pareto-estimated thresholds for the upper tail, and a modelled negative-
+ * wealth segment for the lower tail. Interpolation uses piecewise linear
+ * segments between estimated threshold points.
  *
  * Returns a value between 0 and 99.99.
  */
 export function findPercentile(wealthUSD: number, country: CountryData): number {
-  const totalWealth = country.meanWealthPerAdult * country.population * 1_000_000;
-  const adults = country.population * 1_000_000;
+  const mean = country.meanWealthPerAdult;
+  const median = country.medianWealthPerAdult;
+  const { bottom50, top10, top1 } = country.wealthShares;
 
-  // Helper: average wealth per adult within a segment
-  const segAvg = (sharePercent: number, popFraction: number) =>
-    (totalWealth * sharePercent / 100) / (adults * popFraction);
+  // ── Retrieve detailed sub-percentile shares ──
+  const detailed = getDetailedSharesForCountry(country.code);
+  const next9Share = detailed?.next9 ?? (top10 - top1);
+  const next09Share = detailed?.next09 ?? (top1 * 0.45);
+  const next009Share = detailed?.next009 ?? (top1 * 0.17);
+  const top001Share = detailed?.top001 ?? (top1 * 0.10);
 
-  const avgBottom50 = segAvg(country.wealthShares.bottom50, 0.5);
-  const avgMiddle40 = segAvg(country.wealthShares.middle40, 0.4);
-  const top9Share = country.wealthShares.top10 - country.wealthShares.top1;
-  const avgNext9 = segAvg(top9Share, 0.09);
-  const avgTop1 = segAvg(country.wealthShares.top1, 0.01);
-  // Estimate sub-percentile averages (top 0.1% ≈ 55% of top 1% wealth, top 0.01% ≈ 17%)
-  const avgTop01 = segAvg(country.wealthShares.top1 * 0.55, 0.001);
-  const avgTop001 = segAvg(country.wealthShares.top1 * 0.17, 0.0001);
+  // ── Pareto tail exponent ──
+  const alpha = estimateParetoAlpha(top1, top10);
+  const bCoeff = alpha / (alpha - 1);
 
-  // Piecewise linear segments: [threshold, percentileStart, percentileWidth]
-  const segments: [number, number, number][] = [
-    [avgBottom50, 0, 50],
-    [avgMiddle40, 50, 40],
-    [avgNext9, 90, 9],
-    [avgTop1, 99, 0.9],
-    [avgTop01, 99.9, 0.09],
-    [avgTop001, 99.99, 0],
+  // ── Segment averages (per-adult wealth within each segment) ──
+  const avgTop10 = mean * top10 / 10;
+  const avgTop1 = mean * top1 / 1;
+  const avgNext9 = mean * next9Share / 9;
+  const avgNext09 = mean * next09Share / 0.9;
+  const avgNext009 = mean * next009Share / 0.09;
+  const avgTop001 = mean * top001Share / 0.01;
+
+  // ── Estimate thresholds at key percentile boundaries ──
+  // p50: use WID-provided median (the most accurate anchor point)
+  const p50 = Math.max(0, median);
+
+  // p90: threshold to enter top 10%.
+  // Use Pareto estimate with body-to-tail correction (+0.5 to alpha).
+  const bAdj90 = (alpha + 0.5) / (alpha + 0.5 - 1);
+  const p90 = Math.max(p50 * 1.5, avgTop10 / bAdj90);
+
+  // p99: threshold to enter top 1% (Pareto more reliable in deep tail)
+  const p99 = Math.max(p90 * 1.5, avgTop1 / bCoeff);
+
+  // p99.9: threshold to enter top 0.1%
+  const avgTop01Combined = mean * (next009Share + top001Share) / 0.1;
+  const p999 = Math.max(p99 * 2, avgTop01Combined / bCoeff);
+
+  // p99.99: threshold to enter top 0.01%
+  const p9999 = Math.max(p999 * 2, avgTop001 / bCoeff);
+
+  // ── Negative wealth segment ──
+  const negFraction = estimateNegativeFraction(bottom50);
+  const negPct = negFraction * 100; // percentile where wealth = $0
+  // Floor: estimate a reasonable minimum from the data
+  const negFloor = -Math.max(median, mean * 0.4);
+
+  // ── Interpolation anchor points: [wealth, percentile] ──
+  // Sorted by wealth ascending. Each pair defines a piecewise linear segment.
+  const anchors: [number, number][] = [
+    [negFloor, 0],
+    [0, negPct],
+    [p50, 50],
+    [p90, 90],
+    [p99, 99],
+    [p999, 99.9],
+    [p9999, 99.99],
   ];
 
-  let prevThreshold = 0;
-  for (const [threshold, pctStart, pctWidth] of segments) {
-    if (threshold <= prevThreshold) {
-      prevThreshold = threshold;
-      continue;
+  // Filter out any degenerate segments where wealth doesn't increase
+  const points: [number, number][] = [anchors[0]];
+  for (let i = 1; i < anchors.length; i++) {
+    if (anchors[i][0] > points[points.length - 1][0]) {
+      points.push(anchors[i]);
     }
-    if (wealthUSD <= threshold) {
-      const range = threshold - prevThreshold;
-      const fraction = range > 0 ? (wealthUSD - prevThreshold) / range : 0;
-      return Math.max(0, Math.min(pctStart + fraction * pctWidth, 99.99));
+  }
+
+  // ── Piecewise linear interpolation ──
+  if (wealthUSD <= points[0][0]) return 0;
+
+  for (let i = 1; i < points.length; i++) {
+    const [prevW, prevP] = points[i - 1];
+    const [curW, curP] = points[i];
+    if (wealthUSD <= curW) {
+      const fraction = (wealthUSD - prevW) / (curW - prevW);
+      return Math.max(0, Math.min(prevP + fraction * (curP - prevP), 99.99));
     }
-    prevThreshold = threshold;
   }
 
   return 99.99;
