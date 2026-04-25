@@ -234,6 +234,30 @@ export const de: Dictionary = {
     billionaireLifetimeTemplate:
       "{name} hat das innerhalb eines einzigen Lebens erreicht.",
     tryDifferentSalary: "Anderes Gehalt versuchen",
+    noDataTemplate: "Milliardärsvergleichsdaten für {country} liegen noch nicht vor.",
+    noDataHint:
+      "Probiere eine große Volkswirtschaft wie USA, Großbritannien, Frankreich, Deutschland oder Japan.",
+    salaryLabelTemplate:
+      "Gib dein Brutto-Jahreseinkommen ({currency}) ein — oder wir nutzen den Median",
+    usingMedianTemplate:
+      "Verwende Median-Bruttoeinkommen: {amount}/Jahr",
+    privacyNote: "Deine Daten bleiben im Browser.",
+    currencyLabel: "Währung:",
+    atIncomeTemplate: "Bei {amount}/Jahr brauchst du",
+    yearsOfWork: "Jahre Arbeit",
+    toMatchTemplate: "um das Vermögen von {name} zu erreichen",
+    perspectiveTitle: "Zur Einordnung…",
+    richestPersonInTemplate: "Reichste Person in {country}",
+    earnsPerSecondTemplate: "{name} verdient pro Sekunde",
+    growthAssumptionTemplate: "Bei {rate} % Vermögenswachstum p. a.",
+    cardYourDailyEarnings: "Dein Tagesverdienst",
+    cardDailyVsBillionaireTemplate: "vs. {amount}/Tag von {name}",
+    cardWealthRatio: "Vermögensverhältnis",
+    cardWealthRatioSublabelTemplate: "{name} besitzt das {x}-fache deines Vermögens",
+    cardHomesTheirWealthCouldBuy: "Häuser, die das Vermögen kaufen könnte",
+    cardHomesSublabel: "Zum durchschnittlichen lokalen Hauspreis",
+    cardYearsOfHealthcare: "Jahre Gesundheitsversorgung",
+    cardHealthcareSublabel: "Zu lokalen Gesundheitskosten",
   },
   compareCountries: {
     h1: "Wie würde dein Vermögen in anderen Ländern abschneiden?",

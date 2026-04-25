@@ -274,6 +274,49 @@ export interface Dictionary {
     /** "{name} earned this in a single lifetime." */
     readonly billionaireLifetimeTemplate: string;
     readonly tryDifferentSalary: string;
+
+    // Empty-state when no billionaire data
+    /** "Billionaire comparison data is not yet available for {country}." */
+    readonly noDataTemplate: string;
+    readonly noDataHint: string;
+
+    // Salary input label/placeholder/hint
+    /** "Enter your gross (pre-tax) annual income ({currency}) — or we'll use the median" */
+    readonly salaryLabelTemplate: string;
+    /** "Using median pre-tax national income: {amount}/year" */
+    readonly usingMedianTemplate: string;
+    readonly privacyNote: string;
+    readonly currencyLabel: string;
+
+    // Big-number block
+    /** "At {amount}/year, you would need" */
+    readonly atIncomeTemplate: string;
+    readonly yearsOfWork: string;
+    /** "to match {name}'s wealth" */
+    readonly toMatchTemplate: string;
+    readonly perspectiveTitle: string;
+
+    // Richest card
+    /** "Richest person in {country}" */
+    readonly richestPersonInTemplate: string;
+
+    // Comparison cards
+    /** "{name} earns per second" */
+    readonly earnsPerSecondTemplate: string;
+    /** "If their wealth grew at {rate}%/year" */
+    readonly growthAssumptionTemplate: string;
+    readonly cardYourDailyEarnings: string;
+    /** "vs. {name}'s {amount}/day" */
+    readonly cardDailyVsBillionaireTemplate: string;
+    readonly cardWealthRatio: string;
+    /** "{name} has {x}× more wealth than you" */
+    readonly cardWealthRatioSublabelTemplate: string;
+    readonly cardHomesTheirWealthCouldBuy: string;
+    /** "At average local home price" */
+    readonly cardHomesSublabel: string;
+    readonly cardYearsOfHealthcare: string;
+    /** "At local healthcare costs" */
+    readonly cardHealthcareSublabel: string;
   };
 
   /** Compare-Countries page UI strings used by CrossCountryCompare. */

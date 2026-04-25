@@ -235,6 +235,31 @@ export const fr: Dictionary = {
     comparisonsTitle: "Comparaisons temporelles",
     billionaireLifetimeTemplate: "{name} y est arrivé en une seule vie.",
     tryDifferentSalary: "Essayer un autre salaire",
+    noDataTemplate:
+      "Les données de comparaison avec un milliardaire ne sont pas encore disponibles pour {country}.",
+    noDataHint:
+      "Essayez une économie majeure comme les États-Unis, le Royaume-Uni, la France, l'Allemagne ou le Japon.",
+    salaryLabelTemplate:
+      "Saisissez votre revenu annuel brut ({currency}) — ou nous utiliserons la médiane",
+    usingMedianTemplate:
+      "Utilisation du revenu national brut médian : {amount}/an",
+    privacyNote: "Vos données restent dans votre navigateur.",
+    currencyLabel: "Devise :",
+    atIncomeTemplate: "À {amount}/an, il vous faudrait",
+    yearsOfWork: "années de travail",
+    toMatchTemplate: "pour égaler le patrimoine de {name}",
+    perspectiveTitle: "Pour mettre cela en perspective…",
+    richestPersonInTemplate: "Personne la plus riche en {country}",
+    earnsPerSecondTemplate: "{name} gagne par seconde",
+    growthAssumptionTemplate: "Avec une croissance de {rate} % par an",
+    cardYourDailyEarnings: "Vos revenus journaliers",
+    cardDailyVsBillionaireTemplate: "contre {amount}/jour pour {name}",
+    cardWealthRatio: "Ratio de richesse",
+    cardWealthRatioSublabelTemplate: "{name} a {x} fois plus de patrimoine que vous",
+    cardHomesTheirWealthCouldBuy: "Logements que sa fortune pourrait acheter",
+    cardHomesSublabel: "Au prix moyen local du logement",
+    cardYearsOfHealthcare: "Années de santé",
+    cardHealthcareSublabel: "Aux coûts de santé locaux",
   },
   compareCountries: {
     h1: "Comment votre richesse se classerait-elle dans d'autres pays ?",

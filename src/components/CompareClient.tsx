@@ -14,6 +14,9 @@ import CurrencySelector from "@/components/CurrencySelector";
 import FormattedNumber from "@/components/FormattedNumber";
 import TimeComparisons from "@/components/TimeComparisons";
 import { useGeoCountry } from "@/hooks/useGeoCountry";
+import { useDictionary, useLanguage } from "@/components/LanguageProvider";
+import { interpolate } from "@/lib/i18n/dictionary";
+import { localizedCountryName } from "@/lib/i18n/country-names";
 
 const ANNUAL_RETURN_RATE = 0.08; // 8% assumed annual return on wealth
 
@@ -27,6 +30,8 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
   const [salary, setSalary] = useState("");
   const [globalCurrency, setGlobalCurrency] = useState("USD");
   const geoCountry = useGeoCountry();
+  const t = useDictionary();
+  const { locale } = useLanguage();
 
   // Pre-fill salary from URL param (e.g. /compare/us?income=50000)
   useEffect(() => {
@@ -50,9 +55,14 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
 
   const isGlobal = selectedCountry === "GLOBAL";
   const rawCountry = ALL_COUNTRY_MAP[selectedCountry];
+  const localizedName = localizedCountryName(
+    selectedCountry,
+    locale,
+    rawCountry.name,
+  );
   const country = isGlobal
-    ? { ...rawCountry, currency: globalCurrency }
-    : rawCountry;
+    ? { ...rawCountry, currency: globalCurrency, name: localizedName }
+    : { ...rawCountry, name: localizedName };
   const richest = RICHEST_BY_COUNTRY[selectedCountry] ?? null;
   const economics = getCountryEconomics(isGlobal ? "US" : selectedCountry);
 
@@ -97,15 +107,13 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
         <section className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-12">
           <div className="max-w-4xl mx-auto w-full text-center">
             <h1 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl text-text-primary leading-tight mb-8">
-              How Long Would It Take?
+              {t.compare.h1}
             </h1>
             <CountrySelector selected={selectedCountry} onSelect={handleCountrySelect} />
             <p className="text-text-secondary text-lg mt-12">
-              Billionaire comparison data is not yet available for {country.name}.
+              {interpolate(t.compare.noDataTemplate, { country: country.name })}
             </p>
-            <p className="text-text-muted text-sm mt-2">
-              Try selecting a major economy like the US, UK, France, Germany, or Japan.
-            </p>
+            <p className="text-text-muted text-sm mt-2">{t.compare.noDataHint}</p>
           </div>
         </section>
       </main>
@@ -124,10 +132,10 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
             className="text-center mb-10"
           >
             <h1 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl text-text-primary leading-tight">
-              How Long Would It Take?
+              {t.compare.h1}
             </h1>
             <p className="text-text-secondary text-lg sm:text-xl mt-4 max-w-2xl mx-auto">
-              Compare your income to the wealthiest person in each country.
+              {t.compare.subtitle}
             </p>
           </m.div>
 
@@ -145,7 +153,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
                   animate={{ opacity: 1, height: "auto" }}
                   className="flex items-center gap-2"
                 >
-                  <span className="text-text-muted text-xs">Currency:</span>
+                  <span className="text-text-muted text-xs">{t.compare.currencyLabel}</span>
                   <CurrencySelector selected={globalCurrency} onSelect={setGlobalCurrency} />
                 </m.div>
               )}
@@ -164,7 +172,11 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
                 {country.flag}
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-text-muted text-sm">Richest person in {country.name}</p>
+                <p className="text-text-muted text-sm">
+                  {interpolate(t.compare.richestPersonInTemplate, {
+                    country: country.name,
+                  })}
+                </p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mt-1">
                   {richest.name}
                 </h2>
@@ -187,7 +199,9 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
               htmlFor="salary-input"
               className="block text-sm text-text-secondary mb-2 text-center"
             >
-              Enter your gross (pre-tax) annual income ({country.currency}) — or we&apos;ll use the median
+              {interpolate(t.compare.salaryLabelTemplate, {
+                currency: country.currency,
+              })}
             </label>
             <input
               id="salary-input"
@@ -205,8 +219,11 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
               "
             />
             <p className="text-text-muted text-xs text-center mt-2">
-              {!salaryValue && `Using median pre-tax national income: ${formatCurrency(medianIncomeLocal, country.currency)}/year`}
-              {salaryValue && "Your data stays in your browser."}
+              {!salaryValue &&
+                interpolate(t.compare.usingMedianTemplate, {
+                  amount: formatCurrency(medianIncomeLocal, country.currency),
+                })}
+              {salaryValue && t.compare.privacyNote}
             </p>
           </m.div>
 
@@ -218,23 +235,25 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
             className="bg-gradient-to-br from-accent-rose/8 to-accent-amber/8 border border-accent-rose/15 rounded-3xl p-8 sm:p-12 text-center mb-8"
           >
             <p className="text-text-secondary text-lg sm:text-xl mb-4">
-              At {formatCurrency(incomeLocal, country.currency)}/year, you would need
+              {interpolate(t.compare.atIncomeTemplate, {
+                amount: formatCurrency(incomeLocal, country.currency),
+              })}
             </p>
             <div className="text-5xl sm:text-6xl lg:text-8xl font-bold text-accent-rose font-[family-name:var(--font-heading)]">
               <FormattedNumber value={yearsToMatch} />
             </div>
             <p className="text-text-secondary text-xl sm:text-2xl mt-2">
-              years of work
+              {t.compare.yearsOfWork}
             </p>
             <p className="text-text-secondary text-lg sm:text-xl mt-4">
-              to match {richest.name}&apos;s wealth
+              {interpolate(t.compare.toMatchTemplate, { name: richest.name })}
             </p>
           </m.div>
 
           {/* Time comparisons — the fun part */}
           <div className="mb-16">
             <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl text-center mb-8 text-text-primary">
-              To Put That In Perspective...
+              {t.compare.perspectiveTitle}
             </h3>
             <TimeComparisons yearsToMatch={yearsToMatch} billionaireName={richest.name} />
           </div>
@@ -242,44 +261,51 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
           {/* Comparison cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-16">
             <ComparisonCard
-              label={`${richest.name} earns per second`}
+              label={interpolate(t.compare.earnsPerSecondTemplate, {
+                name: richest.name,
+              })}
               value={`${formatCurrency(fromUSD(dollarsPerSecond, country.currency), country.currency)}`}
-              sublabel={`If their wealth grew at ${ANNUAL_RETURN_RATE * 100}%/year`}
+              sublabel={interpolate(t.compare.growthAssumptionTemplate, {
+                rate: ANNUAL_RETURN_RATE * 100,
+              })}
               accent="amber"
               delay={0}
             />
             <ComparisonCard
-              label="Your daily earnings"
+              label={t.compare.cardYourDailyEarnings}
               value={formatCurrency(incomeLocal / 365, country.currency)}
-              sublabel={`vs. ${richest.name}'s ${formatCurrency(fromUSD(richest.netWorth * ANNUAL_RETURN_RATE / 365, country.currency), country.currency, true)}/day`}
+              sublabel={interpolate(t.compare.cardDailyVsBillionaireTemplate, {
+                name: richest.name,
+                amount: formatCurrency(
+                  fromUSD((richest.netWorth * ANNUAL_RETURN_RATE) / 365, country.currency),
+                  country.currency,
+                  true,
+                ),
+              })}
               accent="sage"
               delay={0.1}
             />
             <ComparisonCard
-              label="Wealth ratio"
+              label={t.compare.cardWealthRatio}
               value={`${formatNumber(Math.round(richest.netWorth / safeIncomeUSD))}x`}
-              sublabel={`${richest.name}'s wealth vs. your annual income`}
+              sublabel={interpolate(t.compare.cardWealthRatioSublabelTemplate, {
+                name: richest.name,
+                x: formatNumber(Math.round(richest.netWorth / safeIncomeUSD)),
+              })}
               accent="rose"
               delay={0.2}
             />
             <ComparisonCard
-              label={`If they gave you ${formatCurrency(fromUSD(1_000_000, country.currency), country.currency)}`}
-              value={`${formatCurrency(incomeLocal * (1_000_000 / richest.netWorth), country.currency)}`}
-              sublabel={`Would feel like losing this from your annual income`}
-              accent="periwinkle"
-              delay={0.3}
-            />
-            <ComparisonCard
-              label="Homes their wealth could buy"
+              label={t.compare.cardHomesTheirWealthCouldBuy}
               value={formatNumber(Math.round(richest.netWorth / economics.avgHomePrice))}
-              sublabel={`At ${formatCurrency(economics.avgHomePrice, "USD")} average home price in ${country.name}`}
+              sublabel={t.compare.cardHomesSublabel}
               accent="lavender"
               delay={0.4}
             />
             <ComparisonCard
-              label="Years of healthcare"
+              label={t.compare.cardYearsOfHealthcare}
               value={formatNumber(Math.round(richest.netWorth / economics.healthcarePerCapita))}
-              sublabel={`At ${formatCurrency(economics.healthcarePerCapita, "USD")} per-capita spending in ${country.name}`}
+              sublabel={t.compare.cardHealthcareSublabel}
               accent="amber"
               delay={0.5}
             />
