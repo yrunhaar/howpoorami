@@ -33,7 +33,7 @@ export default function CompareClient({ initialCountry }: CompareClientProps) {
   const t = useDictionary();
   const { locale } = useLanguage();
 
-  // Pre-fill salary from URL param (e.g. /compare/us?income=50000)
+  // Pre-fill salary from URL param (e.g. /how-long/us?income=50000)
   useEffect(() => {
     const incomeParam = searchParams.get("income");
     if (incomeParam && /^\d+$/.test(incomeParam) && salary === "") {

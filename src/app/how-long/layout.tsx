@@ -22,12 +22,12 @@ export const metadata: Metadata = {
       "At your salary, it would take millions of years. Enter your income and see for yourself.",
   },
   alternates: {
-    canonical: `${SITE_URL}/compare`,
-    languages: buildHreflangAlternates(SITE_URL, "/compare"),
+    canonical: `${SITE_URL}/how-long`,
+    languages: buildHreflangAlternates(SITE_URL, "/how-long"),
   },
 };
 
-export default function CompareLayout({
+export default function HowLongLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

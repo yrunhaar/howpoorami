@@ -5,6 +5,7 @@ import {
   getDictionary,
   getLocale,
   isLocaleCode,
+  type LocaleCode,
 } from "@/lib/i18n";
 import { buildHreflangAlternates, localePath } from "@/lib/i18n/urls";
 import { getMethodologyContent } from "@/lib/i18n/content/methodology";
@@ -12,19 +13,19 @@ import { SITE_URL } from "@/lib/seo";
 import MethodologyContent from "@/components/MethodologyContent";
 
 interface LocaleMethodologyPageProps {
-  readonly params: Promise<{ locale: string }>;
+  readonly params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
-  return NON_DEFAULT_LOCALES.map((locale) => ({ locale }));
+  return NON_DEFAULT_LOCALES.map((locale) => ({ slug: locale }));
 }
 
 export async function generateMetadata({
   params,
 }: LocaleMethodologyPageProps): Promise<Metadata> {
-  const { locale: localeParam } = await params;
-  if (!isLocaleCode(localeParam)) return {};
-  const locale = getLocale(localeParam);
+  const { slug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") return {};
+  const locale = getLocale(slug);
   const t = getDictionary(locale.code);
   const url = `${SITE_URL}${localePath(locale.code, "/methodology")}`;
 
@@ -49,12 +50,12 @@ export async function generateMetadata({
 export default async function LocaleMethodologyPage({
   params,
 }: LocaleMethodologyPageProps) {
-  const { locale: localeParam } = await params;
-  if (!isLocaleCode(localeParam) || localeParam === "en") notFound();
+  const { slug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") notFound();
   return (
     <MethodologyContent
-      content={getMethodologyContent(localeParam)}
-      locale={localeParam}
+      content={getMethodologyContent(slug)}
+      locale={slug as LocaleCode}
     />
   );
 }

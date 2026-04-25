@@ -5,6 +5,7 @@ import {
   getDictionary,
   getLocale,
   isLocaleCode,
+  type LocaleCode,
 } from "@/lib/i18n";
 import { buildHreflangAlternates, localePath } from "@/lib/i18n/urls";
 import { getAboutContent } from "@/lib/i18n/content/about";
@@ -12,19 +13,19 @@ import { SITE_URL } from "@/lib/seo";
 import AboutContent from "@/components/AboutContent";
 
 interface LocaleAboutPageProps {
-  readonly params: Promise<{ locale: string }>;
+  readonly params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
-  return NON_DEFAULT_LOCALES.map((locale) => ({ locale }));
+  return NON_DEFAULT_LOCALES.map((locale) => ({ slug: locale }));
 }
 
 export async function generateMetadata({
   params,
 }: LocaleAboutPageProps): Promise<Metadata> {
-  const { locale: localeParam } = await params;
-  if (!isLocaleCode(localeParam)) return {};
-  const locale = getLocale(localeParam);
+  const { slug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") return {};
+  const locale = getLocale(slug);
   const t = getDictionary(locale.code);
   const url = `${SITE_URL}${localePath(locale.code, "/about")}`;
 
@@ -46,15 +47,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleAboutPage({
-  params,
-}: LocaleAboutPageProps) {
-  const { locale: localeParam } = await params;
-  if (!isLocaleCode(localeParam) || localeParam === "en") notFound();
+export default async function LocaleAboutPage({ params }: LocaleAboutPageProps) {
+  const { slug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") notFound();
   return (
-    <AboutContent
-      content={getAboutContent(localeParam)}
-      locale={localeParam}
-    />
+    <AboutContent content={getAboutContent(slug)} locale={slug as LocaleCode} />
   );
 }

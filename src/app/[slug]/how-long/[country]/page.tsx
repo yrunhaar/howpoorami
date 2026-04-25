@@ -6,6 +6,7 @@ import {
   getDictionary,
   getLocale,
   isLocaleCode,
+  type LocaleCode,
 } from "@/lib/i18n";
 import { buildHreflangAlternates, localePath } from "@/lib/i18n/urls";
 import { interpolate } from "@/lib/i18n/dictionary";
@@ -14,26 +15,26 @@ import { getAllCountrySeo, resolveCountryCode, SITE_URL } from "@/lib/seo";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import CompareClient from "@/components/CompareClient";
 
-interface LocaleCompareCountryPageProps {
-  readonly params: Promise<{ locale: string; country: string }>;
+interface LocaleHowLongCountryPageProps {
+  readonly params: Promise<{ slug: string; country: string }>;
 }
 
 export function generateStaticParams() {
   const countries = getAllCountrySeo();
   return NON_DEFAULT_LOCALES.flatMap((locale) =>
-    countries.map((c) => ({ locale, country: c.slug })),
+    countries.map((c) => ({ slug: locale, country: c.slug })),
   );
 }
 
 export async function generateMetadata({
   params,
-}: LocaleCompareCountryPageProps): Promise<Metadata> {
-  const { locale: localeParam, country: slug } = await params;
-  if (!isLocaleCode(localeParam)) return {};
-  const code = resolveCountryCode(slug);
+}: LocaleHowLongCountryPageProps): Promise<Metadata> {
+  const { slug, country: countrySlug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") return {};
+  const code = resolveCountryCode(countrySlug);
   if (!code) return {};
 
-  const locale = getLocale(localeParam);
+  const locale = getLocale(slug);
   const t = getDictionary(locale.code);
   const { name: englishName } = await import(
     "@/data/countries-extended"
@@ -43,7 +44,7 @@ export async function generateMetadata({
   const richestSuffix = richest
     ? ` (${richest.name}, ${(richest.netWorth / 1e9).toFixed(1)}B USD)`
     : "";
-  const defaultPath = `/compare/${slug}`;
+  const defaultPath = `/how-long/${countrySlug}`;
   const url = `${SITE_URL}${localePath(locale.code, defaultPath)}`;
 
   return {
@@ -70,14 +71,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleCompareCountryPage({
+export default async function LocaleHowLongCountryPage({
   params,
-}: LocaleCompareCountryPageProps) {
-  const { locale: localeParam, country: slug } = await params;
-  if (!isLocaleCode(localeParam) || localeParam === "en") notFound();
-  const code = resolveCountryCode(slug);
+}: LocaleHowLongCountryPageProps) {
+  const { slug, country: countrySlug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") notFound();
+  const code = resolveCountryCode(countrySlug);
   if (!code) notFound();
-
+  void (slug as LocaleCode);
   return (
     <Suspense>
       <CompareClient initialCountry={code} />

@@ -6,7 +6,7 @@ import { buildHreflangAlternates } from "@/lib/i18n/urls";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import CompareClient from "@/components/CompareClient";
 
-interface CompareCountryPageProps {
+interface HowLongCountryPageProps {
   readonly params: Promise<{ country: string }>;
 }
 
@@ -16,14 +16,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: CompareCountryPageProps): Promise<Metadata> {
+}: HowLongCountryPageProps): Promise<Metadata> {
   const { country: slug } = await params;
   const code = resolveCountryCode(slug);
   if (!code) return {};
 
   const { name } = await import("@/data/countries-extended").then((m) => m.ALL_COUNTRY_MAP[code]);
   const richest = RICHEST_BY_COUNTRY[code];
-  const url = `${SITE_URL}/compare/${slug}`;
+  const url = `${SITE_URL}/how-long/${slug}`;
 
   const richestDesc = richest
     ? ` Compare your salary to ${richest.name} (${(richest.netWorth / 1e9).toFixed(1)}B).`
@@ -34,7 +34,7 @@ export async function generateMetadata({
     description: `How many years would it take you to earn as much as the richest person in ${name}?${richestDesc} Enter your salary and find out.`,
     alternates: {
       canonical: url,
-      languages: buildHreflangAlternates(SITE_URL, `/compare/${slug}`),
+      languages: buildHreflangAlternates(SITE_URL, `/how-long/${slug}`),
     },
     openGraph: {
       type: "website",
@@ -54,7 +54,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function CompareCountryPage({ params }: CompareCountryPageProps) {
+export default async function HowLongCountryPage({ params }: HowLongCountryPageProps) {
   const { country: slug } = await params;
   const code = resolveCountryCode(slug);
   if (!code) notFound();
@@ -75,13 +75,13 @@ export default async function CompareCountryPage({ params }: CompareCountryPageP
         "@type": "ListItem",
         position: 2,
         name: "How Long?",
-        item: `${SITE_URL}/compare`,
+        item: `${SITE_URL}/how-long`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name,
-        item: `${SITE_URL}/compare/${slug}`,
+        item: `${SITE_URL}/how-long/${slug}`,
       },
     ],
   };

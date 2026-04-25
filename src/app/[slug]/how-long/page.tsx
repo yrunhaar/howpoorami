@@ -6,34 +6,35 @@ import {
   getDictionary,
   getLocale,
   isLocaleCode,
+  type LocaleCode,
 } from "@/lib/i18n";
 import { buildHreflangAlternates, localePath } from "@/lib/i18n/urls";
 import { SITE_URL } from "@/lib/seo";
 import CompareClient from "@/components/CompareClient";
 
-interface LocaleComparePageProps {
-  readonly params: Promise<{ locale: string }>;
+interface LocaleHowLongPageProps {
+  readonly params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
-  return NON_DEFAULT_LOCALES.map((locale) => ({ locale }));
+  return NON_DEFAULT_LOCALES.map((locale) => ({ slug: locale }));
 }
 
 export async function generateMetadata({
   params,
-}: LocaleComparePageProps): Promise<Metadata> {
-  const { locale: localeParam } = await params;
-  if (!isLocaleCode(localeParam)) return {};
-  const locale = getLocale(localeParam);
+}: LocaleHowLongPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") return {};
+  const locale = getLocale(slug);
   const t = getDictionary(locale.code);
-  const url = `${SITE_URL}${localePath(locale.code, "/compare")}`;
+  const url = `${SITE_URL}${localePath(locale.code, "/how-long")}`;
 
   return {
     title: t.meta.compareTitle,
     description: t.meta.compareDescription,
     alternates: {
       canonical: url,
-      languages: buildHreflangAlternates(SITE_URL, "/compare"),
+      languages: buildHreflangAlternates(SITE_URL, "/how-long"),
     },
     openGraph: {
       type: "website",
@@ -46,11 +47,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleComparePage({
+export default async function LocaleHowLongPage({
   params,
-}: LocaleComparePageProps) {
-  const { locale: localeParam } = await params;
-  if (!isLocaleCode(localeParam) || localeParam === "en") notFound();
+}: LocaleHowLongPageProps) {
+  const { slug } = await params;
+  if (!isLocaleCode(slug) || slug === "en") notFound();
+  // Locale prop forwarded; CompareClient uses LanguageProvider which derives
+  // locale from the URL pathname.
+  void (slug as LocaleCode);
   return (
     <Suspense>
       <CompareClient />

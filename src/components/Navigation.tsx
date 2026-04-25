@@ -15,7 +15,7 @@ export default function Navigation() {
   // Build locale-aware nav item URLs from the same default-locale paths.
   const navItems = [
     { defaultPath: "/", label: t.nav.home },
-    { defaultPath: "/compare", label: t.nav.howLong },
+    { defaultPath: "/how-long", label: t.nav.howLong },
     { defaultPath: "/compare-countries", label: t.nav.compareCountries },
   ];
 
@@ -36,7 +36,13 @@ export default function Navigation() {
         <div className="flex items-center gap-0.5 sm:gap-1">
           {navItems.map((item) => {
             const href = localePath(locale, item.defaultPath);
-            const NON_COUNTRY_PATHS = ["/about", "/faq", "/methodology", "/compare"];
+            const NON_COUNTRY_PATHS = [
+              "/about",
+              "/faq",
+              "/methodology",
+              "/how-long",
+              "/compare-countries",
+            ];
             const stripped = stripLocale(pathname || "/").path;
             const isActive =
               item.defaultPath === "/"

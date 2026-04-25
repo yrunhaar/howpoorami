@@ -18,6 +18,7 @@ import { useGeoCountry } from "@/hooks/useGeoCountry";
 import { useDictionary, useLanguage } from "@/components/LanguageProvider";
 import { interpolate } from "@/lib/i18n/dictionary";
 import { localizedCountryName } from "@/lib/i18n/country-names";
+import { localePath } from "@/lib/i18n/urls";
 
 import WealthDistributionChart from "@/components/WealthDistributionChart";
 import WealthShareBars from "@/components/WealthShareBars";
@@ -347,7 +348,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
         <section className="px-4 sm:px-6 lg:px-8 py-10">
           <div className="max-w-6xl mx-auto">
             <Link
-              href={`/compare/${selectedCountry.toLowerCase()}`}
+              href={localePath(locale, `/how-long/${selectedCountry.toLowerCase()}`)}
               className="block bg-accent-periwinkle/8 border border-accent-periwinkle/20 rounded-2xl p-6 sm:p-8 text-center hover:bg-accent-periwinkle/12 hover:border-accent-periwinkle/30 transition-all duration-300"
             >
               <p className="text-text-secondary text-base sm:text-lg">
@@ -368,7 +369,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
         <section className="px-4 sm:px-6 lg:px-8 py-5">
           <div className="max-w-6xl mx-auto">
             <Link
-              href="/compare-countries"
+              href={localePath(locale, "/compare-countries")}
               className="block bg-accent-amber/8 border border-accent-amber/20 rounded-2xl p-6 sm:p-8 text-center hover:bg-accent-amber/12 hover:border-accent-amber/30 transition-all duration-300"
             >
               <p className="text-text-secondary text-base sm:text-lg">

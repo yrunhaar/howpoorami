@@ -5,6 +5,7 @@ import {
   getDictionary,
   getLocale,
   isLocaleCode,
+  type LocaleCode,
 } from "@/lib/i18n";
 import { buildHreflangAlternates, localePath } from "@/lib/i18n/urls";
 import { interpolate } from "@/lib/i18n/dictionary";
@@ -13,38 +14,42 @@ import { getAllCountrySeo, resolveCountryCode, SITE_URL } from "@/lib/seo";
 import HomeClient from "@/components/HomeClient";
 
 interface LocaleCountryPageProps {
-  readonly params: Promise<{ locale: string; country: string }>;
+  readonly params: Promise<{ slug: string; child: string }>;
 }
 
+/**
+ * Locale + country combination: `/{locale}/{country}` for non-default
+ * locales (e.g. `/de/us`, `/zh-cn/jp`). Static-path siblings under
+ * `[slug]` (about, faq, methodology, how-long, compare-countries) take
+ * precedence; this catch-all handles country slugs only.
+ */
 export function generateStaticParams() {
   const countries = getAllCountrySeo();
   return NON_DEFAULT_LOCALES.flatMap((locale) =>
-    countries.map((c) => ({ locale, country: c.slug })),
+    countries.map((c) => ({ slug: locale, child: c.slug })),
   );
 }
 
 export async function generateMetadata({
   params,
 }: LocaleCountryPageProps): Promise<Metadata> {
-  const { locale: localeParam, country: slug } = await params;
-  if (!isLocaleCode(localeParam)) return {};
-  const code = resolveCountryCode(slug);
+  const { slug, child } = await params;
+  if (!isLocaleCode(slug) || slug === "en") return {};
+  const code = resolveCountryCode(child);
   if (!code) return {};
 
-  const locale = getLocale(localeParam);
+  const locale = getLocale(slug);
   const t = getDictionary(locale.code);
   const { name: englishName } = await import(
     "@/data/countries-extended"
   ).then((m) => m.ALL_COUNTRY_MAP[code]);
   const name = localizedCountryName(code, locale.code, englishName);
-  const defaultPath = `/${slug}`;
+  const defaultPath = `/${child}`;
   const url = `${SITE_URL}${localePath(locale.code, defaultPath)}`;
 
   return {
     title: interpolate(t.meta.countryTitleTemplate, { country: name }),
-    description: interpolate(t.meta.countryDescriptionTemplate, {
-      country: name,
-    }),
+    description: interpolate(t.meta.countryDescriptionTemplate, { country: name }),
     alternates: {
       canonical: url,
       languages: buildHreflangAlternates(SITE_URL, defaultPath),
@@ -52,9 +57,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       title: interpolate(t.meta.countryOgTitleTemplate, { country: name }),
-      description: interpolate(t.meta.countryOgDescriptionTemplate, {
-        country: name,
-      }),
+      description: interpolate(t.meta.countryOgDescriptionTemplate, { country: name }),
       siteName: t.meta.siteName,
       locale: locale.bcp47.replace("-", "_"),
       url,
@@ -70,9 +73,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: interpolate(t.meta.countryOgTitleTemplate, { country: name }),
-      description: interpolate(t.meta.countryOgDescriptionTemplate, {
-        country: name,
-      }),
+      description: interpolate(t.meta.countryOgDescriptionTemplate, { country: name }),
       images: [`${SITE_URL}/og-image.png`],
     },
   };
@@ -81,10 +82,9 @@ export async function generateMetadata({
 export default async function LocaleCountryPage({
   params,
 }: LocaleCountryPageProps) {
-  const { locale: localeParam, country: slug } = await params;
-  if (!isLocaleCode(localeParam) || localeParam === "en") notFound();
-  const code = resolveCountryCode(slug);
+  const { slug, child } = await params;
+  if (!isLocaleCode(slug) || slug === "en") notFound();
+  const code = resolveCountryCode(child);
   if (!code) notFound();
-
-  return <HomeClient initialLocale={localeParam} initialCountry={code} />;
+  return <HomeClient initialLocale={slug as LocaleCode} initialCountry={code} />;
 }

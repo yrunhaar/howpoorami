@@ -33,6 +33,7 @@ import {
 } from "@/hooks/useShareableState";
 import { useDictionary, useLanguage } from "@/components/LanguageProvider";
 import { interpolate } from "@/lib/i18n/dictionary";
+import { localePath } from "@/lib/i18n/urls";
 import IncomeRefinementPanel from "./IncomeRefinementPanel";
 
 interface WealthInputProps {
@@ -505,9 +506,10 @@ export default function WealthInput({
               ? inputValue
               : null;
 
+            const howLongPath = `/how-long/${country.code.toLowerCase()}`;
             const compareUrl = incomeForLink
-              ? `/compare/${country.code.toLowerCase()}?income=${incomeForLink}`
-              : `/compare/${country.code.toLowerCase()}`;
+              ? `${localePath(locale, howLongPath)}?income=${incomeForLink}`
+              : localePath(locale, howLongPath);
 
             // Calculate gap to top 1%
             const totalWealth = country.meanWealthPerAdult * country.population * 1_000_000;

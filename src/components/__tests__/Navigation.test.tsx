@@ -59,11 +59,22 @@ describe("Navigation", () => {
     expect(activeLink).toBeDefined();
   });
 
-  it("compare link is active on /compare routes", () => {
-    mockPathname = "/compare";
+  it("how-long link is active on /how-long routes", () => {
+    mockPathname = "/how-long";
     render(<Navigation />);
 
-    const compareLink = screen.getByText("How Long?");
+    const howLongLink = screen.getByText("How Long?");
+    expect(howLongLink.getAttribute("aria-current")).toBe("page");
+  });
+
+  it("compare-countries link is active on /compare-countries (and does not also activate How Long?)", () => {
+    mockPathname = "/compare-countries";
+    render(<Navigation />);
+
+    const compareLink = screen.getByText("Compare");
     expect(compareLink.getAttribute("aria-current")).toBe("page");
+
+    const howLongLink = screen.getByText("How Long?");
+    expect(howLongLink.getAttribute("aria-current")).toBeNull();
   });
 });
