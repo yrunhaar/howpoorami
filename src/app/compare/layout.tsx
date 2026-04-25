@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { buildHreflangAlternates } from "@/lib/i18n/urls";
+import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "How Long Would It Take? — Compare Your Income to Billionaires",
@@ -20,7 +22,8 @@ export const metadata: Metadata = {
       "At your salary, it would take millions of years. Enter your income and see for yourself.",
   },
   alternates: {
-    canonical: "https://howpoorami.org/compare",
+    canonical: `${SITE_URL}/compare`,
+    languages: buildHreflangAlternates(SITE_URL, "/compare"),
   },
 };
 

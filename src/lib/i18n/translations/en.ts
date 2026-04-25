@@ -16,6 +16,29 @@ export const en: Dictionary = {
     countryOgTitleTemplate: "How Poor Am I in {country}?",
     countryOgDescriptionTemplate:
       "Enter your income and discover where you really stand in {country}'s wealth distribution. Interactive inequality data powered by WID.world.",
+
+    compareTitle: "How Long to Match a Billionaire? — Salary vs. Mega-Wealth",
+    compareDescription:
+      "How many years, lifetimes, or entire historical eras would it take to earn as much as a billionaire? Enter your salary and put mega-wealth into perspective.",
+    compareCountryTitleTemplate:
+      "How Long to Match the Richest in {country}? — Billionaire Comparison",
+    compareCountryDescriptionTemplate:
+      "How many years would it take you to earn as much as the richest person in {country}?{richestSuffix} Enter your salary and find out.",
+
+    compareCountriesTitle:
+      "Compare Your Wealth Across 30 Countries — Cross-Country Wealth Calculator",
+    compareCountriesDescription:
+      "How would your wealth or income rank in another country? Enter an amount and see your percentile in 30+ countries side by side.",
+
+    aboutTitle: "About — How Poor Am I?",
+    aboutDescription:
+      "How Poor Am I is a free, open-source tool that visualizes global wealth inequality using data from WID.world, OECD, and SWIID.",
+    faqTitle: "FAQ — How Poor Am I?",
+    faqDescription:
+      "Frequently asked questions about How Poor Am I — the data, the calculations, and what the percentiles really mean.",
+    methodologyTitle: "Methodology — How Poor Am I?",
+    methodologyDescription:
+      "Inside the methodology behind How Poor Am I — data sources, percentile estimation, age adjustment, and PPP conversion.",
   },
   nav: {
     home: "How Poor Am I?",
@@ -110,6 +133,46 @@ export const en: Dictionary = {
     regionalAggregatesNote:
       "Regional aggregates are population-weighted averages of covered countries.",
     thisCountryRegion: "{country}'s region",
+
+    thresholdsTitle: "What Does It Take to Join Each Group?",
+    thresholdsLeadTemplate:
+      "Estimated minimum net wealth to enter each wealth bracket in {country}.",
+    thresholdsNote:
+      "Thresholds are estimates based on Pareto-interpolated WID.world data.",
+    thresholdTop50: "Top 50%",
+    thresholdTop10: "Top 10%",
+    thresholdTop1: "Top 1%",
+    thresholdTop01: "Top 0.1%",
+
+    impactLeadTemplate:
+      "A median income earner in {country} would need to work for",
+    impactYears: "years",
+    impactTrailing: "to accumulate the average wealth of the top 1%",
+    impactNoteTemplate:
+      "Based on median pre-tax national income of {income}/year vs. average top 1% wealth of {wealth}",
+
+    doubleGapTitle: "Income vs. Wealth: The Double Gap",
+    incomeDistributionTitle: "Income Distribution",
+    wealthDistributionTitle: "Wealth Distribution",
+    giniIncomeLineTemplate: "Gini (income): {value}",
+    giniWealthLineTemplate: "Gini (wealth): {value}",
+    barLabelTop1: "Top 1%",
+    barLabelTop10: "Top 10%",
+    barLabelMiddle40: "Middle 40%",
+    barLabelBottom50: "Bottom 50%",
+
+    globalPictureTitle: "The Global Picture",
+    globalTop1Owns: "Global top 1% owns",
+    globalTop1OwnsSublabel: "of all global wealth",
+    globalBottom50Owns: "Global bottom 50% owns",
+    globalBottom50OwnsSublabel: "of all global wealth",
+    globalGiniLabel: "Global wealth Gini",
+    globalGiniSublabel: "Among the highest of any metric measured",
+    sourceTemplate: "Source: {source}",
+
+    medianWealthUsdLabel: "median wealth (USD)",
+    regionTop1Template: "Top 1%: {value}%",
+    regionBottom50Template: "Bot 50%: {value}%",
   },
   footer: {
     about: "About",

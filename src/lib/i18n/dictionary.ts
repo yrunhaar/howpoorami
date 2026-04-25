@@ -24,6 +24,26 @@ export interface Dictionary {
     readonly countryDescriptionTemplate: string;
     readonly countryOgTitleTemplate: string;
     readonly countryOgDescriptionTemplate: string;
+
+    // Compare (How Long?) page
+    readonly compareTitle: string;
+    readonly compareDescription: string;
+    /** "How Long to Match the Richest in {country}? — Billionaire Comparison" */
+    readonly compareCountryTitleTemplate: string;
+    /** "How many years would it take you to earn as much as the richest person in {country}?{richestSuffix} Enter your salary and find out." */
+    readonly compareCountryDescriptionTemplate: string;
+
+    // Compare-countries page
+    readonly compareCountriesTitle: string;
+    readonly compareCountriesDescription: string;
+
+    // About / FAQ / Methodology page meta
+    readonly aboutTitle: string;
+    readonly aboutDescription: string;
+    readonly faqTitle: string;
+    readonly faqDescription: string;
+    readonly methodologyTitle: string;
+    readonly methodologyDescription: string;
   };
 
   /** Top-of-page nav. */
@@ -121,6 +141,55 @@ export interface Dictionary {
     readonly regionalContextTitleTemplate: string;
     readonly regionalAggregatesNote: string;
     readonly thisCountryRegion: string;
+
+    // Entry thresholds section
+    readonly thresholdsTitle: string;
+    /** "Estimated minimum net wealth to enter each wealth bracket in {country}." */
+    readonly thresholdsLeadTemplate: string;
+    readonly thresholdsNote: string;
+    readonly thresholdTop50: string;
+    readonly thresholdTop10: string;
+    readonly thresholdTop1: string;
+    readonly thresholdTop01: string;
+
+    // Big impact statement
+    /** "A median income earner in {country} would need to work for" */
+    readonly impactLeadTemplate: string;
+    readonly impactYears: string;
+    readonly impactTrailing: string;
+    /** "Based on median pre-tax national income of {income}/year vs. average top 1% wealth of {wealth}" */
+    readonly impactNoteTemplate: string;
+
+    // Income vs wealth section
+    readonly doubleGapTitle: string;
+    readonly incomeDistributionTitle: string;
+    readonly wealthDistributionTitle: string;
+    /** "Gini (income): {value}" */
+    readonly giniIncomeLineTemplate: string;
+    /** "Gini (wealth): {value}" */
+    readonly giniWealthLineTemplate: string;
+    readonly barLabelTop1: string;
+    readonly barLabelTop10: string;
+    readonly barLabelMiddle40: string;
+    readonly barLabelBottom50: string;
+
+    // Global context
+    readonly globalPictureTitle: string;
+    readonly globalTop1Owns: string;
+    readonly globalTop1OwnsSublabel: string;
+    readonly globalBottom50Owns: string;
+    readonly globalBottom50OwnsSublabel: string;
+    readonly globalGiniLabel: string;
+    readonly globalGiniSublabel: string;
+    /** "Source: {source}" */
+    readonly sourceTemplate: string;
+
+    // Regional cards
+    readonly medianWealthUsdLabel: string;
+    /** "Top 1%: {value}%" */
+    readonly regionTop1Template: string;
+    /** "Bot 50%: {value}%" */
+    readonly regionBottom50Template: string;
   };
 
   /** Footer. */

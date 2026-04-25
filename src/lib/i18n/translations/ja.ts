@@ -17,6 +17,30 @@ export const ja: Dictionary = {
     countryOgTitleTemplate: "{country}での「私はどれだけ貧しい？」",
     countryOgDescriptionTemplate:
       "所得を入力して、{country}の資産分布のなかで本当の位置を確かめましょう。WID.world に基づくインタラクティブな不平等データ。",
+
+    compareTitle:
+      "億万長者に追いつくには？— 年収 vs. 巨大資産",
+    compareDescription:
+      "億万長者と同じ額を稼ぐには、何年、何世代、あるいは何時代分かかるのか。年収を入力して、巨大資産を実感としてとらえ直しましょう。",
+    compareCountryTitleTemplate:
+      "{country}の最富裕者に追いつくには？— 億万長者比較",
+    compareCountryDescriptionTemplate:
+      "{country}の最富裕者と同じ額を稼ぐには、何年かかるか。{richestSuffix}年収を入力して試算しましょう。",
+
+    compareCountriesTitle:
+      "30 か国であなたの資産を比較 — 国別資産計算ツール",
+    compareCountriesDescription:
+      "別の国だったら、あなたの資産や所得は何位に来るのか。金額を入力して、30 か国以上のパーセンタイルを並べて確かめましょう。",
+
+    aboutTitle: "概要 — 私はどれだけ貧しい？",
+    aboutDescription:
+      "「私はどれだけ貧しい？」は、WID.world・OECD・SWIID のデータをもとに世界の資産格差を可視化する、無料・オープンソースのツールです。",
+    faqTitle: "よくある質問 — 私はどれだけ貧しい？",
+    faqDescription:
+      "「私はどれだけ貧しい？」のよくある質問：データ、計算、そしてパーセンタイルが本当に意味するもの。",
+    methodologyTitle: "手法 — 私はどれだけ貧しい？",
+    methodologyDescription:
+      "「私はどれだけ貧しい？」の手法：データソース、パーセンタイル推定、年齢調整、PPP 換算。",
   },
   nav: {
     home: "私はどれだけ貧しい？",
@@ -110,6 +134,46 @@ export const ja: Dictionary = {
     regionalAggregatesNote:
       "地域集計は対象国の人口加重平均です。",
     thisCountryRegion: "{country}の所属地域",
+
+    thresholdsTitle: "各層に入るのに必要な額は？",
+    thresholdsLeadTemplate:
+      "{country}で各資産層に入るために必要な推定最低純資産。",
+    thresholdsNote:
+      "しきい値は WID.world データを Pareto 内挿で推定したものです。",
+    thresholdTop50: "上位 50%",
+    thresholdTop10: "上位 10%",
+    thresholdTop1: "上位 1%",
+    thresholdTop01: "上位 0.1%",
+
+    impactLeadTemplate:
+      "{country}の中央値所得者がこの額を貯めるのに必要な年数",
+    impactYears: "年",
+    impactTrailing: "上位 1% の平均資産に到達するまで",
+    impactNoteTemplate:
+      "中央値の税引前国民所得 {income}/年と上位 1% の平均資産 {wealth} に基づく",
+
+    doubleGapTitle: "所得 vs. 資産：二重格差",
+    incomeDistributionTitle: "所得分布",
+    wealthDistributionTitle: "資産分布",
+    giniIncomeLineTemplate: "ジニ係数（所得）：{value}",
+    giniWealthLineTemplate: "ジニ係数（資産）：{value}",
+    barLabelTop1: "上位 1%",
+    barLabelTop10: "上位 10%",
+    barLabelMiddle40: "中間 40%",
+    barLabelBottom50: "下位 50%",
+
+    globalPictureTitle: "世界全体の構図",
+    globalTop1Owns: "世界の上位 1% が保有する割合",
+    globalTop1OwnsSublabel: "世界の総資産に対して",
+    globalBottom50Owns: "世界の下位 50% が保有する割合",
+    globalBottom50OwnsSublabel: "世界の総資産に対して",
+    globalGiniLabel: "世界の資産ジニ係数",
+    globalGiniSublabel: "計測されたあらゆる指標の中でも最も高い水準",
+    sourceTemplate: "出典：{source}",
+
+    medianWealthUsdLabel: "中央値資産（USD）",
+    regionTop1Template: "上位 1%：{value}%",
+    regionBottom50Template: "下位 50%：{value}%",
   },
   footer: {
     about: "概要",

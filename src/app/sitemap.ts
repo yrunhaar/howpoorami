@@ -23,25 +23,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     readonly changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   }> = [
     { path: "/", priority: 1.0, changeFrequency: "weekly" },
+    { path: "/compare", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/compare-countries", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/about", priority: 0.6, changeFrequency: "monthly" },
+    { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/methodology", priority: 0.6, changeFrequency: "monthly" },
     ...countries.map((c) => ({
       path: `/${c.slug}`,
       priority: 0.8,
       changeFrequency: "monthly" as const,
     })),
-  ];
-
-  // English-only paths (compare, about, faq, methodology) — these aren't
-  // localized via /lang/ routes yet, so we keep them at root only.
-  const englishOnlyPaths: ReadonlyArray<{
-    readonly path: string;
-    readonly priority: number;
-    readonly changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
-  }> = [
-    { path: "/compare", priority: 0.9, changeFrequency: "weekly" },
-    { path: "/compare-countries", priority: 0.8, changeFrequency: "weekly" },
-    { path: "/about", priority: 0.6, changeFrequency: "monthly" },
-    { path: "/faq", priority: 0.6, changeFrequency: "monthly" },
-    { path: "/methodology", priority: 0.6, changeFrequency: "monthly" },
     ...countries.map((c) => ({
       path: `/compare/${c.slug}`,
       priority: 0.7,
@@ -75,14 +66,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
   );
 
-  const englishEntries: MetadataRoute.Sitemap = englishOnlyPaths.map(
-    ({ path, priority, changeFrequency }) => ({
-      url: `${SITE_URL}${path}`,
-      lastModified: now,
-      changeFrequency,
-      priority,
-    }),
-  );
-
-  return [...localizedEntries, ...englishEntries];
+  return localizedEntries;
 }

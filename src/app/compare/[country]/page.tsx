@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllCountrySeo, resolveCountryCode, SITE_URL } from "@/lib/seo";
+import { buildHreflangAlternates } from "@/lib/i18n/urls";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import CompareClient from "@/components/CompareClient";
 
@@ -31,7 +32,10 @@ export async function generateMetadata({
   return {
     title: `How Long to Match the Richest in ${name}? — Billionaire Comparison`,
     description: `How many years would it take you to earn as much as the richest person in ${name}?${richestDesc} Enter your salary and find out.`,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: buildHreflangAlternates(SITE_URL, `/compare/${slug}`),
+    },
     openGraph: {
       type: "website",
       title: `How Long to Match the Richest in ${name}?`,

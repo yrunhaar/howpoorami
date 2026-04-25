@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { buildHreflangAlternates } from "@/lib/i18n/urls";
+import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Compare Countries — Where Would You Rank?",
@@ -19,7 +21,8 @@ export const metadata: Metadata = {
       "Same wealth, different country — see how your ranking changes. Side-by-side percentile comparison for 30+ nations.",
   },
   alternates: {
-    canonical: "https://howpoorami.org/compare-countries",
+    canonical: `${SITE_URL}/compare-countries`,
+    languages: buildHreflangAlternates(SITE_URL, "/compare-countries"),
   },
 };
 

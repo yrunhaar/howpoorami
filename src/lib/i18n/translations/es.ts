@@ -17,6 +17,30 @@ export const es: Dictionary = {
     countryOgTitleTemplate: "¿Qué tan pobre soy en {country}?",
     countryOgDescriptionTemplate:
       "Introduce tus ingresos y descubre dónde estás realmente en la distribución de la riqueza de {country}. Datos interactivos sobre desigualdad con WID.world.",
+
+    compareTitle:
+      "¿Cuánto tiempo para igualar a un millonario? — Salario vs. megafortuna",
+    compareDescription:
+      "¿Cuántos años, vidas o eras enteras tardarías en ganar tanto como un millonario? Introduce tu salario y pon en perspectiva la megafortuna.",
+    compareCountryTitleTemplate:
+      "¿Cuánto se tarda en igualar al más rico de {country}? — Comparación con millonarios",
+    compareCountryDescriptionTemplate:
+      "¿Cuántos años tardarías en ganar tanto como la persona más rica de {country}?{richestSuffix} Introduce tu salario y averígualo.",
+
+    compareCountriesTitle:
+      "Compara tu riqueza entre 30 países — Calculadora de riqueza por país",
+    compareCountriesDescription:
+      "¿Cómo se clasificaría tu riqueza o ingreso en otro país? Introduce una cantidad y mira tu percentil en más de 30 países en paralelo.",
+
+    aboutTitle: "Acerca de — ¿Qué tan pobre soy?",
+    aboutDescription:
+      "¿Qué tan pobre soy? es una herramienta gratuita y de código abierto que visualiza la desigualdad de la riqueza global con datos de WID.world, OCDE y SWIID.",
+    faqTitle: "Preguntas frecuentes — ¿Qué tan pobre soy?",
+    faqDescription:
+      "Preguntas frecuentes sobre ¿Qué tan pobre soy?: los datos, los cálculos y lo que los percentiles significan realmente.",
+    methodologyTitle: "Metodología — ¿Qué tan pobre soy?",
+    methodologyDescription:
+      "Dentro de la metodología de ¿Qué tan pobre soy?: fuentes de datos, estimación de percentiles, ajuste por edad y conversión PPA.",
   },
   nav: {
     home: "¿Qué tan pobre soy?",
@@ -113,6 +137,46 @@ export const es: Dictionary = {
     regionalAggregatesNote:
       "Los agregados regionales son medias ponderadas por población de los países cubiertos.",
     thisCountryRegion: "Región de {country}",
+
+    thresholdsTitle: "¿Qué hace falta para entrar en cada grupo?",
+    thresholdsLeadTemplate:
+      "Patrimonio neto mínimo estimado para entrar en cada tramo de riqueza en {country}.",
+    thresholdsNote:
+      "Los umbrales son estimaciones basadas en datos de WID.world interpolados con Pareto.",
+    thresholdTop50: "Top 50%",
+    thresholdTop10: "Top 10%",
+    thresholdTop1: "Top 1%",
+    thresholdTop01: "Top 0,1%",
+
+    impactLeadTemplate:
+      "Una persona con ingresos medianos en {country} tendría que trabajar durante",
+    impactYears: "años",
+    impactTrailing: "para acumular el patrimonio medio del 1% más rico",
+    impactNoteTemplate:
+      "Basado en un ingreso nacional mediano antes de impuestos de {income}/año frente a un patrimonio medio del 1% más rico de {wealth}",
+
+    doubleGapTitle: "Ingresos vs. riqueza: la doble brecha",
+    incomeDistributionTitle: "Distribución del ingreso",
+    wealthDistributionTitle: "Distribución de la riqueza",
+    giniIncomeLineTemplate: "Gini (ingreso): {value}",
+    giniWealthLineTemplate: "Gini (riqueza): {value}",
+    barLabelTop1: "Top 1%",
+    barLabelTop10: "Top 10%",
+    barLabelMiddle40: "40% medio",
+    barLabelBottom50: "50% inferior",
+
+    globalPictureTitle: "El panorama global",
+    globalTop1Owns: "El 1% global más rico posee",
+    globalTop1OwnsSublabel: "de toda la riqueza global",
+    globalBottom50Owns: "El 50% global más pobre posee",
+    globalBottom50OwnsSublabel: "de toda la riqueza global",
+    globalGiniLabel: "Gini de riqueza global",
+    globalGiniSublabel: "Entre los más altos de cualquier métrica medida",
+    sourceTemplate: "Fuente: {source}",
+
+    medianWealthUsdLabel: "patrimonio mediano (USD)",
+    regionTop1Template: "Top 1%: {value}%",
+    regionBottom50Template: "50% inf.: {value}%",
   },
   footer: {
     about: "Acerca de",

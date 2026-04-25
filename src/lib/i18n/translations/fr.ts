@@ -17,6 +17,30 @@ export const fr: Dictionary = {
     countryOgTitleTemplate: "À quel point suis-je pauvre en {country} ?",
     countryOgDescriptionTemplate:
       "Saisissez votre revenu et découvrez votre place réelle dans la distribution de la richesse en {country}. Données interactives sur les inégalités, basées sur WID.world.",
+
+    compareTitle:
+      "Combien de temps pour égaler un milliardaire ? — Salaire vs. méga-fortune",
+    compareDescription:
+      "Combien d'années, de vies ou d'époques entières faudrait-il pour gagner autant qu'un milliardaire ? Saisissez votre salaire et mettez les méga-fortunes en perspective.",
+    compareCountryTitleTemplate:
+      "Combien de temps pour égaler la personne la plus riche de {country} ? — Comparaison avec un milliardaire",
+    compareCountryDescriptionTemplate:
+      "Combien d'années vous faudrait-il pour gagner autant que la personne la plus riche de {country} ?{richestSuffix} Saisissez votre salaire et découvrez-le.",
+
+    compareCountriesTitle:
+      "Comparez votre richesse dans 30 pays — Calculateur multinational de richesse",
+    compareCountriesDescription:
+      "Comment votre richesse ou votre revenu se classerait-il dans un autre pays ? Saisissez un montant et voyez votre centile dans plus de 30 pays côte à côte.",
+
+    aboutTitle: "À propos — À quel point suis-je pauvre ?",
+    aboutDescription:
+      "À quel point suis-je pauvre ? est un outil gratuit et open source qui visualise les inégalités de richesse mondiales à partir des données de WID.world, l'OCDE et SWIID.",
+    faqTitle: "FAQ — À quel point suis-je pauvre ?",
+    faqDescription:
+      "Foire aux questions sur À quel point suis-je pauvre ? — les données, les calculs et le sens réel des centiles.",
+    methodologyTitle: "Méthodologie — À quel point suis-je pauvre ?",
+    methodologyDescription:
+      "Au cœur de la méthodologie d'À quel point suis-je pauvre ? : sources de données, estimation des centiles, ajustement par âge et conversion PPA.",
   },
   nav: {
     home: "À quel point suis-je pauvre ?",
@@ -115,6 +139,46 @@ export const fr: Dictionary = {
     regionalAggregatesNote:
       "Les agrégats régionaux sont des moyennes pondérées par la population des pays couverts.",
     thisCountryRegion: "Région de {country}",
+
+    thresholdsTitle: "Que faut-il pour rejoindre chaque groupe ?",
+    thresholdsLeadTemplate:
+      "Patrimoine net minimum estimé pour entrer dans chaque tranche de richesse en {country}.",
+    thresholdsNote:
+      "Les seuils sont des estimations basées sur des données WID.world interpolées par Pareto.",
+    thresholdTop50: "Top 50 %",
+    thresholdTop10: "Top 10 %",
+    thresholdTop1: "Top 1 %",
+    thresholdTop01: "Top 0,1 %",
+
+    impactLeadTemplate:
+      "Une personne au revenu médian en {country} devrait travailler pendant",
+    impactYears: "ans",
+    impactTrailing: "pour accumuler le patrimoine moyen du 1 % le plus riche",
+    impactNoteTemplate:
+      "Sur la base d'un revenu national médian avant impôt de {income}/an face à un patrimoine moyen du 1 % le plus riche de {wealth}",
+
+    doubleGapTitle: "Revenu vs patrimoine : le double écart",
+    incomeDistributionTitle: "Distribution du revenu",
+    wealthDistributionTitle: "Distribution du patrimoine",
+    giniIncomeLineTemplate: "Gini (revenu) : {value}",
+    giniWealthLineTemplate: "Gini (patrimoine) : {value}",
+    barLabelTop1: "Top 1 %",
+    barLabelTop10: "Top 10 %",
+    barLabelMiddle40: "40 % moyens",
+    barLabelBottom50: "50 % du bas",
+
+    globalPictureTitle: "Le tableau mondial",
+    globalTop1Owns: "Le 1 % mondial le plus riche détient",
+    globalTop1OwnsSublabel: "de la richesse mondiale totale",
+    globalBottom50Owns: "Les 50 % mondiaux du bas détiennent",
+    globalBottom50OwnsSublabel: "de la richesse mondiale totale",
+    globalGiniLabel: "Gini mondial de la richesse",
+    globalGiniSublabel: "Parmi les plus élevés de toutes les métriques mesurées",
+    sourceTemplate: "Source : {source}",
+
+    medianWealthUsdLabel: "patrimoine médian (USD)",
+    regionTop1Template: "Top 1 % : {value} %",
+    regionBottom50Template: "50 % bas : {value} %",
   },
   footer: {
     about: "À propos",

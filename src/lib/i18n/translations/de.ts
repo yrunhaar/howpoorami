@@ -17,6 +17,30 @@ export const de: Dictionary = {
     countryOgTitleTemplate: "Wie arm bin ich in {country}?",
     countryOgDescriptionTemplate:
       "Gib dein Einkommen ein und sieh, wo du wirklich in der Vermögensverteilung von {country} stehst. Interaktive Daten zur Ungleichheit, basierend auf WID.world.",
+
+    compareTitle:
+      "Wie lange, um einen Milliardär einzuholen? — Gehalt vs. Megavermögen",
+    compareDescription:
+      "Wie viele Jahre, Lebensspannen oder ganze Epochen bräuchtest du, um so viel zu verdienen wie ein Milliardär? Gib dein Gehalt ein und stell Megavermögen ins Verhältnis.",
+    compareCountryTitleTemplate:
+      "Wie lange, um die reichste Person in {country} einzuholen? — Milliardärsvergleich",
+    compareCountryDescriptionTemplate:
+      "Wie viele Jahre bräuchtest du, um so viel zu verdienen wie die reichste Person in {country}?{richestSuffix} Gib dein Gehalt ein und find es heraus.",
+
+    compareCountriesTitle:
+      "Vergleiche dein Vermögen in 30 Ländern — Länder-Vermögensrechner",
+    compareCountriesDescription:
+      "Wie würde dein Vermögen oder Einkommen in einem anderen Land abschneiden? Gib einen Betrag ein und sieh dein Perzentil in über 30 Ländern auf einen Blick.",
+
+    aboutTitle: "Über — Wie arm bin ich?",
+    aboutDescription:
+      "Wie arm bin ich? ist ein kostenloses Open-Source-Tool, das globale Vermögensungleichheit auf Basis von Daten aus WID.world, OECD und SWIID visualisiert.",
+    faqTitle: "FAQ — Wie arm bin ich?",
+    faqDescription:
+      "Häufige Fragen zu Wie arm bin ich? — Daten, Berechnungen und was die Perzentile wirklich bedeuten.",
+    methodologyTitle: "Methodik — Wie arm bin ich?",
+    methodologyDescription:
+      "Hinter den Kulissen von Wie arm bin ich?: Datenquellen, Perzentilschätzung, Altersanpassung und KKP-Umrechnung.",
   },
   nav: {
     home: "Wie arm bin ich?",
@@ -113,6 +137,46 @@ export const de: Dictionary = {
     regionalAggregatesNote:
       "Regionale Werte sind bevölkerungsgewichtete Durchschnitte der erfassten Länder.",
     thisCountryRegion: "Region von {country}",
+
+    thresholdsTitle: "Was braucht es, um in jede Gruppe zu kommen?",
+    thresholdsLeadTemplate:
+      "Geschätztes Mindestnettovermögen, um in {country} in jede Vermögensgruppe zu gelangen.",
+    thresholdsNote:
+      "Schwellenwerte sind Schätzungen auf Basis Pareto-interpolierter WID.world-Daten.",
+    thresholdTop50: "Top 50 %",
+    thresholdTop10: "Top 10 %",
+    thresholdTop1: "Top 1 %",
+    thresholdTop01: "Top 0,1 %",
+
+    impactLeadTemplate:
+      "Eine Person mit Median-Einkommen in {country} müsste arbeiten für",
+    impactYears: "Jahre",
+    impactTrailing: "um das Durchschnittsvermögen des obersten 1 % anzusparen",
+    impactNoteTemplate:
+      "Basierend auf einem nationalen Median-Brutto-Einkommen von {income}/Jahr vs. einem Durchschnittsvermögen des obersten 1 % von {wealth}",
+
+    doubleGapTitle: "Einkommen vs. Vermögen: Die doppelte Lücke",
+    incomeDistributionTitle: "Einkommensverteilung",
+    wealthDistributionTitle: "Vermögensverteilung",
+    giniIncomeLineTemplate: "Gini (Einkommen): {value}",
+    giniWealthLineTemplate: "Gini (Vermögen): {value}",
+    barLabelTop1: "Top 1 %",
+    barLabelTop10: "Top 10 %",
+    barLabelMiddle40: "Mittlere 40 %",
+    barLabelBottom50: "Untere 50 %",
+
+    globalPictureTitle: "Das globale Bild",
+    globalTop1Owns: "Globales oberstes 1 % besitzt",
+    globalTop1OwnsSublabel: "des globalen Gesamtvermögens",
+    globalBottom50Owns: "Globale untere 50 % besitzen",
+    globalBottom50OwnsSublabel: "des globalen Gesamtvermögens",
+    globalGiniLabel: "Globaler Vermögens-Gini",
+    globalGiniSublabel: "Einer der höchsten je gemessenen Werte",
+    sourceTemplate: "Quelle: {source}",
+
+    medianWealthUsdLabel: "Median-Vermögen (USD)",
+    regionTop1Template: "Top 1 %: {value} %",
+    regionBottom50Template: "Untere 50 %: {value} %",
   },
   footer: {
     about: "Über",

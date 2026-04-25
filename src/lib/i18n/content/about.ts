@@ -1,0 +1,579 @@
+/**
+ * About-page content keyed by locale.
+ *
+ * Each locale provides the same structure so the rendering component can be
+ * shared. To translate to a new locale: copy the English block, change the
+ * key to your locale code, translate every string in place.
+ */
+
+import type { LocaleCode } from "../locales";
+
+export interface AboutContent {
+  readonly h1: string;
+  readonly intro: string;
+  readonly howItWorks: {
+    readonly heading: string;
+    readonly intro: string;
+    readonly modes: ReadonlyArray<{
+      readonly title: string;
+      readonly description: string;
+    }>;
+  };
+  readonly dataSources: {
+    readonly heading: string;
+    readonly intro: string;
+    /** Each item: prefix label + description that follows in the same line. */
+    readonly items: ReadonlyArray<{
+      readonly label: string;
+      readonly url: string;
+      readonly description: string;
+    }>;
+  };
+  readonly openSource: {
+    readonly heading: string;
+    /** Body uses {license} and {github} placeholders for emphasis. */
+    readonly body: string;
+    readonly licenseLabel: string;
+    readonly githubLabel: string;
+  };
+  readonly privacy: {
+    readonly heading: string;
+    readonly body: string;
+  };
+  readonly relatedNav: {
+    readonly backToCalculator: string;
+    readonly methodology: string;
+  };
+}
+
+const en: AboutContent = {
+  h1: "About How Poor Am I?",
+  intro:
+    "How Poor Am I? is a free tool that makes wealth inequality tangible. Instead of abstract Gini coefficients and quintile tables, it shows you exactly where you stand in your country's wealth distribution — and how long it would take you to match the fortune of a billionaire. The goal is simple: turn dry economic data into something you can feel.",
+  howItWorks: {
+    heading: "How It Works",
+    intro: "The tool has two modes:",
+    modes: [
+      {
+        title: "Wealth Percentile",
+        description:
+          "Enter your net wealth (or income with optional refinement factors) and see which percentile you fall into within your country's wealth distribution.",
+      },
+      {
+        title: "Billionaire Comparison",
+        description:
+          "See how many years, lifetimes, or entire historical eras it would take to earn as much as the wealthiest person in your country.",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "Data Sources",
+    intro:
+      "All calculations are grounded in peer-reviewed or institutionally maintained datasets:",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description:
+          "Wealth shares by percentile group (Distributional National Accounts)",
+      },
+      {
+        label: "OECD",
+        url: "https://data.oecd.org",
+        description: "Economic indicators and household statistics",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description:
+          "Standardized World Income Inequality Database (Gini coefficients)",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "Real-Time Billionaires list",
+      },
+    ],
+  },
+  openSource: {
+    heading: "Open Source",
+    body: "The entire codebase is open source under the {license}. You can inspect the data processing, suggest improvements, or run your own instance. Find the repository on {github}.",
+    licenseLabel: "MIT License",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "Privacy",
+    body: "All computation happens entirely in your browser. Your income, wealth, and personal details are never sent to any server. There is no tracking, no analytics, and no cookies.",
+  },
+  relatedNav: {
+    backToCalculator: "Back to calculator",
+    methodology: "Methodology",
+  },
+};
+
+const es: AboutContent = {
+  h1: "Acerca de ¿Qué tan pobre soy?",
+  intro:
+    "¿Qué tan pobre soy? es una herramienta gratuita que hace tangible la desigualdad de la riqueza. En lugar de coeficientes de Gini abstractos y tablas por quintiles, te muestra exactamente dónde estás en la distribución de la riqueza de tu país — y cuánto tardarías en igualar la fortuna de un millonario. El objetivo es simple: convertir datos económicos áridos en algo que se pueda sentir.",
+  howItWorks: {
+    heading: "Cómo funciona",
+    intro: "La herramienta tiene dos modos:",
+    modes: [
+      {
+        title: "Percentil de riqueza",
+        description:
+          "Introduce tu patrimonio neto (o tus ingresos con factores opcionales de refinamiento) y mira en qué percentil te sitúas dentro de la distribución de la riqueza de tu país.",
+      },
+      {
+        title: "Comparación con millonarios",
+        description:
+          "Mira cuántos años, vidas o eras enteras tardarías en ganar tanto como la persona más rica de tu país.",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "Fuentes de datos",
+    intro:
+      "Todos los cálculos se basan en bases de datos revisadas por pares o mantenidas por instituciones:",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description:
+          "Cuotas de riqueza por grupo percentil (Cuentas Nacionales Distribucionales)",
+      },
+      {
+        label: "OCDE",
+        url: "https://data.oecd.org",
+        description: "Indicadores económicos y estadísticas de hogares",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description:
+          "Base estandarizada mundial de desigualdad de ingresos (coeficientes de Gini)",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "Listado de millonarios en tiempo real",
+      },
+    ],
+  },
+  openSource: {
+    heading: "Código abierto",
+    body: "Todo el código es libre bajo la {license}. Puedes inspeccionar el procesamiento de datos, sugerir mejoras o desplegar tu propia instancia. Encuentra el repositorio en {github}.",
+    licenseLabel: "Licencia MIT",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "Privacidad",
+    body: "Todos los cálculos ocurren íntegramente en tu navegador. Tus ingresos, tu riqueza y tus datos personales nunca se envían a ningún servidor. No hay seguimiento, ni analítica, ni cookies.",
+  },
+  relatedNav: {
+    backToCalculator: "Volver a la calculadora",
+    methodology: "Metodología",
+  },
+};
+
+const de: AboutContent = {
+  h1: "Über Wie arm bin ich?",
+  intro:
+    "Wie arm bin ich? ist ein kostenloses Tool, das Vermögensungleichheit greifbar macht. Statt abstrakter Gini-Koeffizienten und Quintilstabellen zeigt es dir genau, wo du in der Vermögensverteilung deines Landes stehst — und wie lange du brauchen würdest, um das Vermögen eines Milliardärs zu erreichen. Das Ziel: trockene Wirtschaftsdaten erfahrbar machen.",
+  howItWorks: {
+    heading: "So funktioniert es",
+    intro: "Das Tool hat zwei Modi:",
+    modes: [
+      {
+        title: "Vermögens-Perzentil",
+        description:
+          "Gib dein Nettovermögen ein (oder dein Einkommen mit optionalen Verfeinerungsfaktoren) und sieh, in welchem Perzentil du innerhalb der Vermögensverteilung deines Landes liegst.",
+      },
+      {
+        title: "Milliardärsvergleich",
+        description:
+          "Sieh, wie viele Jahre, Lebensspannen oder ganze Epochen du brauchst, um so viel zu verdienen wie die reichste Person deines Landes.",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "Datenquellen",
+    intro:
+      "Alle Berechnungen basieren auf peer-reviewten oder institutionell gepflegten Datensätzen:",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description:
+          "Vermögensanteile nach Perzentilgruppen (Distributional National Accounts)",
+      },
+      {
+        label: "OECD",
+        url: "https://data.oecd.org",
+        description: "Wirtschaftsindikatoren und Haushaltsstatistiken",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description:
+          "Standardisierte Weltdatenbank zur Einkommensungleichheit (Gini-Koeffizienten)",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "Echtzeit-Liste der Milliardäre",
+      },
+    ],
+  },
+  openSource: {
+    heading: "Open Source",
+    body: "Der gesamte Code ist quelloffen unter der {license}. Du kannst die Datenverarbeitung einsehen, Verbesserungen vorschlagen oder eine eigene Instanz betreiben. Das Repository ist auf {github}.",
+    licenseLabel: "MIT-Lizenz",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "Datenschutz",
+    body: "Alle Berechnungen laufen vollständig im Browser. Dein Einkommen, dein Vermögen und persönliche Angaben werden niemals an einen Server gesendet. Kein Tracking, keine Analytics, keine Cookies.",
+  },
+  relatedNav: {
+    backToCalculator: "Zurück zum Rechner",
+    methodology: "Methodik",
+  },
+};
+
+const fr: AboutContent = {
+  h1: "À propos d'À quel point suis-je pauvre ?",
+  intro:
+    "À quel point suis-je pauvre ? est un outil gratuit qui rend l'inégalité de richesse tangible. Au lieu de coefficients de Gini abstraits et de tableaux par quintiles, il vous montre précisément où vous vous situez dans la distribution de la richesse de votre pays — et combien de temps il vous faudrait pour égaler la fortune d'un milliardaire. Le but est simple : transformer des données économiques arides en quelque chose que vous pouvez ressentir.",
+  howItWorks: {
+    heading: "Comment ça marche",
+    intro: "L'outil propose deux modes :",
+    modes: [
+      {
+        title: "Centile de richesse",
+        description:
+          "Saisissez votre patrimoine net (ou votre revenu avec des facteurs d'affinage optionnels) et voyez dans quel centile vous vous situez dans la distribution de la richesse de votre pays.",
+      },
+      {
+        title: "Comparaison avec un milliardaire",
+        description:
+          "Voyez combien d'années, de vies ou d'époques entières il vous faudrait pour gagner autant que la personne la plus riche de votre pays.",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "Sources de données",
+    intro:
+      "Tous les calculs reposent sur des bases de données évaluées par les pairs ou maintenues par des institutions :",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description:
+          "Parts de richesse par groupe de centile (Comptes Nationaux Distributionnels)",
+      },
+      {
+        label: "OCDE",
+        url: "https://data.oecd.org",
+        description: "Indicateurs économiques et statistiques des ménages",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description:
+          "Base mondiale standardisée d'inégalité des revenus (coefficients de Gini)",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "Liste des milliardaires en temps réel",
+      },
+    ],
+  },
+  openSource: {
+    heading: "Open source",
+    body: "Tout le code est open source sous {license}. Vous pouvez inspecter le traitement des données, suggérer des améliorations ou déployer votre propre instance. Le dépôt est sur {github}.",
+    licenseLabel: "Licence MIT",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "Vie privée",
+    body: "Tous les calculs ont lieu intégralement dans votre navigateur. Votre revenu, votre patrimoine et vos données personnelles ne sont jamais envoyés à aucun serveur. Pas de pistage, pas d'analytique, pas de cookies.",
+  },
+  relatedNav: {
+    backToCalculator: "Retour à la calculatrice",
+    methodology: "Méthodologie",
+  },
+};
+
+const zhCn: AboutContent = {
+  h1: "关于「我到底有多穷？」",
+  intro:
+    "「我到底有多穷？」是一个免费工具，让财富不平等变得可感。它不停留在抽象的基尼系数和五分位表格，而是直接告诉你在自己国家的财富分布中处于何处——以及需要多久才能追上亿万富豪的财富。目标很简单：把枯燥的经济数据变成你能切身感受到的东西。",
+  howItWorks: {
+    heading: "工作原理",
+    intro: "工具有两种模式：",
+    modes: [
+      {
+        title: "财富百分位",
+        description:
+          "输入你的净资产（或带可选修正因子的收入），看你处于本国财富分布的哪个百分位。",
+      },
+      {
+        title: "亿万富豪对比",
+        description:
+          "看看你需要几年、几生几世，乃至几个时代才能挣到本国首富那么多钱。",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "数据来源",
+    intro: "所有计算均基于经过同行评议或由机构维护的数据集：",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description: "按百分位分组的财富份额（分布式国民账户）",
+      },
+      {
+        label: "OECD",
+        url: "https://data.oecd.org",
+        description: "经济指标与家庭统计",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description: "标准化世界收入不平等数据库（基尼系数）",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "实时亿万富豪榜",
+      },
+    ],
+  },
+  openSource: {
+    heading: "开源",
+    body: "全部代码以 {license} 开源。你可以审查数据处理流程、提出改进建议或自行部署。仓库地址：{github}。",
+    licenseLabel: "MIT 许可",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "隐私",
+    body: "所有运算均在你的浏览器内完成。你的收入、财富与个人信息绝不会上传到任何服务器。没有追踪、没有分析脚本、没有 Cookie。",
+  },
+  relatedNav: {
+    backToCalculator: "返回计算器",
+    methodology: "方法说明",
+  },
+};
+
+const ja: AboutContent = {
+  h1: "「私はどれだけ貧しい？」について",
+  intro:
+    "「私はどれだけ貧しい？」は、資産格差を実感できる形に変える無料のツールです。抽象的なジニ係数や五分位表ではなく、自国の資産分布のなかであなたがどこに立っているのか、そして億万長者の資産に追いつくのに何年かかるのかを直接示します。目的はひとつ — 無味乾燥な経済データを「肌で感じられるもの」にすることです。",
+  howItWorks: {
+    heading: "使い方",
+    intro: "ツールには 2 つのモードがあります：",
+    modes: [
+      {
+        title: "資産パーセンタイル",
+        description:
+          "純資産（または任意の補正要因を加えた所得）を入力すると、自国の資産分布のなかで何パーセンタイルにいるかを表示します。",
+      },
+      {
+        title: "億万長者比較",
+        description:
+          "自国でいちばん裕福な人物と同じ額を稼ぐのに、何年・何世代・何時代かかるのかが分かります。",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "データソース",
+    intro:
+      "すべての計算は査読済みもしくは公的機関が維持するデータセットに基づきます：",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description:
+          "パーセンタイル群別の資産シェア（分配的国民勘定）",
+      },
+      {
+        label: "OECD",
+        url: "https://data.oecd.org",
+        description: "経済指標と家計統計",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description:
+          "世界所得格差標準化データベース（ジニ係数）",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "リアルタイム億万長者リスト",
+      },
+    ],
+  },
+  openSource: {
+    heading: "オープンソース",
+    body: "コード全体は {license} のもとオープンソースで公開されています。データ処理を検証したり、改善を提案したり、自分の環境で実行したりできます。リポジトリは {github} にあります。",
+    licenseLabel: "MIT ライセンス",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "プライバシー",
+    body: "すべての計算はブラウザ内で完結します。所得・資産・個人情報がサーバーに送られることはありません。トラッキングも、解析も、Cookie もありません。",
+  },
+  relatedNav: {
+    backToCalculator: "計算ツールに戻る",
+    methodology: "手法",
+  },
+};
+
+const pt: AboutContent = {
+  h1: "Sobre Quão pobre eu sou?",
+  intro:
+    "Quão pobre eu sou? é uma ferramenta gratuita que torna a desigualdade de riqueza palpável. Em vez de coeficientes de Gini abstratos e tabelas por quintis, ela mostra exatamente onde você está na distribuição da riqueza do seu país — e quanto tempo levaria para igualar a fortuna de um bilionário. O objetivo é simples: transformar dados econômicos áridos em algo que você possa sentir.",
+  howItWorks: {
+    heading: "Como funciona",
+    intro: "A ferramenta tem dois modos:",
+    modes: [
+      {
+        title: "Percentil de riqueza",
+        description:
+          "Insira seu patrimônio líquido (ou sua renda com fatores opcionais de refinamento) e veja em qual percentil você está dentro da distribuição da riqueza do seu país.",
+      },
+      {
+        title: "Comparação com bilionário",
+        description:
+          "Veja quantos anos, vidas ou eras inteiras levaria para ganhar tanto quanto a pessoa mais rica do seu país.",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "Fontes de dados",
+    intro:
+      "Todos os cálculos baseiam-se em conjuntos de dados revisados por pares ou mantidos por instituições:",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description:
+          "Participações de riqueza por grupo de percentil (Contas Nacionais Distribucionais)",
+      },
+      {
+        label: "OCDE",
+        url: "https://data.oecd.org",
+        description: "Indicadores econômicos e estatísticas dos lares",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description:
+          "Banco mundial padronizado de desigualdade de renda (coeficientes de Gini)",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "Lista de bilionários em tempo real",
+      },
+    ],
+  },
+  openSource: {
+    heading: "Código aberto",
+    body: "Todo o código é open source sob a {license}. Você pode inspecionar o processamento de dados, sugerir melhorias ou rodar sua própria instância. O repositório está no {github}.",
+    licenseLabel: "Licença MIT",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "Privacidade",
+    body: "Todos os cálculos acontecem inteiramente no seu navegador. Sua renda, patrimônio e dados pessoais nunca são enviados a nenhum servidor. Sem rastreamento, sem analytics, sem cookies.",
+  },
+  relatedNav: {
+    backToCalculator: "Voltar à calculadora",
+    methodology: "Metodologia",
+  },
+};
+
+const it: AboutContent = {
+  h1: "Su Quanto sono povero?",
+  intro:
+    "Quanto sono povero? è uno strumento gratuito che rende la disuguaglianza di ricchezza tangibile. Invece di coefficienti di Gini astratti e tabelle per quintili, ti mostra esattamente dove ti collochi nella distribuzione della ricchezza del tuo paese — e quanto tempo ti servirebbe per eguagliare la fortuna di un miliardario. L'obiettivo è semplice: trasformare dati economici aridi in qualcosa che puoi percepire.",
+  howItWorks: {
+    heading: "Come funziona",
+    intro: "Lo strumento ha due modalità:",
+    modes: [
+      {
+        title: "Percentile di ricchezza",
+        description:
+          "Inserisci il tuo patrimonio netto (o il tuo reddito con fattori opzionali di affinamento) e vedi in quale percentile ti collochi nella distribuzione della ricchezza del tuo paese.",
+      },
+      {
+        title: "Confronto con un miliardario",
+        description:
+          "Scopri quanti anni, vite o intere epoche serviresti a guadagnare quanto la persona più ricca del tuo paese.",
+      },
+    ],
+  },
+  dataSources: {
+    heading: "Fonti dati",
+    intro:
+      "Tutti i calcoli si basano su dataset peer-reviewed o mantenuti da istituzioni:",
+    items: [
+      {
+        label: "WID.world",
+        url: "https://wid.world",
+        description:
+          "Quote di ricchezza per gruppo di percentile (Distributional National Accounts)",
+      },
+      {
+        label: "OCSE",
+        url: "https://data.oecd.org",
+        description: "Indicatori economici e statistiche delle famiglie",
+      },
+      {
+        label: "SWIID",
+        url: "https://fsolt.org/swiid/",
+        description:
+          "Base dati mondiale standardizzata della disuguaglianza di reddito (coefficienti di Gini)",
+      },
+      {
+        label: "Forbes",
+        url: "https://www.forbes.com/real-time-billionaires/",
+        description: "Elenco in tempo reale dei miliardari",
+      },
+    ],
+  },
+  openSource: {
+    heading: "Open source",
+    body: "L'intero codice è open source con licenza {license}. Puoi ispezionare il trattamento dei dati, proporre miglioramenti o avviare un'istanza personale. Il repository è su {github}.",
+    licenseLabel: "Licenza MIT",
+    githubLabel: "GitHub",
+  },
+  privacy: {
+    heading: "Privacy",
+    body: "Tutti i calcoli avvengono interamente nel tuo browser. Reddito, patrimonio e dati personali non vengono mai inviati ad alcun server. Niente tracciamento, niente analytics, niente cookie.",
+  },
+  relatedNav: {
+    backToCalculator: "Torna al calcolatore",
+    methodology: "Metodologia",
+  },
+};
+
+const ABOUT: Readonly<Record<LocaleCode, AboutContent>> = {
+  en,
+  es,
+  de,
+  fr,
+  "zh-cn": zhCn,
+  ja,
+  pt,
+  it,
+};
+
+export function getAboutContent(locale: LocaleCode): AboutContent {
+  return ABOUT[locale] ?? ABOUT.en;
+}

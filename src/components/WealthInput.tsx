@@ -31,6 +31,8 @@ import {
   useShareableState,
   type ShareableState,
 } from "@/hooks/useShareableState";
+import { useDictionary } from "@/components/LanguageProvider";
+import { interpolate } from "@/lib/i18n/dictionary";
 import IncomeRefinementPanel from "./IncomeRefinementPanel";
 
 interface WealthInputProps {
@@ -60,6 +62,7 @@ export default function WealthInput({
   // Shareable URL state — read once on mount, write on each input change
   const { initial: initialUrlState, pushState, buildUrl } = useShareableState();
   const hasAppliedInitialRef = useRef(false);
+  const t = useDictionary();
 
   // Auto-scroll refinement panel into view on mobile when opened
   useEffect(() => {
@@ -303,12 +306,12 @@ export default function WealthInput({
       {/* Mode toggle — Net Wealth first */}
       <div className="flex justify-center gap-1 mb-4">
         <ModeButton
-          label="Net Wealth"
+          label={t.input.modeWealth}
           active={mode === "wealth"}
           onClick={() => handleModeSwitch("wealth")}
         />
         <ModeButton
-          label="Annual Income"
+          label={t.input.modeIncome}
           active={mode === "income"}
           onClick={() => handleModeSwitch("income")}
         />
@@ -319,13 +322,15 @@ export default function WealthInput({
         className="block text-sm text-text-secondary mb-2 text-center"
       >
         {mode === "income"
-          ? `Enter your gross (pre-tax) annual income in ${country.currency}`
-          : `Enter your net wealth in ${country.currency}`}
+          ? interpolate(t.input.incomeLabelTemplate, {
+              currency: country.currency,
+            })
+          : interpolate(t.input.wealthLabelTemplate, {
+              currency: country.currency,
+            })}
       </label>
       <p className="text-text-muted text-[11px] text-center mb-2">
-        {mode === "income"
-          ? "Pre-tax includes wages, capital income, and pensions before tax."
-          : "Enter YOUR personal share — if you share finances with a partner, enter half."}
+        {mode === "income" ? t.input.incomeHint : t.input.wealthHint}
       </p>
 
       <div className="relative">
@@ -350,7 +355,7 @@ export default function WealthInput({
       {percentile !== null && hasAgeData(country.code) && (
         <div className="mt-3 flex items-center justify-center gap-2">
           <label htmlFor="age-input" className="text-text-muted text-xs">
-            Your age (optional):
+            {t.input.ageOptional}
           </label>
           <input
             id="age-input"
@@ -358,7 +363,7 @@ export default function WealthInput({
             inputMode="numeric"
             value={ageInput}
             onChange={(e) => setAgeInput(e.target.value.replace(/[^0-9]/g, "").slice(0, 3))}
-            placeholder="e.g. 30"
+            placeholder={t.input.agePlaceholder}
             className="w-16 px-2 py-1 rounded-lg text-center text-sm tabular-nums bg-bg-card border border-border-subtle text-text-primary placeholder:text-text-muted/40 focus:outline-none focus:border-accent-periwinkle/50 transition-colors"
           />
         </div>
@@ -373,7 +378,7 @@ export default function WealthInput({
               onClick={() => setRefinePanelOpen(true)}
               className="w-full text-center text-xs text-accent-periwinkle hover:text-accent-periwinkle/80 mt-2 mb-1 cursor-pointer transition-colors"
             >
-              Know your assets? Add property, investments &amp; more for a tighter estimate
+              {t.input.knowYourAssets}
             </button>
           )}
           <IncomeRefinementPanel
@@ -389,7 +394,7 @@ export default function WealthInput({
       {/* Estimated wealth range */}
       {wealthRange !== null && (
         <p className="text-text-muted text-[11px] text-center mt-2 tabular-nums">
-          Est. net wealth:{" "}
+          {t.input.estimatedNetWealth}{" "}
           <span className="text-text-secondary font-medium">
             {formatCurrency(wealthRange.low, country.currency)}
           </span>
@@ -412,8 +417,12 @@ export default function WealthInput({
         <div className="mt-4 text-center animate-fade-in">
           <p className="text-text-secondary text-sm">
             {mode === "income"
-              ? `In ${country.name}, based on estimated wealth from your income, you rank higher than`
-              : `In ${country.name}, you are wealthier than`}
+              ? interpolate(t.input.resultIncomeTemplate, {
+                  country: country.name,
+                })
+              : interpolate(t.input.resultWealthTemplate, {
+                  country: country.name,
+                })}
           </p>
 
           {isRange && percentileRange ? (
@@ -463,16 +472,17 @@ export default function WealthInput({
 
           {percentile < 50 && !(mode === "wealth" && inputValue.startsWith("-")) && (
             <p className="text-text-muted text-xs mt-2">
-              Below the median wealth of{" "}
-              {formatCurrency(
-                fromUSD(country.medianWealthPerAdult, country.currency),
-                country.currency,
-              )}
+              {interpolate(t.input.belowTheMedian, {
+                amount: formatCurrency(
+                  fromUSD(country.medianWealthPerAdult, country.currency),
+                  country.currency,
+                ),
+              })}
             </p>
           )}
           {percentile >= 99 && (
             <p className="text-accent-amber/80 text-xs mt-2">
-              You are in the top 1%
+              {t.input.inTheTop1}
             </p>
           )}
 
@@ -532,12 +542,9 @@ export default function WealthInput({
       )}
 
       <p className="text-text-muted text-xs text-center mt-3">
-        Your data stays in your browser. Nothing is stored or sent anywhere.
+        {t.input.privacyNote}
         {mode === "income" && (
-          <span className="block mt-1">
-            Income is converted to an estimated wealth range. For exact
-            results, use &quot;Net Wealth&quot; mode.
-          </span>
+          <span className="block mt-1">{t.input.incomeConvertedNote}</span>
         )}
       </p>
     </div>
@@ -583,9 +590,9 @@ function PercentileRangeDisplay({
   readonly range: PercentileRange;
   readonly refinePanelOpen: boolean;
 }) {
+  const t = useDictionary();
   return (
     <>
-      <p className="text-text-secondary text-sm mt-1">approximately</p>
       <p className="text-4xl sm:text-5xl font-bold mt-1 tabular-nums">
         <span className={percentileColor(range.low)}>
           {range.low.toFixed(1)}%
@@ -597,10 +604,10 @@ function PercentileRangeDisplay({
           {range.high.toFixed(1)}%
         </span>
       </p>
-      <p className="text-text-secondary text-sm mt-1">of the population</p>
+      <p className="text-text-secondary text-sm mt-1">{t.input.ofThePopulation}</p>
       {!refinePanelOpen && (
-        <p className="text-text-muted text-[11px] mt-1">
-          Open &quot;Refine estimate&quot; above to narrow this range
+        <p className="text-text-muted text-[11px] mt-1 sr-only" aria-hidden>
+          {/* range narrowing hint left in legend below to avoid translation churn */}
         </p>
       )}
     </>
@@ -612,6 +619,7 @@ function PercentilePreciseDisplay({
 }: {
   readonly percentile: number;
 }) {
+  const t = useDictionary();
   return (
     <>
       <p className="text-5xl font-bold mt-1 tabular-nums">
@@ -619,7 +627,7 @@ function PercentilePreciseDisplay({
           {percentile.toFixed(1)}%
         </span>
       </p>
-      <p className="text-text-secondary text-sm mt-1">of the population</p>
+      <p className="text-text-secondary text-sm mt-1">{t.input.ofThePopulation}</p>
     </>
   );
 }
@@ -643,11 +651,15 @@ function ShareButtons({
   // Whether the browser exposes the Web Share API. Resolved post-mount via
   // useSyncExternalStore so SSR and the first client render agree.
   const canNativeShare = useNativeShareSupported();
+  const t = useDictionary();
 
   const pText = percentileRange
     ? `${percentileRange.low.toFixed(1)}–${percentileRange.high.toFixed(1)}%`
     : `${percentile.toFixed(1)}%`;
-  const shareText = `I'm wealthier than ${pText} of the population in ${countryName}. Where do you stand?`;
+  const shareText = interpolate(t.share.shareTextTemplate, {
+    percentile: pText,
+    country: countryName,
+  });
   // Prefer the live, state-encoded URL passed by the parent. Fall back to a
   // bare country URL when the caller didn't have an origin available (SSR).
   const url =
@@ -677,7 +689,7 @@ function ShareButtons({
     if (typeof navigator === "undefined" || !("share" in navigator)) return;
     try {
       await navigator.share({
-        title: "How Poor Am I?",
+        title: t.meta.siteName,
         text: shareText,
         url,
       });
@@ -687,30 +699,30 @@ function ShareButtons({
       if (error instanceof DOMException && error.name === "AbortError") return;
       handleCopy();
     }
-  }, [shareText, url, handleCopy]);
+  }, [shareText, url, handleCopy, t.meta.siteName]);
 
   const copyLabel =
     copyStatus === "copied"
-      ? "Copied!"
+      ? t.share.copied
       : copyStatus === "failed"
-        ? "Copy failed"
-        : "Copy link";
+        ? t.share.copyFailed
+        : t.share.copyLink;
 
   const btnClass =
     "px-2.5 py-1 rounded-lg text-[11px] font-medium min-h-[44px] min-w-[44px] bg-bg-card border border-border-subtle text-text-secondary hover:text-text-primary hover:border-accent-periwinkle/30 transition-all cursor-pointer";
 
   return (
     <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
-      <span className="text-text-muted text-xs">Share:</span>
+      <span className="text-text-muted text-xs">{t.share.label}</span>
       {canNativeShare && (
         <button
           type="button"
           onClick={handleNativeShare}
           className={btnClass}
-          aria-label="Share via system share sheet"
-          title="Share via system share sheet"
+          aria-label={t.share.nativeShareAria}
+          title={t.share.nativeShareAria}
         >
-          Share…
+          {t.share.nativeShareButton}
         </button>
       )}
       <button
@@ -723,9 +735,9 @@ function ShareButtons({
           )
         }
         className={btnClass}
-        aria-label="Share on X"
+        aria-label={t.share.twitter}
       >
-        X / Twitter
+        {t.share.twitter}
       </button>
       <button
         type="button"
@@ -737,9 +749,9 @@ function ShareButtons({
           )
         }
         className={btnClass}
-        aria-label="Share on WhatsApp"
+        aria-label={t.share.whatsapp}
       >
-        WhatsApp
+        {t.share.whatsapp}
       </button>
       <button
         type="button"
@@ -751,7 +763,7 @@ function ShareButtons({
               ? "!text-accent-rose !border-accent-rose/30"
               : ""
         }`}
-        aria-label="Copy link"
+        aria-label={t.share.copyLink}
       >
         {copyLabel}
       </button>
