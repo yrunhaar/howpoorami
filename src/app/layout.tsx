@@ -4,6 +4,9 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LanguageProvider } from "@/components/LanguageProvider";
+import { buildHreflangAlternates } from "@/lib/i18n/urls";
+import { SITE_URL } from "@/lib/seo";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-heading",
@@ -48,7 +51,8 @@ export const metadata: Metadata = {
     "median income comparison",
   ],
   alternates: {
-    canonical: "https://howpoorami.org",
+    canonical: SITE_URL,
+    languages: buildHreflangAlternates(SITE_URL, "/"),
   },
   openGraph: {
     type: "website",
@@ -145,9 +149,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
-          <Navigation />
-          {children}
-          <Footer />
+          <LanguageProvider>
+            <Navigation />
+            {children}
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllCountrySeo, resolveCountryCode, SITE_URL } from "@/lib/seo";
+import { buildHreflangAlternates } from "@/lib/i18n/urls";
 import HomeClient from "@/components/HomeClient";
 
 interface CountryPageProps {
@@ -24,7 +25,10 @@ export async function generateMetadata({
   return {
     title: `How Poor Am I in ${name}? — Wealth Distribution & Inequality`,
     description: `See where you stand in ${name}'s wealth distribution. Compare your income and net worth to the top 1%, top 10%, and bottom 50%. Interactive charts with data from WID.world and OECD.`,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: buildHreflangAlternates(SITE_URL, `/${slug}`),
+    },
     openGraph: {
       type: "website",
       title: `How Poor Am I in ${name}?`,

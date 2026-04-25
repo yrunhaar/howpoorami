@@ -3,16 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/ThemeProvider";
-
-const NAV_ITEMS = [
-  { href: "/", label: "How Poor Am I?" },
-  { href: "/compare", label: "How Long?" },
-  { href: "/compare-countries", label: "Compare" },
-] as const;
+import { useLanguage } from "@/components/LanguageProvider";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { localePath, stripLocale } from "@/lib/i18n/urls";
 
 export default function Navigation() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const { locale, t } = useLanguage();
+
+  // Build locale-aware nav item URLs from the same default-locale paths.
+  const navItems = [
+    { defaultPath: "/", label: t.nav.home },
+    { defaultPath: "/compare", label: t.nav.howLong },
+    { defaultPath: "/compare-countries", label: t.nav.compareCountries },
+  ];
 
   return (
     <nav
@@ -22,24 +27,26 @@ export default function Navigation() {
     >
       <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 h-12 sm:h-14 flex items-center justify-between gap-2">
         <Link
-          href="/"
+          href={localePath(locale, "/")}
           className="font-[family-name:var(--font-heading)] text-sm sm:text-lg font-bold text-text-primary hover:text-accent-periwinkle transition-colors whitespace-nowrap shrink-0"
         >
-          How Poor Am I?
+          {t.nav.home}
         </Link>
 
         <div className="flex items-center gap-0.5 sm:gap-1">
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
+            const href = localePath(locale, item.defaultPath);
             const NON_COUNTRY_PATHS = ["/about", "/faq", "/methodology", "/compare"];
+            const stripped = stripLocale(pathname || "/").path;
             const isActive =
-              item.href === "/"
-                ? pathname === "/" ||
-                  !NON_COUNTRY_PATHS.some((p) => pathname.startsWith(p))
-                : pathname.startsWith(item.href);
+              item.defaultPath === "/"
+                ? stripped === "/" ||
+                  !NON_COUNTRY_PATHS.some((p) => stripped.startsWith(p))
+                : stripped.startsWith(item.defaultPath);
             return (
               <Link
-                key={item.href}
-                href={item.href}
+                key={item.defaultPath}
+                href={href}
                 aria-current={isActive ? "page" : undefined}
                 className={`
                   px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap
@@ -55,10 +62,12 @@ export default function Navigation() {
             );
           })}
 
+          <LanguageSwitcher />
+
           <button
             onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            aria-label={t.nav.themeToggleAria}
+            title={t.nav.themeToggleAria}
             className="ml-1 sm:ml-2 p-1.5 sm:p-2 rounded-full text-text-secondary hover:text-text-primary hover:bg-bg-card transition-all duration-200"
           >
             {theme === "dark" ? (

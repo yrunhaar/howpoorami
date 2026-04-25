@@ -15,6 +15,9 @@ import SourcesSection from "@/components/SourcesSection";
 import ResponsiveChart from "@/components/ResponsiveChart";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useGeoCountry } from "@/hooks/useGeoCountry";
+import { useDictionary, useLanguage } from "@/components/LanguageProvider";
+import { interpolate } from "@/lib/i18n/dictionary";
+import { localizedCountryName } from "@/lib/i18n/country-names";
 
 import WealthDistributionChart from "@/components/WealthDistributionChart";
 import WealthShareBars from "@/components/WealthShareBars";
@@ -26,6 +29,10 @@ import StatisticsSection from "@/components/StatisticsSection";
 
 interface HomeClientProps {
   readonly initialCountry?: AllCountryCode;
+  /** Forwarded by `/lang/[locale]/...` routes; unused at runtime since the
+   *  active locale is derived from the URL inside `LanguageProvider`. The
+   *  prop exists so server pages can pass it through without TS errors. */
+  readonly initialLocale?: string;
 }
 
 export default function HomeClient({ initialCountry }: HomeClientProps) {
@@ -33,6 +40,8 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
   const [userPercentile, setUserPercentile] = useState<number | null>(null);
   const [globalCurrency, setGlobalCurrency] = useState("USD");
   const geoCountry = useGeoCountry();
+  const t = useDictionary();
+  const { locale } = useLanguage();
 
   // Auto-select country on first load based on geolocation (only if no initial country from URL)
   useEffect(() => {
@@ -43,10 +52,17 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
 
   const isGlobal = selectedCountry === "GLOBAL";
   const rawCountry = ALL_COUNTRY_MAP[selectedCountry];
-  // When Global is selected, override the currency with the user's choice
+  // When Global is selected, override the currency with the user's choice.
+  // We also localize the country name so headings in /lang/* routes show
+  // the country in the active language (e.g. "美国" instead of "United States").
+  const localizedName = localizedCountryName(
+    selectedCountry,
+    locale,
+    rawCountry.name,
+  );
   const country = isGlobal
-    ? { ...rawCountry, currency: globalCurrency }
-    : rawCountry;
+    ? { ...rawCountry, currency: globalCurrency, name: localizedName }
+    : { ...rawCountry, name: localizedName };
 
   const handlePercentileChange = useCallback((p: number | null) => {
     setUserPercentile(p);
@@ -77,10 +93,10 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
             className="text-center mb-8"
           >
             <h1 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-7xl font-bold text-text-primary leading-tight">
-              How Poor Am I?
+              {t.home.h1}
             </h1>
             <p className="text-text-secondary text-lg sm:text-xl mt-4 max-w-2xl mx-auto">
-              Enter your income or wealth and discover where you really stand.
+              {t.home.heroSubtitle}
             </p>
           </m.div>
 
@@ -139,10 +155,13 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h2 className="text-text-primary font-semibold text-lg">
-                  {country.flag} {country.name} — Wealth Distribution
+                  {interpolate(t.home.distributionTitle, {
+                    flag: country.flag,
+                    country: country.name,
+                  })}
                 </h2>
                 <p className="text-text-muted text-sm">
-                  Wealth share by population group (2023)
+                  {t.home.distributionSubtitle}
                 </p>
               </div>
               <div className="hidden sm:block text-right">
@@ -170,7 +189,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
             className="mt-8 bg-bg-secondary/50 border border-border-subtle rounded-2xl p-4 sm:p-6"
           >
             <h3 className="text-text-primary font-semibold text-lg mb-4">
-              Population vs. Wealth — {country.name}
+              {interpolate(t.home.populationVsWealth, { country: country.name })}
             </h3>
             <WealthShareBars country={country} />
           </m.div>
@@ -182,7 +201,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
             transition={{ delay: 1.5, duration: 0.6 }}
             className="text-center mt-12"
           >
-            <p className="text-text-muted text-sm mb-2">Scroll to explore more</p>
+            <p className="text-text-muted text-sm mb-2">{t.home.scrollToExplore}</p>
             <m.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -201,11 +220,10 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-text-primary">
-              The Scale of Concentration
+              {t.home.scaleOfConcentrationH2}
             </h2>
             <p className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
-              Each rectangle below represents wealth. The area shows how much each
-              group actually owns. Look at who has what.
+              {t.home.scaleOfConcentrationLead}
             </p>
           </div>
 
@@ -240,13 +258,10 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-text-primary">
-                Who Actually Pays?
+                {t.home.whoActuallyPaysH2}
               </h2>
               <p className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
-                Effective tax rates tell a different story than statutory rates.
-                When you account for all taxes actually paid — including how investment
-                income, capital gains, and corporate structures are treated — the
-                system often becomes regressive at the very top.
+                {t.home.whoActuallyPaysLead}
               </p>
             </div>
 
@@ -274,11 +289,10 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-text-primary">
-              A Century of Change
+              {t.home.centuryOfChangeH2}
             </h2>
             <p className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
-              How wealth concentration in {country.name} has evolved — and what
-              policy choices drove each shift.
+              {interpolate(t.home.centuryOfChangeLead, { country: country.name })}
             </p>
           </div>
 
@@ -304,11 +318,10 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-text-primary">
-                Are Wages Keeping Up?
+                {t.home.wagesKeepingUpH2}
               </h2>
               <p className="text-text-secondary text-lg mt-4 max-w-2xl mx-auto">
-                Wages, consumer prices, and house prices — all indexed to 2000.
-                When the lines diverge, someone is falling behind.
+                {t.home.wagesKeepingUpLead}
               </p>
             </div>
 
@@ -338,8 +351,9 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
               className="block bg-accent-periwinkle/8 border border-accent-periwinkle/20 rounded-2xl p-6 sm:p-8 text-center hover:bg-accent-periwinkle/12 hover:border-accent-periwinkle/30 transition-all duration-300"
             >
               <p className="text-text-secondary text-base sm:text-lg">
-                See how long it would take you to earn as much as the richest person in{" "}
-                <span className="text-accent-periwinkle font-medium">{country.name}</span>
+                {interpolate(t.home.seeBillionaireCta, {
+                  country: country.name,
+                })}
               </p>
               <span className="inline-block mt-3 text-accent-periwinkle text-sm font-medium">
                 Try the billionaire comparison &rarr;
@@ -358,7 +372,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
               className="block bg-accent-amber/8 border border-accent-amber/20 rounded-2xl p-6 sm:p-8 text-center hover:bg-accent-amber/12 hover:border-accent-amber/30 transition-all duration-300"
             >
               <p className="text-text-secondary text-base sm:text-lg">
-                How would your wealth rank in a different country?
+                {t.home.compareAcrossCountriesCta}
               </p>
               <span className="inline-block mt-3 text-accent-amber text-sm font-medium">
                 Compare across countries &rarr;
