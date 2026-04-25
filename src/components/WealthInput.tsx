@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import {
+  useState,
+  useCallback,
+  useMemo,
+  useEffect,
+  useRef,
+  useSyncExternalStore,
+} from "react";
 import Link from "next/link";
 import { type CountryData, findPercentile } from "@/data/wealth-data";
 import { formatCurrency, getCurrencySymbol } from "@/lib/format";
@@ -20,6 +27,10 @@ import {
   AGE_GROUP_LABELS,
   type AgeAdjustedResult,
 } from "@/data/age-adjustment";
+import {
+  useShareableState,
+  type ShareableState,
+} from "@/hooks/useShareableState";
 import IncomeRefinementPanel from "./IncomeRefinementPanel";
 
 interface WealthInputProps {
@@ -45,6 +56,10 @@ export default function WealthInput({
   const [ageInput, setAgeInput] = useState("");
   const [ageResult, setAgeResult] = useState<AgeAdjustedResult | null>(null);
   const refinePanelRef = useRef<HTMLDivElement>(null);
+
+  // Shareable URL state — read once on mount, write on each input change
+  const { initial: initialUrlState, pushState, buildUrl } = useShareableState();
+  const hasAppliedInitialRef = useRef(false);
 
   // Auto-scroll refinement panel into view on mobile when opened
   useEffect(() => {
@@ -139,6 +154,48 @@ export default function WealthInput({
     if (mode !== "income") return;
     computeFromIncome(inputValue, incomeFactors);
   }, [incomeFactors, mode, inputValue, computeFromIncome]);
+
+  // Apply initial URL state once it's loaded (post-hydration).
+  // This populates the input + computes the percentile from a shared link.
+  useEffect(() => {
+    if (hasAppliedInitialRef.current) return;
+    if (initialUrlState === null) return;
+    hasAppliedInitialRef.current = true;
+
+    const { mode: urlMode, amount, age } = initialUrlState;
+    if (urlMode === "income") setMode("income");
+    if (age.length > 0) setAgeInput(age);
+    if (amount.length === 0) return;
+
+    setInputValue(amount);
+    if (urlMode === "income") {
+      computeFromIncome(amount, DEFAULT_INCOME_FACTORS);
+    } else {
+      const parsed = parseInt(amount, 10);
+      if (!Number.isFinite(parsed)) return;
+      const usd = toUSD(parsed, country.currency);
+      const p = findPercentile(usd, country);
+      setPercentile(p);
+      setPercentileRange(null);
+      onPercentileChange(p);
+    }
+    // We intentionally exclude `country` and `computeFromIncome` from deps:
+    // this effect only runs once when the initial URL state arrives. Country
+    // changes are handled separately by the currency-conversion effect above.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialUrlState]);
+
+  // Sync state → URL whenever the user changes input/mode/age
+  useEffect(() => {
+    // Skip the very first render — wait until we've applied any initial URL state
+    if (!hasAppliedInitialRef.current && initialUrlState === null) return;
+    const state: ShareableState = {
+      mode,
+      amount: inputValue,
+      age: ageInput,
+    };
+    pushState(state);
+  }, [mode, inputValue, ageInput, pushState, initialUrlState]);
 
   // Compute age-adjusted percentile when age or wealth changes
   useEffect(() => {
@@ -424,6 +481,7 @@ export default function WealthInput({
             percentileRange={isRange ? percentileRange : null}
             countryName={country.name}
             countryCode={country.code}
+            shareUrl={buildUrl({ mode, amount: inputValue, age: ageInput })}
           />
 
           {/* Cross-link to How Long page */}
@@ -571,23 +629,32 @@ function ShareButtons({
   percentileRange,
   countryName,
   countryCode,
+  shareUrl,
 }: {
   readonly percentile: number;
   readonly percentileRange: PercentileRange | null;
   readonly countryName: string;
   readonly countryCode: string;
+  readonly shareUrl: string;
 }) {
   const [copyStatus, setCopyStatus] = useState<
     "idle" | "copied" | "failed"
   >("idle");
+  // Whether the browser exposes the Web Share API. Resolved post-mount via
+  // useSyncExternalStore so SSR and the first client render agree.
+  const canNativeShare = useNativeShareSupported();
 
   const pText = percentileRange
     ? `${percentileRange.low.toFixed(1)}–${percentileRange.high.toFixed(1)}%`
     : `${percentile.toFixed(1)}%`;
   const shareText = `I'm wealthier than ${pText} of the population in ${countryName}. Where do you stand?`;
-  const url = countryCode === "GLOBAL"
-    ? "https://howpoorami.org"
-    : `https://howpoorami.org/${countryCode.toLowerCase()}`;
+  // Prefer the live, state-encoded URL passed by the parent. Fall back to a
+  // bare country URL when the caller didn't have an origin available (SSR).
+  const url =
+    shareUrl ||
+    (countryCode === "GLOBAL"
+      ? "https://howpoorami.org"
+      : `https://howpoorami.org/${countryCode.toLowerCase()}`);
 
   const handleCopy = useCallback(() => {
     const onSuccess = () => {
@@ -606,6 +673,22 @@ function ShareButtons({
     }
   }, [url]);
 
+  const handleNativeShare = useCallback(async () => {
+    if (typeof navigator === "undefined" || !("share" in navigator)) return;
+    try {
+      await navigator.share({
+        title: "How Poor Am I?",
+        text: shareText,
+        url,
+      });
+    } catch (error: unknown) {
+      // Treat AbortError as a normal user cancellation. Fall back to copy
+      // for any other failure (permission denied, unsupported MIME, etc.)
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      handleCopy();
+    }
+  }, [shareText, url, handleCopy]);
+
   const copyLabel =
     copyStatus === "copied"
       ? "Copied!"
@@ -617,8 +700,19 @@ function ShareButtons({
     "px-2.5 py-1 rounded-lg text-[11px] font-medium min-h-[44px] min-w-[44px] bg-bg-card border border-border-subtle text-text-secondary hover:text-text-primary hover:border-accent-periwinkle/30 transition-all cursor-pointer";
 
   return (
-    <div className="flex items-center justify-center gap-2 mt-4">
+    <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
       <span className="text-text-muted text-xs">Share:</span>
+      {canNativeShare && (
+        <button
+          type="button"
+          onClick={handleNativeShare}
+          className={btnClass}
+          aria-label="Share via system share sheet"
+          title="Share via system share sheet"
+        >
+          Share…
+        </button>
+      )}
       <button
         type="button"
         onClick={() =>
@@ -662,5 +756,16 @@ function ShareButtons({
         {copyLabel}
       </button>
     </div>
+  );
+}
+
+// ─── Hooks ──────────────────────────────────────────────────────────────────
+
+/** Hydration-safe detection of `navigator.share` support. */
+function useNativeShareSupported(): boolean {
+  return useSyncExternalStore(
+    () => () => {},
+    () => typeof navigator !== "undefined" && "share" in navigator,
+    () => false,
   );
 }
