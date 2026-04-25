@@ -201,6 +201,259 @@ export interface Dictionary {
     /** "Data built {date}" */
     readonly buildDateTemplate: string;
   };
+
+  /** Chart axis, legend, tooltip, and tab labels shared across visualizations. */
+  readonly charts: {
+    // Detailed percentile group labels used by WealthHoardingChart,
+    // WealthDistributionChart, and TaxRateChart. The first four reuse
+    // stats.barLabel* spellings. The next four are finer-grained.
+    readonly bottom50: string;
+    readonly middle40: string;
+    readonly top10: string;
+    readonly top1: string;
+    readonly top10to1: string;
+    readonly top1to01: string;
+    readonly top01to001: string;
+    readonly top001: string;
+
+    // Distribution chart tabs / axis
+    readonly distributionViewAllGroups: string;
+    readonly distributionViewTop10: string;
+    readonly distributionViewTop1: string;
+    readonly wealthShare: string;
+    readonly populationShare: string;
+    /** "{amount} to reach Top X" — interpolated as needed */
+    readonly entryThresholdTemplate: string;
+    /** "≈ {amount}" — currency callout next to a threshold marker */
+    readonly approxTemplate: string;
+    readonly youAreHere: string;
+    readonly youAreHereInGroup: string;
+
+    // Hoarding chart people-count formatter
+    /** "~{count}M people" */
+    readonly peopleMillionsTemplate: string;
+    /** "~{count}K people" */
+    readonly peopleThousandsTemplate: string;
+    /** "~{count} people" */
+    readonly peopleTemplate: string;
+
+    // PurchasingPowerChart legend
+    readonly wagesLabel: string;
+    readonly costOfLivingLabel: string;
+    readonly housePricesLabel: string;
+    readonly indexedTo2000: string;
+
+    // HistoricalEvolutionChart
+    readonly historicalYAxis: string;
+    readonly historicalCenturyTitle: string;
+
+    // TaxRateChart
+    readonly effectiveTaxRate: string;
+    readonly taxRateYAxis: string;
+
+    // Generic chart hints
+    readonly hoverForDetails: string;
+    readonly tapForDetails: string;
+    readonly zoomToSeeTop: string;
+  };
+
+  /** Compare ("How long?") page UI strings used by CompareClient. */
+  readonly compare: {
+    readonly h1: string;
+    readonly subtitle: string;
+    readonly enterIncomeLabel: string;
+    readonly enterIncomePlaceholder: string;
+    readonly richestLabel: string;
+    /** "Net worth: {amount}" */
+    readonly netWorthTemplate: string;
+    readonly yourSalary: string;
+    readonly yearsLabel: string;
+    readonly atYourPaceLabel: string;
+    readonly historicalContext: string;
+    readonly comparisonsTitle: string;
+    /** "{name} earned this in a single lifetime." */
+    readonly billionaireLifetimeTemplate: string;
+    readonly tryDifferentSalary: string;
+  };
+
+  /** Compare-Countries page UI strings used by CrossCountryCompare. */
+  readonly compareCountries: {
+    readonly h1: string;
+    readonly subtitle: string;
+    readonly amountLabel: string;
+    readonly amountPlaceholder: string;
+    readonly modeWealth: string;
+    readonly modeIncome: string;
+    readonly selectCountriesLabel: string;
+    readonly resultsTitle: string;
+    readonly noResults: string;
+    /** "Buying power: {amount}" — local-currency PPP equivalent */
+    readonly buyingPowerTemplate: string;
+    /** "Need {amount} to reach {label}" */
+    readonly needTemplate: string;
+    readonly youRankHigherIn: string;
+    readonly youRankLowerIn: string;
+  };
+
+  /** Income refinement panel — every form label and select option. */
+  readonly refine: {
+    readonly title: string;
+    readonly subtitle: string;
+    readonly precisionRough: string;
+    readonly precisionModerate: string;
+    readonly precisionPrecise: string;
+    readonly closeLabel: string;
+    readonly resetLabel: string;
+
+    // Field group labels
+    readonly fieldAge: string;
+    readonly fieldEducation: string;
+    readonly fieldEmployment: string;
+    readonly fieldRelationship: string;
+    readonly fieldHomeOwnership: string;
+    readonly fieldHasMortgage: string;
+    readonly fieldSavingsRate: string;
+    readonly fieldHasInvestments: string;
+    readonly fieldHasPension: string;
+    readonly fieldChildren: string;
+    readonly fieldHouseholdSize: string;
+    readonly fieldHasInheritance: string;
+    readonly fieldHasDebt: string;
+    readonly fieldCountryEconomicStatus: string;
+
+    // Common option words
+    readonly optionYes: string;
+    readonly optionNo: string;
+    readonly optionUnknown: string;
+    readonly optionHousehold: string;
+    readonly optionPersonal: string;
+
+    // Education options
+    readonly eduNone: string;
+    readonly eduHighSchool: string;
+    readonly eduBachelor: string;
+    readonly eduMaster: string;
+    readonly eduDoctorate: string;
+
+    // Employment options
+    readonly empUnemployed: string;
+    readonly empPublic: string;
+    readonly empPrivate: string;
+    readonly empBusinessOwner: string;
+    readonly empRetired: string;
+    readonly empStudent: string;
+
+    // Relationship options
+    readonly relSingle: string;
+    readonly relPartnered: string;
+    readonly relMarried: string;
+    readonly relDivorced: string;
+    readonly relWidowed: string;
+
+    // Savings rate options
+    readonly savingsVeryLow: string;
+    readonly savingsLow: string;
+    readonly savingsModerate: string;
+    readonly savingsHigh: string;
+    readonly savingsVeryHigh: string;
+
+    // Section legends
+    readonly legendDemographics: string;
+    readonly legendFinancialProfile: string;
+    readonly legendProperty: string;
+    readonly legendDebts: string;
+
+    // Header / counters
+    readonly panelToggle: string;
+    /** "{count} factor" / "{count} factors" — pluralize via {count} only */
+    readonly factorsCountTemplate: string;
+    readonly factorImpactTitle: string;
+
+    // Confidence labels
+    readonly precisionVeryRough: string;
+    readonly precisionGood: string;
+    readonly precisionVeryPrecise: string;
+
+    // Demographic mini-inputs
+    readonly fieldYearsWorked: string;
+    readonly placeholderAge: string;
+    readonly placeholderHousehold: string;
+    readonly placeholderYearsWorked: string;
+    readonly fieldMaritalStatus: string;
+    readonly fieldSavingsHabit: string;
+
+    // Education extra options (no_degree, doctorate already covered)
+    readonly eduNoDegree: string;
+    readonly eduPhd: string;
+
+    // Employment extra options that map to factor enum
+    readonly empPartTime: string;
+    readonly empFullTime: string;
+    readonly empSelfEmployed: string;
+
+    // Property/asset toggles
+    readonly toggleInvestments: string;
+    readonly toggleRetirementFund: string;
+    readonly toggleInheritance: string;
+    readonly toggleOwnsProperty: string;
+    readonly toggleMortgage: string;
+    readonly toggleSignificantDebts: string;
+
+    // Asset value labels — interpolate {currency}
+    readonly investmentValueTemplate: string;
+    readonly pensionPotTemplate: string;
+    readonly propertyValueTemplate: string;
+    readonly mortgageRemainingTemplate: string;
+    readonly debtLevelLabel: string;
+    readonly placeholderInvestment: string;
+    readonly placeholderPension: string;
+    readonly placeholderProperty: string;
+    readonly placeholderMortgage: string;
+
+    // Debt level options
+    readonly debtLessThan1Yr: string;
+    readonly debt1to3Yr: string;
+    readonly debt3to5Yr: string;
+    readonly debtMoreThan5Yr: string;
+
+    // Methodology note — interpolate {spreadPct}
+    readonly methodologyNoteTemplate: string;
+  };
+
+  /** DataProvenanceBanner strings. */
+  readonly provenance: {
+    readonly notice: string;
+    readonly seeSources: string;
+    readonly hideSources: string;
+    readonly intro: string;
+    readonly thData: string;
+    readonly thSource: string;
+    readonly thType: string;
+    readonly typeApi: string;
+    readonly typeManual: string;
+    readonly outroPrefix: string;
+    readonly outroSuffix: string;
+    readonly methodologyLink: string;
+    readonly rowWealthShares: string;
+    readonly rowMeanMedian: string;
+    readonly rowIncomeShares: string;
+    readonly rowGini: string;
+    readonly rowPopulation: string;
+    readonly rowExchangeRates: string;
+    readonly rowBillionaire: string;
+    readonly rowTaxRates: string;
+    readonly rowAcademicPapers: string;
+  };
+
+  /** SourcesSection strings. */
+  readonly sources: {
+    readonly title: string;
+    readonly intro: string;
+    readonly disclaimer: string;
+    readonly closingLine: string;
+    /** "Accessed: {date}" */
+    readonly accessedTemplate: string;
+  };
 }
 
 /**

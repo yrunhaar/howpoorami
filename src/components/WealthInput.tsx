@@ -12,7 +12,7 @@ import Link from "next/link";
 import { type CountryData, findPercentile } from "@/data/wealth-data";
 import { formatCurrency, getCurrencySymbol } from "@/lib/format";
 import { toUSD, fromUSD } from "@/lib/currency";
-import { getPercentileLine } from "@/data/comedic-lines";
+import { getPercentileLineFor } from "@/lib/i18n/content/comedic";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import {
   type IncomeFactors,
@@ -31,7 +31,7 @@ import {
   useShareableState,
   type ShareableState,
 } from "@/hooks/useShareableState";
-import { useDictionary } from "@/components/LanguageProvider";
+import { useDictionary, useLanguage } from "@/components/LanguageProvider";
 import { interpolate } from "@/lib/i18n/dictionary";
 import IncomeRefinementPanel from "./IncomeRefinementPanel";
 
@@ -63,6 +63,7 @@ export default function WealthInput({
   const { initial: initialUrlState, pushState, buildUrl } = useShareableState();
   const hasAppliedInitialRef = useRef(false);
   const t = useDictionary();
+  const { locale } = useLanguage();
 
   // Auto-scroll refinement panel into view on mobile when opened
   useEffect(() => {
@@ -281,8 +282,8 @@ export default function WealthInput({
 
   const comedic = useMemo(() => {
     if (percentile === null) return null;
-    return getPercentileLine(percentile, country.name);
-  }, [percentile, country.name]);
+    return getPercentileLineFor(locale, percentile, country.name);
+  }, [percentile, country.name, locale]);
 
   const wealthRange = useMemo(() => {
     if (mode !== "income" || inputValue.length === 0) return null;

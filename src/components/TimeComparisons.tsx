@@ -1,8 +1,11 @@
+"use client";
+
 import {
   getRelevantComparisons,
   type ComparisonResult,
 } from "@/data/time-comparisons";
-import { getYearsToMatchLine } from "@/data/comedic-lines";
+import { getYearsToMatchLineFor } from "@/lib/i18n/content/comedic";
+import { useLanguage } from "@/components/LanguageProvider";
 import { formatNumber } from "@/lib/format";
 
 interface TimeComparisonsProps {
@@ -82,6 +85,7 @@ export default function TimeComparisons({
   yearsToMatch,
   billionaireName,
 }: TimeComparisonsProps) {
+  const { locale } = useLanguage();
   const comparisons = getRelevantComparisons(yearsToMatch, billionaireName);
 
   const lifetimeComparison = comparisons.find(
@@ -92,7 +96,8 @@ export default function TimeComparisons({
     .filter((c) => c.ref.id !== "human-lifetime")
     .slice(0, 6);
 
-  const comedicQuote = getYearsToMatchLine(
+  const comedicQuote = getYearsToMatchLineFor(
+    locale,
     yearsToMatch,
     billionaireName,
     formatNumber(yearsToMatch),

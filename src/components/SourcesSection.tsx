@@ -1,16 +1,18 @@
+"use client";
+
 import { DATA_SOURCES } from "@/data/wealth-data";
+import { useDictionary } from "@/components/LanguageProvider";
+import { interpolate } from "@/lib/i18n/dictionary";
 
 export default function SourcesSection() {
+  const t = useDictionary();
   return (
     <section className="border-t border-border-subtle pt-16">
       <h3 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl text-center mb-4 text-text-primary">
-        Data Sources & Methodology
+        {t.sources.title}
       </h3>
       <p className="text-text-secondary text-center text-sm max-w-2xl mx-auto mb-12">
-        All data in this visualization comes from peer-reviewed academic research
-        and official statistical databases. Wealth shares refer to personal net
-        wealth (assets minus debts) among the adult population (20+), using the
-        equal-split method for couples.
+        {t.sources.intro}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -37,7 +39,9 @@ export default function SourcesSection() {
             )}
             {"accessed" in source && source.accessed && (
               <p className="text-text-muted text-xs mt-1">
-                Accessed: {source.accessed}
+                {interpolate(t.sources.accessedTemplate, {
+                  date: source.accessed,
+                })}
               </p>
             )}
           </div>
@@ -46,23 +50,9 @@ export default function SourcesSection() {
 
       <div className="mt-16 text-center">
         <p className="text-text-muted text-xs max-w-xl mx-auto leading-relaxed">
-          This visualization is for educational purposes. Wealth inequality
-          measurement involves complex methodological choices. Different
-          definitions of wealth, unit of analysis, and data sources can produce
-          varying estimates. For the most up-to-date data, visit{" "}
-          <a
-            href="https://wid.world"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent-periwinkle hover:underline"
-          >
-            WID.world
-          </a>
-          .
+          {t.sources.disclaimer}
         </p>
-        <p className="text-text-muted text-xs mt-6">
-          Built with publicly available data. No personal data is collected or stored.
-        </p>
+        <p className="text-text-muted text-xs mt-6">{t.sources.closingLine}</p>
       </div>
     </section>
   );

@@ -8,6 +8,7 @@ import { AxisBottom, AxisLeft } from "@visx/axis";
 import { curveMonotoneX } from "@visx/curve";
 import { localPoint } from "@visx/event";
 import ChartTooltip from "@/components/ChartTooltip";
+import { useDictionary } from "@/components/LanguageProvider";
 import {
   PURCHASING_POWER,
   ECONOMIC_SOURCES,
@@ -29,26 +30,12 @@ interface TooltipPayload {
 
 const MARGIN = { top: 50, right: 30, bottom: 55, left: 60 };
 
-// Paul Tol qualitative palette — colorblind-safe
-const LINES = [
-  {
-    key: "wageIndex" as const,
-    label: "Wages",
-    color: "#44AA99",
-    dash: undefined,
-  },
-  {
-    key: "cpiIndex" as const,
-    label: "Cost of Living",
-    color: "#DDCC77",
-    dash: undefined,
-  },
-  {
-    key: "housePriceIndex" as const,
-    label: "House Prices",
-    color: "#CC6677",
-    dash: undefined,
-  },
+// Line keys & colors are static; labels come from the active locale's
+// dictionary at render time so the legend localizes with the rest of the UI.
+const LINE_KEYS = [
+  { key: "wageIndex" as const, color: "#44AA99" },
+  { key: "cpiIndex" as const, color: "#DDCC77" },
+  { key: "housePriceIndex" as const, color: "#CC6677" },
 ] as const;
 
 export default function PurchasingPowerChart({
@@ -56,6 +43,15 @@ export default function PurchasingPowerChart({
   width,
   height,
 }: PurchasingPowerChartProps) {
+  const t = useDictionary();
+  const LINES = useMemo(
+    () => [
+      { ...LINE_KEYS[0], label: t.charts.wagesLabel, dash: undefined },
+      { ...LINE_KEYS[1], label: t.charts.costOfLivingLabel, dash: undefined },
+      { ...LINE_KEYS[2], label: t.charts.housePricesLabel, dash: undefined },
+    ],
+    [t.charts.wagesLabel, t.charts.costOfLivingLabel, t.charts.housePricesLabel],
+  );
   const data = PURCHASING_POWER[countryCode];
 
   const [tooltip, setTooltip] = useState<{

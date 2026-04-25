@@ -14,8 +14,9 @@ vi.mock("@/lib/format", () => ({
   getCurrencySymbol: vi.fn(() => "$"),
 }));
 
-vi.mock("@/data/comedic-lines", () => ({
-  getPercentileLine: vi.fn(() => "Not bad at all!"),
+vi.mock("@/lib/i18n/content/comedic", () => ({
+  getPercentileLineFor: vi.fn(() => "Not bad at all!"),
+  getYearsToMatchLineFor: vi.fn(() => "Take a long time."),
 }));
 
 vi.mock("@/lib/wealth-estimate", () => ({

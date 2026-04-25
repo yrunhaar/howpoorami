@@ -9,6 +9,8 @@ import {
   computeSpreadFactor,
   computeFactorImpacts,
 } from "@/lib/wealth-estimate";
+import { useDictionary } from "@/components/LanguageProvider";
+import { interpolate, type Dictionary } from "@/lib/i18n/dictionary";
 
 interface IncomeRefinementPanelProps {
   readonly factors: IncomeFactors;
@@ -44,20 +46,26 @@ function ChevronIcon({ open }: { readonly open: boolean }) {
   );
 }
 
-function ConfidenceBar({ filled }: { readonly filled: number }) {
+function ConfidenceBar({
+  filled,
+  t,
+}: {
+  readonly filled: number;
+  readonly t: Dictionary;
+}) {
   const pct = Math.round((filled / MAX_FACTORS) * 100);
   const label =
     pct === 0
-      ? "Very rough"
+      ? t.refine.precisionVeryRough
       : pct <= 20
-        ? "Rough"
+        ? t.refine.precisionRough
         : pct <= 40
-          ? "Moderate"
+          ? t.refine.precisionModerate
           : pct <= 60
-            ? "Good"
+            ? t.refine.precisionGood
             : pct <= 80
-              ? "Precise"
-              : "Very precise";
+              ? t.refine.precisionPrecise
+              : t.refine.precisionVeryPrecise;
   const color =
     pct <= 20
       ? "bg-accent-rose/60"
@@ -193,7 +201,13 @@ function SectionLegend({ children }: { readonly children: string }) {
   );
 }
 
-function FactorImpactSummary({ impacts }: { readonly impacts: readonly FactorImpact[] }) {
+function FactorImpactSummary({
+  impacts,
+  t,
+}: {
+  readonly impacts: readonly FactorImpact[];
+  readonly t: Dictionary;
+}) {
   if (impacts.length === 0) return null;
 
   const upFactors = impacts.filter((i) => i.direction === "up");
@@ -202,7 +216,7 @@ function FactorImpactSummary({ impacts }: { readonly impacts: readonly FactorImp
   return (
     <div className="pt-3 border-t border-border-subtle space-y-2">
       <p className="text-[11px] font-semibold text-text-secondary uppercase tracking-wider">
-        What&apos;s influencing your estimate
+        {t.refine.factorImpactTitle}
       </p>
       {upFactors.length > 0 && (
         <div className="space-y-1">
@@ -243,6 +257,7 @@ export default function IncomeRefinementPanel({
   onChange,
   currencyCode = "USD",
 }: IncomeRefinementPanelProps) {
+  const t = useDictionary();
   const filled = countFilledFactors(factors);
   const spread = computeSpreadFactor(factors);
   const spreadPct = Math.round(spread * 100);
@@ -267,7 +282,7 @@ export default function IncomeRefinementPanel({
       >
         <div className="flex items-center gap-2">
           <span className="text-xs font-medium text-text-secondary">
-            Refine estimate
+            {t.refine.panelToggle}
           </span>
           {filled > 0 && (
             <span className="text-xs tabular-nums text-accent-periwinkle bg-accent-periwinkle/10 px-1.5 py-0.5 rounded-full">
@@ -278,7 +293,7 @@ export default function IncomeRefinementPanel({
         <div className="flex items-center gap-2 text-text-muted">
           {filled > 0 && !isOpen && (
             <span className="text-xs tabular-nums">
-              {filled} factor{filled !== 1 ? "s" : ""}
+              {interpolate(t.refine.factorsCountTemplate, { count: filled })}
             </span>
           )}
           <ChevronIcon open={isOpen} />
@@ -293,31 +308,31 @@ export default function IncomeRefinementPanel({
       >
         <div className="overflow-hidden">
           <div className="px-4 pb-4 pt-2 space-y-4 bg-bg-card border-t border-border-subtle">
-            <ConfidenceBar filled={filled} />
+            <ConfidenceBar filled={filled} t={t} />
 
             {/* ── Demographics ── */}
             <fieldset>
-              <SectionLegend>Demographics</SectionLegend>
+              <SectionLegend>{t.refine.legendDemographics}</SectionLegend>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-2">
                 <SmallInput
                   id="ref-age"
-                  label="Age"
+                  label={t.refine.fieldAge}
                   value={factors.age}
-                  placeholder="35"
+                  placeholder={t.refine.placeholderAge}
                   onChange={(v) => numChange("age", v, 3)}
                 />
                 <SmallInput
                   id="ref-household"
-                  label="Household"
+                  label={t.refine.fieldHouseholdSize}
                   value={factors.householdSize}
-                  placeholder="2"
+                  placeholder={t.refine.placeholderHousehold}
                   onChange={(v) => numChange("householdSize", v, 2)}
                 />
                 <SmallInput
                   id="ref-years-worked"
-                  label="Yrs worked"
+                  label={t.refine.fieldYearsWorked}
                   value={factors.yearsWorked}
-                  placeholder="10"
+                  placeholder={t.refine.placeholderYearsWorked}
                   onChange={(v) => numChange("yearsWorked", v, 2)}
                 />
               </div>
@@ -325,15 +340,15 @@ export default function IncomeRefinementPanel({
               {/* Education */}
               <div className="mb-2">
                 <span className="block text-xs text-text-muted mb-1">
-                  Education
+                  {t.refine.fieldEducation}
                 </span>
                 <SegmentedButtons
                   options={[
-                    ["no_degree", "No degree"],
-                    ["high_school", "High school"],
-                    ["bachelor", "Bachelor"],
-                    ["master", "Master"],
-                    ["doctorate", "PhD"],
+                    ["no_degree", t.refine.eduNoDegree],
+                    ["high_school", t.refine.eduHighSchool],
+                    ["bachelor", t.refine.eduBachelor],
+                    ["master", t.refine.eduMaster],
+                    ["doctorate", t.refine.eduPhd],
                   ]}
                   value={factors.educationLevel}
                   onSelect={(v) => onChange("educationLevel", v)}
@@ -343,16 +358,16 @@ export default function IncomeRefinementPanel({
               {/* Employment type */}
               <div className="mb-2">
                 <span className="block text-xs text-text-muted mb-1">
-                  Employment
+                  {t.refine.fieldEmployment}
                 </span>
                 <SegmentedButtons
                   options={[
-                    ["unemployed", "Unemployed"],
-                    ["part_time", "Part-time"],
-                    ["full_time", "Full-time"],
-                    ["self_employed", "Self-empl."],
-                    ["business_owner", "Business"],
-                    ["retired", "Retired"],
+                    ["unemployed", t.refine.empUnemployed],
+                    ["part_time", t.refine.empPartTime],
+                    ["full_time", t.refine.empFullTime],
+                    ["self_employed", t.refine.empSelfEmployed],
+                    ["business_owner", t.refine.empBusinessOwner],
+                    ["retired", t.refine.empRetired],
                   ]}
                   value={factors.employmentType}
                   onSelect={(v) => onChange("employmentType", v)}
@@ -362,15 +377,15 @@ export default function IncomeRefinementPanel({
               {/* Marital status */}
               <div>
                 <span className="block text-xs text-text-muted mb-1">
-                  Marital status
+                  {t.refine.fieldMaritalStatus}
                 </span>
                 <SegmentedButtons
                   options={[
-                    ["single", "Single"],
-                    ["partnered", "Partner"],
-                    ["married", "Married"],
-                    ["divorced", "Divorced"],
-                    ["widowed", "Widowed"],
+                    ["single", t.refine.relSingle],
+                    ["partnered", t.refine.relPartnered],
+                    ["married", t.refine.relMarried],
+                    ["divorced", t.refine.relDivorced],
+                    ["widowed", t.refine.relWidowed],
                   ]}
                   value={factors.maritalStatus}
                   onSelect={(v) => onChange("maritalStatus", v)}
@@ -380,19 +395,19 @@ export default function IncomeRefinementPanel({
 
             {/* ── Financial Profile ── */}
             <fieldset>
-              <SectionLegend>Financial profile</SectionLegend>
+              <SectionLegend>{t.refine.legendFinancialProfile}</SectionLegend>
 
               <div className="mb-2">
                 <span className="block text-xs text-text-muted mb-1">
-                  Savings habit
+                  {t.refine.fieldSavingsHabit}
                 </span>
                 <SegmentedButtons
                   options={[
-                    ["very_low", "Minimal"],
-                    ["low", "Below avg"],
-                    ["moderate", "Average"],
-                    ["high", "Above avg"],
-                    ["very_high", "Aggressive"],
+                    ["very_low", t.refine.savingsVeryLow],
+                    ["low", t.refine.savingsLow],
+                    ["moderate", t.refine.savingsModerate],
+                    ["high", t.refine.savingsHigh],
+                    ["very_high", t.refine.savingsVeryHigh],
                   ]}
                   value={factors.savingsRate}
                   onSelect={(v) => onChange("savingsRate", v)}
@@ -403,7 +418,7 @@ export default function IncomeRefinementPanel({
               <div className="flex flex-wrap gap-1.5 mt-2">
                 <ToggleChip
                   active={factors.hasInvestments}
-                  label={<><span aria-hidden="true">📈 </span>Investments</>}
+                  label={<><span aria-hidden="true">📈 </span>{t.refine.toggleInvestments}</>}
                   onClick={() =>
                     onChange("hasInvestments", !factors.hasInvestments)
                   }
@@ -411,7 +426,7 @@ export default function IncomeRefinementPanel({
                 />
                 <ToggleChip
                   active={factors.hasRetirement}
-                  label={<><span aria-hidden="true">🏛️ </span>Retirement fund</>}
+                  label={<><span aria-hidden="true">🏛️ </span>{t.refine.toggleRetirementFund}</>}
                   onClick={() =>
                     onChange("hasRetirement", !factors.hasRetirement)
                   }
@@ -419,7 +434,7 @@ export default function IncomeRefinementPanel({
                 />
                 <ToggleChip
                   active={factors.hasInheritance}
-                  label={<><span aria-hidden="true">🏦 </span>Inheritance</>}
+                  label={<><span aria-hidden="true">🏦 </span>{t.refine.toggleInheritance}</>}
                   onClick={() =>
                     onChange("hasInheritance", !factors.hasInheritance)
                   }
@@ -433,9 +448,11 @@ export default function IncomeRefinementPanel({
                   {factors.hasInvestments && (
                     <SmallInput
                       id="ref-inv-val"
-                      label={`Investment value (${currencyCode})`}
+                      label={interpolate(t.refine.investmentValueTemplate, {
+                        currency: currencyCode,
+                      })}
                       value={factors.investmentValue}
-                      placeholder="e.g. 50000"
+                      placeholder={t.refine.placeholderInvestment}
                       onChange={(v) => numChange("investmentValue", v, 10)}
                       maxLen={10}
                     />
@@ -443,9 +460,11 @@ export default function IncomeRefinementPanel({
                   {factors.hasRetirement && (
                     <SmallInput
                       id="ref-ret-val"
-                      label={`Pension pot / 401k (${currencyCode})`}
+                      label={interpolate(t.refine.pensionPotTemplate, {
+                        currency: currencyCode,
+                      })}
                       value={factors.retirementValue}
-                      placeholder="e.g. 80000"
+                      placeholder={t.refine.placeholderPension}
                       onChange={(v) => numChange("retirementValue", v, 10)}
                       maxLen={10}
                     />
@@ -456,12 +475,12 @@ export default function IncomeRefinementPanel({
 
             {/* ── Property ── */}
             <fieldset>
-              <SectionLegend>Property</SectionLegend>
+              <SectionLegend>{t.refine.legendProperty}</SectionLegend>
               <div className="space-y-2">
                 <div className="flex flex-wrap gap-1.5">
                   <ToggleChip
                     active={factors.hasProperty}
-                    label={<><span aria-hidden="true">🏠 </span>I own property</>}
+                    label={<><span aria-hidden="true">🏠 </span>{t.refine.toggleOwnsProperty}</>}
                     onClick={() =>
                       onChange("hasProperty", !factors.hasProperty)
                     }
@@ -469,7 +488,7 @@ export default function IncomeRefinementPanel({
                   />
                   <ToggleChip
                     active={factors.hasMortgage}
-                    label={<><span aria-hidden="true">🏗️ </span>Mortgage</>}
+                    label={<><span aria-hidden="true">🏗️ </span>{t.refine.toggleMortgage}</>}
                     onClick={() =>
                       onChange("hasMortgage", !factors.hasMortgage)
                     }
@@ -481,9 +500,11 @@ export default function IncomeRefinementPanel({
                     {factors.hasProperty && (
                       <SmallInput
                         id="ref-prop-val"
-                        label={`Property value (${currencyCode})`}
+                        label={interpolate(t.refine.propertyValueTemplate, {
+                          currency: currencyCode,
+                        })}
                         value={factors.propertyValue}
-                        placeholder="e.g. 350000"
+                        placeholder={t.refine.placeholderProperty}
                         onChange={(v) => numChange("propertyValue", v, 10)}
                         maxLen={10}
                       />
@@ -491,9 +512,11 @@ export default function IncomeRefinementPanel({
                     {factors.hasMortgage && (
                       <SmallInput
                         id="ref-mort-val"
-                        label={`Mortgage remaining (${currencyCode})`}
+                        label={interpolate(t.refine.mortgageRemainingTemplate, {
+                          currency: currencyCode,
+                        })}
                         value={factors.mortgageRemaining}
-                        placeholder="e.g. 200000"
+                        placeholder={t.refine.placeholderMortgage}
                         onChange={(v) => numChange("mortgageRemaining", v, 10)}
                         maxLen={10}
                       />
@@ -505,25 +528,25 @@ export default function IncomeRefinementPanel({
 
             {/* ── Debts ── */}
             <fieldset>
-              <SectionLegend>Non-mortgage debts</SectionLegend>
+              <SectionLegend>{t.refine.legendDebts}</SectionLegend>
               <div className="space-y-2">
                 <ToggleChip
                   active={factors.hasDebts}
-                  label={<><span aria-hidden="true">💳 </span>I have significant debts</>}
+                  label={<><span aria-hidden="true">💳 </span>{t.refine.toggleSignificantDebts}</>}
                   onClick={() => onChange("hasDebts", !factors.hasDebts)}
                   variant="negative"
                 />
                 {factors.hasDebts && (
                   <div className="ml-1">
                     <span className="block text-xs text-text-muted mb-1">
-                      Debt level (excl. mortgage)
+                      {t.refine.debtLevelLabel}
                     </span>
                     <SegmentedButtons
                       options={[
-                        ["low", "< 1yr income"],
-                        ["moderate", "1–3yr"],
-                        ["high", "3–5yr"],
-                        ["very_high", "> 5yr"],
+                        ["low", t.refine.debtLessThan1Yr],
+                        ["moderate", t.refine.debt1to3Yr],
+                        ["high", t.refine.debt3to5Yr],
+                        ["very_high", t.refine.debtMoreThan5Yr],
                       ]}
                       value={factors.debtLevel}
                       onSelect={(v) => onChange("debtLevel", v)}
@@ -535,13 +558,13 @@ export default function IncomeRefinementPanel({
             </fieldset>
 
             {/* Factor impact summary */}
-            <FactorImpactSummary impacts={impacts} />
+            <FactorImpactSummary impacts={impacts} t={t} />
 
             {/* Methodology note */}
             <p className="text-xs text-text-muted/70 leading-relaxed pt-2 border-t border-border-subtle">
-              Based on Federal Reserve SCF, OECD, ECB HFCS, and Credit Suisse
-              data. Model: income × age × education × employment × marital ×
-              savings × assets − debts. Currently ±{spreadPct}% uncertainty.
+              {interpolate(t.refine.methodologyNoteTemplate, {
+                spreadPct,
+              })}
             </p>
           </div>
         </div>

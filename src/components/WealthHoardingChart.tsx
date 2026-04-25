@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { type CountryData } from "@/data/wealth-data";
 import { getDetailedShares, type DetailedWealthShares } from "@/data/billionaires";
 import { formatNumber } from "@/lib/format";
+import { useDictionary } from "@/components/LanguageProvider";
+import { interpolate, type Dictionary } from "@/lib/i18n/dictionary";
 import ChartTooltip from "./ChartTooltip";
 
 interface WealthHoardingChartProps {
@@ -24,14 +26,18 @@ const COLORS: Record<keyof DetailedWealthShares, string> = {
   top001: "#882255",
 };
 
-const GROUP_LABELS: Record<keyof DetailedWealthShares, string> = {
-  bottom50: "Bottom 50%",
-  middle40: "Middle 40%",
-  next9: "Top 10-1%",
-  next09: "Top 1-0.1%",
-  next009: "Top 0.1-0.01%",
-  top001: "Top 0.01%",
-};
+function buildGroupLabels(
+  t: Dictionary,
+): Record<keyof DetailedWealthShares, string> {
+  return {
+    bottom50: t.charts.bottom50,
+    middle40: t.charts.middle40,
+    next9: t.charts.top10to1,
+    next09: t.charts.top1to01,
+    next009: t.charts.top01to001,
+    top001: t.charts.top001,
+  };
+}
 
 const GROUP_POP_FRACTIONS: Record<keyof DetailedWealthShares, number> = {
   bottom50: 0.5,
@@ -73,27 +79,28 @@ function computePopulationCount(
   return Math.round(populationMillions * 1_000_000 * fraction);
 }
 
-function formatPeopleCount(count: number): string {
+function formatPeopleCount(count: number, t: Dictionary): string {
   if (count >= 1_000_000) {
     const millions = count / 1_000_000;
-    return millions >= 10
-      ? `~${Math.round(millions)}M people`
-      : `~${millions.toFixed(1)}M people`;
+    const value =
+      millions >= 10 ? `${Math.round(millions)}` : `${millions.toFixed(1)}`;
+    return interpolate(t.charts.peopleMillionsTemplate, { count: value });
   }
   if (count >= 1_000) {
-    return `~${formatNumber(Math.round(count / 1_000) * 1_000)} people`;
+    return interpolate(t.charts.peopleThousandsTemplate, {
+      count: formatNumber(Math.round(count / 1_000)),
+    });
   }
-  return `~${formatNumber(count)} people`;
+  return interpolate(t.charts.peopleTemplate, { count: formatNumber(count) });
 }
 
 function buildRectangles(
   shares: DetailedWealthShares,
   population: number,
   innerWidth: number,
-  innerHeight: number
+  innerHeight: number,
+  groupLabels: Record<keyof DetailedWealthShares, string>,
 ): readonly RectData[] {
-  const totalArea = innerWidth * innerHeight;
-
   // Calculate widths proportional to wealth share, laid out horizontally
   // Clamp negative shares (real: bottom 50% can have negative net wealth) to 0 for display
   const clampedShares = Object.fromEntries(
@@ -107,7 +114,7 @@ function buildRectangles(
     const rectWidth = fraction * innerWidth;
     const rect: RectData = {
       key,
-      label: GROUP_LABELS[key],
+      label: groupLabels[key],
       wealthShare: shares[key],
       peopleCount: computePopulationCount(population, GROUP_POP_FRACTIONS[key]),
       color: COLORS[key],
@@ -139,6 +146,8 @@ export default function WealthHoardingChart({
 }: WealthHoardingChartProps) {
   const [hoveredRect, setHoveredRect] = useState<RectData | null>(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
+  const t = useDictionary();
+  const groupLabels = useMemo(() => buildGroupLabels(t), [t]);
 
   const shares = useMemo(
     () => getDetailedShares(country),
@@ -149,8 +158,9 @@ export default function WealthHoardingChart({
   const innerHeight = height - MARGIN.top - MARGIN.bottom;
 
   const rectangles = useMemo(
-    () => buildRectangles(shares, country.population, innerWidth, innerHeight),
-    [shares, country.population, innerWidth, innerHeight]
+    () =>
+      buildRectangles(shares, country.population, innerWidth, innerHeight, groupLabels),
+    [shares, country.population, innerWidth, innerHeight, groupLabels]
   );
 
   const topGroup = useMemo(
@@ -296,10 +306,10 @@ export default function WealthHoardingChart({
               {hoveredRect.label}
             </p>
             <p className="text-text-secondary tabular-nums">
-              Wealth share: <span className="font-medium text-text-primary">{hoveredRect.wealthShare.toFixed(1)}%</span>
+              {t.charts.wealthShare}: <span className="font-medium text-text-primary">{hoveredRect.wealthShare.toFixed(1)}%</span>
             </p>
             <p className="text-text-secondary">
-              {formatPeopleCount(hoveredRect.peopleCount)}
+              {formatPeopleCount(hoveredRect.peopleCount, t)}
             </p>
             <p className="text-text-muted text-[10px]">
               {(hoveredRect.populationFraction * 100).toFixed(
@@ -339,13 +349,13 @@ export default function WealthHoardingChart({
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         <span className="font-semibold" style={{ color: COLORS.top001 }}>
-          {formatPeopleCount(topPeopleCount)}
+          {formatPeopleCount(topPeopleCount, t)}
         </span>{" "}
         own{" "}
         <span className="font-semibold tabular-nums">{topShare.toFixed(1)}%</span>{" "}
         of all wealth, while{" "}
         <span className="font-semibold" style={{ color: COLORS.bottom50 }}>
-          {formatPeopleCount(bottomPeopleCount)}
+          {formatPeopleCount(bottomPeopleCount, t)}
         </span>{" "}
         share just{" "}
         <span className="font-semibold tabular-nums">
