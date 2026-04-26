@@ -100,16 +100,24 @@ export const metadata: Metadata = {
 
 /**
  * Inline script to set the theme before React hydration to prevent flash.
- * Reads from localStorage, falls back to system preference, defaults to dark.
+ * Resolution order:
+ *   1. user's stored preference (localStorage 'theme'),
+ *   2. system preference if it's explicitly dark (prefers-color-scheme: dark),
+ *   3. default to light.
+ *
+ * Only an explicit `prefers-color-scheme: dark` flips us into dark mode —
+ * otherwise (including the "no preference" case) we render light. This
+ * matches the published default and avoids surprising users who haven't
+ * configured a system theme.
  */
 const themeScript = `
   (function() {
     try {
       var stored = localStorage.getItem('theme');
-      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', theme);
     } catch(e) {
-      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   })();
 `;

@@ -1,31 +1,14 @@
 @import "tailwindcss";
 
 /* ==========================================================================
- * Theme: Dark Mode (default)
+ * Theme: Light Mode (default)
+ *
+ * Light is the canonical default. Both `:root` and `[data-theme="light"]`
+ * resolve to the same palette so the light selector still works for
+ * explicit overrides and selectors that combine with `[data-theme="light"]`
+ * (e.g. `.shadow-card` rule below).
  * ========================================================================== */
-:root {
-  --bg-primary: #0b0f1a;
-  --bg-secondary: #101724;
-  --bg-card: #151d2e;
-  --bg-card-hover: #1c2640;
-  --text-primary: #e4e7ed;
-  --text-secondary: #919bb0;
-  --text-muted: #8090a8;
-  --accent-rose: #CC6677;
-  --accent-amber: #DDCC77;
-  --accent-sage: #44AA99;
-  --accent-periwinkle: #88CCEE;
-  --accent-lavender: #AA4499;
-  --border-subtle: #1f2942;
-  --scrollbar-track: #0b0f1a;
-  --scrollbar-thumb: #1f2942;
-  --scrollbar-thumb-hover: #5b6478;
-  --selection-bg: rgba(146, 158, 232, 0.3);
-}
-
-/* ==========================================================================
- * Theme: Light Mode
- * ========================================================================== */
+:root,
 [data-theme="light"] {
   --bg-primary: #f5f0eb;
   --bg-secondary: #ece5dd;
@@ -44,6 +27,33 @@
   --scrollbar-thumb: #d6cfc7;
   --scrollbar-thumb-hover: #78716c;
   --selection-bg: rgba(74, 85, 162, 0.2);
+}
+
+/* ==========================================================================
+ * Theme: Dark Mode
+ *
+ * Activated by the inline boot script in layout.tsx when the user has a
+ * stored preference for dark, or when their system reports
+ * `prefers-color-scheme: dark`.
+ * ========================================================================== */
+[data-theme="dark"] {
+  --bg-primary: #0b0f1a;
+  --bg-secondary: #101724;
+  --bg-card: #151d2e;
+  --bg-card-hover: #1c2640;
+  --text-primary: #e4e7ed;
+  --text-secondary: #919bb0;
+  --text-muted: #8090a8;
+  --accent-rose: #CC6677;
+  --accent-amber: #DDCC77;
+  --accent-sage: #44AA99;
+  --accent-periwinkle: #88CCEE;
+  --accent-lavender: #AA4499;
+  --border-subtle: #1f2942;
+  --scrollbar-track: #0b0f1a;
+  --scrollbar-thumb: #1f2942;
+  --scrollbar-thumb-hover: #5b6478;
+  --selection-bg: rgba(146, 158, 232, 0.3);
 }
 
 /* ==========================================================================
@@ -187,7 +197,10 @@ main [style*="opacity"] {
   border-radius: 4px;
 }
 
-/* Light mode card shadow */
+/* Light-mode card shadow. Applies whenever the document is NOT in dark
+ * mode — i.e. the default `:root` palette as well as the explicit
+ * `[data-theme="light"]` override. */
+:root:not([data-theme="dark"]) .shadow-card,
 [data-theme="light"] .shadow-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
 }

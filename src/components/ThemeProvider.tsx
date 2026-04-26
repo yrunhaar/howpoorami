@@ -16,7 +16,7 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: "dark",
+  theme: "light",
   toggleTheme: () => {},
 });
 
@@ -34,12 +34,12 @@ export function useTheme(): ThemeContextValue {
 export function ThemeProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   // Sync React state with the data-theme attribute set by the inline script
   useEffect(() => {
     const current =
-      (document.documentElement.getAttribute("data-theme") as Theme) ?? "dark";
+      (document.documentElement.getAttribute("data-theme") as Theme) ?? "light";
     setTheme(current);
   }, []);
 
