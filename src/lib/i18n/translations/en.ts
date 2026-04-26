@@ -70,10 +70,16 @@ export const en: Dictionary = {
       "Wages, consumer prices, and house prices — all indexed to 2000. When the lines diverge, someone is falling behind.",
     seeBillionaireCta:
       "See how long it would take you to earn as much as the richest person in {country}",
+    seeBillionaireCtaButton: "Try the billionaire comparison →",
     compareAcrossCountriesCta:
       "How would your wealth rank in a different country?",
+    compareAcrossCountriesCtaButton: "Compare across countries →",
     attribution:
       "Data sourced from WID.world, OECD, and SWIID. Open-source project for educational purposes.",
+    tryBillionaireFooter: "Try the billionaire comparison",
+    avgTop1WealthTemplate: "Average top 1% wealth: {amount}",
+    richestInCountryTemplate: "Richest in {country}: {name} ({amount})",
+    seeMatchThemLink: "See how long it would take to match them →",
   },
   input: {
     modeWealth: "Net Wealth",
@@ -268,6 +274,55 @@ export const en: Dictionary = {
     needTemplate: "Need {amount} to reach {label}",
     youRankHigherIn: "You'd rank higher in",
     youRankLowerIn: "You'd rank lower in",
+    enterNetWealthLabel: "Enter your net wealth (assets minus debts)",
+    inputHint:
+      "All data is per-adult (WID.world equal-split). If you share finances with a partner, enter your personal half.",
+    countriesCountTemplate: "Countries ({n}/{max})",
+    doneButton: "Done",
+    addRemoveButton: "+ Add / Remove",
+    removeAriaTemplate: "Remove {country}",
+    searchPlaceholder: "Search countries…",
+    noCountriesFound: "No countries found",
+    yourRankingTitle: "Your ranking across countries",
+    localValueLabel: "Local value:",
+    richerThanTemplate: "Richer than {pct}% of adults",
+    percentileSuffix: "%ile",
+    insightTemplate:
+      "The same amount of wealth puts you in the {topSegment} in {topCountry} but the {bottomSegment} in {bottomCountry}.",
+    invalidNumber: "Enter a valid number to see results.",
+    enterToCompare:
+      "Enter your net wealth above to compare across countries.",
+    tipTemplate:
+      "Tip: Use the main {calculatorLink} if you want to estimate wealth from income.",
+    tipCalculatorLinkLabel: "calculator",
+    methodologyNote:
+      "Percentiles use Pareto-interpolated WID.world distribution data. Currency conversion via ECB exchange rates (not purchasing-power adjusted).",
+    readMethodology: "Read the full methodology",
+    forLabelTemplate: "for {label}",
+  },
+  regions: {
+    americas: "Americas",
+    europe: "Europe",
+    asiaPacific: "Asia-Pacific",
+    africa: "Africa",
+    global: "Global",
+    other: "Other",
+  },
+  segments: {
+    top01: "Top 0.1%",
+    top1: "Top 1%",
+    top10: "Top 10%",
+    top50: "Top 50%",
+    bottom50: "Bottom 50%",
+    forTop01: "top 0.1%",
+    forTop1: "top 1%",
+    forTop10: "top 10%",
+    forTop50: "top 50%",
+  },
+  dropdown: {
+    searchCountriesPlaceholder: "Search countries…",
+    countriesAriaLabel: "Countries",
+    selectCountry: "Select a country",
   },
   refine: {
     title: "Refine your wealth estimate",

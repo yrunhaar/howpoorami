@@ -357,7 +357,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
                 })}
               </p>
               <span className="inline-block mt-3 text-accent-periwinkle text-sm font-medium">
-                Try the billionaire comparison &rarr;
+                {t.home.seeBillionaireCtaButton}
               </span>
             </Link>
           </div>
@@ -376,7 +376,7 @@ export default function HomeClient({ initialCountry }: HomeClientProps) {
                 {t.home.compareAcrossCountriesCta}
               </p>
               <span className="inline-block mt-3 text-accent-amber text-sm font-medium">
-                Compare across countries &rarr;
+                {t.home.compareAcrossCountriesCtaButton}
               </span>
             </Link>
           </div>

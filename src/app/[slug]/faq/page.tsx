@@ -44,6 +44,11 @@ export async function generateMetadata({
       locale: locale.bcp47.replace("-", "_"),
       url,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: t.meta.faqTitle,
+      description: t.meta.faqDescription,
+    },
   };
 }
 

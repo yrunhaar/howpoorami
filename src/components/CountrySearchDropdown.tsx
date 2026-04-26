@@ -2,6 +2,9 @@
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useDictionary, useLanguage } from "@/components/LanguageProvider";
+import { localizedCountryName } from "@/lib/i18n/country-names";
+import type { Dictionary } from "@/lib/i18n/dictionary";
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -55,11 +58,32 @@ const REGION_MAP: Record<string, string> = {
   ZA: "Africa",
 };
 
+/** Internal region keys (NOT user-facing). The dropdown maps these to
+ *  localized labels at render time via the dictionary. */
 const REGION_ORDER = ["Global", "Americas", "Europe", "Asia-Pacific", "Africa"] as const;
 
 function regionOf(code: string): string {
   if (code === "GLOBAL") return "Global";
   return REGION_MAP[code] ?? "Other";
+}
+
+function localizedRegionLabel(region: string, t: Dictionary): string {
+  switch (region) {
+    case "Global":
+      return t.regions.global;
+    case "Americas":
+      return t.regions.americas;
+    case "Europe":
+      return t.regions.europe;
+    case "Asia-Pacific":
+      return t.regions.asiaPacific;
+    case "Africa":
+      return t.regions.africa;
+    case "Other":
+      return t.regions.other;
+    default:
+      return region;
+  }
 }
 
 function groupByRegion(
@@ -107,6 +131,8 @@ export default function CountrySearchDropdown({
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(-1);
+  const t = useDictionary();
+  const { locale } = useLanguage();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -123,12 +149,15 @@ export default function CountrySearchDropdown({
   const filtered = useMemo(() => {
     if (query.trim() === "") return [...countries];
     const lower = query.toLowerCase();
-    return countries.filter(
-      (c) =>
+    return countries.filter((c) => {
+      const localized = localizedCountryName(c.code, locale, c.name).toLowerCase();
+      return (
         c.name.toLowerCase().includes(lower) ||
-        c.code.toLowerCase().includes(lower),
-    );
-  }, [countries, query]);
+        c.code.toLowerCase().includes(lower) ||
+        localized.includes(lower)
+      );
+    });
+  }, [countries, query, locale]);
 
   const grouped = useMemo(() => groupByRegion(filtered), [filtered]);
 
@@ -323,7 +352,7 @@ export default function CountrySearchDropdown({
             aria-autocomplete="list"
             aria-controls={listboxId}
             aria-activedescendant={activeOptionId}
-            placeholder="Search countries..."
+            placeholder={t.dropdown.searchCountriesPlaceholder}
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -351,10 +380,16 @@ export default function CountrySearchDropdown({
             {selectedCountry ? (
               <>
                 <span className="text-lg">{selectedCountry.flag}</span>
-                <span className="font-medium">{selectedCountry.name}</span>
+                <span className="font-medium">
+                  {localizedCountryName(
+                    selectedCountry.code,
+                    locale,
+                    selectedCountry.name,
+                  )}
+                </span>
               </>
             ) : (
-              <span className="text-text-muted">Select a country</span>
+              <span className="text-text-muted">{t.dropdown.selectCountry}</span>
             )}
             <ChevronDown className="ml-auto" />
           </button>
@@ -384,15 +419,17 @@ export default function CountrySearchDropdown({
                 ref={listboxRef}
                 id={listboxId}
                 role="listbox"
-                aria-label="Countries"
+                aria-label={t.dropdown.countriesAriaLabel}
                 className="max-h-64 overflow-y-auto py-1"
               >
                 {grouped.length === 0 && (
                   <li className="px-4 py-3 text-sm text-text-muted text-center">
-                    No countries found
+                    {t.compareCountries.noCountriesFound}
                   </li>
                 )}
-                {grouped.map((group) => (
+                {grouped.map((group) => {
+                  const regionLabel = localizedRegionLabel(group.region, t);
+                  return (
                   <li key={group.region} role="presentation">
                     <span
                       className="
@@ -401,9 +438,9 @@ export default function CountrySearchDropdown({
                       "
                       role="presentation"
                     >
-                      {group.region}
+                      {regionLabel}
                     </span>
-                    <ul role="group" aria-label={group.region}>
+                    <ul role="group" aria-label={regionLabel}>
                       {group.items.map((country) => {
                         const idx = itemIndexMap.get(country) ?? -1;
                         const isActive = idx === activeIndex;
@@ -433,7 +470,9 @@ export default function CountrySearchDropdown({
                             <span className="text-lg leading-none">
                               {country.flag}
                             </span>
-                            <span>{country.name}</span>
+                            <span>
+                              {localizedCountryName(country.code, locale, country.name)}
+                            </span>
                             {isSelected && (
                               <CheckIcon className="ml-auto flex-shrink-0" />
                             )}
@@ -442,7 +481,8 @@ export default function CountrySearchDropdown({
                       })}
                     </ul>
                   </li>
-                ))}
+                  );
+                })}
               </ul>
             </div>
           ) : null,

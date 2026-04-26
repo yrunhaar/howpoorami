@@ -14,6 +14,10 @@ import type { CountryData } from "@/data/wealth-data";
 import { toUSD, fromUSD } from "@/lib/currency";
 import { formatCurrency, getCurrencySymbol } from "@/lib/format";
 import { getPPPFactor } from "@/lib/ppp";
+import { useDictionary, useLanguage } from "@/components/LanguageProvider";
+import { interpolate, type Dictionary } from "@/lib/i18n/dictionary";
+import { localizedCountryName } from "@/lib/i18n/country-names";
+import { localePath } from "@/lib/i18n/urls";
 
 // ─── Constants ──────────────────────────────────────────────────────────────
 
@@ -47,12 +51,12 @@ interface CountryResult {
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
-function getSegmentLabel(percentile: number): string {
-  if (percentile >= 99.9) return "Top 0.1%";
-  if (percentile >= 99) return "Top 1%";
-  if (percentile >= 90) return "Top 10%";
-  if (percentile >= 50) return "Top 50%";
-  return "Bottom 50%";
+function getSegmentLabel(percentile: number, t: Dictionary): string {
+  if (percentile >= 99.9) return t.segments.top01;
+  if (percentile >= 99) return t.segments.top1;
+  if (percentile >= 90) return t.segments.top10;
+  if (percentile >= 50) return t.segments.top50;
+  return t.segments.bottom50;
 }
 
 function getSegmentColor(percentile: number): string {
@@ -65,12 +69,13 @@ function getSegmentColor(percentile: number): string {
 function getNextThreshold(
   percentile: number,
   thresholds: ReturnType<typeof getWealthThresholds>,
+  t: Dictionary,
 ): { amount: number; label: string } | null {
   if (percentile >= 99.9) return null;
-  if (percentile >= 99) return { amount: thresholds.p999, label: "top 0.1%" };
-  if (percentile >= 90) return { amount: thresholds.p99, label: "top 1%" };
-  if (percentile >= 50) return { amount: thresholds.p90, label: "top 10%" };
-  return { amount: thresholds.p50, label: "top 50%" };
+  if (percentile >= 99) return { amount: thresholds.p999, label: t.segments.forTop01 };
+  if (percentile >= 90) return { amount: thresholds.p99, label: t.segments.forTop1 };
+  if (percentile >= 50) return { amount: thresholds.p90, label: t.segments.forTop10 };
+  return { amount: thresholds.p50, label: t.segments.forTop50 };
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────
@@ -81,6 +86,8 @@ export default function CrossCountryCompare() {
   const [selectedCodes, setSelectedCodes] = useState<readonly AllCountryCode[]>(DEFAULT_SELECTIONS);
   const [showPicker, setShowPicker] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const t = useDictionary();
+  const { locale } = useLanguage();
 
   // Parse input amount to USD
   const amountUSD = useMemo(() => {
@@ -94,11 +101,15 @@ export default function CrossCountryCompare() {
   const results: readonly CountryResult[] = useMemo(() => {
     if (amountUSD === null) return [];
     return selectedCodes.map((code) => {
-      const country = ALL_COUNTRY_MAP[code];
+      const rawCountry = ALL_COUNTRY_MAP[code];
+      const country = {
+        ...rawCountry,
+        name: localizedCountryName(code, locale, rawCountry.name),
+      };
       const percentile = findPercentile(amountUSD, country);
       const localAmount = fromUSD(amountUSD, country.currency);
       const thresholds = getWealthThresholds(country);
-      const next = getNextThreshold(percentile, thresholds);
+      const next = getNextThreshold(percentile, thresholds, t);
       // PPP: what does this local amount buy in US-dollar terms?
       const pppFactor = getPPPFactor(country.code);
       const pppEquivalent = pppFactor && pppFactor > 0 ? localAmount / pppFactor : null;
@@ -107,13 +118,13 @@ export default function CrossCountryCompare() {
         country,
         percentile,
         localAmount,
-        segment: getSegmentLabel(percentile),
+        segment: getSegmentLabel(percentile, t),
         thresholdToNext: next ? fromUSD(next.amount, country.currency) : null,
         thresholdToNextLabel: next?.label ?? null,
         pppEquivalent,
       };
     }).sort((a, b) => b.percentile - a.percentile);
-  }, [amountUSD, selectedCodes]);
+  }, [amountUSD, selectedCodes, t, locale]);
 
   // Available currencies from selected countries + USD
   const availableCurrencies = useMemo(() => {
@@ -124,20 +135,32 @@ export default function CrossCountryCompare() {
     return Array.from(set).sort();
   }, [selectedCodes]);
 
-  // Country picker filtered list
+  // Country picker filtered list — search matches both English name (so
+  // typing "Germany" works) and the locale-specific name (so typing "Alemania"
+  // also works in Spanish).
   const filteredCountries = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
     const selSet = new Set<string>(selectedCodes);
     return ALL_COUNTRIES
       .filter((c) => !selSet.has(c.code))
-      .filter((c) => !q || c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q))
+      .filter((c) => {
+        if (!q) return true;
+        const localized = localizedCountryName(c.code, locale, c.name).toLowerCase();
+        return (
+          c.name.toLowerCase().includes(q) ||
+          c.code.toLowerCase().includes(q) ||
+          localized.includes(q)
+        );
+      })
       .sort((a, b) => {
         const rA = REGION_MAP[a.code] ?? "Other";
         const rB = REGION_MAP[b.code] ?? "Other";
         if (rA !== rB) return rA.localeCompare(rB);
-        return a.name.localeCompare(b.name);
+        const aName = localizedCountryName(a.code, locale, a.name);
+        const bName = localizedCountryName(b.code, locale, b.name);
+        return aName.localeCompare(bName);
       });
-  }, [searchQuery, selectedCodes]);
+  }, [searchQuery, selectedCodes, locale]);
 
   const handleToggleCountry = useCallback((code: string) => {
     if (!isAllCountryCode(code)) return;
@@ -172,10 +195,10 @@ export default function CrossCountryCompare() {
             className="text-center mb-10"
           >
             <h1 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
-              Compare Countries
+              {t.compareCountries.h1}
             </h1>
             <p className="text-text-secondary text-base sm:text-lg mt-3 max-w-xl mx-auto">
-              Same wealth, different country. See how your ranking changes across borders.
+              {t.compareCountries.subtitle}
             </p>
           </m.div>
 
@@ -187,7 +210,7 @@ export default function CrossCountryCompare() {
             className="bg-bg-card border border-border-subtle rounded-2xl p-6 sm:p-8 mb-8"
           >
             <label className="block text-text-secondary text-sm mb-2">
-              Enter your net wealth (assets minus debts)
+              {t.compareCountries.enterNetWealthLabel}
             </label>
             <div className="flex gap-3">
               <div className="relative flex-1">
@@ -199,7 +222,7 @@ export default function CrossCountryCompare() {
                   inputMode="numeric"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="e.g. 250000"
+                  placeholder={t.compareCountries.amountPlaceholder}
                   className="w-full bg-bg-primary border border-border-subtle rounded-xl pl-10 pr-4 py-3 text-text-primary text-lg tabular-nums placeholder:text-text-muted/40 focus:outline-none focus:border-accent-periwinkle/50 focus:ring-1 focus:ring-accent-periwinkle/30 transition-colors"
                 />
               </div>
@@ -214,7 +237,7 @@ export default function CrossCountryCompare() {
               </select>
             </div>
             <p className="text-text-muted text-xs mt-2">
-              All data is per-adult (WID.world equal-split). If you share finances with a partner, enter your personal half.
+              {t.compareCountries.inputHint}
             </p>
           </m.div>
 
@@ -227,13 +250,18 @@ export default function CrossCountryCompare() {
           >
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-text-primary font-semibold text-sm">
-                Countries ({selectedCodes.length}/{MAX_COUNTRIES})
+                {interpolate(t.compareCountries.countriesCountTemplate, {
+                  n: selectedCodes.length,
+                  max: MAX_COUNTRIES,
+                })}
               </h2>
               <button
                 onClick={() => { setShowPicker(!showPicker); setSearchQuery(""); }}
                 className="text-accent-periwinkle text-xs font-medium hover:underline cursor-pointer"
               >
-                {showPicker ? "Done" : "+ Add / Remove"}
+                {showPicker
+                  ? t.compareCountries.doneButton
+                  : t.compareCountries.addRemoveButton}
               </button>
             </div>
 
@@ -241,18 +269,28 @@ export default function CrossCountryCompare() {
             <div className="flex flex-wrap gap-2 mb-4">
               {selectedCodes.map((code) => {
                 const c = ALL_COUNTRY_MAP[code];
+                const displayName = localizedCountryName(code, locale, c.name);
                 return (
                   <span
                     key={code}
                     className="inline-flex items-center gap-1.5 bg-bg-card border border-border-subtle rounded-full px-3 py-1 text-sm text-text-primary"
                   >
                     <span>{c.flag}</span>
-                    <span>{c.name}</span>
+                    <span>{displayName}</span>
                     {selectedCodes.length > MIN_COUNTRIES && (
                       <button
                         onClick={() => handleRemoveCountry(code)}
                         className="text-text-muted hover:text-accent-rose ml-0.5 cursor-pointer"
-                        aria-label={`Remove ${c.name}`}
+                        aria-label={interpolate(
+                          t.compareCountries.removeAriaTemplate,
+                          {
+                            country: localizedCountryName(
+                              code,
+                              locale,
+                              c.name,
+                            ),
+                          },
+                        )}
                       >
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <line x1="18" y1="6" x2="6" y2="18" />
@@ -280,7 +318,7 @@ export default function CrossCountryCompare() {
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search countries..."
+                      placeholder={t.compareCountries.searchPlaceholder}
                       className="w-full bg-bg-primary border border-border-subtle rounded-lg px-3 py-2 text-text-primary text-sm placeholder:text-text-muted/40 focus:outline-none focus:border-accent-periwinkle/50 mb-3"
                     />
                     <div className="max-h-48 overflow-y-auto space-y-1">
@@ -291,12 +329,14 @@ export default function CrossCountryCompare() {
                           disabled={selectedCodes.length >= MAX_COUNTRIES}
                           className="w-full text-left px-3 py-1.5 rounded-lg text-sm text-text-secondary hover:bg-bg-primary hover:text-text-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                         >
-                          {c.flag} {c.name}
+                          {c.flag} {localizedCountryName(c.code, locale, c.name)}
                           <span className="text-text-muted text-xs ml-2">({c.currency})</span>
                         </button>
                       ))}
                       {filteredCountries.length === 0 && (
-                        <p className="text-text-muted text-xs text-center py-2">No countries found</p>
+                        <p className="text-text-muted text-xs text-center py-2">
+                          {t.compareCountries.noCountriesFound}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -317,7 +357,7 @@ export default function CrossCountryCompare() {
                 className="space-y-3"
               >
                 <h2 className="text-text-primary font-semibold text-sm mb-4">
-                  Your ranking across countries
+                  {t.compareCountries.yourRankingTitle}
                 </h2>
                 {results.map((r, i) => (
                   <m.div
@@ -354,26 +394,28 @@ export default function CrossCountryCompare() {
 
                         <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs">
                           <span className="text-text-muted">
-                            Local value:{" "}
+                            {t.compareCountries.localValueLabel}{" "}
                             <span className="text-text-secondary font-medium tabular-nums">
                               {formatCurrency(r.localAmount, r.country.currency, true)}
                             </span>
                           </span>
                           {r.pppEquivalent !== null && r.country.code !== "US" && (
                             <span className="text-text-muted">
-                              Buying power:{" "}
-                              <span className="text-text-secondary font-medium tabular-nums">
-                                {formatCurrency(r.pppEquivalent, "USD", true)}
-                              </span>
+                              {interpolate(t.compareCountries.buyingPowerTemplate, {
+                                amount: formatCurrency(r.pppEquivalent, "USD", true),
+                              })}
                             </span>
                           )}
                           {r.thresholdToNext !== null && r.thresholdToNextLabel !== null && (
                             <span className="text-text-muted">
-                              Need{" "}
-                              <span className="text-text-secondary font-medium tabular-nums">
-                                {formatCurrency(r.thresholdToNext, r.country.currency, true)}
-                              </span>
-                              {" "}for {r.thresholdToNextLabel}
+                              {interpolate(t.compareCountries.needTemplate, {
+                                amount: formatCurrency(
+                                  r.thresholdToNext,
+                                  r.country.currency,
+                                  true,
+                                ),
+                                label: r.thresholdToNextLabel,
+                              })}
                             </span>
                           )}
                         </div>
@@ -383,10 +425,14 @@ export default function CrossCountryCompare() {
                       <div className="text-right flex-shrink-0">
                         <p className="text-2xl sm:text-3xl font-bold text-accent-periwinkle tabular-nums">
                           {r.percentile.toFixed(1)}
-                          <span className="text-sm font-normal text-text-muted">%ile</span>
+                          <span className="text-sm font-normal text-text-muted">
+                            {t.compareCountries.percentileSuffix}
+                          </span>
                         </p>
                         <p className="text-text-muted text-[10px] mt-0.5">
-                          Richer than {r.percentile.toFixed(1)}% of adults
+                          {interpolate(t.compareCountries.richerThanTemplate, {
+                            pct: r.percentile.toFixed(1),
+                          })}
                         </p>
                       </div>
                     </div>
@@ -394,26 +440,26 @@ export default function CrossCountryCompare() {
                 ))}
 
                 {/* Insight box */}
-                {results.length >= 2 && (
-                  <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="bg-gradient-to-br from-accent-periwinkle/8 to-accent-lavender/8 border border-accent-periwinkle/15 rounded-xl p-5 text-center mt-6"
-                  >
-                    <p className="text-text-secondary text-sm">
-                      The same amount of wealth puts you in the{" "}
-                      <span className="text-accent-periwinkle font-semibold">
-                        {results[0].segment.toLowerCase()}
-                      </span>
-                      {" "}in {results[0].country.name} but the{" "}
-                      <span className="text-accent-amber font-semibold">
-                        {results[results.length - 1].segment.toLowerCase()}
-                      </span>
-                      {" "}in {results[results.length - 1].country.name}.
-                    </p>
-                  </m.div>
-                )}
+                {results.length >= 2 && (() => {
+                  const top = results[0];
+                  const bottom = results[results.length - 1];
+                  const insight = interpolate(t.compareCountries.insightTemplate, {
+                    topSegment: top.segment,
+                    topCountry: top.country.name,
+                    bottomSegment: bottom.segment,
+                    bottomCountry: bottom.country.name,
+                  });
+                  return (
+                    <m.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                      className="bg-gradient-to-br from-accent-periwinkle/8 to-accent-lavender/8 border border-accent-periwinkle/15 rounded-xl p-5 text-center mt-6"
+                    >
+                      <p className="text-text-secondary text-sm">{insight}</p>
+                    </m.div>
+                  );
+                })()}
               </m.div>
             ) : amountUSD === null && inputValue.length > 0 ? (
               <m.p
@@ -422,7 +468,7 @@ export default function CrossCountryCompare() {
                 animate={{ opacity: 1 }}
                 className="text-center text-text-muted text-sm"
               >
-                Enter a valid number to see results.
+                {t.compareCountries.invalidNumber}
               </m.p>
             ) : inputValue.length === 0 ? (
               <m.div
@@ -433,14 +479,29 @@ export default function CrossCountryCompare() {
                 className="text-center py-12"
               >
                 <p className="text-text-muted text-sm mb-2">
-                  Enter your net wealth above to compare across countries.
+                  {t.compareCountries.enterToCompare}
                 </p>
                 <p className="text-text-muted text-xs">
-                  Tip: Use the main{" "}
-                  <Link href="/" className="text-accent-periwinkle hover:underline">
-                    calculator
-                  </Link>
-                  {" "}if you want to estimate wealth from income.
+                  {(() => {
+                    const tpl = t.compareCountries.tipTemplate;
+                    const placeholder = "{calculatorLink}";
+                    const idx = tpl.indexOf(placeholder);
+                    if (idx === -1) return tpl;
+                    const before = tpl.slice(0, idx);
+                    const after = tpl.slice(idx + placeholder.length);
+                    return (
+                      <>
+                        {before}
+                        <Link
+                          href={localePath(locale, "/")}
+                          className="text-accent-periwinkle hover:underline"
+                        >
+                          {t.compareCountries.tipCalculatorLinkLabel}
+                        </Link>
+                        {after}
+                      </>
+                    );
+                  })()}
                 </p>
               </m.div>
             ) : null}
@@ -449,12 +510,14 @@ export default function CrossCountryCompare() {
           {/* Methodology note */}
           <div className="mt-12 text-center">
             <p className="text-text-muted text-xs">
-              Percentiles use Pareto-interpolated WID.world distribution data.
-              Currency conversion via ECB exchange rates (not purchasing-power adjusted).
+              {t.compareCountries.methodologyNote}
             </p>
             <p className="text-text-muted text-xs mt-1">
-              <Link href="/methodology" className="text-accent-periwinkle hover:underline">
-                Read the full methodology
+              <Link
+                href={localePath(locale, "/methodology")}
+                className="text-accent-periwinkle hover:underline"
+              >
+                {t.compareCountries.readMethodology}
               </Link>
             </p>
           </div>

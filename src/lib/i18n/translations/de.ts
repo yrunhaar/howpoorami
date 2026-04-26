@@ -72,10 +72,16 @@ export const de: Dictionary = {
       "Löhne, Verbraucherpreise und Immobilienpreise — alle auf das Jahr 2000 indexiert. Wenn die Linien auseinanderlaufen, fällt jemand zurück.",
     seeBillionaireCta:
       "Sieh, wie lange du brauchst, um so viel zu verdienen wie die reichste Person in {country}",
+    seeBillionaireCtaButton: "Milliardärsvergleich ausprobieren →",
     compareAcrossCountriesCta:
       "Wie würde dein Vermögen in einem anderen Land abschneiden?",
+    compareAcrossCountriesCtaButton: "Länder vergleichen →",
     attribution:
       "Daten von WID.world, OECD und SWIID. Open-Source-Projekt zu Bildungszwecken.",
+    tryBillionaireFooter: "Milliardärsvergleich ausprobieren",
+    avgTop1WealthTemplate: "Durchschnittsvermögen Top 1 %: {amount}",
+    richestInCountryTemplate: "Reichste Person in {country}: {name} ({amount})",
+    seeMatchThemLink: "Sieh, wie lange du bräuchtest, um sie einzuholen →",
   },
   input: {
     modeWealth: "Nettovermögen",
@@ -274,6 +280,55 @@ export const de: Dictionary = {
     needTemplate: "Du brauchst {amount}, um {label} zu erreichen",
     youRankHigherIn: "Höher platziert in",
     youRankLowerIn: "Niedriger platziert in",
+    enterNetWealthLabel: "Gib dein Nettovermögen ein (Vermögen minus Schulden)",
+    inputHint:
+      "Alle Daten sind pro Erwachsenem (WID.world, gleichmäßige Aufteilung). Wenn du Finanzen mit deinem Partner teilst, gib deine persönliche Hälfte ein.",
+    countriesCountTemplate: "Länder ({n}/{max})",
+    doneButton: "Fertig",
+    addRemoveButton: "+ Hinzufügen / Entfernen",
+    removeAriaTemplate: "{country} entfernen",
+    searchPlaceholder: "Länder suchen…",
+    noCountriesFound: "Keine Länder gefunden",
+    yourRankingTitle: "Deine Platzierung in den Ländern",
+    localValueLabel: "Lokaler Wert:",
+    richerThanTemplate: "Reicher als {pct}% der Erwachsenen",
+    percentileSuffix: ". Perz.",
+    insightTemplate:
+      "Dasselbe Vermögen platziert dich in {topCountry} in {topSegment}, in {bottomCountry} aber in {bottomSegment}.",
+    invalidNumber: "Gib eine gültige Zahl ein, um Ergebnisse zu sehen.",
+    enterToCompare:
+      "Gib oben dein Nettovermögen ein, um Länder zu vergleichen.",
+    tipTemplate:
+      "Tipp: Nutze den {calculatorLink} im Hauptbereich, um Vermögen aus Einkommen zu schätzen.",
+    tipCalculatorLinkLabel: "Rechner",
+    methodologyNote:
+      "Perzentile verwenden Pareto-interpolierte WID.world-Verteilungsdaten. Währungsumrechnung über EZB-Wechselkurse (ohne Kaufkraftanpassung).",
+    readMethodology: "Vollständige Methodik lesen",
+    forLabelTemplate: "für {label}",
+  },
+  regions: {
+    americas: "Amerika",
+    europe: "Europa",
+    asiaPacific: "Asien-Pazifik",
+    africa: "Afrika",
+    global: "Global",
+    other: "Sonstige",
+  },
+  segments: {
+    top01: "Top 0,1 %",
+    top1: "Top 1 %",
+    top10: "Top 10 %",
+    top50: "Top 50 %",
+    bottom50: "Untere 50 %",
+    forTop01: "Top 0,1 %",
+    forTop1: "Top 1 %",
+    forTop10: "Top 10 %",
+    forTop50: "Top 50 %",
+  },
+  dropdown: {
+    searchCountriesPlaceholder: "Länder suchen…",
+    countriesAriaLabel: "Länder",
+    selectCountry: "Land auswählen",
   },
   refine: {
     title: "Vermögensschätzung verfeinern",

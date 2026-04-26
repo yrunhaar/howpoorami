@@ -73,8 +73,18 @@ export interface Dictionary {
     readonly wagesKeepingUpH2: string;
     readonly wagesKeepingUpLead: string;
     readonly seeBillionaireCta: string;
+    readonly seeBillionaireCtaButton: string;
     readonly compareAcrossCountriesCta: string;
+    readonly compareAcrossCountriesCtaButton: string;
     readonly attribution: string;
+    readonly tryBillionaireFooter: string;
+
+    // Cross-link block under the wealth result on the home page
+    /** "Average top 1% wealth: {amount}" */
+    readonly avgTop1WealthTemplate: string;
+    /** "Richest in {country}: {name} ({amount})" — full localized line */
+    readonly richestInCountryTemplate: string;
+    readonly seeMatchThemLink: string;
   };
 
   /** Calculator input form. */
@@ -336,6 +346,65 @@ export interface Dictionary {
     readonly needTemplate: string;
     readonly youRankHigherIn: string;
     readonly youRankLowerIn: string;
+
+    // Compare Countries page (extended — used by CrossCountryCompare)
+    readonly enterNetWealthLabel: string;
+    readonly inputHint: string;
+    /** "Countries ({n}/{max})" */
+    readonly countriesCountTemplate: string;
+    readonly doneButton: string;
+    readonly addRemoveButton: string;
+    /** "Remove {country}" — aria-label */
+    readonly removeAriaTemplate: string;
+    readonly searchPlaceholder: string;
+    readonly noCountriesFound: string;
+    readonly yourRankingTitle: string;
+    readonly localValueLabel: string;
+    /** "Richer than {pct}% of adults" */
+    readonly richerThanTemplate: string;
+    readonly percentileSuffix: string;
+    /** "The same amount of wealth puts you in the {topSegment} in {topCountry} but the {bottomSegment} in {bottomCountry}." */
+    readonly insightTemplate: string;
+    readonly invalidNumber: string;
+    readonly enterToCompare: string;
+    /** "Tip: Use the main {calculatorLink} if you want to estimate wealth from income." */
+    readonly tipTemplate: string;
+    readonly tipCalculatorLinkLabel: string;
+    readonly methodologyNote: string;
+    readonly readMethodology: string;
+    /** "for {label}" — used inside needTemplate */
+    readonly forLabelTemplate: string;
+  };
+
+  /** Region labels used by CountrySearchDropdown and CrossCountryCompare. */
+  readonly regions: {
+    readonly americas: string;
+    readonly europe: string;
+    readonly asiaPacific: string;
+    readonly africa: string;
+    readonly global: string;
+    readonly other: string;
+  };
+
+  /** Segment labels for cross-country result cards. */
+  readonly segments: {
+    readonly top01: string;
+    readonly top1: string;
+    readonly top10: string;
+    readonly top50: string;
+    readonly bottom50: string;
+    /** Lowercase variants used inline ("Need X for top 1%"). */
+    readonly forTop01: string;
+    readonly forTop1: string;
+    readonly forTop10: string;
+    readonly forTop50: string;
+  };
+
+  /** Misc shared dropdown / select strings. */
+  readonly dropdown: {
+    readonly searchCountriesPlaceholder: string;
+    readonly countriesAriaLabel: string;
+    readonly selectCountry: string;
   };
 
   /** Income refinement panel — every form label and select option. */

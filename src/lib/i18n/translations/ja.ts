@@ -72,10 +72,16 @@ export const ja: Dictionary = {
       "賃金、消費者物価、住宅価格 — すべて 2000 年を基準にしています。線が乖離するとき、誰かが取り残されています。",
     seeBillionaireCta:
       "{country}で最も裕福な人と同じ額を稼ぐのに、どれくらいかかるか見てみましょう",
+    seeBillionaireCtaButton: "億万長者比較を試す →",
     compareAcrossCountriesCta:
       "別の国だったら、あなたの資産はどの位に来るでしょう？",
+    compareAcrossCountriesCtaButton: "国別に比較 →",
     attribution:
       "データ提供：WID.world、OECD、SWIID。教育目的のオープンソースプロジェクトです。",
+    tryBillionaireFooter: "億万長者比較を試す",
+    avgTop1WealthTemplate: "上位 1% の平均資産：{amount}",
+    richestInCountryTemplate: "{country} の最富裕者：{name}（{amount}）",
+    seeMatchThemLink: "追いつくのに必要な年数を見る →",
   },
   input: {
     modeWealth: "純資産",
@@ -269,6 +275,54 @@ export const ja: Dictionary = {
     needTemplate: "{label} に達するにはあと {amount} 必要",
     youRankHigherIn: "順位が高くなる国",
     youRankLowerIn: "順位が低くなる国",
+    enterNetWealthLabel: "純資産を入力（資産マイナス負債）",
+    inputHint:
+      "すべてのデータは成人ひとりあたり（WID.world、均等分割）です。配偶者と家計を共有している場合は、あなたの取り分（半分）を入力してください。",
+    countriesCountTemplate: "国 ({n}/{max})",
+    doneButton: "完了",
+    addRemoveButton: "+ 追加・削除",
+    removeAriaTemplate: "{country} を削除",
+    searchPlaceholder: "国を検索…",
+    noCountriesFound: "該当する国が見つかりません",
+    yourRankingTitle: "国別の順位",
+    localValueLabel: "現地価値：",
+    richerThanTemplate: "成人の {pct}% より裕福",
+    percentileSuffix: " パーセンタイル",
+    insightTemplate:
+      "同じ資産でも {topCountry} では「{topSegment}」、{bottomCountry} では「{bottomSegment}」になります。",
+    invalidNumber: "有効な数値を入力してください。",
+    enterToCompare: "上に純資産を入力すると、国を超えて比較できます。",
+    tipTemplate:
+      "ヒント：所得から資産を推定したい場合はメインの{calculatorLink}を使ってください。",
+    tipCalculatorLinkLabel: "計算ツール",
+    methodologyNote:
+      "パーセンタイルは WID.world の分布データを Pareto 補間して使用。為替換算は ECB レート（購買力調整なし）。",
+    readMethodology: "詳しい手法を読む",
+    forLabelTemplate: "{label} に到達するには",
+  },
+  regions: {
+    americas: "アメリカ大陸",
+    europe: "ヨーロッパ",
+    asiaPacific: "アジア太平洋",
+    africa: "アフリカ",
+    global: "グローバル",
+    other: "その他",
+  },
+  segments: {
+    top01: "上位 0.1%",
+    top1: "上位 1%",
+    top10: "上位 10%",
+    top50: "上位 50%",
+    bottom50: "下位 50%",
+    forTop01: "上位 0.1%",
+    forTop1: "上位 1%",
+    forTop10: "上位 10%",
+    forTop50: "上位 50%",
+  },
+  dropdown: {
+    searchCountriesPlaceholder: "国を検索…",
+    countriesAriaLabel: "国",
+    selectCountry: "国を選択してください",
   },
   refine: {
     title: "資産推定をもっと正確に",

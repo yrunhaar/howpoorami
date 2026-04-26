@@ -73,10 +73,16 @@ export const fr: Dictionary = {
       "Salaires, prix à la consommation et prix de l'immobilier — tous indexés sur l'an 2000. Lorsque les courbes divergent, quelqu'un décroche.",
     seeBillionaireCta:
       "Voyez combien de temps il vous faudrait pour gagner autant que la personne la plus riche en {country}",
+    seeBillionaireCtaButton: "Essayer la comparaison avec un milliardaire →",
     compareAcrossCountriesCta:
       "Quelle serait votre place dans un autre pays ?",
+    compareAcrossCountriesCtaButton: "Comparer entre pays →",
     attribution:
       "Données de WID.world, OCDE et SWIID. Projet open source à but éducatif.",
+    tryBillionaireFooter: "Essayer la comparaison avec un milliardaire",
+    avgTop1WealthTemplate: "Patrimoine moyen du top 1 % : {amount}",
+    richestInCountryTemplate: "Plus riche en {country} : {name} ({amount})",
+    seeMatchThemLink: "Voir combien de temps il faudrait pour les égaler →",
   },
   input: {
     modeWealth: "Patrimoine net",
@@ -276,6 +282,55 @@ export const fr: Dictionary = {
     needTemplate: "Il vous faut {amount} pour atteindre {label}",
     youRankHigherIn: "Vous seriez mieux classé en",
     youRankLowerIn: "Vous seriez moins bien classé en",
+    enterNetWealthLabel: "Saisissez votre patrimoine net (actifs moins dettes)",
+    inputHint:
+      "Toutes les données sont par adulte (WID.world, partage à parts égales). Si vous partagez vos finances avec votre partenaire, indiquez votre moitié personnelle.",
+    countriesCountTemplate: "Pays ({n}/{max})",
+    doneButton: "Terminé",
+    addRemoveButton: "+ Ajouter / supprimer",
+    removeAriaTemplate: "Retirer {country}",
+    searchPlaceholder: "Rechercher un pays…",
+    noCountriesFound: "Aucun pays trouvé",
+    yourRankingTitle: "Votre classement par pays",
+    localValueLabel: "Valeur locale :",
+    richerThanTemplate: "Plus riche que {pct} % des adultes",
+    percentileSuffix: "ᵉ centile",
+    insightTemplate:
+      "Le même patrimoine vous place dans {topSegment} en {topCountry} mais dans {bottomSegment} en {bottomCountry}.",
+    invalidNumber: "Saisissez un nombre valide pour voir les résultats.",
+    enterToCompare:
+      "Saisissez votre patrimoine net ci-dessus pour comparer entre pays.",
+    tipTemplate:
+      "Astuce : utilisez le {calculatorLink} principal pour estimer votre patrimoine à partir du revenu.",
+    tipCalculatorLinkLabel: "calculateur",
+    methodologyNote:
+      "Les centiles utilisent les données de distribution WID.world interpolées par Pareto. Conversion via taux BCE (sans ajustement de pouvoir d'achat).",
+    readMethodology: "Lire la méthodologie complète",
+    forLabelTemplate: "pour {label}",
+  },
+  regions: {
+    americas: "Amériques",
+    europe: "Europe",
+    asiaPacific: "Asie-Pacifique",
+    africa: "Afrique",
+    global: "Mondial",
+    other: "Autres",
+  },
+  segments: {
+    top01: "Top 0,1 %",
+    top1: "Top 1 %",
+    top10: "Top 10 %",
+    top50: "Top 50 %",
+    bottom50: "50 % du bas",
+    forTop01: "le top 0,1 %",
+    forTop1: "le top 1 %",
+    forTop10: "le top 10 %",
+    forTop50: "le top 50 %",
+  },
+  dropdown: {
+    searchCountriesPlaceholder: "Rechercher un pays…",
+    countriesAriaLabel: "Pays",
+    selectCountry: "Sélectionnez un pays",
   },
   refine: {
     title: "Affinez votre estimation de patrimoine",

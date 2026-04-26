@@ -68,6 +68,14 @@ export async function generateMetadata({
       locale: locale.bcp47.replace("-", "_"),
       url,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: interpolate(t.meta.compareCountryTitleTemplate, { country: name }),
+      description: interpolate(t.meta.compareCountryDescriptionTemplate, {
+        country: name,
+        richestSuffix,
+      }),
+    },
   };
 }
 

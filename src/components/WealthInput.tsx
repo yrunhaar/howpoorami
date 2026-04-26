@@ -520,23 +520,25 @@ export default function WealthInput({
             return (
               <div className="mt-5 pt-4 border-t border-border-subtle/50 max-w-sm mx-auto">
                 <p className="text-text-muted text-xs mb-1">
-                  Average top 1% wealth:{" "}
-                  <span className="text-text-secondary font-medium">
-                    {formatCurrency(avgTop1Local, country.currency)}
-                  </span>
+                  {interpolate(t.home.avgTop1WealthTemplate, {
+                    amount: formatCurrency(avgTop1Local, country.currency),
+                  })}
                 </p>
                 <p className="text-text-muted text-xs mb-3">
-                  Richest in {country.name}:{" "}
-                  <span className="text-text-secondary font-medium">
-                    {richest.name}
-                  </span>{" "}
-                  ({formatCurrency(fromUSD(richest.netWorth, country.currency), country.currency)})
+                  {interpolate(t.home.richestInCountryTemplate, {
+                    country: country.name,
+                    name: richest.name,
+                    amount: formatCurrency(
+                      fromUSD(richest.netWorth, country.currency),
+                      country.currency,
+                    ),
+                  })}
                 </p>
                 <Link
                   href={compareUrl}
                   className="inline-block text-accent-periwinkle text-xs font-medium hover:underline"
                 >
-                  See how long it would take to match them &rarr;
+                  {t.home.seeMatchThemLink}
                 </Link>
               </div>
             );
