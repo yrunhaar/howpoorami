@@ -114,7 +114,7 @@ const en: AboutContent = {
   },
   support: {
     heading: "Support this project",
-    body: "How Poor Am I? is free, open-source, and ad-free. Maintaining the data pipeline, adding new countries, and keeping translations fresh takes real time. If the site has helped you understand inequality better, a small contribution keeps it running and Bezos-free.",
+    body: "How Poor Am I? is free, open-source, and ad-free. Maintaining the data pipeline, adding new countries, and keeping translations fresh takes real time. If the site has helped you understand inequality better, a small contribution keeps the site running and free for everyone.",
     ctaLabel: "Buy me a coffee",
   },
   relatedNav: {
@@ -184,7 +184,7 @@ const es: AboutContent = {
   },
   support: {
     heading: "Apoya este proyecto",
-    body: "¿Qué tan pobre soy? es gratis, de código abierto y sin publicidad. Mantener el pipeline de datos, añadir nuevos países y conservar las traducciones cuesta tiempo real. Si el sitio te ha ayudado a entender mejor la desigualdad, una pequeña contribución lo mantiene funcionando y libre de Bezos.",
+    body: "¿Qué tan pobre soy? es gratis, de código abierto y sin publicidad. Mantener el pipeline de datos, añadir nuevos países y conservar las traducciones cuesta tiempo real. Si el sitio te ha ayudado a entender mejor la desigualdad, una pequeña contribución lo mantiene funcionando y gratis para todo el mundo.",
     ctaLabel: "Invítame a un café",
   },
   relatedNav: {
@@ -254,7 +254,7 @@ const de: AboutContent = {
   },
   support: {
     heading: "Dieses Projekt unterstützen",
-    body: "Wie arm bin ich? ist kostenlos, quelloffen und werbefrei. Die Datenpipeline zu pflegen, neue Länder hinzuzufügen und Übersetzungen aktuell zu halten kostet echte Zeit. Wenn dir die Seite geholfen hat, Ungleichheit besser zu verstehen, hilft ein kleiner Beitrag, sie am Laufen und Bezos-frei zu halten.",
+    body: "Wie arm bin ich? ist kostenlos, quelloffen und werbefrei. Die Datenpipeline zu pflegen, neue Länder hinzuzufügen und Übersetzungen aktuell zu halten kostet echte Zeit. Wenn dir die Seite geholfen hat, Ungleichheit besser zu verstehen, hilft ein kleiner Beitrag, sie am Laufen und für alle kostenlos zu halten.",
     ctaLabel: "Spendier mir einen Kaffee",
   },
   relatedNav: {
@@ -324,7 +324,7 @@ const fr: AboutContent = {
   },
   support: {
     heading: "Soutenir ce projet",
-    body: "À quel point suis-je pauvre ? est gratuit, open source et sans publicité. Maintenir le pipeline de données, ajouter de nouveaux pays et garder les traductions à jour prend un vrai temps. Si le site vous a aidé à mieux comprendre les inégalités, une petite contribution permet de le maintenir en ligne et libre de Bezos.",
+    body: "À quel point suis-je pauvre ? est gratuit, open source et sans publicité. Maintenir le pipeline de données, ajouter de nouveaux pays et garder les traductions à jour prend un vrai temps. Si le site vous a aidé à mieux comprendre les inégalités, une petite contribution permet de le maintenir en ligne et gratuit pour tout le monde.",
     ctaLabel: "Offrez-moi un café",
   },
   relatedNav: {
@@ -391,7 +391,7 @@ const zhCn: AboutContent = {
   },
   support: {
     heading: "支持本项目",
-    body: "「我到底有多穷？」完全免费、开源、无广告。维护数据管线、新增国家、持续更新各语种翻译都需要真实的时间投入。如果本站让你更清楚地看见不平等，一杯咖啡的小额支持能帮它继续运行，并保持远离贝索斯式的商业化。",
+    body: "「我到底有多穷？」完全免费、开源、无广告。维护数据管线、新增国家、持续更新各语种翻译都需要真实的时间投入。如果本站让你更清楚地看见不平等，一杯咖啡的小额支持能帮它继续运行，并对所有人免费开放。",
     ctaLabel: "请我喝杯咖啡",
   },
   relatedNav: {
@@ -461,7 +461,7 @@ const ja: AboutContent = {
   },
   support: {
     heading: "このプロジェクトを支援する",
-    body: "「私はどれだけ貧しい？」は無料・オープンソース・広告なしです。データパイプラインの維持、新しい国の追加、翻訳のアップデートには実際の時間がかかります。サイトが格差の理解に役立ったなら、小さなサポートが運営を続け、ベゾス的な商業化を避ける助けになります。",
+    body: "「私はどれだけ貧しい？」は無料・オープンソース・広告なしです。データパイプラインの維持、新しい国の追加、翻訳のアップデートには実際の時間がかかります。サイトが格差の理解に役立ったなら、小さなサポートが運営を続け、すべての人に無料で提供する助けになります。",
     ctaLabel: "コーヒーをおごる",
   },
   relatedNav: {
@@ -531,7 +531,7 @@ const pt: AboutContent = {
   },
   support: {
     heading: "Apoie este projeto",
-    body: "Quão pobre eu sou? é gratuito, de código aberto e sem anúncios. Manter o pipeline de dados, adicionar novos países e conservar as traduções dá trabalho real. Se o site te ajudou a entender melhor a desigualdade, uma pequena contribuição mantém o projeto no ar — e livre da lógica do Bezos.",
+    body: "Quão pobre eu sou? é gratuito, de código aberto e sem anúncios. Manter o pipeline de dados, adicionar novos países e conservar as traduções dá trabalho real. Se o site te ajudou a entender melhor a desigualdade, uma pequena contribuição mantém o projeto no ar e gratuito para todo mundo.",
     ctaLabel: "Me pague um café",
   },
   relatedNav: {
@@ -601,7 +601,7 @@ const it: AboutContent = {
   },
   support: {
     heading: "Sostieni questo progetto",
-    body: "Quanto sono povero? è gratuito, open source e senza pubblicità. Mantenere la pipeline dati, aggiungere nuovi paesi e tenere aggiornate le traduzioni richiede tempo reale. Se il sito ti ha aiutato a capire meglio la disuguaglianza, un piccolo contributo aiuta a tenerlo online e lontano dalla logica di Bezos.",
+    body: "Quanto sono povero? è gratuito, open source e senza pubblicità. Mantenere la pipeline dati, aggiungere nuovi paesi e tenere aggiornate le traduzioni richiede tempo reale. Se il sito ti ha aiutato a capire meglio la disuguaglianza, un piccolo contributo aiuta a tenerlo online e gratuito per tutti.",
     ctaLabel: "Offrimi un caffè",
   },
   relatedNav: {
