@@ -452,6 +452,19 @@ export const de: Dictionary = {
     rowTaxRates: "Effektive Steuersätze",
     rowAcademicPapers: "Fachpublikationen",
   },
+  cta: {
+    support: {
+      heading: "Dieses Projekt unterstützen",
+      body: "Wie arm bin ich? ist kostenlos, quelloffen und werbefrei. Die Datenpipeline zu pflegen, neue Länder hinzuzufügen und Übersetzungen aktuell zu halten kostet echte Zeit. Wenn dir die Seite geholfen hat, Ungleichheit besser zu verstehen, hilft ein kleiner Beitrag, sie am Laufen und für alle kostenlos zu halten.",
+      ctaLabel: "Spendier mir einen Kaffee",
+    },
+    furtherReading: {
+      heading: "Weiterlesen",
+      body: "Wenn die Seite deine Neugier geweckt hat, sind die Bücher, die sie geprägt haben, die tiefere Lektüre — Piketty, Saez und Zucman, Wilkinson, Milanović und andere. Die kanonischen Titel haben wir in einer Liste auf Bookshop.org zusammengestellt, das einen Teil jeder Bestellung an unabhängige Buchhandlungen weitergibt statt an Amazon.",
+      ctaLabel: "Leseliste ansehen",
+      disclosure: "Affiliate-Links — Käufe unterstützen auch dieses Projekt.",
+    },
+  },
   sources: {
     title: "Datenquellen & Methodik",
     intro:

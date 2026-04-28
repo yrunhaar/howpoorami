@@ -701,6 +701,24 @@ export interface Dictionary {
     readonly pdfPageLabel: string; // "Page"
   };
 
+  /** Site-wide CTA rail rendered just above the footer on every page.
+   *  Two cards: a Ko-fi support card (amber) and a Bookshop.org further-
+   *  reading card (sage). Lives in the dictionary because it's universal,
+   *  not page-specific. */
+  readonly cta: {
+    readonly support: {
+      readonly heading: string;
+      readonly body: string;
+      readonly ctaLabel: string;
+    };
+    readonly furtherReading: {
+      readonly heading: string;
+      readonly body: string;
+      readonly ctaLabel: string;
+      readonly disclosure: string;
+    };
+  };
+
   /** SourcesSection strings. */
   readonly sources: {
     readonly title: string;

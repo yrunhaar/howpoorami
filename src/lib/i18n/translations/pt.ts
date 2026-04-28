@@ -452,6 +452,20 @@ export const pt: Dictionary = {
     rowTaxRates: "Alíquotas efetivas",
     rowAcademicPapers: "Artigos acadêmicos",
   },
+  cta: {
+    support: {
+      heading: "Apoie este projeto",
+      body: "Quão pobre eu sou? é gratuito, de código aberto e sem anúncios. Manter o pipeline de dados, adicionar novos países e conservar as traduções dá trabalho real. Se o site te ajudou a entender melhor a desigualdade, uma pequena contribuição mantém o projeto no ar e gratuito para todo mundo.",
+      ctaLabel: "Me pague um café",
+    },
+    furtherReading: {
+      heading: "Leituras complementares",
+      body: "Se o site despertou sua curiosidade, os livros que o inspiraram são a leitura mais aprofundada — Piketty, Saez e Zucman, Wilkinson, Milanović e outros. Reunimos os títulos canônicos em uma lista no Bookshop.org, que repassa parte de cada venda a livrarias independentes em vez da Amazon.",
+      ctaLabel: "Ver a lista de leituras",
+      disclosure:
+        "Links de afiliado — as compras também ajudam a sustentar este projeto.",
+    },
+  },
   sources: {
     title: "Fontes de dados e metodologia",
     intro:

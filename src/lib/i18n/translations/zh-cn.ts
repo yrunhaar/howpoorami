@@ -430,6 +430,19 @@ export const zhCn: Dictionary = {
     rowTaxRates: "实际税率",
     rowAcademicPapers: "学术论文",
   },
+  cta: {
+    support: {
+      heading: "支持本项目",
+      body: "「我到底有多穷？」完全免费、开源、无广告。维护数据管线、新增国家、持续更新各语种翻译都需要真实的时间投入。如果本站让你更清楚地看见不平等，一杯咖啡的小额支持能帮它继续运行，并对所有人免费开放。",
+      ctaLabel: "请我喝杯咖啡",
+    },
+    furtherReading: {
+      heading: "延伸阅读",
+      body: "如果本站让你产生了兴趣，那些塑造了它的书籍才是更深入的阅读 —— Piketty、Saez 与 Zucman、Wilkinson、Milanović 等。我们把经典书目整理到了 Bookshop.org 的一个书单里；该平台会把每笔交易的一部分分给独立书店，而不是亚马逊。",
+      ctaLabel: "查看书单",
+      disclosure: "联盟链接 —— 购书也会支持本项目。",
+    },
+  },
   sources: {
     title: "数据来源与方法说明",
     intro:

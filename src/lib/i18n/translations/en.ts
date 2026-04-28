@@ -446,6 +446,19 @@ export const en: Dictionary = {
     rowTaxRates: "Effective tax rates",
     rowAcademicPapers: "Academic papers",
   },
+  cta: {
+    support: {
+      heading: "Support this project",
+      body: "How Poor Am I? is free, open-source, and ad-free. Maintaining the data pipeline, adding new countries, and keeping translations fresh takes real time. If the site has helped you understand inequality better, a small contribution keeps the site running and free for everyone.",
+      ctaLabel: "Buy me a coffee",
+    },
+    furtherReading: {
+      heading: "Further reading",
+      body: "If the site sparked your curiosity, the books that informed it are the deeper read — Piketty, Saez & Zucman, Wilkinson, Milanović, and others. We've curated the canonical titles into a list at Bookshop.org, which sends a portion of every sale to independent bookstores rather than Amazon.",
+      ctaLabel: "Browse the reading list",
+      disclosure: "Affiliate links — purchases also help support this project.",
+    },
+  },
   sources: {
     title: "Data Sources & Methodology",
     intro:

@@ -445,6 +445,20 @@ export const ja: Dictionary = {
     rowTaxRates: "実効税率",
     rowAcademicPapers: "学術論文",
   },
+  cta: {
+    support: {
+      heading: "このプロジェクトを支援する",
+      body: "「私はどれだけ貧しい？」は無料・オープンソース・広告なしです。データパイプラインの維持、新しい国の追加、翻訳のアップデートには実際の時間がかかります。サイトが格差の理解に役立ったなら、小さなサポートが運営を続け、すべての人に無料で提供する助けになります。",
+      ctaLabel: "コーヒーをおごる",
+    },
+    furtherReading: {
+      heading: "さらに読む",
+      body: "サイトが興味を引いたなら、その土台となった本は最良の深掘り素材です — Piketty、Saez と Zucman、Wilkinson、Milanović など。古典的なタイトルを Bookshop.org のリストにまとめました。Bookshop.org は売上の一部を Amazon ではなく独立系書店に還元します。",
+      ctaLabel: "リーディングリストを見る",
+      disclosure:
+        "アフィリエイトリンク — 購入はこのプロジェクトの支援にもなります。",
+    },
+  },
   sources: {
     title: "データソースと手法",
     intro:

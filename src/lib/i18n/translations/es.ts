@@ -451,6 +451,20 @@ export const es: Dictionary = {
     rowTaxRates: "Tipos impositivos efectivos",
     rowAcademicPapers: "Artículos académicos",
   },
+  cta: {
+    support: {
+      heading: "Apoya este proyecto",
+      body: "¿Qué tan pobre soy? es gratis, de código abierto y sin publicidad. Mantener el pipeline de datos, añadir nuevos países y conservar las traducciones cuesta tiempo real. Si el sitio te ha ayudado a entender mejor la desigualdad, una pequeña contribución lo mantiene funcionando y gratis para todo el mundo.",
+      ctaLabel: "Invítame a un café",
+    },
+    furtherReading: {
+      heading: "Lecturas recomendadas",
+      body: "Si el sitio te despertó la curiosidad, los libros que lo inspiraron son la lectura más profunda: Piketty, Saez y Zucman, Wilkinson, Milanović y otros. Hemos seleccionado los títulos canónicos en una lista en Bookshop.org, que envía una parte de cada venta a librerías independientes en lugar de a Amazon.",
+      ctaLabel: "Ver la lista de lecturas",
+      disclosure:
+        "Enlaces de afiliado — las compras también ayudan a sostener este proyecto.",
+    },
+  },
   sources: {
     title: "Fuentes de datos y metodología",
     intro:

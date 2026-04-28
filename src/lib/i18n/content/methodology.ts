@@ -72,15 +72,9 @@ export interface MethodologyContent {
     readonly outro: string;
   };
 
-  /** Bookshop.org reading list — same affiliate link as on the About
-   *  page, but framed for the methodology audience: "the underlying
-   *  scholarship behind the visualization layer". */
-  readonly furtherReading: {
-    readonly heading: string;
-    readonly body: string;
-    readonly ctaLabel: string;
-    readonly disclosure: string;
-  };
+  // Note: the Bookshop "Further reading" card has been promoted to
+  // the site-wide <SupportRail /> (driven by `t.cta.*` in the
+  // dictionary). Methodology no longer carries its own copy.
   readonly relatedNav: {
     readonly backToCalculator: string;
     readonly about: string;
@@ -180,12 +174,6 @@ const en: MethodologyContent = {
     ],
     outro:
       "Tax rate data is the exception — it comes from academic papers and is maintained manually with full source citations (see table above).",
-  },
-  furtherReading: {
-    heading: "Further reading",
-    body: "The data on this site is the visualization layer. The underlying scholarship — Piketty, Saez & Zucman, Milanović, Wilkinson, Sandel — sits in books worth reading directly. We've curated the canonical titles into a Bookshop.org list. Sales support independent bookstores rather than Amazon, and clicking through also supports this project.",
-    ctaLabel: "Open the reading list",
-    disclosure: "Affiliate links.",
   },
   relatedNav: {
     backToCalculator: "Back to calculator",
@@ -287,12 +275,6 @@ const es: MethodologyContent = {
     outro:
       "Los datos de tipos impositivos son la excepción — provienen de artículos académicos y se mantienen manualmente con citas completas (ver tabla arriba).",
   },
-  furtherReading: {
-    heading: "Lecturas recomendadas",
-    body: "Los datos de este sitio son la capa de visualización. El trabajo académico que los sustenta — Piketty, Saez y Zucman, Milanović, Wilkinson, Sandel — está en libros que merece la pena leer directamente. Hemos seleccionado los títulos canónicos en una lista de Bookshop.org, que destina una parte de cada venta a librerías independientes en lugar de Amazon, y los clics también ayudan a sostener este proyecto.",
-    ctaLabel: "Abrir la lista de lecturas",
-    disclosure: "Enlaces de afiliado.",
-  },
   relatedNav: {
     backToCalculator: "Volver a la calculadora",
     about: "Acerca de",
@@ -392,12 +374,6 @@ const de: MethodologyContent = {
     ],
     outro:
       "Steuerdaten sind die Ausnahme — sie stammen aus Fachpublikationen und werden manuell mit vollständigen Quellenangaben gepflegt (siehe Tabelle oben).",
-  },
-  furtherReading: {
-    heading: "Weiterlesen",
-    body: "Die Daten dieser Seite sind die Visualisierungsebene. Die zugrundeliegende Forschung — Piketty, Saez und Zucman, Milanović, Wilkinson, Sandel — steht in Büchern, die das direkte Lesen lohnen. Wir haben die kanonischen Titel in einer Bookshop.org-Liste zusammengestellt. Verkäufe unterstützen unabhängige Buchhandlungen statt Amazon; das Anklicken hilft auch diesem Projekt.",
-    ctaLabel: "Leseliste öffnen",
-    disclosure: "Affiliate-Links.",
   },
   relatedNav: {
     backToCalculator: "Zurück zum Rechner",
@@ -499,12 +475,6 @@ const fr: MethodologyContent = {
     outro:
       "Les données fiscales font exception — elles proviennent d'articles académiques et sont maintenues manuellement avec citations complètes (voir tableau ci-dessus).",
   },
-  furtherReading: {
-    heading: "Pour aller plus loin",
-    body: "Les données de ce site sont la couche de visualisation. La recherche qui les sous-tend — Piketty, Saez et Zucman, Milanović, Wilkinson, Sandel — vit dans des livres qui méritent une lecture directe. Les titres canoniques sont rassemblés dans une liste sur Bookshop.org. Les ventes soutiennent les librairies indépendantes plutôt qu'Amazon, et cliquer aide aussi ce projet.",
-    ctaLabel: "Ouvrir la liste de lectures",
-    disclosure: "Liens d'affiliation.",
-  },
   relatedNav: {
     backToCalculator: "Retour au calculateur",
     about: "À propos",
@@ -601,12 +571,6 @@ const zhCn: MethodologyContent = {
     ],
     outro:
       "税率数据是例外 — 它来自学术论文，由人工维护并附上完整引用（见上方表格）。",
-  },
-  furtherReading: {
-    heading: "延伸阅读",
-    body: "本站的数据是可视化层。其背后的学术研究 —— Piketty、Saez 与 Zucman、Milanović、Wilkinson、Sandel —— 才是值得直接阅读的内容。我们把经典书目整理在 Bookshop.org 的一个书单中。书单的销售会把一部分收入分给独立书店，而不是亚马逊；点击也对本项目有帮助。",
-    ctaLabel: "打开书单",
-    disclosure: "联盟链接。",
   },
   relatedNav: {
     backToCalculator: "返回计算器",
@@ -708,12 +672,6 @@ const ja: MethodologyContent = {
     outro:
       "税率データは例外で、学術論文に由来し、出典付きで手作業で整備しています（上の表を参照）。",
   },
-  furtherReading: {
-    heading: "さらに読む",
-    body: "このサイトのデータは可視化レイヤーです。その背後にある学術研究 — Piketty、Saez と Zucman、Milanović、Wilkinson、Sandel — は、直接読む価値のある書籍として存在します。古典的なタイトルを Bookshop.org のリストにまとめました。販売収益の一部は Amazon ではなく独立系書店に還元されます。クリックすればこのプロジェクトの支援にもなります。",
-    ctaLabel: "リーディングリストを開く",
-    disclosure: "アフィリエイトリンク。",
-  },
   relatedNav: {
     backToCalculator: "計算ツールに戻る",
     about: "概要",
@@ -814,12 +772,6 @@ const pt: MethodologyContent = {
     outro:
       "Os dados de alíquotas são a exceção — vêm de artigos acadêmicos e são mantidos manualmente com citações completas (ver tabela acima).",
   },
-  furtherReading: {
-    heading: "Leituras complementares",
-    body: "Os dados deste site são a camada de visualização. A pesquisa acadêmica que sustenta tudo isso — Piketty, Saez e Zucman, Milanović, Wilkinson, Sandel — vive em livros que valem a pena ler diretamente. Reunimos os títulos canônicos numa lista no Bookshop.org. As vendas apoiam livrarias independentes em vez da Amazon, e clicar também ajuda este projeto.",
-    ctaLabel: "Abrir a lista de leituras",
-    disclosure: "Links de afiliado.",
-  },
   relatedNav: {
     backToCalculator: "Voltar à calculadora",
     about: "Sobre",
@@ -919,12 +871,6 @@ const it: MethodologyContent = {
     ],
     outro:
       "I dati sulle aliquote sono l'eccezione — provengono da articoli accademici e sono mantenuti manualmente con citazioni complete (vedi tabella sopra).",
-  },
-  furtherReading: {
-    heading: "Approfondimenti",
-    body: "I dati di questo sito sono il livello di visualizzazione. La ricerca che li alimenta — Piketty, Saez e Zucman, Milanović, Wilkinson, Sandel — sta in libri che vale la pena leggere direttamente. Abbiamo raccolto i titoli canonici in una lista su Bookshop.org. Le vendite sostengono le librerie indipendenti invece di Amazon e cliccare aiuta anche questo progetto.",
-    ctaLabel: "Apri la lista di letture",
-    disclosure: "Link affiliati.",
   },
   relatedNav: {
     backToCalculator: "Torna al calcolatore",

@@ -453,6 +453,20 @@ export const it: Dictionary = {
     rowTaxRates: "Aliquote effettive",
     rowAcademicPapers: "Articoli accademici",
   },
+  cta: {
+    support: {
+      heading: "Sostieni questo progetto",
+      body: "Quanto sono povero? è gratuito, open source e senza pubblicità. Mantenere la pipeline dati, aggiungere nuovi paesi e tenere aggiornate le traduzioni richiede tempo reale. Se il sito ti ha aiutato a capire meglio la disuguaglianza, un piccolo contributo aiuta a tenerlo online e gratuito per tutti.",
+      ctaLabel: "Offrimi un caffè",
+    },
+    furtherReading: {
+      heading: "Approfondimenti",
+      body: "Se il sito ha acceso la tua curiosità, i libri che lo hanno ispirato sono la lettura più approfondita — Piketty, Saez e Zucman, Wilkinson, Milanović e altri. Abbiamo raccolto i titoli canonici in una lista su Bookshop.org, che gira una parte di ogni vendita alle librerie indipendenti invece di Amazon.",
+      ctaLabel: "Vai alla lista di letture",
+      disclosure:
+        "Link affiliati — gli acquisti aiutano anche questo progetto.",
+    },
+  },
   sources: {
     title: "Fonti dati e metodologia",
     intro:

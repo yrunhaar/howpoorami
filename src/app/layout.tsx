@@ -3,6 +3,7 @@ import { Playfair_Display, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SupportRail from "@/components/SupportRail";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { buildHreflangAlternates } from "@/lib/i18n/urls";
@@ -160,6 +161,7 @@ export default function RootLayout({
           <LanguageProvider>
             <Navigation />
             {children}
+            <SupportRail />
             <Footer />
           </LanguageProvider>
         </ThemeProvider>

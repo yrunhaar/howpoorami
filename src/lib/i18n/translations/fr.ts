@@ -454,6 +454,20 @@ export const fr: Dictionary = {
     rowTaxRates: "Taux d'imposition effectifs",
     rowAcademicPapers: "Articles académiques",
   },
+  cta: {
+    support: {
+      heading: "Soutenir ce projet",
+      body: "À quel point suis-je pauvre ? est gratuit, open source et sans publicité. Maintenir le pipeline de données, ajouter de nouveaux pays et garder les traductions à jour prend un vrai temps. Si le site vous a aidé à mieux comprendre les inégalités, une petite contribution permet de le maintenir en ligne et gratuit pour tout le monde.",
+      ctaLabel: "Offrez-moi un café",
+    },
+    furtherReading: {
+      heading: "Pour aller plus loin",
+      body: "Si le site a piqué votre curiosité, les livres qui l'ont inspiré offrent la lecture en profondeur — Piketty, Saez et Zucman, Wilkinson, Milanović et d'autres. Les titres canoniques sont rassemblés dans une liste sur Bookshop.org, qui reverse une part de chaque achat à des librairies indépendantes plutôt qu'à Amazon.",
+      ctaLabel: "Voir la liste de lectures",
+      disclosure:
+        "Liens d'affiliation — les achats soutiennent aussi ce projet.",
+    },
+  },
   sources: {
     title: "Sources de données et méthodologie",
     intro:
