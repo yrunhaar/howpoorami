@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/", priority: 1.0, changeFrequency: "weekly" },
     { path: "/how-long", priority: 0.9, changeFrequency: "weekly" },
     { path: "/compare-countries", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/report", priority: 0.9, changeFrequency: "monthly" },
     { path: "/about", priority: 0.6, changeFrequency: "monthly" },
     { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
     { path: "/methodology", priority: 0.6, changeFrequency: "monthly" },

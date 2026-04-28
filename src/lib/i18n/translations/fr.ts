@@ -41,11 +41,16 @@ export const fr: Dictionary = {
     methodologyTitle: "Méthodologie — À quel point suis-je pauvre ?",
     methodologyDescription:
       "Au cœur de la méthodologie d'À quel point suis-je pauvre ? : sources de données, estimation des centiles, ajustement par âge et conversion PPA.",
+    reportTitle:
+      "Rapport gratuit sur les inégalités de richesse — Générez le vôtre",
+    reportDescription:
+      "Générez un PDF gratuit et soigné de votre centile de richesse personnel, avec graphiques par pays, tendances séculaires et contexte de votre chiffre. Sans inscription, sans paiement, totalement privé.",
   },
   nav: {
     home: "À quel point suis-je pauvre ?",
     howLong: "Combien de temps ?",
     compareCountries: "Comparer",
+    report: "Rapport",
     languageSwitchAria: "Changer de langue",
     themeToggleAria: "Basculer le mode clair / sombre",
   },
@@ -458,5 +463,108 @@ export const fr: Dictionary = {
     closingLine:
       "Construit avec des données publiques. Aucune donnée personnelle n'est collectée ni stockée.",
     accessedTemplate: "Consulté : {date}",
+  },
+  report: {
+    navLabel: "Rapport",
+    landingTitle: "Votre rapport personnel sur les inégalités de richesse",
+    landingSubtitle:
+      "Gratuit. Privé. Un PDF soigné qui replace votre chiffre dans un siècle de contexte.",
+    landingLeadHeading: "Ce que contient le rapport",
+    landingLeadBody:
+      "Un PDF en plusieurs pages, taillé pour votre pays et votre chiffre. Où vous vous situez, à quoi ressemblent les écarts, ce que les données ont fait depuis un siècle — pensé comme une note de recherche, pas comme un email marketing.",
+    landingFreeBadge: "Gratuit — sans inscription, sans paiement, sans email",
+    landingCta: "Générer mon rapport",
+    landingFeatureWealthTitle: "Votre centile précis",
+    landingFeatureWealthBody:
+      "Les données WID.world avec interpolation de Pareto vous placent précisément sur la distribution — pas dans un casier de cinq tranches.",
+    landingFeatureContextTitle: "Contexte par pays",
+    landingFeatureContextBody:
+      "Comment votre chiffre se compare à la médiane et à la moyenne nationales et aux seuils d'entrée du top 10 %, top 1 % et top 0,1 %.",
+    landingFeaturePrivateTitle: "Totalement privé",
+    landingFeaturePrivateBody:
+      "Tout le rapport est généré dans votre navigateur. Rien de ce que vous saisissez ne quitte votre appareil — pas de serveurs, pas d'analytique.",
+    landingExampleTitle: "Conçu comme une note de recherche",
+    landingExampleBody:
+      "Six pages, huit langues, données par pays : couverture avec votre centile, visuel de votre position, tableau de mise en contexte, paragraphe sur un siècle de changement, écart revenu-richesse et note méthodologique de clôture. Sources citées et partageable.",
+    landingPrivacyNote:
+      "Tous les calculs sont faits localement dans votre navigateur. Nous ne voyons jamais vos chiffres et nous ne vous suivons pas.",
+    wizardTitle: "Générez votre rapport",
+    wizardSubtitle:
+      "Choisissez un pays, donnez-nous un patrimoine net, on s'occupe du reste.",
+    wizardCountryLabel: "Pays",
+    wizardModeKnown: "Je connais mon patrimoine net",
+    wizardModeEstimate: "Aide-moi à l'estimer",
+    wizardKnownLabel: "Votre patrimoine net",
+    wizardKnownPlaceholder: "ex. 250000",
+    wizardKnownHint:
+      "Saisissez votre part personnelle — si vous partagez les finances avec votre partenaire, indiquez la moitié.",
+    wizardEstimateIntro:
+      "Ajoutez ce qui s'applique. Ce que vous laissez vide compte comme zéro. Nous additionnons les actifs, retranchons les dettes, et utilisons le total comme votre patrimoine.",
+    wizardStepProperty: "Logement",
+    wizardStepInvestments: "Placements",
+    wizardStepCash: "Liquidités & épargne",
+    wizardStepDebts: "Dettes",
+    wizardFieldHomeValue: "Valeur du logement",
+    wizardFieldMortgage: "Crédit immo restant",
+    wizardFieldOtherProperty: "Autres biens immobiliers",
+    wizardFieldStocks: "Actions / ETFs",
+    wizardFieldRetirement: "Retraite / 401k / superannuation",
+    wizardFieldCrypto: "Crypto",
+    wizardFieldCash: "Liquidités & compte courant",
+    wizardFieldOtherSavings: "Autres épargnes",
+    wizardFieldStudentLoans: "Prêts étudiants",
+    wizardFieldCreditDebt: "Dette de carte de crédit",
+    wizardFieldOtherDebts: "Autres dettes",
+    wizardEstimateTotalLabel: "Patrimoine net estimé",
+    wizardAgeLabel: "Votre âge (facultatif)",
+    wizardAgePlaceholder: "ex. 30",
+    wizardAgeHint:
+      "Ajoute un centile ajusté par âge à côté du centile global.",
+    wizardCurrencyHint: "Montants en {currency}",
+    wizardGenerateCta: "Générer le PDF",
+    wizardGenerating: "Génération…",
+    wizardError:
+      "Une erreur est survenue lors de la génération du rapport. Réessayez.",
+    thankYouTitle: "Votre rapport se télécharge",
+    thankYouBody:
+      "Construire ça prend un vrai temps. Le site reste gratuit et sans publicité. Si le rapport a été utile, un petit pourboire le maintient ainsi.",
+    thankYouTipCta: "Offrez-moi un café",
+    thankYouRegenerate: "Générer un autre rapport",
+    pdfFilenameTemplate: "rapport-inegalites-{country}-{date}.pdf",
+    pdfCoverTitle: "Rapport personnel sur les inégalités de richesse",
+    pdfCoverSubtitleTemplate: "pour {country}",
+    pdfCoverGeneratedLabel: "Généré",
+    pdfPercentileLeadIn: "Vous êtes plus riche que",
+    pdfPercentilePopulation: "de la population adulte",
+    pdfPercentileBracketTemplate: "Top {percent} % en {country}",
+    pdfYourNetWorthLabel: "Votre patrimoine net",
+    pdfSection1Title: "1. Votre position",
+    pdfSection1Body:
+      "Votre position est calculée à partir de la distribution des parts de richesse du pays (Comptes nationaux distributifs WID.world). Les bandes ci-dessous sont les groupes d'inégalités standard ; le repère indique où se situe votre chiffre.",
+    pdfSection2Title: "2. Votre patrimoine en contexte",
+    pdfContextLabelMedian: "Médiane nationale",
+    pdfContextLabelMean: "Moyenne nationale",
+    pdfContextLabelTop10: "Seuil top 10 %",
+    pdfContextLabelTop1: "Seuil top 1 %",
+    pdfContextLabelTop01: "Seuil top 0,1 %",
+    pdfRatioMedianTemplate: "{ratio}× la médiane nationale",
+    pdfSection3Title: "3. Un siècle de changement",
+    pdfSection3BodyTemplate:
+      "La concentration des richesses en {country} a beaucoup évolué depuis un siècle. Après la compression du milieu du siècle, la part du top 1 % est revenue vers les niveaux du début du XXᵉ siècle dans la plupart des économies. L'écart entre richesse moyenne et médiane est aujourd'hui plus grand qu'à n'importe quel moment depuis la Seconde Guerre mondiale.",
+    pdfSection4Title: "4. Revenu vs richesse : la double fracture",
+    pdfSection4Body:
+      "La richesse est bien plus concentrée que le revenu. Les 50 % du bas détiennent typiquement 1 à 5 % du patrimoine national mais perçoivent 15 à 20 % du revenu national. Le patrimoine se compose ; le revenu du travail, non.",
+    pdfSection5Title: "5. Ce que cela signifie",
+    pdfSection5Body:
+      "Les centiles décrivent une position, pas un verdict. Votre place reflète du capital accumulé, l'épargne d'une vie, l'héritage et l'opportunité structurelle — pas votre valeur personnelle. Les données sont là pour informer, pas pour classer.",
+    pdfMethodologyTitle: "Méthodologie",
+    pdfMethodologyBody:
+      "Parts de richesse de WID.world (Comptes nationaux distributifs). Centiles via interpolation de Pareto entre les seuils publiés. Conversion monétaire avec les taux BCE ; PPA via la Banque mondiale. Toutes les données sont récupérées au build, aucune donnée utilisateur n'est envoyée à un serveur.",
+    pdfTipTitle: "Gardons cela gratuit",
+    pdfTipBody:
+      "Ce rapport est gratuit. Le site reste gratuit et sans publicité. S'il vous a été utile, un petit pourboire couvre l'hébergement et permet d'ajouter de nouveaux pays.",
+    pdfTipQrCaption: "Pourboire via Ko-fi — scannez ou rendez-vous sur ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org — les inégalités de richesse, visualisées",
+    pdfPageLabel: "Page",
   },
 };

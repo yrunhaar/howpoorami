@@ -41,11 +41,15 @@ export const ja: Dictionary = {
     methodologyTitle: "手法 — 私はどれだけ貧しい？",
     methodologyDescription:
       "「私はどれだけ貧しい？」の手法：データソース、パーセンタイル推定、年齢調整、PPP 換算。",
+    reportTitle: "無料パーソナル資産格差レポート — 今すぐ作成",
+    reportDescription:
+      "個人の資産パーセンタイル、国別チャート、世紀規模の不平等トレンド、数字の背景がまとまった、デザインされた無料 PDF を生成。登録不要、支払い不要、完全プライベート。",
   },
   nav: {
     home: "私はどれだけ貧しい？",
     howLong: "どれだけかかる？",
     compareCountries: "国別比較",
+    report: "レポート",
     languageSwitchAria: "言語を切り替える",
     themeToggleAria: "ライト/ダークモードを切り替える",
   },
@@ -450,5 +454,107 @@ export const ja: Dictionary = {
     closingLine:
       "公開データのみで構築。個人データの収集・保存はありません。",
     accessedTemplate: "閲覧日：{date}",
+  },
+  report: {
+    navLabel: "レポート",
+    landingTitle: "あなた専用の資産格差レポート",
+    landingSubtitle:
+      "無料・プライベート。あなたの数字を 1 世紀の文脈に置く、しっかり設計された PDF。",
+    landingLeadHeading: "中身",
+    landingLeadBody:
+      "あなたの国とあなたの数字に合わせた複数ページの PDF。あなたの位置、格差の様相、過去 100 年でデータがどう動いたか — マーケティングメールではなくリサーチノートのように読めるデザイン。",
+    landingFreeBadge: "無料 — 登録不要、支払い不要、メール不要",
+    landingCta: "レポートを作成",
+    landingFeatureWealthTitle: "正確なパーセンタイル",
+    landingFeatureWealthBody:
+      "Pareto 内挿された WID.world データが、5 段階のバケットではなく分布上の正確な位置に配置します。",
+    landingFeatureContextTitle: "国別の文脈",
+    landingFeatureContextBody:
+      "あなたの数字を国の中央値・平均・上位 10%・1%・0.1% の閾値と並べて見せます。",
+    landingFeaturePrivateTitle: "完全にプライベート",
+    landingFeaturePrivateBody:
+      "レポート全体はブラウザ内で生成。入力した内容は端末から外に出ません — サーバーなし、解析なし。",
+    landingExampleTitle: "リサーチノートのように作られています",
+    landingExampleBody:
+      "6 ページ、8 言語、国別データ：あなたのパーセンタイルを掲げる表紙、立ち位置のビジュアル、文脈テーブル、世紀の変化、所得対資産の格差、最後に方法論ノート。出典付きで共有可能。",
+    landingPrivacyNote:
+      "すべての計算はブラウザ内でローカルに実行。私たちはあなたの数字を見ることもなく、トラッキングもしません。",
+    wizardTitle: "レポートを作成",
+    wizardSubtitle:
+      "国を選んで、純資産の数字を入れてください。あとは私たちが処理します。",
+    wizardCountryLabel: "国",
+    wizardModeKnown: "純資産はわかっている",
+    wizardModeEstimate: "推定を手伝ってほしい",
+    wizardKnownLabel: "あなたの純資産",
+    wizardKnownPlaceholder: "例：250000",
+    wizardKnownHint:
+      "あなた個人の取り分を入力してください — 配偶者と家計を共有しているなら半額を入力。",
+    wizardEstimateIntro:
+      "該当するものを記入。空欄はゼロとして扱います。資産を加算し、負債を減算した合計を純資産として使います。",
+    wizardStepProperty: "不動産",
+    wizardStepInvestments: "投資",
+    wizardStepCash: "現金 & 預金",
+    wizardStepDebts: "負債",
+    wizardFieldHomeValue: "住宅の評価額",
+    wizardFieldMortgage: "住宅ローン残高",
+    wizardFieldOtherProperty: "その他の不動産",
+    wizardFieldStocks: "株式 / ETF",
+    wizardFieldRetirement: "年金 / 401k / Superannuation",
+    wizardFieldCrypto: "暗号資産",
+    wizardFieldCash: "現金 & 当座預金",
+    wizardFieldOtherSavings: "その他の貯蓄",
+    wizardFieldStudentLoans: "学資ローン",
+    wizardFieldCreditDebt: "クレジットカード負債",
+    wizardFieldOtherDebts: "その他の負債",
+    wizardEstimateTotalLabel: "推定純資産",
+    wizardAgeLabel: "あなたの年齢（任意）",
+    wizardAgePlaceholder: "例：30",
+    wizardAgeHint: "全体パーセンタイルに加えて、年齢調整パーセンタイルも表示します。",
+    wizardCurrencyHint: "金額は {currency} 建て",
+    wizardGenerateCta: "PDF を作成",
+    wizardGenerating: "作成中…",
+    wizardError:
+      "レポート作成中に問題が発生しました。もう一度お試しください。",
+    thankYouTitle: "レポートをダウンロード中です",
+    thankYouBody:
+      "これを作るのに実際の時間がかかっています。サイトは無料・広告なしのままです。レポートが役に立ったなら、小さな投げ銭で運営を支えていただけると嬉しいです。",
+    thankYouTipCta: "コーヒーをおごる",
+    thankYouRegenerate: "別のレポートを作る",
+    pdfFilenameTemplate: "wealth-inequality-report-{country}-{date}.pdf",
+    pdfCoverTitle: "パーソナル資産格差レポート",
+    pdfCoverSubtitleTemplate: "対象：{country}",
+    pdfCoverGeneratedLabel: "作成日",
+    pdfPercentileLeadIn: "あなたは次より裕福です：",
+    pdfPercentilePopulation: "の成人人口",
+    pdfPercentileBracketTemplate: "{country} の上位 {percent}%",
+    pdfYourNetWorthLabel: "あなたの純資産",
+    pdfSection1Title: "1. あなたの位置",
+    pdfSection1Body:
+      "あなたの位置は、国の資産シェア分布（WID.world Distributional National Accounts）から算出されます。下のバンドは標準的な格差グループ。マーカーがあなたの数字の位置を示します。",
+    pdfSection2Title: "2. 文脈の中の資産",
+    pdfContextLabelMedian: "全国中央値",
+    pdfContextLabelMean: "全国平均",
+    pdfContextLabelTop10: "上位 10% 閾値",
+    pdfContextLabelTop1: "上位 1% 閾値",
+    pdfContextLabelTop01: "上位 0.1% 閾値",
+    pdfRatioMedianTemplate: "全国中央値の {ratio} 倍",
+    pdfSection3Title: "3. 1 世紀の変化",
+    pdfSection3BodyTemplate:
+      "{country} の資産集中はこの 1 世紀で大きく変わりました。20 世紀半ばの圧縮の後、上位 1% のシェアはほとんどの経済で 20 世紀初頭の水準に戻ってきました。平均と中央値の資産差は、第二次世界大戦以降のどの時点よりも大きくなっています。",
+    pdfSection4Title: "4. 所得 vs. 資産：二重の格差",
+    pdfSection4Body:
+      "資産は所得よりはるかに集中しています。下位 50% は通常、国民資産の 1〜5% を保有する一方で、国民所得の 15〜20% を受け取ります。資産は複利で増えますが、労働所得はそうではありません。",
+    pdfSection5Title: "5. これが意味するもの",
+    pdfSection5Body:
+      "パーセンタイルは位置を示すだけで、判決ではありません。あなたの位置は、蓄積された資本、生涯の貯蓄、相続、構造的機会を反映するものであって、人としての価値を測るものではありません。データは情報を与えるためにあり、序列をつけるためではありません。",
+    pdfMethodologyTitle: "方法論",
+    pdfMethodologyBody:
+      "資産シェアは WID.world（Distributional National Accounts）から。パーセンタイルは公表されたシェア境界間を Pareto 内挿。通貨換算は ECB レート、PPP は世界銀行を使用。すべてのデータはビルド時に取得し、ユーザーデータをサーバーに送信することはありません。",
+    pdfTipTitle: "これを無料のままに",
+    pdfTipBody:
+      "このレポートは無料です。サイトは無料・広告なしのままです。役に立ったなら、小さな投げ銭がホスティング費を賄い、新しい国の追加を可能にします。",
+    pdfTipQrCaption: "Ko-fi で投げ銭 — スキャン、または ko-fi.com/yrunhaar へ",
+    pdfFooterAttribution: "howpoorami.org — 資産格差を可視化",
+    pdfPageLabel: "ページ",
   },
 };

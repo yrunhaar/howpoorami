@@ -39,11 +39,16 @@ export const en: Dictionary = {
     methodologyTitle: "Methodology — How Poor Am I?",
     methodologyDescription:
       "Inside the methodology behind How Poor Am I — data sources, percentile estimation, age adjustment, and PPP conversion.",
+    reportTitle:
+      "Free Personal Wealth Inequality Report — Generate Yours Now",
+    reportDescription:
+      "Generate a free, beautifully designed PDF report of your personal wealth percentile, with country-specific charts, a century of inequality trends, and what your number means in context. No signup, no payment, fully private.",
   },
   nav: {
     home: "How Poor Am I?",
     howLong: "How Long?",
     compareCountries: "Compare",
+    report: "Report",
     languageSwitchAria: "Change language",
     themeToggleAria: "Toggle dark / light mode",
   },
@@ -450,5 +455,106 @@ export const en: Dictionary = {
     closingLine:
       "Built with publicly available data. No personal data is collected or stored.",
     accessedTemplate: "Accessed: {date}",
+  },
+  report: {
+    navLabel: "Report",
+    landingTitle: "Your Personal Wealth Inequality Report",
+    landingSubtitle:
+      "Free. Private. A beautifully designed PDF that puts your number into a century of context.",
+    landingLeadHeading: "What's inside",
+    landingLeadBody:
+      "A multi-page PDF tailored to your country and your number. Where you stand, what the gaps look like, what the data has done over the last century — designed to read like a research brief, not a marketing email.",
+    landingFreeBadge: "Free — no signup, no payment, no email required",
+    landingCta: "Generate my report",
+    landingFeatureWealthTitle: "Your percentile, exact",
+    landingFeatureWealthBody:
+      "Pareto-interpolated WID.world data places you precisely on the distribution — not in a five-tier bucket.",
+    landingFeatureContextTitle: "Country context",
+    landingFeatureContextBody:
+      "How your number compares to the national median, mean, and the entry thresholds for top 10%, top 1%, and top 0.1%.",
+    landingFeaturePrivateTitle: "Fully private",
+    landingFeaturePrivateBody:
+      "The entire report is generated in your browser. Nothing you type leaves your device — no servers, no analytics.",
+    landingExampleTitle: "Built like a research brief",
+    landingExampleBody:
+      "Six pages, eight languages, country-specific data: a cover with your headline percentile, a where-you-stand visual, a wealth-in-context table, a century-of-change paragraph, the income-vs-wealth gap, and a closing methodology note. Source-cited and shareable.",
+    landingPrivacyNote:
+      "All calculations run locally in your browser. We never see your numbers, and we don't track you.",
+    wizardTitle: "Generate your report",
+    wizardSubtitle: "Pick a country, give us a net-worth number, and we'll do the rest.",
+    wizardCountryLabel: "Country",
+    wizardModeKnown: "I know my net worth",
+    wizardModeEstimate: "Help me estimate it",
+    wizardKnownLabel: "Your net worth",
+    wizardKnownPlaceholder: "e.g. 250000",
+    wizardKnownHint:
+      "Enter your personal share — if you share finances with a partner, enter your half.",
+    wizardEstimateIntro:
+      "Add what applies. Anything you skip is treated as zero. We add assets, subtract debts, and use the total as your net worth.",
+    wizardStepProperty: "Property",
+    wizardStepInvestments: "Investments",
+    wizardStepCash: "Cash & savings",
+    wizardStepDebts: "Debts",
+    wizardFieldHomeValue: "Home value",
+    wizardFieldMortgage: "Mortgage remaining",
+    wizardFieldOtherProperty: "Other property",
+    wizardFieldStocks: "Stocks / ETFs",
+    wizardFieldRetirement: "Pension / 401k / superannuation",
+    wizardFieldCrypto: "Crypto",
+    wizardFieldCash: "Cash & checking",
+    wizardFieldOtherSavings: "Other savings",
+    wizardFieldStudentLoans: "Student loans",
+    wizardFieldCreditDebt: "Credit-card debt",
+    wizardFieldOtherDebts: "Other debts",
+    wizardEstimateTotalLabel: "Estimated net worth",
+    wizardAgeLabel: "Your age (optional)",
+    wizardAgePlaceholder: "e.g. 30",
+    wizardAgeHint:
+      "Adds a generation-adjusted percentile alongside the overall one.",
+    wizardCurrencyHint: "Amounts in {currency}",
+    wizardGenerateCta: "Generate the PDF",
+    wizardGenerating: "Generating…",
+    wizardError: "Something went wrong generating the report. Please try again.",
+    thankYouTitle: "Your report is downloading",
+    thankYouBody:
+      "It took us real time to build this. The site stays free and ad-free. If the report was useful, a small tip keeps it that way.",
+    thankYouTipCta: "Buy me a coffee",
+    thankYouRegenerate: "Generate another report",
+    pdfFilenameTemplate: "wealth-inequality-report-{country}-{date}.pdf",
+    pdfCoverTitle: "Personal Wealth Inequality Report",
+    pdfCoverSubtitleTemplate: "for {country}",
+    pdfCoverGeneratedLabel: "Generated",
+    pdfPercentileLeadIn: "You are wealthier than",
+    pdfPercentilePopulation: "of the adult population",
+    pdfPercentileBracketTemplate: "Top {percent}% in {country}",
+    pdfYourNetWorthLabel: "Your net worth",
+    pdfSection1Title: "1. Where you stand",
+    pdfSection1Body:
+      "Your position is computed from the country's wealth-share distribution (WID.world Distributional National Accounts). The bands below are the standard inequality groups; the marker shows where your number falls.",
+    pdfSection2Title: "2. Your wealth in context",
+    pdfContextLabelMedian: "National median",
+    pdfContextLabelMean: "National mean",
+    pdfContextLabelTop10: "Top 10% threshold",
+    pdfContextLabelTop1: "Top 1% threshold",
+    pdfContextLabelTop01: "Top 0.1% threshold",
+    pdfRatioMedianTemplate: "{ratio}× the national median",
+    pdfSection3Title: "3. A century of change",
+    pdfSection3BodyTemplate:
+      "Wealth concentration in {country} has shifted significantly over the past century. After mid-century compression, the top 1% share has trended back toward early-20th-century levels in most economies. The gap between mean and median wealth is now larger than at any point since World War II.",
+    pdfSection4Title: "4. Income vs wealth: the double gap",
+    pdfSection4Body:
+      "Wealth is far more concentrated than income. The bottom 50% typically holds 1–5% of national wealth while taking home 15–20% of national income. Wealth compounds; labor income does not.",
+    pdfSection5Title: "5. What it means",
+    pdfSection5Body:
+      "Percentiles describe a position, not a verdict. Where you stand reflects accumulated capital, lifetime savings, inheritance, and structural opportunity — not personal worth. The data is intended to inform, not to rank.",
+    pdfMethodologyTitle: "Methodology",
+    pdfMethodologyBody:
+      "Wealth shares from WID.world (Distributional National Accounts). Percentiles via Pareto-interpolation between published share boundaries. Currency conversions via ECB rates; PPP via World Bank. All data fetched at build time, no user data sent to any server.",
+    pdfTipTitle: "Keep this free",
+    pdfTipBody:
+      "This report is free. The site stays free and ad-free. If it was useful, a small tip helps cover hosting and keeps new countries getting added.",
+    pdfTipQrCaption: "Tip via Ko-fi — scan or visit ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org — wealth inequality, visualized",
+    pdfPageLabel: "Page",
   },
 };

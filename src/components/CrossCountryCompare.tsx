@@ -185,22 +185,24 @@ export default function CrossCountryCompare() {
 
   return (
     <LazyMotion features={domAnimation}>
-      <main className="min-h-screen pt-14 px-4 sm:px-6 lg:px-8 py-12">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <m.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h1 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
-              {t.compareCountries.h1}
-            </h1>
-            <p className="text-text-secondary text-base sm:text-lg mt-3 max-w-xl mx-auto">
-              {t.compareCountries.subtitle}
-            </p>
-          </m.div>
+      <main className="min-h-screen pt-14">
+        <section className="px-4 sm:px-6 lg:px-8 py-12">
+          <div className="max-w-4xl mx-auto w-full">
+            {/* Header — matches CompareClient (How Long?) for visual parity
+                across the two compare flows. */}
+            <m.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-10"
+            >
+              <h1 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl text-text-primary leading-tight">
+                {t.compareCountries.h1}
+              </h1>
+              <p className="text-text-secondary text-lg sm:text-xl mt-4 max-w-2xl mx-auto">
+                {t.compareCountries.subtitle}
+              </p>
+            </m.div>
 
           {/* Input Section */}
           <m.div
@@ -521,7 +523,8 @@ export default function CrossCountryCompare() {
               </Link>
             </p>
           </div>
-        </div>
+          </div>
+        </section>
       </main>
     </LazyMotion>
   );

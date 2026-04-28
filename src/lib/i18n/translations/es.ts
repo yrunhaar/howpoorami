@@ -41,11 +41,16 @@ export const es: Dictionary = {
     methodologyTitle: "Metodología — ¿Qué tan pobre soy?",
     methodologyDescription:
       "Dentro de la metodología de ¿Qué tan pobre soy?: fuentes de datos, estimación de percentiles, ajuste por edad y conversión PPA.",
+    reportTitle:
+      "Informe gratuito de desigualdad de la riqueza — Genera el tuyo",
+    reportDescription:
+      "Genera un PDF gratuito y bien diseñado con tu percentil personal de riqueza, gráficos por país, tendencias de un siglo y tu número en contexto. Sin registro, sin pagos, totalmente privado.",
   },
   nav: {
     home: "¿Qué tan pobre soy?",
     howLong: "¿Cuánto tiempo?",
     compareCountries: "Comparar",
+    report: "Informe",
     languageSwitchAria: "Cambiar idioma",
     themeToggleAria: "Alternar modo claro / oscuro",
   },
@@ -455,5 +460,108 @@ export const es: Dictionary = {
     closingLine:
       "Construido con datos públicos. No se recogen ni almacenan datos personales.",
     accessedTemplate: "Consultado: {date}",
+  },
+  report: {
+    navLabel: "Informe",
+    landingTitle: "Tu informe personal de desigualdad de la riqueza",
+    landingSubtitle:
+      "Gratis. Privado. Un PDF cuidado que pone tu número en un siglo de contexto.",
+    landingLeadHeading: "Qué incluye",
+    landingLeadBody:
+      "Un PDF de varias páginas adaptado a tu país y a tu cifra. Dónde estás, cómo se ven las brechas, qué han hecho los datos en el último siglo — diseñado para leerse como un dossier de investigación, no como un email de marketing.",
+    landingFreeBadge: "Gratis — sin registro, sin pago, sin email",
+    landingCta: "Generar mi informe",
+    landingFeatureWealthTitle: "Tu percentil exacto",
+    landingFeatureWealthBody:
+      "Datos de WID.world con interpolación de Pareto te ubican con precisión en la distribución, no en una caja de cinco escalones.",
+    landingFeatureContextTitle: "Contexto por país",
+    landingFeatureContextBody:
+      "Cómo se compara tu número con la mediana, la media nacional y los umbrales de entrada al 10% superior, 1% y 0,1%.",
+    landingFeaturePrivateTitle: "Totalmente privado",
+    landingFeaturePrivateBody:
+      "Todo el informe se genera en tu navegador. Nada de lo que escribas sale de tu dispositivo: sin servidores, sin analítica.",
+    landingExampleTitle: "Hecho como un dossier de investigación",
+    landingExampleBody:
+      "Seis páginas, ocho idiomas, datos por país: portada con tu percentil, visual de dónde estás, tabla de contexto, párrafo de un siglo de cambios, brecha ingreso-riqueza y nota metodológica de cierre. Con citas y para compartir.",
+    landingPrivacyNote:
+      "Todos los cálculos se ejecutan localmente en tu navegador. Nunca vemos tus números y no te rastreamos.",
+    wizardTitle: "Genera tu informe",
+    wizardSubtitle:
+      "Elige un país, danos una cifra de patrimonio neto y nos encargamos del resto.",
+    wizardCountryLabel: "País",
+    wizardModeKnown: "Conozco mi patrimonio neto",
+    wizardModeEstimate: "Ayúdame a estimarlo",
+    wizardKnownLabel: "Tu patrimonio neto",
+    wizardKnownPlaceholder: "p. ej. 250000",
+    wizardKnownHint:
+      "Introduce tu parte personal — si compartes finanzas con tu pareja, indica la mitad.",
+    wizardEstimateIntro:
+      "Añade lo que aplique. Lo que omitas se considera cero. Sumamos activos, restamos deudas y usamos el total como tu patrimonio.",
+    wizardStepProperty: "Vivienda",
+    wizardStepInvestments: "Inversiones",
+    wizardStepCash: "Efectivo y ahorro",
+    wizardStepDebts: "Deudas",
+    wizardFieldHomeValue: "Valor de la vivienda",
+    wizardFieldMortgage: "Hipoteca pendiente",
+    wizardFieldOtherProperty: "Otras propiedades",
+    wizardFieldStocks: "Acciones / ETFs",
+    wizardFieldRetirement: "Pensión / 401k / superannuation",
+    wizardFieldCrypto: "Criptomonedas",
+    wizardFieldCash: "Efectivo y cuenta corriente",
+    wizardFieldOtherSavings: "Otros ahorros",
+    wizardFieldStudentLoans: "Préstamos estudiantiles",
+    wizardFieldCreditDebt: "Deuda de tarjeta de crédito",
+    wizardFieldOtherDebts: "Otras deudas",
+    wizardEstimateTotalLabel: "Patrimonio neto estimado",
+    wizardAgeLabel: "Tu edad (opcional)",
+    wizardAgePlaceholder: "p. ej. 30",
+    wizardAgeHint:
+      "Añade un percentil ajustado por edad junto al global.",
+    wizardCurrencyHint: "Importes en {currency}",
+    wizardGenerateCta: "Generar el PDF",
+    wizardGenerating: "Generando…",
+    wizardError:
+      "Hubo un problema al generar el informe. Inténtalo de nuevo.",
+    thankYouTitle: "Tu informe se está descargando",
+    thankYouBody:
+      "Construir esto cuesta tiempo real. El sitio sigue siendo gratuito y sin publicidad. Si el informe te ha sido útil, una pequeña aportación lo mantiene así.",
+    thankYouTipCta: "Invítame a un café",
+    thankYouRegenerate: "Generar otro informe",
+    pdfFilenameTemplate: "informe-desigualdad-{country}-{date}.pdf",
+    pdfCoverTitle: "Informe personal de desigualdad de la riqueza",
+    pdfCoverSubtitleTemplate: "para {country}",
+    pdfCoverGeneratedLabel: "Generado",
+    pdfPercentileLeadIn: "Tienes más riqueza que",
+    pdfPercentilePopulation: "de la población adulta",
+    pdfPercentileBracketTemplate: "Top {percent}% en {country}",
+    pdfYourNetWorthLabel: "Tu patrimonio neto",
+    pdfSection1Title: "1. Dónde estás",
+    pdfSection1Body:
+      "Tu posición se calcula a partir de la distribución de cuotas de riqueza del país (Cuentas Nacionales Distribucionales de WID.world). Las bandas siguientes son los grupos estándar de desigualdad; el marcador muestra dónde cae tu número.",
+    pdfSection2Title: "2. Tu riqueza en contexto",
+    pdfContextLabelMedian: "Mediana nacional",
+    pdfContextLabelMean: "Media nacional",
+    pdfContextLabelTop10: "Umbral del 10% superior",
+    pdfContextLabelTop1: "Umbral del 1% superior",
+    pdfContextLabelTop01: "Umbral del 0,1% superior",
+    pdfRatioMedianTemplate: "{ratio}× la mediana nacional",
+    pdfSection3Title: "3. Un siglo de cambios",
+    pdfSection3BodyTemplate:
+      "La concentración de riqueza en {country} ha cambiado significativamente en el último siglo. Tras la compresión de mitad de siglo, la cuota del 1% superior ha vuelto a niveles de principios del siglo XX en la mayoría de las economías. La brecha entre la riqueza media y la mediana es ahora mayor que en cualquier momento desde la Segunda Guerra Mundial.",
+    pdfSection4Title: "4. Ingreso vs riqueza: la doble brecha",
+    pdfSection4Body:
+      "La riqueza está mucho más concentrada que el ingreso. El 50% inferior suele tener entre el 1% y el 5% de la riqueza nacional, mientras que se lleva entre el 15% y el 20% del ingreso. La riqueza compone; los ingresos del trabajo no.",
+    pdfSection5Title: "5. Qué significa",
+    pdfSection5Body:
+      "Los percentiles describen una posición, no un veredicto. Donde estás refleja capital acumulado, ahorros de toda la vida, herencias y oportunidades estructurales — no tu valor personal. Los datos están para informar, no para clasificar.",
+    pdfMethodologyTitle: "Metodología",
+    pdfMethodologyBody:
+      "Cuotas de riqueza de WID.world (Cuentas Nacionales Distribucionales). Percentiles por interpolación de Pareto entre los límites publicados. Conversión de moneda con tipos del BCE; PPA del Banco Mundial. Todos los datos se obtienen al compilar; no se envían datos personales a ningún servidor.",
+    pdfTipTitle: "Mantén esto gratis",
+    pdfTipBody:
+      "Este informe es gratuito. El sitio sigue siendo gratuito y sin publicidad. Si te ha sido útil, una pequeña aportación cubre el alojamiento y permite seguir añadiendo países.",
+    pdfTipQrCaption: "Aporta vía Ko-fi — escanea o visita ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org — la desigualdad de la riqueza, visualizada",
+    pdfPageLabel: "Página",
   },
 };

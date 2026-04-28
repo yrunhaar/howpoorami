@@ -41,11 +41,16 @@ export const de: Dictionary = {
     methodologyTitle: "Methodik — Wie arm bin ich?",
     methodologyDescription:
       "Hinter den Kulissen von Wie arm bin ich?: Datenquellen, Perzentilschätzung, Altersanpassung und KKP-Umrechnung.",
+    reportTitle:
+      "Kostenloser persönlicher Vermögensungleichheit-Bericht — Jetzt erstellen",
+    reportDescription:
+      "Erstelle ein kostenloses, sauber gestaltetes PDF mit deinem persönlichen Vermögens-Perzentil, länderspezifischen Diagrammen, Trends aus einem Jahrhundert und Kontext zu deiner Zahl. Keine Anmeldung, keine Zahlung, vollständig privat.",
   },
   nav: {
     home: "Wie arm bin ich?",
     howLong: "Wie lange?",
     compareCountries: "Vergleichen",
+    report: "Bericht",
     languageSwitchAria: "Sprache wechseln",
     themeToggleAria: "Hell-/Dunkelmodus umschalten",
   },
@@ -456,5 +461,108 @@ export const de: Dictionary = {
     closingLine:
       "Mit öffentlich verfügbaren Daten gebaut. Es werden keine personenbezogenen Daten erhoben oder gespeichert.",
     accessedTemplate: "Abgerufen: {date}",
+  },
+  report: {
+    navLabel: "Bericht",
+    landingTitle: "Dein persönlicher Vermögensungleichheit-Bericht",
+    landingSubtitle:
+      "Kostenlos. Privat. Ein sauber gestaltetes PDF, das deine Zahl in ein Jahrhundert Kontext einordnet.",
+    landingLeadHeading: "Was drin ist",
+    landingLeadBody:
+      "Ein mehrseitiges PDF, zugeschnitten auf dein Land und deine Zahl. Wo du stehst, wie die Lücken aussehen, was die Daten im letzten Jahrhundert gemacht haben — gestaltet wie ein Forschungsbrief, nicht wie eine Marketingmail.",
+    landingFreeBadge: "Kostenlos — keine Anmeldung, keine Zahlung, keine E-Mail",
+    landingCta: "Meinen Bericht erstellen",
+    landingFeatureWealthTitle: "Dein exaktes Perzentil",
+    landingFeatureWealthBody:
+      "Pareto-interpolierte WID.world-Daten platzieren dich präzise auf der Verteilung — nicht in einer Fünf-Stufen-Box.",
+    landingFeatureContextTitle: "Länderkontext",
+    landingFeatureContextBody:
+      "Wie deine Zahl im Vergleich zum nationalen Median, Mittelwert und den Eintrittsschwellen für die oberen 10 %, 1 % und 0,1 % steht.",
+    landingFeaturePrivateTitle: "Vollständig privat",
+    landingFeaturePrivateBody:
+      "Der gesamte Bericht wird in deinem Browser erstellt. Nichts, was du eingibst, verlässt dein Gerät — keine Server, keine Analytics.",
+    landingExampleTitle: "Wie ein Forschungsbrief gebaut",
+    landingExampleBody:
+      "Sechs Seiten, acht Sprachen, länderspezifische Daten: Cover mit deinem Headline-Perzentil, Wo-du-stehst-Visual, Vermögens-Kontext-Tabelle, Jahrhundert-des-Wandels-Absatz, Einkommen-vs-Vermögen-Lücke und ein Methodik-Block am Ende. Mit Quellen und teilbar.",
+    landingPrivacyNote:
+      "Alle Berechnungen laufen lokal in deinem Browser. Wir sehen deine Zahlen nie, und wir tracken dich nicht.",
+    wizardTitle: "Bericht erstellen",
+    wizardSubtitle:
+      "Wähle ein Land, gib uns eine Nettovermögenszahl, den Rest erledigen wir.",
+    wizardCountryLabel: "Land",
+    wizardModeKnown: "Ich kenne mein Nettovermögen",
+    wizardModeEstimate: "Hilf mir beim Schätzen",
+    wizardKnownLabel: "Dein Nettovermögen",
+    wizardKnownPlaceholder: "z. B. 250000",
+    wizardKnownHint:
+      "Trag deinen persönlichen Anteil ein — wenn du Finanzen mit Partner:in teilst, halbieren.",
+    wizardEstimateIntro:
+      "Trag ein, was zutrifft. Was du auslässt, wird als null gewertet. Wir addieren Vermögenswerte, ziehen Schulden ab und nehmen das Ergebnis als dein Nettovermögen.",
+    wizardStepProperty: "Immobilien",
+    wizardStepInvestments: "Investitionen",
+    wizardStepCash: "Bargeld & Sparguthaben",
+    wizardStepDebts: "Schulden",
+    wizardFieldHomeValue: "Wert der Wohnung / des Hauses",
+    wizardFieldMortgage: "Restschuld Hypothek",
+    wizardFieldOtherProperty: "Weitere Immobilien",
+    wizardFieldStocks: "Aktien / ETFs",
+    wizardFieldRetirement: "Rente / 401k / Superannuation",
+    wizardFieldCrypto: "Krypto",
+    wizardFieldCash: "Bargeld & Girokonto",
+    wizardFieldOtherSavings: "Andere Ersparnisse",
+    wizardFieldStudentLoans: "Studienkredite",
+    wizardFieldCreditDebt: "Kreditkartenschulden",
+    wizardFieldOtherDebts: "Andere Schulden",
+    wizardEstimateTotalLabel: "Geschätztes Nettovermögen",
+    wizardAgeLabel: "Dein Alter (optional)",
+    wizardAgePlaceholder: "z. B. 30",
+    wizardAgeHint:
+      "Fügt ein altersangepasstes Perzentil neben dem Gesamtperzentil hinzu.",
+    wizardCurrencyHint: "Beträge in {currency}",
+    wizardGenerateCta: "PDF erstellen",
+    wizardGenerating: "Wird erstellt …",
+    wizardError:
+      "Beim Erstellen des Berichts ist etwas schiefgegangen. Bitte erneut versuchen.",
+    thankYouTitle: "Dein Bericht wird heruntergeladen",
+    thankYouBody:
+      "Den Aufbau hat echte Zeit gekostet. Die Seite bleibt kostenlos und werbefrei. Wenn der Bericht nützlich war, hält ein kleiner Tipp das so.",
+    thankYouTipCta: "Spendier mir einen Kaffee",
+    thankYouRegenerate: "Weiteren Bericht erstellen",
+    pdfFilenameTemplate: "vermoegensungleichheit-{country}-{date}.pdf",
+    pdfCoverTitle: "Persönlicher Vermögensungleichheit-Bericht",
+    pdfCoverSubtitleTemplate: "für {country}",
+    pdfCoverGeneratedLabel: "Erstellt",
+    pdfPercentileLeadIn: "Du bist wohlhabender als",
+    pdfPercentilePopulation: "der erwachsenen Bevölkerung",
+    pdfPercentileBracketTemplate: "Top {percent} % in {country}",
+    pdfYourNetWorthLabel: "Dein Nettovermögen",
+    pdfSection1Title: "1. Wo du stehst",
+    pdfSection1Body:
+      "Deine Position wird aus der Vermögensanteilsverteilung des Landes berechnet (WID.world Distributional National Accounts). Die unten gezeigten Bänder sind die Standard-Ungleichheitsgruppen; der Marker zeigt, wo deine Zahl liegt.",
+    pdfSection2Title: "2. Dein Vermögen im Kontext",
+    pdfContextLabelMedian: "Nationaler Median",
+    pdfContextLabelMean: "Nationaler Mittelwert",
+    pdfContextLabelTop10: "Schwelle Top 10 %",
+    pdfContextLabelTop1: "Schwelle Top 1 %",
+    pdfContextLabelTop01: "Schwelle Top 0,1 %",
+    pdfRatioMedianTemplate: "{ratio}× des nationalen Medians",
+    pdfSection3Title: "3. Ein Jahrhundert des Wandels",
+    pdfSection3BodyTemplate:
+      "Die Vermögenskonzentration in {country} hat sich im letzten Jahrhundert deutlich verschoben. Nach der Kompression zur Jahrhundertmitte hat sich der Anteil des oberen 1 % in den meisten Volkswirtschaften wieder Richtung Anfang des 20. Jahrhunderts bewegt. Der Abstand zwischen Mittelwert und Median ist heute größer als zu jedem Zeitpunkt seit dem Zweiten Weltkrieg.",
+    pdfSection4Title: "4. Einkommen vs. Vermögen: die doppelte Lücke",
+    pdfSection4Body:
+      "Vermögen ist deutlich konzentrierter als Einkommen. Die unteren 50 % halten typischerweise 1–5 % des Nationalvermögens, beziehen aber 15–20 % des Nationaleinkommens. Vermögen vermehrt sich exponentiell; Arbeitseinkommen tut das nicht.",
+    pdfSection5Title: "5. Was das bedeutet",
+    pdfSection5Body:
+      "Perzentile beschreiben eine Position, kein Urteil. Wo du stehst, spiegelt akkumuliertes Kapital, Lebenseinkommen, Erbschaft und strukturelle Chancen wider — nicht persönlichen Wert. Die Daten sollen informieren, nicht ranken.",
+    pdfMethodologyTitle: "Methodik",
+    pdfMethodologyBody:
+      "Vermögensanteile von WID.world (Distributional National Accounts). Perzentile über Pareto-Interpolation zwischen den veröffentlichten Stützstellen. Währungsumrechnung über EZB-Kurse; KKP über Weltbank. Alle Daten zur Build-Zeit gezogen, keine Nutzerdaten an einen Server gesendet.",
+    pdfTipTitle: "Halt es kostenlos",
+    pdfTipBody:
+      "Dieser Bericht ist kostenlos. Die Seite bleibt kostenlos und werbefrei. Wenn er nützlich war, deckt ein kleiner Tipp das Hosting und ermöglicht weitere Länder.",
+    pdfTipQrCaption: "Tippen via Ko-fi — scanne den Code oder besuche ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org — Vermögensungleichheit, visualisiert",
+    pdfPageLabel: "Seite",
   },
 };

@@ -44,6 +44,10 @@ export interface Dictionary {
     readonly faqDescription: string;
     readonly methodologyTitle: string;
     readonly methodologyDescription: string;
+
+    // Report page meta
+    readonly reportTitle: string;
+    readonly reportDescription: string;
   };
 
   /** Top-of-page nav. */
@@ -51,6 +55,7 @@ export interface Dictionary {
     readonly home: string;
     readonly howLong: string;
     readonly compareCountries: string;
+    readonly report: string;
     readonly languageSwitchAria: string;
     readonly themeToggleAria: string;
   };
@@ -558,6 +563,117 @@ export interface Dictionary {
     readonly rowBillionaire: string;
     readonly rowTaxRates: string;
     readonly rowAcademicPapers: string;
+  };
+
+  /** Personal wealth-inequality PDF report — landing page, wizard, and the
+   *  PDF body itself. The PDF is generated client-side via jsPDF. */
+  readonly report: {
+    // Navigation / button labels
+    readonly navLabel: string;
+
+    // Landing page (/report)
+    readonly landingTitle: string;
+    readonly landingSubtitle: string;
+    readonly landingLeadHeading: string;
+    readonly landingLeadBody: string;
+    readonly landingFreeBadge: string;
+    readonly landingCta: string;
+    readonly landingFeatureWealthTitle: string;
+    readonly landingFeatureWealthBody: string;
+    readonly landingFeatureContextTitle: string;
+    readonly landingFeatureContextBody: string;
+    readonly landingFeaturePrivateTitle: string;
+    readonly landingFeaturePrivateBody: string;
+    readonly landingExampleTitle: string;
+    readonly landingExampleBody: string;
+    readonly landingPrivacyNote: string;
+
+    // Wizard / generator screen
+    readonly wizardTitle: string;
+    readonly wizardSubtitle: string;
+    readonly wizardCountryLabel: string;
+    readonly wizardModeKnown: string;
+    readonly wizardModeEstimate: string;
+    readonly wizardKnownLabel: string;
+    /** Placeholder for the "known net worth" input — currency symbol prepended at render */
+    readonly wizardKnownPlaceholder: string;
+    readonly wizardKnownHint: string;
+    readonly wizardEstimateIntro: string;
+    readonly wizardStepProperty: string;
+    readonly wizardStepInvestments: string;
+    readonly wizardStepCash: string;
+    readonly wizardStepDebts: string;
+    readonly wizardFieldHomeValue: string;
+    readonly wizardFieldMortgage: string;
+    readonly wizardFieldOtherProperty: string;
+    readonly wizardFieldStocks: string;
+    readonly wizardFieldRetirement: string;
+    readonly wizardFieldCrypto: string;
+    readonly wizardFieldCash: string;
+    readonly wizardFieldOtherSavings: string;
+    readonly wizardFieldStudentLoans: string;
+    readonly wizardFieldCreditDebt: string;
+    readonly wizardFieldOtherDebts: string;
+    readonly wizardEstimateTotalLabel: string;
+    readonly wizardAgeLabel: string;
+    readonly wizardAgePlaceholder: string;
+    readonly wizardAgeHint: string;
+    readonly wizardCurrencyHint: string;
+    readonly wizardGenerateCta: string;
+    readonly wizardGenerating: string;
+    readonly wizardError: string;
+
+    // Post-download tip CTA
+    readonly thankYouTitle: string;
+    readonly thankYouBody: string;
+    readonly thankYouTipCta: string;
+    readonly thankYouRegenerate: string;
+
+    // PDF content — page-by-page strings
+    readonly pdfFilenameTemplate: string;
+    /** "Personal Wealth Inequality Report" — cover heading */
+    readonly pdfCoverTitle: string;
+    /** "for {country}" */
+    readonly pdfCoverSubtitleTemplate: string;
+    readonly pdfCoverGeneratedLabel: string;
+    /** "You are wealthier than" */
+    readonly pdfPercentileLeadIn: string;
+    readonly pdfPercentilePopulation: string;
+    /** "Top {percent}% in {country}" */
+    readonly pdfPercentileBracketTemplate: string;
+    /** "Your estimated net worth" */
+    readonly pdfYourNetWorthLabel: string;
+    /** "Section 1 — Where you stand" */
+    readonly pdfSection1Title: string;
+    readonly pdfSection1Body: string;
+    /** "Section 2 — Your wealth in context" */
+    readonly pdfSection2Title: string;
+    readonly pdfContextLabelMedian: string;
+    readonly pdfContextLabelMean: string;
+    readonly pdfContextLabelTop10: string;
+    readonly pdfContextLabelTop1: string;
+    readonly pdfContextLabelTop01: string;
+    /** "{ratio}× the national median" */
+    readonly pdfRatioMedianTemplate: string;
+    /** "Section 3 — A century of change" */
+    readonly pdfSection3Title: string;
+    /** Body talks about long-run inequality trends. {country} interpolated. */
+    readonly pdfSection3BodyTemplate: string;
+    /** "Section 4 — Income vs wealth: the double gap" */
+    readonly pdfSection4Title: string;
+    readonly pdfSection4Body: string;
+    /** "Section 5 — What it means" */
+    readonly pdfSection5Title: string;
+    readonly pdfSection5Body: string;
+    /** "Methodology" — short closing block heading */
+    readonly pdfMethodologyTitle: string;
+    readonly pdfMethodologyBody: string;
+    /** Tip / Ko-fi CTA on the last page */
+    readonly pdfTipTitle: string;
+    readonly pdfTipBody: string;
+    readonly pdfTipQrCaption: string;
+    readonly pdfFooterAttribution: string;
+    readonly pdfPageLabel: string; // "Page"
   };
 
   /** SourcesSection strings. */
