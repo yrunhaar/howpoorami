@@ -4,6 +4,8 @@ import type { MethodologyContent as MethodologyContentData } from "@/lib/i18n/co
 import type { LocaleCode } from "@/lib/i18n/locales";
 import { localePath } from "@/lib/i18n/urls";
 
+const BOOKSHOP_LIST_URL = "https://bookshop.org/lists/how-poor-am-i";
+
 interface MethodologyContentProps {
   readonly content: MethodologyContentData;
   readonly locale: LocaleCode;
@@ -191,6 +193,32 @@ export default function MethodologyContent({
           <p className="text-text-secondary leading-relaxed">
             {content.dataFreshness.outro}
           </p>
+        </section>
+
+        {/* Bookshop.org reading list — frames the affiliate links as the
+            scholarship behind the visualization layer. Sage card accent
+            keeps this distinct from any future support/CTA blocks. */}
+        <section className="mb-10">
+          <div className="rounded-2xl border border-accent-sage/30 bg-accent-sage/8 p-6 sm:p-8">
+            <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold mb-3">
+              {content.furtherReading.heading}
+            </h2>
+            <p className="text-text-secondary leading-relaxed mb-5">
+              {content.furtherReading.body}
+            </p>
+            <a
+              href={BOOKSHOP_LIST_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-accent-sage/20 hover:bg-accent-sage/30 text-accent-sage border border-accent-sage/40 px-5 py-2.5 text-sm font-semibold transition-colors duration-200"
+            >
+              <span aria-hidden="true">📚</span>
+              <span>{content.furtherReading.ctaLabel}</span>
+            </a>
+            <p className="text-xs text-text-muted/80 mt-3 italic">
+              {content.furtherReading.disclosure}
+            </p>
+          </div>
         </section>
 
         <nav className="flex gap-6 text-sm" aria-label="Related pages">

@@ -47,6 +47,15 @@ export interface AboutContent {
     readonly body: string;
     readonly ctaLabel: string;
   };
+  /** Bookshop.org reading list — affiliate links to the canonical
+   *  scholarship behind the site. Tone here is invitational, not
+   *  promotional. Body discloses the affiliate relationship plainly. */
+  readonly furtherReading: {
+    readonly heading: string;
+    readonly body: string;
+    readonly ctaLabel: string;
+    readonly disclosure: string;
+  };
   readonly relatedNav: {
     readonly backToCalculator: string;
     readonly methodology: string;
@@ -116,6 +125,12 @@ const en: AboutContent = {
     heading: "Support this project",
     body: "How Poor Am I? is free, open-source, and ad-free. Maintaining the data pipeline, adding new countries, and keeping translations fresh takes real time. If the site has helped you understand inequality better, a small contribution keeps the site running and free for everyone.",
     ctaLabel: "Buy me a coffee",
+  },
+  furtherReading: {
+    heading: "Further reading",
+    body: "If the site sparked your curiosity, the books that informed it are the deeper read — Piketty, Saez & Zucman, Wilkinson, Milanović, and others. We've curated the canonical titles into a list at Bookshop.org, which sends a portion of every sale to independent bookstores rather than Amazon.",
+    ctaLabel: "Browse the reading list",
+    disclosure: "Affiliate links — purchases also help support this project.",
   },
   relatedNav: {
     backToCalculator: "Back to calculator",
@@ -187,6 +202,13 @@ const es: AboutContent = {
     body: "¿Qué tan pobre soy? es gratis, de código abierto y sin publicidad. Mantener el pipeline de datos, añadir nuevos países y conservar las traducciones cuesta tiempo real. Si el sitio te ha ayudado a entender mejor la desigualdad, una pequeña contribución lo mantiene funcionando y gratis para todo el mundo.",
     ctaLabel: "Invítame a un café",
   },
+  furtherReading: {
+    heading: "Lecturas recomendadas",
+    body: "Si el sitio te despertó la curiosidad, los libros que lo inspiraron son la lectura más profunda: Piketty, Saez y Zucman, Wilkinson, Milanović y otros. Hemos seleccionado los títulos canónicos en una lista en Bookshop.org, que envía una parte de cada venta a librerías independientes en lugar de a Amazon.",
+    ctaLabel: "Ver la lista de lecturas",
+    disclosure:
+      "Enlaces de afiliado — las compras también ayudan a sostener este proyecto.",
+  },
   relatedNav: {
     backToCalculator: "Volver a la calculadora",
     methodology: "Metodología",
@@ -256,6 +278,13 @@ const de: AboutContent = {
     heading: "Dieses Projekt unterstützen",
     body: "Wie arm bin ich? ist kostenlos, quelloffen und werbefrei. Die Datenpipeline zu pflegen, neue Länder hinzuzufügen und Übersetzungen aktuell zu halten kostet echte Zeit. Wenn dir die Seite geholfen hat, Ungleichheit besser zu verstehen, hilft ein kleiner Beitrag, sie am Laufen und für alle kostenlos zu halten.",
     ctaLabel: "Spendier mir einen Kaffee",
+  },
+  furtherReading: {
+    heading: "Weiterlesen",
+    body: "Wenn die Seite deine Neugier geweckt hat, sind die Bücher, die sie geprägt haben, die tiefere Lektüre — Piketty, Saez und Zucman, Wilkinson, Milanović und andere. Die kanonischen Titel haben wir in einer Liste auf Bookshop.org zusammengestellt, das einen Teil jeder Bestellung an unabhängige Buchhandlungen weitergibt statt an Amazon.",
+    ctaLabel: "Leseliste ansehen",
+    disclosure:
+      "Affiliate-Links — Käufe unterstützen auch dieses Projekt.",
   },
   relatedNav: {
     backToCalculator: "Zurück zum Rechner",
@@ -327,6 +356,13 @@ const fr: AboutContent = {
     body: "À quel point suis-je pauvre ? est gratuit, open source et sans publicité. Maintenir le pipeline de données, ajouter de nouveaux pays et garder les traductions à jour prend un vrai temps. Si le site vous a aidé à mieux comprendre les inégalités, une petite contribution permet de le maintenir en ligne et gratuit pour tout le monde.",
     ctaLabel: "Offrez-moi un café",
   },
+  furtherReading: {
+    heading: "Pour aller plus loin",
+    body: "Si le site a piqué votre curiosité, les livres qui l'ont inspiré offrent la lecture en profondeur — Piketty, Saez et Zucman, Wilkinson, Milanović et d'autres. Les titres canoniques sont rassemblés dans une liste sur Bookshop.org, qui reverse une part de chaque achat à des librairies indépendantes plutôt qu'à Amazon.",
+    ctaLabel: "Voir la liste de lectures",
+    disclosure:
+      "Liens d'affiliation — les achats soutiennent aussi ce projet.",
+  },
   relatedNav: {
     backToCalculator: "Retour à la calculatrice",
     methodology: "Méthodologie",
@@ -393,6 +429,12 @@ const zhCn: AboutContent = {
     heading: "支持本项目",
     body: "「我到底有多穷？」完全免费、开源、无广告。维护数据管线、新增国家、持续更新各语种翻译都需要真实的时间投入。如果本站让你更清楚地看见不平等，一杯咖啡的小额支持能帮它继续运行，并对所有人免费开放。",
     ctaLabel: "请我喝杯咖啡",
+  },
+  furtherReading: {
+    heading: "延伸阅读",
+    body: "如果本站让你产生了兴趣，那些塑造了它的书籍才是更深入的阅读 —— Piketty、Saez 与 Zucman、Wilkinson、Milanović 等。我们把经典书目整理到了 Bookshop.org 的一个书单里；该平台会把每笔交易的一部分分给独立书店，而不是亚马逊。",
+    ctaLabel: "查看书单",
+    disclosure: "联盟链接 —— 购书也会支持本项目。",
   },
   relatedNav: {
     backToCalculator: "返回计算器",
@@ -464,6 +506,12 @@ const ja: AboutContent = {
     body: "「私はどれだけ貧しい？」は無料・オープンソース・広告なしです。データパイプラインの維持、新しい国の追加、翻訳のアップデートには実際の時間がかかります。サイトが格差の理解に役立ったなら、小さなサポートが運営を続け、すべての人に無料で提供する助けになります。",
     ctaLabel: "コーヒーをおごる",
   },
+  furtherReading: {
+    heading: "さらに読む",
+    body: "サイトが興味を引いたなら、その土台となった本は最良の深掘り素材です — Piketty、Saez と Zucman、Wilkinson、Milanović など。古典的なタイトルを Bookshop.org のリストにまとめました。Bookshop.org は売上の一部を Amazon ではなく独立系書店に還元します。",
+    ctaLabel: "リーディングリストを見る",
+    disclosure: "アフィリエイトリンク — 購入はこのプロジェクトの支援にもなります。",
+  },
   relatedNav: {
     backToCalculator: "計算ツールに戻る",
     methodology: "手法",
@@ -534,6 +582,13 @@ const pt: AboutContent = {
     body: "Quão pobre eu sou? é gratuito, de código aberto e sem anúncios. Manter o pipeline de dados, adicionar novos países e conservar as traduções dá trabalho real. Se o site te ajudou a entender melhor a desigualdade, uma pequena contribuição mantém o projeto no ar e gratuito para todo mundo.",
     ctaLabel: "Me pague um café",
   },
+  furtherReading: {
+    heading: "Leituras complementares",
+    body: "Se o site despertou sua curiosidade, os livros que o inspiraram são a leitura mais aprofundada — Piketty, Saez e Zucman, Wilkinson, Milanović e outros. Reunimos os títulos canônicos em uma lista no Bookshop.org, que repassa parte de cada venda a livrarias independentes em vez da Amazon.",
+    ctaLabel: "Ver a lista de leituras",
+    disclosure:
+      "Links de afiliado — as compras também ajudam a sustentar este projeto.",
+  },
   relatedNav: {
     backToCalculator: "Voltar à calculadora",
     methodology: "Metodologia",
@@ -603,6 +658,12 @@ const it: AboutContent = {
     heading: "Sostieni questo progetto",
     body: "Quanto sono povero? è gratuito, open source e senza pubblicità. Mantenere la pipeline dati, aggiungere nuovi paesi e tenere aggiornate le traduzioni richiede tempo reale. Se il sito ti ha aiutato a capire meglio la disuguaglianza, un piccolo contributo aiuta a tenerlo online e gratuito per tutti.",
     ctaLabel: "Offrimi un caffè",
+  },
+  furtherReading: {
+    heading: "Approfondimenti",
+    body: "Se il sito ha acceso la tua curiosità, i libri che lo hanno ispirato sono la lettura più approfondita — Piketty, Saez e Zucman, Wilkinson, Milanović e altri. Abbiamo raccolto i titoli canonici in una lista su Bookshop.org, che gira una parte di ogni vendita alle librerie indipendenti invece di Amazon.",
+    ctaLabel: "Vai alla lista di letture",
+    disclosure: "Link affiliati — gli acquisti aiutano anche questo progetto.",
   },
   relatedNav: {
     backToCalculator: "Torna al calcolatore",
