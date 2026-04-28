@@ -53,7 +53,7 @@ export interface AboutContent {
 const en: AboutContent = {
   h1: "About How Poor Am I?",
   intro:
-    "How Poor Am I? is a free tool that makes wealth inequality tangible. Instead of abstract Gini coefficients and quintile tables, it shows you exactly where you stand in your country's wealth distribution — and how long it would take you to match the fortune of a billionaire. The goal is simple: turn dry economic data into something you can feel.",
+    "How Poor Am I? is a free tool that makes wealth inequality tangible. Instead of abstract Gini coefficients and quintile tables, it shows you exactly where you stand in your country's wealth distribution. And how long it would take you to match the fortune of a billionaire. The goal is simple: turn dry economic data into something you can feel.",
   howItWorks: {
     heading: "How It Works",
     intro: "The tool has two modes:",
@@ -118,7 +118,7 @@ const en: AboutContent = {
 const es: AboutContent = {
   h1: "Acerca de ¿Qué tan pobre soy?",
   intro:
-    "¿Qué tan pobre soy? es una herramienta gratuita que hace tangible la desigualdad de la riqueza. En lugar de coeficientes de Gini abstractos y tablas por quintiles, te muestra exactamente dónde estás en la distribución de la riqueza de tu país — y cuánto tardarías en igualar la fortuna de un millonario. El objetivo es simple: convertir datos económicos áridos en algo que se pueda sentir.",
+    "¿Qué tan pobre soy? es una herramienta gratuita que hace tangible la desigualdad de la riqueza. En lugar de coeficientes de Gini abstractos y tablas por quintiles, te muestra exactamente dónde estás en la distribución de la riqueza de tu país. Y cuánto tardarías en igualar la fortuna de un millonario. El objetivo es simple: convertir datos económicos áridos en algo que se pueda sentir.",
   howItWorks: {
     heading: "Cómo funciona",
     intro: "La herramienta tiene dos modos:",
@@ -183,7 +183,7 @@ const es: AboutContent = {
 const de: AboutContent = {
   h1: "Über Wie arm bin ich?",
   intro:
-    "Wie arm bin ich? ist ein kostenloses Tool, das Vermögensungleichheit greifbar macht. Statt abstrakter Gini-Koeffizienten und Quintilstabellen zeigt es dir genau, wo du in der Vermögensverteilung deines Landes stehst — und wie lange du brauchen würdest, um das Vermögen eines Milliardärs zu erreichen. Das Ziel: trockene Wirtschaftsdaten erfahrbar machen.",
+    "Wie arm bin ich? ist ein kostenloses Tool, das Vermögensungleichheit greifbar macht. Statt abstrakter Gini-Koeffizienten und Quintilstabellen zeigt es dir genau, wo du in der Vermögensverteilung deines Landes stehst. Und wie lange du brauchen würdest, um das Vermögen eines Milliardärs zu erreichen. Das Ziel: trockene Wirtschaftsdaten erfahrbar machen.",
   howItWorks: {
     heading: "So funktioniert es",
     intro: "Das Tool hat zwei Modi:",
@@ -248,7 +248,7 @@ const de: AboutContent = {
 const fr: AboutContent = {
   h1: "À propos d'À quel point suis-je pauvre ?",
   intro:
-    "À quel point suis-je pauvre ? est un outil gratuit qui rend l'inégalité de richesse tangible. Au lieu de coefficients de Gini abstraits et de tableaux par quintiles, il vous montre précisément où vous vous situez dans la distribution de la richesse de votre pays — et combien de temps il vous faudrait pour égaler la fortune d'un milliardaire. Le but est simple : transformer des données économiques arides en quelque chose que vous pouvez ressentir.",
+    "À quel point suis-je pauvre ? est un outil gratuit qui rend l'inégalité de richesse tangible. Au lieu de coefficients de Gini abstraits et de tableaux par quintiles, il vous montre précisément où vous vous situez dans la distribution de la richesse de votre pays. Et combien de temps il vous faudrait pour égaler la fortune d'un milliardaire. Le but est simple : transformer des données économiques arides en quelque chose que vous pouvez ressentir.",
   howItWorks: {
     heading: "Comment ça marche",
     intro: "L'outil propose deux modes :",
@@ -313,7 +313,7 @@ const fr: AboutContent = {
 const zhCn: AboutContent = {
   h1: "关于「我到底有多穷？」",
   intro:
-    "「我到底有多穷？」是一个免费工具，让财富不平等变得可感。它不停留在抽象的基尼系数和五分位表格，而是直接告诉你在自己国家的财富分布中处于何处——以及需要多久才能追上亿万富豪的财富。目标很简单：把枯燥的经济数据变成你能切身感受到的东西。",
+    "「我到底有多穷？」是一个免费工具，让财富不平等变得可感。它不停留在抽象的基尼系数和五分位表格，而是直接告诉你在自己国家的财富分布中处于何处，以及需要多久才能追上亿万富豪的财富。目标很简单：把枯燥的经济数据变成你能切身感受到的东西。",
   howItWorks: {
     heading: "工作原理",
     intro: "工具有两种模式：",
@@ -375,7 +375,7 @@ const zhCn: AboutContent = {
 const ja: AboutContent = {
   h1: "「私はどれだけ貧しい？」について",
   intro:
-    "「私はどれだけ貧しい？」は、資産格差を実感できる形に変える無料のツールです。抽象的なジニ係数や五分位表ではなく、自国の資産分布のなかであなたがどこに立っているのか、そして億万長者の資産に追いつくのに何年かかるのかを直接示します。目的はひとつ — 無味乾燥な経済データを「肌で感じられるもの」にすることです。",
+    "「私はどれだけ貧しい？」は、資産格差を実感できる形に変える無料のツールです。抽象的なジニ係数や五分位表ではなく、自国の資産分布のなかであなたがどこに立っているのか、そして億万長者の資産に追いつくのに何年かかるのかを直接示します。目的はひとつ. 無味乾燥な経済データを「肌で感じられるもの」にすることです。",
   howItWorks: {
     heading: "使い方",
     intro: "ツールには 2 つのモードがあります：",
@@ -440,7 +440,7 @@ const ja: AboutContent = {
 const pt: AboutContent = {
   h1: "Sobre Quão pobre eu sou?",
   intro:
-    "Quão pobre eu sou? é uma ferramenta gratuita que torna a desigualdade de riqueza palpável. Em vez de coeficientes de Gini abstratos e tabelas por quintis, ela mostra exatamente onde você está na distribuição da riqueza do seu país — e quanto tempo levaria para igualar a fortuna de um bilionário. O objetivo é simples: transformar dados econômicos áridos em algo que você possa sentir.",
+    "Quão pobre eu sou? é uma ferramenta gratuita que torna a desigualdade de riqueza palpável. Em vez de coeficientes de Gini abstratos e tabelas por quintis, ela mostra exatamente onde você está na distribuição da riqueza do seu país. E quanto tempo levaria para igualar a fortuna de um bilionário. O objetivo é simples: transformar dados econômicos áridos em algo que você possa sentir.",
   howItWorks: {
     heading: "Como funciona",
     intro: "A ferramenta tem dois modos:",
@@ -505,7 +505,7 @@ const pt: AboutContent = {
 const it: AboutContent = {
   h1: "Su Quanto sono povero?",
   intro:
-    "Quanto sono povero? è uno strumento gratuito che rende la disuguaglianza di ricchezza tangibile. Invece di coefficienti di Gini astratti e tabelle per quintili, ti mostra esattamente dove ti collochi nella distribuzione della ricchezza del tuo paese — e quanto tempo ti servirebbe per eguagliare la fortuna di un miliardario. L'obiettivo è semplice: trasformare dati economici aridi in qualcosa che puoi percepire.",
+    "Quanto sono povero? è uno strumento gratuito che rende la disuguaglianza di ricchezza tangibile. Invece di coefficienti di Gini astratti e tabelle per quintili, ti mostra esattamente dove ti collochi nella distribuzione della ricchezza del tuo paese. E quanto tempo ti servirebbe per eguagliare la fortuna di un miliardario. L'obiettivo è semplice: trasformare dati economici aridi in qualcosa che puoi percepire.",
   howItWorks: {
     heading: "Come funziona",
     intro: "Lo strumento ha due modalità:",

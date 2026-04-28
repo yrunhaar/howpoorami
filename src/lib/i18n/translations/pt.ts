@@ -4,14 +4,14 @@ export const pt: Dictionary = {
   meta: {
     siteName: "Quão pobre eu sou?",
     homeTitle:
-      "Quão pobre eu sou? — Veja onde você está na riqueza global",
+      "Quão pobre eu sou? Veja onde você está na riqueza global",
     homeDescription:
-      "Descubra onde você realmente está na distribuição da riqueza. Insira sua renda ou patrimônio líquido e compare-se com as pessoas mais ricas — e mais pobres — do seu país. Gráficos interativos para mais de 30 países.",
-    homeOgTitle: "Quão pobre eu sou? — Veja onde você está",
+      "Descubra onde você realmente está na distribuição da riqueza. Insira sua renda ou patrimônio líquido e compare-se com as pessoas mais ricas. E mais pobres. Do seu país. Gráficos interativos para mais de 30 países.",
+    homeOgTitle: "Quão pobre eu sou? Veja onde você está",
     homeOgDescription:
       "Acha que é classe média? Insira sua renda e descubra onde realmente está na distribuição da riqueza. Dados interativos para mais de 30 países.",
     countryTitleTemplate:
-      "Quão pobre eu sou em {country}? — Distribuição da riqueza e desigualdade",
+      "Quão pobre eu sou em {country}? Distribuição da riqueza e desigualdade",
     countryDescriptionTemplate:
       "Veja onde você está na distribuição da riqueza em {country}. Compare sua renda e patrimônio com o 1% mais rico, os 10% do topo e os 50% da base. Gráficos interativos com dados do WID.world e da OCDE.",
     countryOgTitleTemplate: "Quão pobre eu sou em {country}?",
@@ -19,30 +19,30 @@ export const pt: Dictionary = {
       "Insira sua renda e descubra onde realmente está na distribuição da riqueza em {country}. Dados interativos sobre desigualdade, com base em WID.world.",
 
     compareTitle:
-      "Quanto tempo para igualar um bilionário? — Salário vs. megafortuna",
+      "Quanto tempo para igualar um bilionário? Salário vs. megafortuna",
     compareDescription:
       "Quantos anos, vidas ou eras inteiras você levaria para ganhar tanto quanto um bilionário? Insira seu salário e coloque a megafortuna em perspectiva.",
     compareCountryTitleTemplate:
-      "Quanto tempo para igualar a pessoa mais rica de {country}? — Comparação com bilionário",
+      "Quanto tempo para igualar a pessoa mais rica de {country}? Comparação com bilionário",
     compareCountryDescriptionTemplate:
       "Quantos anos você levaria para ganhar tanto quanto a pessoa mais rica de {country}?{richestSuffix} Insira seu salário e descubra.",
 
     compareCountriesTitle:
-      "Compare sua riqueza em 30 países — Calculadora de riqueza por país",
+      "Compare sua riqueza em 30 países. Calculadora de riqueza por país",
     compareCountriesDescription:
       "Como sua renda ou patrimônio se classificaria em outro país? Insira um valor e veja seu percentil em mais de 30 países lado a lado.",
 
-    aboutTitle: "Sobre — Quão pobre eu sou?",
+    aboutTitle: "Sobre. Quão pobre eu sou?",
     aboutDescription:
       "Quão pobre eu sou? é uma ferramenta gratuita e de código aberto que visualiza a desigualdade global da riqueza com dados de WID.world, OCDE e SWIID.",
-    faqTitle: "Perguntas frequentes — Quão pobre eu sou?",
+    faqTitle: "Perguntas frequentes. Quão pobre eu sou?",
     faqDescription:
       "Perguntas frequentes sobre Quão pobre eu sou?: os dados, os cálculos e o que os percentis realmente significam.",
-    methodologyTitle: "Metodologia — Quão pobre eu sou?",
+    methodologyTitle: "Metodologia. Quão pobre eu sou?",
     methodologyDescription:
       "Por dentro da metodologia de Quão pobre eu sou?: fontes de dados, estimativa de percentis, ajuste por idade e conversão PPC.",
     reportTitle:
-      "Relatório pessoal gratuito de desigualdade de riqueza — Gere o seu",
+      "Relatório pessoal gratuito de desigualdade de riqueza. Gere o seu",
     reportDescription:
       "Gere um PDF gratuito e bem desenhado do seu percentil pessoal de riqueza, com gráficos por país, tendências de um século e o seu número em contexto. Sem cadastro, sem pagamento, totalmente privado.",
   },
@@ -59,23 +59,23 @@ export const pt: Dictionary = {
     heroSubtitle:
       "Insira sua renda ou patrimônio e descubra onde realmente está.",
     scrollToExplore: "Role para ver mais",
-    distributionTitle: "{flag} {country} — Distribuição da riqueza",
+    distributionTitle: "{flag} {country}. Distribuição da riqueza",
     distributionSubtitle:
       "Participação na riqueza por grupo populacional (2023)",
-    populationVsWealth: "População vs. riqueza — {country}",
+    populationVsWealth: "População vs. riqueza. {country}",
     scaleOfConcentrationH2: "A escala da concentração",
     scaleOfConcentrationLead:
       "Cada retângulo abaixo representa riqueza. A área mostra quanto cada grupo realmente possui. Veja quem tem o quê.",
     statisticsH2: "Os números que definem a desigualdade",
     whoActuallyPaysH2: "Quem realmente paga?",
     whoActuallyPaysLead:
-      "Alíquotas efetivas contam uma história diferente das alíquotas nominais. Quando se levam em conta todos os impostos efetivamente pagos — incluindo a tributação de rendimentos de capital, ganhos de capital e estruturas societárias — o sistema costuma se tornar regressivo no topo.",
+      "Alíquotas efetivas contam uma história diferente das alíquotas nominais. Quando se levam em conta todos os impostos efetivamente pagos. Incluindo a tributação de rendimentos de capital, ganhos de capital e estruturas societárias. O sistema costuma se tornar regressivo no topo.",
     centuryOfChangeH2: "Um século de mudanças",
     centuryOfChangeLead:
-      "Como a concentração de riqueza em {country} evoluiu — e quais escolhas políticas conduziram cada virada.",
+      "Como a concentração de riqueza em {country} evoluiu. E quais escolhas políticas conduziram cada virada.",
     wagesKeepingUpH2: "Os salários estão acompanhando?",
     wagesKeepingUpLead:
-      "Salários, preços ao consumidor e preços de imóveis — todos indexados ao ano 2000. Quando as curvas divergem, alguém está ficando para trás.",
+      "Salários, preços ao consumidor e preços de imóveis. Todos indexados ao ano 2000. Quando as curvas divergem, alguém está ficando para trás.",
     seeBillionaireCta:
       "Veja quanto tempo levaria para você ganhar tanto quanto a pessoa mais rica de {country}",
     seeBillionaireCtaButton: "Tentar a comparação com bilionário →",
@@ -98,7 +98,7 @@ export const pt: Dictionary = {
     incomeHint:
       "Bruto inclui salários, rendimentos de capital e pensões antes dos impostos.",
     wealthHint:
-      "Insira a SUA parte pessoal — se compartilha as finanças com seu/sua parceiro(a), informe a metade.",
+      "Insira a SUA parte pessoal. Se compartilha as finanças com seu/sua parceiro(a), informe a metade.",
     ageOptional: "Sua idade (opcional):",
     agePlaceholder: "ex.: 30",
     knowYourAssets:
@@ -215,7 +215,7 @@ export const pt: Dictionary = {
     entryThresholdTemplate: "Faltam {amount} para chegar em {label}",
     approxTemplate: "≈ {amount}",
     youAreHere: "Você está aqui",
-    youAreHereInGroup: "Você — em {group}",
+    youAreHereInGroup: "Você. Em {group}",
     peopleMillionsTemplate: "~{count} mi de pessoas",
     peopleThousandsTemplate: "~{count} mil pessoas",
     peopleTemplate: "~{count} pessoas",
@@ -250,7 +250,7 @@ export const pt: Dictionary = {
     noDataHint:
       "Tente uma economia grande como EUA, Reino Unido, França, Alemanha ou Japão.",
     salaryLabelTemplate:
-      "Insira sua renda anual bruta ({currency}) — ou usaremos a mediana",
+      "Insira sua renda anual bruta ({currency}). Ou usaremos a mediana",
     usingMedianTemplate:
       "Usando a renda nacional bruta mediana: {amount}/ano",
     privacyNote: "Seus dados ficam no seu navegador.",
@@ -460,10 +460,10 @@ export const pt: Dictionary = {
     },
     furtherReading: {
       heading: "Leituras complementares",
-      body: "Se o site despertou sua curiosidade, os livros que o inspiraram são a leitura mais aprofundada — Piketty, Saez e Zucman, Wilkinson, Milanović e outros. Reunimos os títulos canônicos em uma lista no Bookshop.org, que repassa parte de cada venda a livrarias independentes em vez da Amazon.",
+      body: "Se o site despertou sua curiosidade, os livros que o inspiraram são a leitura mais aprofundada. Piketty, Saez e Zucman, Wilkinson, Milanović e outros. Reunimos os títulos canônicos em uma lista no Bookshop.org, que repassa parte de cada venda a livrarias independentes.",
       ctaLabel: "Ver a lista de leituras",
       disclosure:
-        "Links de afiliado — as compras também ajudam a sustentar este projeto.",
+        "Links de afiliado. As compras também ajudam a sustentar este projeto.",
     },
   },
   sources: {
@@ -483,18 +483,18 @@ export const pt: Dictionary = {
       "Gratuito. Privado. Um PDF cuidadoso que coloca seu número em um século de contexto.",
     landingLeadHeading: "O que vai dentro",
     landingLeadBody:
-      "Um PDF de várias páginas feito sob medida para o seu país e seu número. Onde você está, como ficam as distâncias, o que os dados fizeram no último século — pensado como um relatório de pesquisa, não como um e-mail de marketing.",
-    landingFreeBadge: "Gratuito — sem cadastro, sem pagamento, sem e-mail",
+      "Um PDF de várias páginas feito sob medida para o seu país e seu número. Onde você está, como ficam as distâncias, o que os dados fizeram no último século. Pensado como um relatório de pesquisa, não como um e-mail de marketing.",
+    landingFreeBadge: "Gratuito. Sem cadastro, sem pagamento, sem e-mail",
     landingCta: "Gerar meu relatório",
     landingFeatureWealthTitle: "Seu percentil exato",
     landingFeatureWealthBody:
-      "Dados WID.world com interpolação de Pareto te colocam com precisão na distribuição — não em uma caixa de cinco níveis.",
+      "Dados WID.world com interpolação de Pareto te colocam com precisão na distribuição. Não em uma caixa de cinco níveis.",
     landingFeatureContextTitle: "Contexto por país",
     landingFeatureContextBody:
       "Como o seu número se compara com a mediana, a média nacional e os limites de entrada do top 10%, 1% e 0,1%.",
     landingFeaturePrivateTitle: "Totalmente privado",
     landingFeaturePrivateBody:
-      "Todo o relatório é gerado no seu navegador. Nada do que você digita sai do seu dispositivo — sem servidores, sem analytics.",
+      "Todo o relatório é gerado no seu navegador. Nada do que você digita sai do seu dispositivo. Sem servidores, sem analytics.",
     landingExampleTitle: "Construído como um relatório de pesquisa",
     landingExampleBody:
       "Seis páginas, oito idiomas, dados por país: capa com seu percentil, visual de posicionamento, tabela de contexto, parágrafo sobre um século de mudança, divergência renda-riqueza e nota metodológica final. Com fontes citadas e compartilhável.",
@@ -509,7 +509,7 @@ export const pt: Dictionary = {
     wizardKnownLabel: "Seu patrimônio líquido",
     wizardKnownPlaceholder: "ex.: 250000",
     wizardKnownHint:
-      "Insira a sua parte pessoal — se compartilha as finanças com o(a) parceiro(a), informe a metade.",
+      "Insira a sua parte pessoal. Se compartilha as finanças com o(a) parceiro(a), informe a metade.",
     wizardEstimateIntro:
       "Adicione o que se aplica. O que você deixar em branco vale zero. Somamos os ativos, subtraímos as dívidas e usamos o total como seu patrimônio.",
     wizardStepProperty: "Imóvel",
@@ -568,23 +568,23 @@ export const pt: Dictionary = {
       "A riqueza é muito mais concentrada que a renda. Os 50% inferiores costumam deter 1–5% da riqueza nacional e receber 15–20% da renda nacional. A riqueza compõe juros; a renda do trabalho não.",
     pdfSection5Title: "5. O que isso significa",
     pdfSection5Body:
-      "Percentis descrevem uma posição, não um veredicto. Onde você está reflete capital acumulado, poupança de uma vida, herança e oportunidade estrutural — não o seu valor pessoal. Os dados existem para informar, não para classificar.",
+      "Percentis descrevem uma posição, não um veredicto. Onde você está reflete capital acumulado, poupança de uma vida, herança e oportunidade estrutural. Não o seu valor pessoal. Os dados existem para informar, não para classificar.",
     pdfCrossCountryTitle: "Mesmo patrimônio, outro país",
     pdfCrossCountryBody:
-      "Seu número não significa a mesma coisa em todo lugar — o ranking muda assim que cruza uma fronteira. Aqui está o que o mesmo patrimônio significaria em outros países.",
+      "Seu número não significa a mesma coisa em todo lugar. O ranking muda assim que cruza uma fronteira. Aqui está o que o mesmo patrimônio significaria em outros países.",
     pdfCrossCountryColCountry: "País",
     pdfCrossCountryColPercentile: "Seu percentil",
     pdfCrossCountryColBracket: "Faixa",
     pdfScaleGapTitle: "A escala do abismo",
     pdfScaleGapBody:
-      "A desigualdade é difícil de sentir porque o abismo é logarítmico. As barras abaixo estão em escala logarítmica — cada uma é cerca de 10× a anterior. A pessoa mais rica do seu país está várias décadas de zeros acima da riqueza média nacional.",
+      "A desigualdade é difícil de sentir porque o abismo é logarítmico. As barras abaixo estão em escala logarítmica. Cada uma é cerca de 10× a anterior. A pessoa mais rica do seu país está várias décadas de zeros acima da riqueza média nacional.",
     pdfScaleLabelYou: "Você",
     pdfScaleLabelMedian: "Riqueza mediana",
     pdfScaleLabelMean: "Riqueza média",
     pdfScaleLabelTop1Avg: "Média do top 1%",
     pdfScaleLabelRichest: "Pessoa mais rica do país",
     pdfScaleRatioTemplate: "{ratio}× sua riqueza",
-    pdfScaleNote: "Escala logarítmica — as barras não são lineares.",
+    pdfScaleNote: "Escala logarítmica. As barras não são lineares.",
     pdfWealthShareTitle: "População vs. participação na riqueza",
     pdfWealthShareLegendPopulation: "População",
     pdfWealthShareLegendWealth: "Riqueza",
@@ -594,8 +594,8 @@ export const pt: Dictionary = {
     pdfTipTitle: "Mantenha isto gratuito",
     pdfTipBody:
       "Este relatório é gratuito. O site continua gratuito e sem anúncios. Se foi útil, uma pequena gorjeta cobre a hospedagem e permite adicionar novos países.",
-    pdfTipQrCaption: "Gorjeta via Ko-fi — escaneie ou acesse ko-fi.com/yrunhaar",
-    pdfFooterAttribution: "howpoorami.org — desigualdade de riqueza, visualizada",
+    pdfTipQrCaption: "Gorjeta via Ko-fi. Escaneie ou acesse ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org. Desigualdade de riqueza, visualizada",
     pdfPageLabel: "Página",
   },
 };

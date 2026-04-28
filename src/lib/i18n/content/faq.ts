@@ -42,32 +42,32 @@ const en: FaqContent = {
     {
       question: "What counts as net wealth?",
       answer:
-        "Net wealth is your total assets minus your total debts. Assets include property, investments, savings, pensions, and any other valuables. Debts include mortgages, student loans, car loans, credit card debt, and any other liabilities. The resulting figure — positive or negative — is what determines your position in the wealth distribution.",
+        "Net wealth is your total assets minus your total debts. Assets include property, investments, savings, pensions, and any other valuables. Debts include mortgages, student loans, car loans, credit card debt, and any other liabilities. The resulting figure. Positive or negative. Is what determines your position in the wealth distribution.",
     },
     {
       question: "Is my data stored or sent anywhere?",
       answer:
-        "No. Everything runs entirely in your browser. Your income, wealth, and personal details are never sent to any server. There are no cookies, no tracking scripts, and no analytics. All calculations run in your browser — no data is sent to any server.",
+        "No. Everything runs entirely in your browser. Your income, wealth, and personal details are never sent to any server. There are no cookies, no tracking scripts, and no analytics. All calculations run in your browser. No data is sent to any server.",
     },
     {
       question: "Should I enter my pre-tax or post-tax income?",
       answer:
-        "Enter your gross (pre-tax) income. The underlying WID.world data uses pre-tax national income, which includes wages, capital income (dividends, interest, rental income), and imputed corporate profits — before any taxes or social contributions are deducted. This is typically 30-50% higher than take-home pay. If you only know your post-tax income, multiply it by roughly 1.3-1.5 depending on your country's tax rates.",
+        "Enter your gross (pre-tax) income. The underlying WID.world data uses pre-tax national income, which includes wages, capital income (dividends, interest, rental income), and imputed corporate profits. Before any taxes or social contributions are deducted. This is typically 30-50% higher than take-home pay. If you only know your post-tax income, multiply it by roughly 1.3-1.5 depending on your country's tax rates.",
     },
     {
       question: "How accurate is the income-to-wealth estimate?",
       answer:
-        "It is an approximation. When you enter your income instead of net wealth directly, the tool uses up to 18 factors — including age, homeownership, savings rate, and debt — to estimate your likely net wealth. A range is shown to reflect the inherent uncertainty. For the most accurate result, enter your net wealth directly.",
+        "It is an approximation. When you enter your income instead of net wealth directly, the tool uses up to 18 factors. Including age, homeownership, savings rate, and debt. To estimate your likely net wealth. A range is shown to reflect the inherent uncertainty. For the most accurate result, enter your net wealth directly.",
     },
     {
       question: "Why does my standing change when I change my education level?",
       answer:
-        "Education level is used as a statistical proxy for wealth accumulation patterns, not as a direct measure of worth. Data from the U.S. Survey of Consumer Finances (SCF) and similar studies consistently show that college graduates hold 3-4x the net wealth of non-graduates at the same income level. This correlation reflects factors like savings rates, investment behavior, career trajectory, inheritance likelihood, and access to employer-sponsored retirement plans — not education itself causing wealth.",
+        "Education level is used as a statistical proxy for wealth accumulation patterns, not as a direct measure of worth. Data from the U.S. Survey of Consumer Finances (SCF) and similar studies consistently show that college graduates hold 3-4x the net wealth of non-graduates at the same income level. This correlation reflects factors like savings rates, investment behavior, career trajectory, inheritance likelihood, and access to employer-sponsored retirement plans. Not education itself causing wealth.",
     },
     {
       question: "Is this based on individuals or households?",
       answer:
-        "The underlying WID.world data uses per-adult figures with the equal-split method for couples — meaning each partner in a couple is assigned half the household's total wealth. This is the standard approach in inequality research. When you enter your wealth, enter YOUR share of joint assets (typically half if you share finances with a partner). The population denominator is adults aged 20+, not total population including children.",
+        "The underlying WID.world data uses per-adult figures with the equal-split method for couples. Meaning each partner in a couple is assigned half the household's total wealth. This is the standard approach in inequality research. When you enter your wealth, enter YOUR share of joint assets (typically half if you share finances with a partner). The population denominator is adults aged 20+, not total population including children.",
     },
     {
       question: "How should I enter pensions and retirement savings?",
@@ -77,22 +77,22 @@ const en: FaqContent = {
     {
       question: "Where does the data come from?",
       answer:
-        "All data is fetched programmatically from public APIs by a single open-source script. Wealth shares, income shares, mean/median wealth, and Gini coefficients come from the WID.world API (World Inequality Database). Population data comes from the World Bank API. Exchange rates come from the European Central Bank. Billionaire net worth comes from the Forbes Real-Time Billionaires list. Tax rate data is the one exception — it is manually compiled from academic papers and government tax statistics.",
+        "All data is fetched programmatically from public APIs by a single open-source script. Wealth shares, income shares, mean/median wealth, and Gini coefficients come from the WID.world API (World Inequality Database). Population data comes from the World Bank API. Exchange rates come from the European Central Bank. Billionaire net worth comes from the Forbes Real-Time Billionaires list. Tax rate data is the one exception. It is manually compiled from academic papers and government tax statistics.",
     },
     {
       question: "Why does the bottom 50% own so little?",
       answer:
-        "Wealth is far more concentrated than income. The bottom 50% in most countries holds between 1% and 5% of total wealth. This happens because wealth accumulates over time through asset appreciation (property, stocks), inheritance, and compound returns — mechanisms that disproportionately benefit those who already have capital. Meanwhile, many people carry debts that offset or exceed their assets, leaving them with zero or negative net wealth.",
+        "Wealth is far more concentrated than income. The bottom 50% in most countries holds between 1% and 5% of total wealth. This happens because wealth accumulates over time through asset appreciation (property, stocks), inheritance, and compound returns. Mechanisms that disproportionately benefit those who already have capital. Meanwhile, many people carry debts that offset or exceed their assets, leaving them with zero or negative net wealth.",
     },
     {
       question: "How is the billionaire comparison calculated?",
       answer:
-        "It is a simple division: the billionaire's net worth divided by your annual income gives the number of years it would take you to earn the equivalent amount (before taxes, with no spending). The result is then expressed in relatable units — years, lifetimes, or historical eras — to make the scale of the gap tangible.",
+        "It is a simple division: the billionaire's net worth divided by your annual income gives the number of years it would take you to earn the equivalent amount (before taxes, with no spending). The result is then expressed in relatable units. Years, lifetimes, or historical eras. To make the scale of the gap tangible.",
     },
     {
       question: "Can wealth inequality be reduced?",
       answer:
-        "Economists and policymakers have proposed a range of approaches, including progressive taxation on income and capital gains, inheritance and estate taxes, universal basic assets or savings programs, broader access to education and homeownership, and stronger labor protections. Each approach has trade-offs, and outcomes depend heavily on implementation. This tool does not advocate for any specific policy — it aims to make the data visible so people can form their own views.",
+        "Economists and policymakers have proposed a range of approaches, including progressive taxation on income and capital gains, inheritance and estate taxes, universal basic assets or savings programs, broader access to education and homeownership, and stronger labor protections. Each approach has trade-offs, and outcomes depend heavily on implementation. This tool does not advocate for any specific policy. It aims to make the data visible so people can form their own views.",
     },
     {
       question: "Is this financial advice?",
@@ -102,7 +102,7 @@ const en: FaqContent = {
     {
       question: "How often is the data updated?",
       answer:
-        "All data is fetched at build time from public APIs — no external calls are made when you use the tool. The fetch script can be re-run at any time to pull the latest data from WID.world, World Bank, ECB, and Forbes. In practice, the underlying research databases are updated annually, so the data typically reflects the most recent available year for each country (2022-2024 depending on the variable and country).",
+        "All data is fetched at build time from public APIs. No external calls are made when you use the tool. The fetch script can be re-run at any time to pull the latest data from WID.world, World Bank, ECB, and Forbes. In practice, the underlying research databases are updated annually, so the data typically reflects the most recent available year for each country (2022-2024 depending on the variable and country).",
     },
     {
       question: "Is How Poor Am I? open source?",
@@ -135,7 +135,7 @@ const es: FaqContent = {
     {
       question: "¿Qué se considera patrimonio neto?",
       answer:
-        "El patrimonio neto es el total de tus activos menos el total de tus deudas. Los activos incluyen vivienda, inversiones, ahorros, pensiones y otros bienes. Las deudas incluyen hipotecas, préstamos estudiantiles, préstamos para coches, deudas de tarjetas de crédito y otras obligaciones. La cifra resultante — positiva o negativa — es la que determina tu posición en la distribución.",
+        "El patrimonio neto es el total de tus activos menos el total de tus deudas. Los activos incluyen vivienda, inversiones, ahorros, pensiones y otros bienes. Las deudas incluyen hipotecas, préstamos estudiantiles, préstamos para coches, deudas de tarjetas de crédito y otras obligaciones. La cifra resultante. Positiva o negativa. Es la que determina tu posición en la distribución.",
     },
     {
       question: "¿Mis datos se guardan o se envían a algún sitio?",
@@ -145,12 +145,12 @@ const es: FaqContent = {
     {
       question: "¿Debo introducir ingresos brutos o netos?",
       answer:
-        "Introduce tus ingresos brutos (antes de impuestos). Los datos de WID.world se basan en la renta nacional bruta, que incluye salarios, rentas de capital (dividendos, intereses, alquileres) y beneficios empresariales imputados — antes de impuestos o cotizaciones. Esto suele ser un 30-50% superior al neto. Si solo conoces tus ingresos netos, multiplica por 1,3-1,5 según el sistema fiscal de tu país.",
+        "Introduce tus ingresos brutos (antes de impuestos). Los datos de WID.world se basan en la renta nacional bruta, que incluye salarios, rentas de capital (dividendos, intereses, alquileres) y beneficios empresariales imputados. Antes de impuestos o cotizaciones. Esto suele ser un 30-50% superior al neto. Si solo conoces tus ingresos netos, multiplica por 1,3-1,5 según el sistema fiscal de tu país.",
     },
     {
       question: "¿Qué tan precisa es la estimación de ingresos a riqueza?",
       answer:
-        "Es una aproximación. Cuando introduces ingresos en lugar de patrimonio neto, la herramienta utiliza hasta 18 factores — edad, propiedad de vivienda, tasa de ahorro, deudas — para estimar tu probable patrimonio. Se muestra un rango para reflejar la incertidumbre. Para el resultado más preciso, introduce directamente tu patrimonio neto.",
+        "Es una aproximación. Cuando introduces ingresos en lugar de patrimonio neto, la herramienta utiliza hasta 18 factores. Edad, propiedad de vivienda, tasa de ahorro, deudas. Para estimar tu probable patrimonio. Se muestra un rango para reflejar la incertidumbre. Para el resultado más preciso, introduce directamente tu patrimonio neto.",
     },
     {
       question: "¿Por qué cambia mi posición al cambiar mi nivel educativo?",
@@ -160,7 +160,7 @@ const es: FaqContent = {
     {
       question: "¿Es por individuo o por hogar?",
       answer:
-        "Los datos de WID.world son por adulto, con el método de reparto igualitario para parejas — cada miembro recibe la mitad del patrimonio del hogar. Es el enfoque estándar en la investigación sobre desigualdad. Al introducir tu patrimonio, indica TU parte (normalmente la mitad si compartes finanzas). El denominador poblacional son adultos a partir de 20 años, no la población total con menores.",
+        "Los datos de WID.world son por adulto, con el método de reparto igualitario para parejas. Cada miembro recibe la mitad del patrimonio del hogar. Es el enfoque estándar en la investigación sobre desigualdad. Al introducir tu patrimonio, indica TU parte (normalmente la mitad si compartes finanzas). El denominador poblacional son adultos a partir de 20 años, no la población total con menores.",
     },
     {
       question: "¿Cómo introduzco las pensiones y los ahorros para la jubilación?",
@@ -170,22 +170,22 @@ const es: FaqContent = {
     {
       question: "¿De dónde vienen los datos?",
       answer:
-        "Todos los datos se obtienen automáticamente desde APIs públicas mediante un único script open source. Las cuotas de riqueza, las cuotas de ingreso, la riqueza media/mediana y los coeficientes de Gini provienen de la API de WID.world. La población viene del Banco Mundial. Los tipos de cambio del Banco Central Europeo. La fortuna de los millonarios de la lista en tiempo real de Forbes. Los datos de tipos impositivos son la excepción — se compilan manualmente desde artículos académicos y estadísticas tributarias oficiales.",
+        "Todos los datos se obtienen automáticamente desde APIs públicas mediante un único script open source. Las cuotas de riqueza, las cuotas de ingreso, la riqueza media/mediana y los coeficientes de Gini provienen de la API de WID.world. La población viene del Banco Mundial. Los tipos de cambio del Banco Central Europeo. La fortuna de los millonarios de la lista en tiempo real de Forbes. Los datos de tipos impositivos son la excepción. Se compilan manualmente desde artículos académicos y estadísticas tributarias oficiales.",
     },
     {
       question: "¿Por qué el 50% más pobre posee tan poco?",
       answer:
-        "La riqueza está mucho más concentrada que los ingresos. El 50% inferior de la mayoría de los países posee entre el 1% y el 5% de la riqueza total. Esto se debe a que la riqueza se acumula con el tiempo mediante apreciación de activos (vivienda, acciones), herencia y rendimientos compuestos — mecanismos que benefician desproporcionadamente a quienes ya tienen capital. Mientras tanto, muchas personas cargan con deudas que igualan o superan sus activos.",
+        "La riqueza está mucho más concentrada que los ingresos. El 50% inferior de la mayoría de los países posee entre el 1% y el 5% de la riqueza total. Esto se debe a que la riqueza se acumula con el tiempo mediante apreciación de activos (vivienda, acciones), herencia y rendimientos compuestos. Mecanismos que benefician desproporcionadamente a quienes ya tienen capital. Mientras tanto, muchas personas cargan con deudas que igualan o superan sus activos.",
     },
     {
       question: "¿Cómo se calcula la comparación con millonarios?",
       answer:
-        "Es una división simple: el patrimonio del millonario dividido por tu ingreso anual da el número de años necesarios para ganar la misma cantidad (antes de impuestos, sin gastos). El resultado se expresa en unidades relacionables — años, vidas o eras históricas — para hacer tangible la magnitud de la brecha.",
+        "Es una división simple: el patrimonio del millonario dividido por tu ingreso anual da el número de años necesarios para ganar la misma cantidad (antes de impuestos, sin gastos). El resultado se expresa en unidades relacionables. Años, vidas o eras históricas. Para hacer tangible la magnitud de la brecha.",
     },
     {
       question: "¿Se puede reducir la desigualdad de riqueza?",
       answer:
-        "Economistas y responsables políticos han propuesto diversos enfoques: impuestos progresivos sobre la renta y plusvalías, impuestos a la herencia y al patrimonio, programas de activos universales o ahorro, mayor acceso a la educación y a la vivienda, y mayor protección laboral. Cada enfoque tiene compensaciones y los resultados dependen de la implementación. Esta herramienta no aboga por ninguna política — su objetivo es hacer visibles los datos para que cada uno se forme su propia opinión.",
+        "Economistas y responsables políticos han propuesto diversos enfoques: impuestos progresivos sobre la renta y plusvalías, impuestos a la herencia y al patrimonio, programas de activos universales o ahorro, mayor acceso a la educación y a la vivienda, y mayor protección laboral. Cada enfoque tiene compensaciones y los resultados dependen de la implementación. Esta herramienta no aboga por ninguna política. Su objetivo es hacer visibles los datos para que cada uno se forme su propia opinión.",
     },
     {
       question: "¿Es esto asesoramiento financiero?",
@@ -195,7 +195,7 @@ const es: FaqContent = {
     {
       question: "¿Con qué frecuencia se actualizan los datos?",
       answer:
-        "Todos los datos se obtienen en tiempo de compilación desde APIs públicas — al usar la herramienta no se hace ninguna llamada externa. El script de obtención puede volver a ejecutarse en cualquier momento para traer los últimos datos de WID.world, Banco Mundial, BCE y Forbes. En la práctica, las bases de datos de investigación se actualizan anualmente, por lo que los datos suelen reflejar el año más reciente disponible (2022-2024 según la variable y el país).",
+        "Todos los datos se obtienen en tiempo de compilación desde APIs públicas. Al usar la herramienta no se hace ninguna llamada externa. El script de obtención puede volver a ejecutarse en cualquier momento para traer los últimos datos de WID.world, Banco Mundial, BCE y Forbes. En la práctica, las bases de datos de investigación se actualizan anualmente, por lo que los datos suelen reflejar el año más reciente disponible (2022-2024 según la variable y el país).",
     },
     {
       question: "¿Es ¿Qué tan pobre soy? de código abierto?",
@@ -241,7 +241,7 @@ const de: FaqContent = {
     {
       question: "Was zählt zum Nettovermögen?",
       answer:
-        "Nettovermögen sind deine Vermögenswerte abzüglich Schulden. Vermögenswerte: Immobilien, Investitionen, Ersparnisse, Renten, Wertgegenstände. Schulden: Hypotheken, Studienkredite, Autokredite, Kreditkartenschulden, weitere Verbindlichkeiten. Das Ergebnis — positiv oder negativ — bestimmt deine Position in der Verteilung.",
+        "Nettovermögen sind deine Vermögenswerte abzüglich Schulden. Vermögenswerte: Immobilien, Investitionen, Ersparnisse, Renten, Wertgegenstände. Schulden: Hypotheken, Studienkredite, Autokredite, Kreditkartenschulden, weitere Verbindlichkeiten. Das Ergebnis. Positiv oder negativ. Bestimmt deine Position in der Verteilung.",
     },
     {
       question: "Werden meine Daten gespeichert oder versendet?",
@@ -251,12 +251,12 @@ const de: FaqContent = {
     {
       question: "Brutto- oder Nettoeinkommen eingeben?",
       answer:
-        "Gib das Bruttoeinkommen (vor Steuern) ein. Die WID.world-Daten basieren auf Brutto-Nationaleinkommen — Löhne, Kapitaleinkünfte (Dividenden, Zinsen, Mieteinnahmen) und imputierte Unternehmensgewinne, vor allen Steuern und Sozialabgaben. Das ist meist 30–50 % höher als das Netto. Wenn du nur das Netto kennst, multipliziere mit etwa 1,3–1,5 je nach Steuersystem.",
+        "Gib das Bruttoeinkommen (vor Steuern) ein. Die WID.world-Daten basieren auf Brutto-Nationaleinkommen. Löhne, Kapitaleinkünfte (Dividenden, Zinsen, Mieteinnahmen) und imputierte Unternehmensgewinne, vor allen Steuern und Sozialabgaben. Das ist meist 30–50 % höher als das Netto. Wenn du nur das Netto kennst, multipliziere mit etwa 1,3–1,5 je nach Steuersystem.",
     },
     {
       question: "Wie genau ist die Einkommen-zu-Vermögen-Schätzung?",
       answer:
-        "Eine Annäherung. Wenn du Einkommen statt Vermögen eingibst, nutzt das Tool bis zu 18 Faktoren — Alter, Wohneigentum, Sparquote, Schulden — um dein wahrscheinliches Vermögen zu schätzen. Eine Spannweite zeigt die Unsicherheit. Für höchste Genauigkeit gib dein Nettovermögen direkt ein.",
+        "Eine Annäherung. Wenn du Einkommen statt Vermögen eingibst, nutzt das Tool bis zu 18 Faktoren. Alter, Wohneigentum, Sparquote, Schulden. Um dein wahrscheinliches Vermögen zu schätzen. Eine Spannweite zeigt die Unsicherheit. Für höchste Genauigkeit gib dein Nettovermögen direkt ein.",
     },
     {
       question: "Warum ändert sich meine Position beim Bildungsgrad?",
@@ -266,7 +266,7 @@ const de: FaqContent = {
     {
       question: "Pro Person oder pro Haushalt?",
       answer:
-        "WID.world nutzt Pro-Erwachsenen-Werte mit gleichmäßiger Aufteilung in Paaren — jede:r erhält die Hälfte des Haushaltsvermögens. Das ist Standard in der Ungleichheitsforschung. Gib DEINEN Anteil ein (i. d. R. die Hälfte, wenn du Finanzen mit Partner:in teilst). Bezugsgröße: Erwachsene ab 20.",
+        "WID.world nutzt Pro-Erwachsenen-Werte mit gleichmäßiger Aufteilung in Paaren. Jede:r erhält die Hälfte des Haushaltsvermögens. Das ist Standard in der Ungleichheitsforschung. Gib DEINEN Anteil ein (i. d. R. die Hälfte, wenn du Finanzen mit Partner:in teilst). Bezugsgröße: Erwachsene ab 20.",
     },
     {
       question: "Wie gebe ich Renten und Altersvorsorge ein?",
@@ -276,22 +276,22 @@ const de: FaqContent = {
     {
       question: "Woher stammen die Daten?",
       answer:
-        "Alle Daten werden über öffentliche APIs durch ein einziges Open-Source-Skript gezogen. Vermögens- und Einkommensanteile, Mittel-/Median-Vermögen und Gini-Koeffizienten kommen aus der WID.world-API. Bevölkerung: Weltbank-API. Wechselkurse: Europäische Zentralbank. Milliardärsvermögen: Forbes-Realtime-Liste. Einzige Ausnahme sind Steuerdaten — sie werden manuell aus Fachpublikationen und amtlichen Statistiken zusammengestellt.",
+        "Alle Daten werden über öffentliche APIs durch ein einziges Open-Source-Skript gezogen. Vermögens- und Einkommensanteile, Mittel-/Median-Vermögen und Gini-Koeffizienten kommen aus der WID.world-API. Bevölkerung: Weltbank-API. Wechselkurse: Europäische Zentralbank. Milliardärsvermögen: Forbes-Realtime-Liste. Einzige Ausnahme sind Steuerdaten. Sie werden manuell aus Fachpublikationen und amtlichen Statistiken zusammengestellt.",
     },
     {
       question: "Warum besitzen die unteren 50 % so wenig?",
       answer:
-        "Vermögen ist deutlich stärker konzentriert als Einkommen. Die unteren 50 % halten in den meisten Ländern 1–5 % des Gesamtvermögens. Vermögen kumuliert sich über Zeit durch Wertsteigerung (Immobilien, Aktien), Erbschaften und Zinseszins — Mechanismen, die Kapitalbesitzer überproportional begünstigen. Gleichzeitig haben viele Menschen Schulden, die ihre Vermögenswerte ausgleichen oder übersteigen.",
+        "Vermögen ist deutlich stärker konzentriert als Einkommen. Die unteren 50 % halten in den meisten Ländern 1–5 % des Gesamtvermögens. Vermögen kumuliert sich über Zeit durch Wertsteigerung (Immobilien, Aktien), Erbschaften und Zinseszins. Mechanismen, die Kapitalbesitzer überproportional begünstigen. Gleichzeitig haben viele Menschen Schulden, die ihre Vermögenswerte ausgleichen oder übersteigen.",
     },
     {
       question: "Wie wird der Milliardärsvergleich berechnet?",
       answer:
-        "Eine simple Division: Milliardärsvermögen ÷ dein Jahreseinkommen ergibt die Jahre, die du brauchen würdest, um die gleiche Summe zu verdienen (vor Steuern, ohne Konsum). Das Ergebnis wird in greifbare Einheiten — Jahre, Lebensspannen, Epochen — übersetzt, um den Maßstab fühlbar zu machen.",
+        "Eine simple Division: Milliardärsvermögen ÷ dein Jahreseinkommen ergibt die Jahre, die du brauchen würdest, um die gleiche Summe zu verdienen (vor Steuern, ohne Konsum). Das Ergebnis wird in greifbare Einheiten. Jahre, Lebensspannen, Epochen. übersetzt, um den Maßstab fühlbar zu machen.",
     },
     {
       question: "Kann Vermögensungleichheit reduziert werden?",
       answer:
-        "Ökonomen und Politiker haben verschiedene Ansätze vorgeschlagen: progressive Einkommens- und Kapitalertragsteuern, Erbschafts- und Vermögensteuern, universelle Grundvermögen oder Sparprogramme, breiterer Zugang zu Bildung und Wohneigentum, stärkere Arbeitnehmerrechte. Jeder Ansatz hat Trade-offs, die Wirkung hängt stark von der Umsetzung ab. Dieses Tool empfiehlt keine Politik — es macht Daten sichtbar, damit jede:r sich eine eigene Meinung bilden kann.",
+        "Ökonomen und Politiker haben verschiedene Ansätze vorgeschlagen: progressive Einkommens- und Kapitalertragsteuern, Erbschafts- und Vermögensteuern, universelle Grundvermögen oder Sparprogramme, breiterer Zugang zu Bildung und Wohneigentum, stärkere Arbeitnehmerrechte. Jeder Ansatz hat Trade-offs, die Wirkung hängt stark von der Umsetzung ab. Dieses Tool empfiehlt keine Politik. Es macht Daten sichtbar, damit jede:r sich eine eigene Meinung bilden kann.",
     },
     {
       question: "Ist das eine Finanzberatung?",
@@ -301,7 +301,7 @@ const de: FaqContent = {
     {
       question: "Wie häufig werden die Daten aktualisiert?",
       answer:
-        "Alle Daten werden zur Build-Zeit aus öffentlichen APIs gezogen — bei Nutzung des Tools werden keine externen Aufrufe gemacht. Das Skript kann jederzeit neu ausgeführt werden, um aktuelle Daten von WID.world, Weltbank, EZB und Forbes zu laden. Die Forschungsdatenbanken werden i. d. R. jährlich aktualisiert; die Daten spiegeln meist das aktuellste verfügbare Jahr je Variable und Land (2022–2024).",
+        "Alle Daten werden zur Build-Zeit aus öffentlichen APIs gezogen. Bei Nutzung des Tools werden keine externen Aufrufe gemacht. Das Skript kann jederzeit neu ausgeführt werden, um aktuelle Daten von WID.world, Weltbank, EZB und Forbes zu laden. Die Forschungsdatenbanken werden i. d. R. jährlich aktualisiert; die Daten spiegeln meist das aktuellste verfügbare Jahr je Variable und Land (2022–2024).",
     },
     {
       question: "Ist Wie arm bin ich? Open Source?",
@@ -334,7 +334,7 @@ const fr: FaqContent = {
     {
       question: "Qu'est-ce que le patrimoine net ?",
       answer:
-        "Le patrimoine net correspond à vos actifs totaux moins vos dettes totales. Les actifs incluent l'immobilier, les placements, l'épargne, les retraites et autres biens. Les dettes incluent les prêts immobiliers, les prêts étudiants, les prêts auto, les crédits à la consommation et autres engagements. Le résultat — positif ou négatif — détermine votre position dans la distribution.",
+        "Le patrimoine net correspond à vos actifs totaux moins vos dettes totales. Les actifs incluent l'immobilier, les placements, l'épargne, les retraites et autres biens. Les dettes incluent les prêts immobiliers, les prêts étudiants, les prêts auto, les crédits à la consommation et autres engagements. Le résultat. Positif ou négatif. Détermine votre position dans la distribution.",
     },
     {
       question: "Mes données sont-elles stockées ou envoyées quelque part ?",
@@ -344,12 +344,12 @@ const fr: FaqContent = {
     {
       question: "Faut-il saisir un revenu brut ou net ?",
       answer:
-        "Saisissez votre revenu brut (avant impôt). Les données WID.world reposent sur le revenu national brut — salaires, revenus du capital (dividendes, intérêts, loyers) et bénéfices d'entreprise imputés — avant impôts et cotisations. C'est généralement 30–50 % plus élevé que le net. Si vous ne connaissez que votre net, multipliez par 1,3 à 1,5 selon votre fiscalité.",
+        "Saisissez votre revenu brut (avant impôt). Les données WID.world reposent sur le revenu national brut. Salaires, revenus du capital (dividendes, intérêts, loyers) et bénéfices d'entreprise imputés. Avant impôts et cotisations. C'est généralement 30–50 % plus élevé que le net. Si vous ne connaissez que votre net, multipliez par 1,3 à 1,5 selon votre fiscalité.",
     },
     {
       question: "Quelle est la précision de l'estimation revenu → patrimoine ?",
       answer:
-        "C'est une approximation. Quand vous saisissez un revenu, l'outil utilise jusqu'à 18 facteurs — âge, propriété, taux d'épargne, dettes — pour estimer votre patrimoine probable. Une fourchette est affichée pour refléter l'incertitude. Pour une précision maximale, saisissez directement votre patrimoine net.",
+        "C'est une approximation. Quand vous saisissez un revenu, l'outil utilise jusqu'à 18 facteurs. âge, propriété, taux d'épargne, dettes. Pour estimer votre patrimoine probable. Une fourchette est affichée pour refléter l'incertitude. Pour une précision maximale, saisissez directement votre patrimoine net.",
     },
     {
       question: "Pourquoi mon classement change avec le niveau d'études ?",
@@ -359,7 +359,7 @@ const fr: FaqContent = {
     {
       question: "C'est par individu ou par foyer ?",
       answer:
-        "Les données WID.world sont par adulte avec partage à parts égales pour les couples — chaque membre se voit attribuer la moitié du patrimoine du foyer. C'est l'approche standard en recherche sur les inégalités. Saisissez VOTRE part personnelle (généralement la moitié si vous partagez les finances avec votre partenaire). Le dénominateur de population correspond aux adultes de 20 ans et plus.",
+        "Les données WID.world sont par adulte avec partage à parts égales pour les couples. Chaque membre se voit attribuer la moitié du patrimoine du foyer. C'est l'approche standard en recherche sur les inégalités. Saisissez VOTRE part personnelle (généralement la moitié si vous partagez les finances avec votre partenaire). Le dénominateur de population correspond aux adultes de 20 ans et plus.",
     },
     {
       question: "Comment saisir les retraites et l'épargne-retraite ?",
@@ -369,22 +369,22 @@ const fr: FaqContent = {
     {
       question: "D'où viennent les données ?",
       answer:
-        "Toutes les données sont récupérées via des API publiques par un seul script open source. Parts de richesse, parts de revenu, richesse moyenne/médiane et coefficients de Gini proviennent de l'API WID.world. La population vient de la Banque mondiale. Les taux de change de la BCE. La fortune des milliardaires de la liste Forbes en temps réel. Les taux d'imposition font exception — ils sont compilés manuellement à partir d'articles académiques et de statistiques fiscales.",
+        "Toutes les données sont récupérées via des API publiques par un seul script open source. Parts de richesse, parts de revenu, richesse moyenne/médiane et coefficients de Gini proviennent de l'API WID.world. La population vient de la Banque mondiale. Les taux de change de la BCE. La fortune des milliardaires de la liste Forbes en temps réel. Les taux d'imposition font exception. Ils sont compilés manuellement à partir d'articles académiques et de statistiques fiscales.",
     },
     {
       question: "Pourquoi les 50 % du bas possèdent-ils si peu ?",
       answer:
-        "La richesse est bien plus concentrée que les revenus. Dans la plupart des pays, les 50 % du bas détiennent entre 1 % et 5 % de la richesse totale. La richesse s'accumule dans le temps via la valorisation des actifs (immobilier, actions), l'héritage et les rendements composés — des mécanismes qui profitent surtout à ceux qui ont déjà du capital. En parallèle, beaucoup ont des dettes qui compensent ou dépassent leurs actifs.",
+        "La richesse est bien plus concentrée que les revenus. Dans la plupart des pays, les 50 % du bas détiennent entre 1 % et 5 % de la richesse totale. La richesse s'accumule dans le temps via la valorisation des actifs (immobilier, actions), l'héritage et les rendements composés. Des mécanismes qui profitent surtout à ceux qui ont déjà du capital. En parallèle, beaucoup ont des dettes qui compensent ou dépassent leurs actifs.",
     },
     {
       question: "Comment la comparaison avec un milliardaire est-elle calculée ?",
       answer:
-        "Une simple division : la fortune du milliardaire ÷ votre revenu annuel donne le nombre d'années nécessaires pour gagner l'équivalent (avant impôt, sans dépenser). Le résultat est exprimé en unités parlantes — années, vies, époques historiques — pour rendre l'écart tangible.",
+        "Une simple division : la fortune du milliardaire ÷ votre revenu annuel donne le nombre d'années nécessaires pour gagner l'équivalent (avant impôt, sans dépenser). Le résultat est exprimé en unités parlantes. Années, vies, époques historiques. Pour rendre l'écart tangible.",
     },
     {
       question: "Peut-on réduire l'inégalité de richesse ?",
       answer:
-        "Économistes et décideurs ont proposé plusieurs approches : fiscalité progressive sur le revenu et les plus-values, taxes sur les héritages et le patrimoine, programmes universels d'actifs ou d'épargne, accès élargi à l'éducation et au logement, protections du travail renforcées. Chaque approche a des compromis, et les résultats dépendent fortement de la mise en œuvre. Cet outil ne préconise pas de politique précise — il rend les données visibles pour que chacun puisse se forger une opinion.",
+        "Économistes et décideurs ont proposé plusieurs approches : fiscalité progressive sur le revenu et les plus-values, taxes sur les héritages et le patrimoine, programmes universels d'actifs ou d'épargne, accès élargi à l'éducation et au logement, protections du travail renforcées. Chaque approche a des compromis, et les résultats dépendent fortement de la mise en œuvre. Cet outil ne préconise pas de politique précise. Il rend les données visibles pour que chacun puisse se forger une opinion.",
     },
     {
       question: "Est-ce un conseil financier ?",
@@ -394,7 +394,7 @@ const fr: FaqContent = {
     {
       question: "À quelle fréquence les données sont-elles mises à jour ?",
       answer:
-        "Toutes les données sont récupérées au moment de la compilation depuis des API publiques — aucune requête externe n'est faite quand vous utilisez l'outil. Le script peut être relancé à tout moment pour récupérer les dernières données de WID.world, Banque mondiale, BCE et Forbes. En pratique, les bases de recherche sont mises à jour annuellement, donc les données reflètent généralement l'année la plus récente disponible (2022–2024 selon la variable et le pays).",
+        "Toutes les données sont récupérées au moment de la compilation depuis des API publiques. Aucune requête externe n'est faite quand vous utilisez l'outil. Le script peut être relancé à tout moment pour récupérer les dernières données de WID.world, Banque mondiale, BCE et Forbes. En pratique, les bases de recherche sont mises à jour annuellement, donc les données reflètent généralement l'année la plus récente disponible (2022–2024 selon la variable et le pays).",
     },
     {
       question: "À quel point suis-je pauvre ? est-il open source ?",
@@ -435,7 +435,7 @@ const zhCn: FaqContent = {
     {
       question: "应输入税前还是税后收入？",
       answer:
-        "请输入税前（毛）收入。WID.world 的底层数据采用税前国民收入，包含工资、资本收入（股息、利息、租金）以及对企业利润的归算 — 在任何税收或社保扣除之前。这通常比到手收入高 30–50%。如果只知道税后，可按本国税制乘以约 1.3–1.5。",
+        "请输入税前（毛）收入。WID.world 的底层数据采用税前国民收入，包含工资、资本收入（股息、利息、租金）以及对企业利润的归算. 在任何税收或社保扣除之前。这通常比到手收入高 30–50%。如果只知道税后，可按本国税制乘以约 1.3–1.5。",
     },
     {
       question: "由收入推估财富的精度如何？",
@@ -450,7 +450,7 @@ const zhCn: FaqContent = {
     {
       question: "是按个人还是家庭？",
       answer:
-        "WID.world 采用「成年人均」并对夫妻进行平均分配 — 每位伴侣获得家庭总资产的一半。这是不平等研究的标准做法。请输入「你个人」的份额（通常为一半）。人口分母为 20 岁及以上成年人，并不包含未成年人。",
+        "WID.world 采用「成年人均」并对夫妻进行平均分配. 每位伴侣获得家庭总资产的一半。这是不平等研究的标准做法。请输入「你个人」的份额（通常为一半）。人口分母为 20 岁及以上成年人，并不包含未成年人。",
     },
     {
       question: "养老金与退休储蓄如何输入？",
@@ -460,22 +460,22 @@ const zhCn: FaqContent = {
     {
       question: "数据来自哪里？",
       answer:
-        "所有数据都通过一个开源脚本从公共 API 自动获取。财富份额、收入份额、平均/中位数财富、基尼系数来自 WID.world API。人口数据来自世界银行。汇率来自欧洲央行。亿万富豪净资产来自 Forbes 实时榜。税率数据是唯一的例外 — 它来自学术论文与官方统计，由人工整理。",
+        "所有数据都通过一个开源脚本从公共 API 自动获取。财富份额、收入份额、平均/中位数财富、基尼系数来自 WID.world API。人口数据来自世界银行。汇率来自欧洲央行。亿万富豪净资产来自 Forbes 实时榜。税率数据是唯一的例外. 它来自学术论文与官方统计，由人工整理。",
     },
     {
       question: "为什么底部 50% 拥有那么少？",
       answer:
-        "财富比收入集中得多。多数国家底部 50% 仅拥有总财富的 1%–5%。原因是财富会随时间通过资产升值（房产、股票）、继承与复利积累 — 这些机制对已有资本的人格外有利。同时，很多人背负的债务等于或超过其资产，使其净资产为零或为负。",
+        "财富比收入集中得多。多数国家底部 50% 仅拥有总财富的 1%–5%。原因是财富会随时间通过资产升值（房产、股票）、继承与复利积累. 这些机制对已有资本的人格外有利。同时，很多人背负的债务等于或超过其资产，使其净资产为零或为负。",
     },
     {
       question: "「与亿万富豪对比」如何计算？",
       answer:
-        "简单的除法：亿万富豪净资产 ÷ 你的年收入 = 你需要多少年（税前、不消费）才能挣到等额的钱。结果再换算为可感的单位 — 年、生命跨度或历史时代 — 让差距变得直观。",
+        "简单的除法：亿万富豪净资产 ÷ 你的年收入 = 你需要多少年（税前、不消费）才能挣到等额的钱。结果再换算为可感的单位. 年、生命跨度或历史时代. 让差距变得直观。",
     },
     {
       question: "财富不平等可以缩小吗？",
       answer:
-        "经济学家与政策制定者提出了多种思路：累进所得税与资本利得税、遗产与房产税、普惠资产或储蓄计划、扩大教育与住房可及性、加强劳动保障等。每种方案都有取舍，效果高度依赖具体执行。本工具不主张任何特定政策 — 目标是把数据呈现出来，让大家自行判断。",
+        "经济学家与政策制定者提出了多种思路：累进所得税与资本利得税、遗产与房产税、普惠资产或储蓄计划、扩大教育与住房可及性、加强劳动保障等。每种方案都有取舍，效果高度依赖具体执行。本工具不主张任何特定政策. 目标是把数据呈现出来，让大家自行判断。",
     },
     {
       question: "这是理财建议吗？",
@@ -485,7 +485,7 @@ const zhCn: FaqContent = {
     {
       question: "数据多久更新一次？",
       answer:
-        "全部数据在构建时从公共 API 抓取 — 你使用工具时不会发生任何外部调用。脚本可随时重新运行以拉取 WID.world、世界银行、欧洲央行与 Forbes 的最新数据。学术数据库通常每年更新，因此数据多反映最新可用年份（按变量和国家在 2022–2024 之间）。",
+        "全部数据在构建时从公共 API 抓取. 你使用工具时不会发生任何外部调用。脚本可随时重新运行以拉取 WID.world、世界银行、欧洲央行与 Forbes 的最新数据。学术数据库通常每年更新，因此数据多反映最新可用年份（按变量和国家在 2022–2024 之间）。",
     },
     {
       question: "「我到底有多穷？」是开源的吗？",
@@ -527,7 +527,7 @@ const ja: FaqContent = {
     {
       question: "税引前と税引後、どちらを入力する？",
       answer:
-        "税引前（額面）の所得を入力してください。WID.world のデータは税引前の国民所得 — 給与、資本所得（配当・利息・賃料）、企業利益の帰属推定値 — を、いかなる税や社会保障費の控除も行う前に集計したものです。手取りより通常 30〜50% 高くなります。手取りしかわからない場合は、税制に応じておおむね 1.3〜1.5 倍してください。",
+        "税引前（額面）の所得を入力してください。WID.world のデータは税引前の国民所得. 給与、資本所得（配当・利息・賃料）、企業利益の帰属推定値. を、いかなる税や社会保障費の控除も行う前に集計したものです。手取りより通常 30〜50% 高くなります。手取りしかわからない場合は、税制に応じておおむね 1.3〜1.5 倍してください。",
     },
     {
       question: "所得から資産を推定する精度は？",
@@ -542,7 +542,7 @@ const ja: FaqContent = {
     {
       question: "個人単位か世帯単位か？",
       answer:
-        "WID.world は「成人 1 人あたり」の値で、夫婦は均等分割（equal-split）を採用 — 各パートナーに世帯資産の半額を割り当てます。これは格差研究の標準アプローチです。入力時には「あなた個人」の取り分（共有家計なら通常半額）を入れてください。分母は 20 歳以上の成人で、未成年を含めた全人口ではありません。",
+        "WID.world は「成人 1 人あたり」の値で、夫婦は均等分割（equal-split）を採用. 各パートナーに世帯資産の半額を割り当てます。これは格差研究の標準アプローチです。入力時には「あなた個人」の取り分（共有家計なら通常半額）を入れてください。分母は 20 歳以上の成人で、未成年を含めた全人口ではありません。",
     },
     {
       question: "年金や退職資産はどう入力する？",
@@ -567,7 +567,7 @@ const ja: FaqContent = {
     {
       question: "資産格差は縮められる？",
       answer:
-        "経済学者や政策立案者は様々な手段を提案してきました：累進所得税・キャピタルゲイン課税、相続税・資産課税、ベーシック・アセットや貯蓄プログラム、教育や住宅へのアクセス拡大、労働保護の強化。それぞれにトレードオフがあり、効果は実装次第で大きく変わります。このツールは特定の政策を推奨しません — 各自が判断できるようにデータを可視化することが目的です。",
+        "経済学者や政策立案者は様々な手段を提案してきました：累進所得税・キャピタルゲイン課税、相続税・資産課税、ベーシック・アセットや貯蓄プログラム、教育や住宅へのアクセス拡大、労働保護の強化。それぞれにトレードオフがあり、効果は実装次第で大きく変わります。このツールは特定の政策を推奨しません. 各自が判断できるようにデータを可視化することが目的です。",
     },
     {
       question: "これは投資・税務助言？",
@@ -577,7 +577,7 @@ const ja: FaqContent = {
     {
       question: "データはどのくらいの頻度で更新される？",
       answer:
-        "データはすべてビルド時に公開 API から取得されます — 利用時に外部呼び出しは行いません。スクリプトは随時再実行でき、WID.world・世界銀行・ECB・Forbes から最新データを取り込めます。研究データベースは通常年単位で更新されるため、データは利用可能な最新年（変数と国により 2022〜2024）を反映します。",
+        "データはすべてビルド時に公開 API から取得されます. 利用時に外部呼び出しは行いません。スクリプトは随時再実行でき、WID.world・世界銀行・ECB・Forbes から最新データを取り込めます。研究データベースは通常年単位で更新されるため、データは利用可能な最新年（変数と国により 2022〜2024）を反映します。",
     },
     {
       question: "「私はどれだけ貧しい？」はオープンソース？",
@@ -610,7 +610,7 @@ const pt: FaqContent = {
     {
       question: "O que conta como patrimônio líquido?",
       answer:
-        "Patrimônio líquido é o total dos seus ativos menos o total das suas dívidas. Ativos incluem imóveis, investimentos, poupança, previdência e outros bens. Dívidas incluem financiamentos imobiliários, empréstimos estudantis, financiamentos de veículos, dívida de cartão e demais passivos. O valor resultante — positivo ou negativo — determina sua posição na distribuição.",
+        "Patrimônio líquido é o total dos seus ativos menos o total das suas dívidas. Ativos incluem imóveis, investimentos, poupança, previdência e outros bens. Dívidas incluem financiamentos imobiliários, empréstimos estudantis, financiamentos de veículos, dívida de cartão e demais passivos. O valor resultante. Positivo ou negativo. Determina sua posição na distribuição.",
     },
     {
       question: "Meus dados são guardados ou enviados a algum lugar?",
@@ -620,12 +620,12 @@ const pt: FaqContent = {
     {
       question: "Devo inserir renda bruta ou líquida?",
       answer:
-        "Insira sua renda bruta (antes de impostos). Os dados do WID.world usam renda nacional bruta, que inclui salários, renda do capital (dividendos, juros, aluguéis) e lucros corporativos imputados — antes de qualquer imposto ou contribuição social. Isso geralmente é 30-50% maior que o líquido. Se só souber sua renda líquida, multiplique por cerca de 1,3-1,5 dependendo do sistema fiscal do seu país.",
+        "Insira sua renda bruta (antes de impostos). Os dados do WID.world usam renda nacional bruta, que inclui salários, renda do capital (dividendos, juros, aluguéis) e lucros corporativos imputados. Antes de qualquer imposto ou contribuição social. Isso geralmente é 30-50% maior que o líquido. Se só souber sua renda líquida, multiplique por cerca de 1,3-1,5 dependendo do sistema fiscal do seu país.",
     },
     {
       question: "Quão precisa é a estimativa de renda para patrimônio?",
       answer:
-        "É uma aproximação. Quando você insere renda em vez do patrimônio, a ferramenta usa até 18 fatores — idade, posse de imóvel, taxa de poupança, dívida — para estimar seu patrimônio provável. Uma faixa é exibida para refletir a incerteza. Para o resultado mais preciso, insira diretamente seu patrimônio líquido.",
+        "É uma aproximação. Quando você insere renda em vez do patrimônio, a ferramenta usa até 18 fatores. Idade, posse de imóvel, taxa de poupança, dívida. Para estimar seu patrimônio provável. Uma faixa é exibida para refletir a incerteza. Para o resultado mais preciso, insira diretamente seu patrimônio líquido.",
     },
     {
       question: "Por que minha posição muda quando mudo meu nível de educação?",
@@ -635,7 +635,7 @@ const pt: FaqContent = {
     {
       question: "É baseado em indivíduos ou domicílios?",
       answer:
-        "Os dados do WID.world usam números por adulto com o método de divisão igual para casais — cada parceiro recebe metade do patrimônio do domicílio. É a abordagem padrão na pesquisa de desigualdade. Ao informar seu patrimônio, insira a SUA parcela (geralmente metade se você compartilha finanças com o(a) parceiro(a)). O denominador populacional são adultos de 20+, não a população total com crianças.",
+        "Os dados do WID.world usam números por adulto com o método de divisão igual para casais. Cada parceiro recebe metade do patrimônio do domicílio. É a abordagem padrão na pesquisa de desigualdade. Ao informar seu patrimônio, insira a SUA parcela (geralmente metade se você compartilha finanças com o(a) parceiro(a)). O denominador populacional são adultos de 20+, não a população total com crianças.",
     },
     {
       question: "Como devo informar previdência e poupança para aposentadoria?",
@@ -645,22 +645,22 @@ const pt: FaqContent = {
     {
       question: "De onde vêm os dados?",
       answer:
-        "Todos os dados são obtidos programaticamente de APIs públicas por um único script open source. Participações de riqueza, participações de renda, riqueza média/mediana e coeficientes de Gini vêm da API do WID.world. População do Banco Mundial. Câmbio do Banco Central Europeu. Patrimônio dos bilionários da lista Forbes em tempo real. Dados de alíquotas tributárias são a exceção — são compilados manualmente a partir de artigos acadêmicos e estatísticas oficiais.",
+        "Todos os dados são obtidos programaticamente de APIs públicas por um único script open source. Participações de riqueza, participações de renda, riqueza média/mediana e coeficientes de Gini vêm da API do WID.world. População do Banco Mundial. Câmbio do Banco Central Europeu. Patrimônio dos bilionários da lista Forbes em tempo real. Dados de alíquotas tributárias são a exceção. São compilados manualmente a partir de artigos acadêmicos e estatísticas oficiais.",
     },
     {
       question: "Por que os 50% mais pobres têm tão pouco?",
       answer:
-        "A riqueza é muito mais concentrada do que a renda. Na maioria dos países, os 50% inferiores detêm entre 1% e 5% da riqueza total. Isso ocorre porque a riqueza se acumula no tempo via valorização de ativos (imóveis, ações), herança e juros compostos — mecanismos que beneficiam desproporcionalmente quem já tem capital. Ao mesmo tempo, muitas pessoas carregam dívidas que igualam ou superam seus ativos.",
+        "A riqueza é muito mais concentrada do que a renda. Na maioria dos países, os 50% inferiores detêm entre 1% e 5% da riqueza total. Isso ocorre porque a riqueza se acumula no tempo via valorização de ativos (imóveis, ações), herança e juros compostos. Mecanismos que beneficiam desproporcionalmente quem já tem capital. Ao mesmo tempo, muitas pessoas carregam dívidas que igualam ou superam seus ativos.",
     },
     {
       question: "Como a comparação com bilionário é calculada?",
       answer:
-        "É uma divisão simples: o patrimônio do bilionário dividido pela sua renda anual dá o número de anos para você ganhar a mesma quantia (sem impostos, sem gastos). O resultado é então traduzido em unidades palpáveis — anos, vidas ou eras históricas — para tornar tangível a magnitude do abismo.",
+        "É uma divisão simples: o patrimônio do bilionário dividido pela sua renda anual dá o número de anos para você ganhar a mesma quantia (sem impostos, sem gastos). O resultado é então traduzido em unidades palpáveis. Anos, vidas ou eras históricas. Para tornar tangível a magnitude do abismo.",
     },
     {
       question: "Dá para reduzir a desigualdade de riqueza?",
       answer:
-        "Economistas e formuladores de políticas propuseram várias abordagens: tributação progressiva sobre renda e ganhos de capital, impostos sobre herança e patrimônio, programas universais de ativos ou poupança, ampliação do acesso a educação e moradia, e proteções trabalhistas mais fortes. Cada abordagem tem trade-offs e o resultado depende muito da implementação. Esta ferramenta não defende uma política específica — ela visa tornar os dados visíveis para que as pessoas formem suas próprias opiniões.",
+        "Economistas e formuladores de políticas propuseram várias abordagens: tributação progressiva sobre renda e ganhos de capital, impostos sobre herança e patrimônio, programas universais de ativos ou poupança, ampliação do acesso a educação e moradia, e proteções trabalhistas mais fortes. Cada abordagem tem trade-offs e o resultado depende muito da implementação. Esta ferramenta não defende uma política específica. Ela visa tornar os dados visíveis para que as pessoas formem suas próprias opiniões.",
     },
     {
       question: "Isto é aconselhamento financeiro?",
@@ -670,7 +670,7 @@ const pt: FaqContent = {
     {
       question: "Com que frequência os dados são atualizados?",
       answer:
-        "Todos os dados são obtidos em tempo de build a partir de APIs públicas — nenhuma chamada externa é feita quando você usa a ferramenta. O script de busca pode ser executado a qualquer momento para puxar os dados mais recentes do WID.world, Banco Mundial, BCE e Forbes. Na prática, as bases de pesquisa são atualizadas anualmente, então os dados refletem normalmente o ano mais recente disponível por país (2022-2024 dependendo da variável).",
+        "Todos os dados são obtidos em tempo de build a partir de APIs públicas. Nenhuma chamada externa é feita quando você usa a ferramenta. O script de busca pode ser executado a qualquer momento para puxar os dados mais recentes do WID.world, Banco Mundial, BCE e Forbes. Na prática, as bases de pesquisa são atualizadas anualmente, então os dados refletem normalmente o ano mais recente disponível por país (2022-2024 dependendo da variável).",
     },
     {
       question: "Quão pobre eu sou? é open source?",
@@ -703,7 +703,7 @@ const it: FaqContent = {
     {
       question: "Cos'è il patrimonio netto?",
       answer:
-        "Il patrimonio netto è il totale dei tuoi attivi meno il totale dei tuoi debiti. Gli attivi includono immobili, investimenti, risparmi, pensioni e altri beni. I debiti includono mutui, prestiti studenteschi, prestiti auto, debiti di carte di credito e altre passività. La cifra risultante — positiva o negativa — determina la tua posizione nella distribuzione.",
+        "Il patrimonio netto è il totale dei tuoi attivi meno il totale dei tuoi debiti. Gli attivi includono immobili, investimenti, risparmi, pensioni e altri beni. I debiti includono mutui, prestiti studenteschi, prestiti auto, debiti di carte di credito e altre passività. La cifra risultante. Positiva o negativa. Determina la tua posizione nella distribuzione.",
     },
     {
       question: "I miei dati vengono salvati o inviati altrove?",
@@ -713,22 +713,22 @@ const it: FaqContent = {
     {
       question: "Devo inserire il reddito lordo o netto?",
       answer:
-        "Inserisci il reddito lordo (prima delle tasse). I dati di WID.world usano il reddito nazionale lordo, che include stipendi, redditi di capitale (dividendi, interessi, affitti) e profitti d'impresa imputati — al lordo di tasse o contributi sociali. Di solito è il 30-50% più alto del netto. Se conosci solo il netto, moltiplica per circa 1,3-1,5 in base al sistema fiscale del tuo paese.",
+        "Inserisci il reddito lordo (prima delle tasse). I dati di WID.world usano il reddito nazionale lordo, che include stipendi, redditi di capitale (dividendi, interessi, affitti) e profitti d'impresa imputati. Al lordo di tasse o contributi sociali. Di solito è il 30-50% più alto del netto. Se conosci solo il netto, moltiplica per circa 1,3-1,5 in base al sistema fiscale del tuo paese.",
     },
     {
       question: "Quanto è precisa la stima reddito → patrimonio?",
       answer:
-        "È un'approssimazione. Quando inserisci il reddito invece del patrimonio, lo strumento usa fino a 18 fattori — età, possesso casa, tasso di risparmio, debiti — per stimare il tuo patrimonio probabile. Viene mostrata una fascia per riflettere l'incertezza. Per il risultato più preciso, inserisci direttamente il patrimonio netto.",
+        "È un'approssimazione. Quando inserisci il reddito invece del patrimonio, lo strumento usa fino a 18 fattori. Età, possesso casa, tasso di risparmio, debiti. Per stimare il tuo patrimonio probabile. Viene mostrata una fascia per riflettere l'incertezza. Per il risultato più preciso, inserisci direttamente il patrimonio netto.",
     },
     {
       question: "Perché il livello di studi cambia la mia posizione?",
       answer:
-        "Il titolo di studio è una variabile statistica per i modelli di accumulazione di ricchezza, non una misura diretta del valore. I dati SCF (USA) e studi analoghi mostrano che i laureati hanno 3-4 volte il patrimonio dei non laureati a parità di reddito. Questa correlazione riflette tasso di risparmio, comportamento d'investimento, traiettoria di carriera, probabilità di eredità e accesso a piani pensionistici aziendali — non l'istruzione in sé.",
+        "Il titolo di studio è una variabile statistica per i modelli di accumulazione di ricchezza, non una misura diretta del valore. I dati SCF (USA) e studi analoghi mostrano che i laureati hanno 3-4 volte il patrimonio dei non laureati a parità di reddito. Questa correlazione riflette tasso di risparmio, comportamento d'investimento, traiettoria di carriera, probabilità di eredità e accesso a piani pensionistici aziendali. Non l'istruzione in sé.",
     },
     {
       question: "È per individui o per famiglie?",
       answer:
-        "I dati WID.world sono per adulto con metodo di divisione equa per le coppie — ogni partner riceve la metà del patrimonio del nucleo. È l'approccio standard nella ricerca sulla disuguaglianza. Inserisci la TUA quota personale (di solito la metà se condividi le finanze con il/la partner). Il denominatore di popolazione sono gli adulti dai 20 anni in su.",
+        "I dati WID.world sono per adulto con metodo di divisione equa per le coppie. Ogni partner riceve la metà del patrimonio del nucleo. È l'approccio standard nella ricerca sulla disuguaglianza. Inserisci la TUA quota personale (di solito la metà se condividi le finanze con il/la partner). Il denominatore di popolazione sono gli adulti dai 20 anni in su.",
     },
     {
       question: "Come inserisco pensioni e risparmi previdenziali?",
@@ -738,22 +738,22 @@ const it: FaqContent = {
     {
       question: "Da dove vengono i dati?",
       answer:
-        "Tutti i dati sono recuperati programmaticamente da API pubbliche tramite un unico script open source. Quote di ricchezza, quote di reddito, ricchezza media/mediana e coefficienti di Gini provengono dall'API di WID.world. Popolazione dalla Banca Mondiale. Tassi di cambio dalla Banca Centrale Europea. Patrimoni dei miliardari dalla lista Forbes in tempo reale. I dati sulle aliquote fiscali sono l'unica eccezione — sono compilati manualmente da articoli accademici e statistiche fiscali ufficiali.",
+        "Tutti i dati sono recuperati programmaticamente da API pubbliche tramite un unico script open source. Quote di ricchezza, quote di reddito, ricchezza media/mediana e coefficienti di Gini provengono dall'API di WID.world. Popolazione dalla Banca Mondiale. Tassi di cambio dalla Banca Centrale Europea. Patrimoni dei miliardari dalla lista Forbes in tempo reale. I dati sulle aliquote fiscali sono l'unica eccezione. Sono compilati manualmente da articoli accademici e statistiche fiscali ufficiali.",
     },
     {
       question: "Perché il 50% più povero possiede così poco?",
       answer:
-        "La ricchezza è molto più concentrata del reddito. Il 50% inferiore nella maggior parte dei paesi detiene tra l'1% e il 5% della ricchezza totale. La ricchezza si accumula nel tempo tramite rivalutazione degli attivi (immobili, azioni), eredità e rendimenti composti — meccanismi che premiano in modo sproporzionato chi ha già capitale. Allo stesso tempo, molte persone hanno debiti che pareggiano o superano i loro attivi.",
+        "La ricchezza è molto più concentrata del reddito. Il 50% inferiore nella maggior parte dei paesi detiene tra l'1% e il 5% della ricchezza totale. La ricchezza si accumula nel tempo tramite rivalutazione degli attivi (immobili, azioni), eredità e rendimenti composti. Meccanismi che premiano in modo sproporzionato chi ha già capitale. Allo stesso tempo, molte persone hanno debiti che pareggiano o superano i loro attivi.",
     },
     {
       question: "Come si calcola il confronto con un miliardario?",
       answer:
-        "Una semplice divisione: patrimonio del miliardario ÷ tuo reddito annuale = anni che ti servirebbero per guadagnare lo stesso (al lordo, senza spese). Il risultato è poi tradotto in unità tangibili — anni, vite, ere storiche — per rendere palpabile la dimensione del divario.",
+        "Una semplice divisione: patrimonio del miliardario ÷ tuo reddito annuale = anni che ti servirebbero per guadagnare lo stesso (al lordo, senza spese). Il risultato è poi tradotto in unità tangibili. Anni, vite, ere storiche. Per rendere palpabile la dimensione del divario.",
     },
     {
       question: "Si può ridurre la disuguaglianza di ricchezza?",
       answer:
-        "Economisti e decisori politici hanno proposto diversi approcci: imposte progressive su reddito e plusvalenze, imposte di successione e patrimoniali, programmi universali di attivi o risparmio, accesso ampliato a istruzione e casa, tutele del lavoro più forti. Ogni approccio ha trade-off e i risultati dipendono molto dall'attuazione. Questo strumento non promuove alcuna politica — il suo scopo è rendere visibili i dati perché ognuno si formi un'opinione.",
+        "Economisti e decisori politici hanno proposto diversi approcci: imposte progressive su reddito e plusvalenze, imposte di successione e patrimoniali, programmi universali di attivi o risparmio, accesso ampliato a istruzione e casa, tutele del lavoro più forti. Ogni approccio ha trade-off e i risultati dipendono molto dall'attuazione. Questo strumento non promuove alcuna politica. Il suo scopo è rendere visibili i dati perché ognuno si formi un'opinione.",
     },
     {
       question: "È un consiglio finanziario?",
@@ -763,7 +763,7 @@ const it: FaqContent = {
     {
       question: "Con quale frequenza vengono aggiornati i dati?",
       answer:
-        "Tutti i dati sono recuperati al build da API pubbliche — nessuna chiamata esterna avviene durante l'uso. Lo script di fetch può essere rieseguito in qualsiasi momento per portare i dati più recenti di WID.world, Banca Mondiale, BCE e Forbes. In pratica, le basi di ricerca si aggiornano annualmente, quindi i dati riflettono di solito l'anno più recente disponibile per ogni paese (2022-2024 a seconda della variabile).",
+        "Tutti i dati sono recuperati al build da API pubbliche. Nessuna chiamata esterna avviene durante l'uso. Lo script di fetch può essere rieseguito in qualsiasi momento per portare i dati più recenti di WID.world, Banca Mondiale, BCE e Forbes. In pratica, le basi di ricerca si aggiornano annualmente, quindi i dati riflettono di solito l'anno più recente disponibile per ogni paese (2022-2024 a seconda della variabile).",
     },
     {
       question: "Quanto sono povero? è open source?",

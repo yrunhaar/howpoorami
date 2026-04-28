@@ -3,42 +3,42 @@ import type { Dictionary } from "../dictionary";
 export const zhCn: Dictionary = {
   meta: {
     siteName: "我到底有多穷？",
-    homeTitle: "我到底有多穷？— 看看你在全球财富分布中的位置",
+    homeTitle: "我到底有多穷？ 看看你在全球财富分布中的位置",
     homeDescription:
       "了解你在财富分布中真正的位置。输入你的收入或净资产，看看你与所在国家最富有和最贫穷的人相比如何。涵盖 30 多个国家的交互式图表。",
-    homeOgTitle: "我到底有多穷？— 看看你在哪一档",
+    homeOgTitle: "我到底有多穷？ 看看你在哪一档",
     homeOgDescription:
       "你以为自己是中产？输入你的收入，看看你在财富分布中的真实位置。30 多个国家的交互式数据。",
-    countryTitleTemplate: "在{country}我到底有多穷？— 财富分布与不平等",
+    countryTitleTemplate: "在{country}我到底有多穷？ 财富分布与不平等",
     countryDescriptionTemplate:
       "看看你在{country}的财富分布中处于什么位置。把你的收入和净资产与最富的 1%、前 10% 以及后 50% 进行对比。基于 WID.world 与 OECD 数据的交互式图表。",
     countryOgTitleTemplate: "在{country}我到底有多穷？",
     countryOgDescriptionTemplate:
       "输入你的收入，看看你在{country}的财富分布中真正处于哪一档。基于 WID.world 的交互式不平等数据。",
 
-    compareTitle: "追上亿万富豪要多久？— 工资与超级财富对比",
+    compareTitle: "追上亿万富豪要多久？ 工资与超级财富对比",
     compareDescription:
       "你需要多少年、几生几世，乃至整段历史时期才能挣到亿万富豪那么多钱？输入你的工资，将超级财富放进真实尺度。",
     compareCountryTitleTemplate:
-      "追上{country}首富要多久？— 亿万富豪对比",
+      "追上{country}首富要多久？ 亿万富豪对比",
     compareCountryDescriptionTemplate:
       "要挣到{country}首富那么多钱，你需要多少年？{richestSuffix}输入你的工资即可估算。",
 
     compareCountriesTitle:
-      "在 30 个国家比较你的财富 — 跨国财富计算器",
+      "在 30 个国家比较你的财富。跨国财富计算器",
     compareCountriesDescription:
       "你的财富或收入在另一个国家会排第几？输入金额，并排查看在 30 多个国家的百分位排名。",
 
-    aboutTitle: "关于 — 我到底有多穷？",
+    aboutTitle: "关于。我到底有多穷？",
     aboutDescription:
       "我到底有多穷？是一个免费的开源工具，使用 WID.world、OECD 与 SWIID 的数据来可视化全球财富不平等。",
-    faqTitle: "常见问题 — 我到底有多穷？",
+    faqTitle: "常见问题。我到底有多穷？",
     faqDescription:
       "关于「我到底有多穷？」的常见问题：数据、算法，以及百分位真正的含义。",
-    methodologyTitle: "方法说明 — 我到底有多穷？",
+    methodologyTitle: "方法说明。我到底有多穷？",
     methodologyDescription:
       "深入「我到底有多穷？」背后的方法：数据来源、百分位估算、年龄调整与购买力（PPP）换算。",
-    reportTitle: "免费个人财富不平等报告 — 立刻生成",
+    reportTitle: "免费个人财富不平等报告。立刻生成",
     reportDescription:
       "生成一份免费、设计精良的 PDF 报告，包含你的个人财富百分位、按国家分布的图表、长达一个世纪的不平等趋势，以及对你这个数字的背景解读。无需注册、无需付费，完全私密。",
   },
@@ -54,22 +54,22 @@ export const zhCn: Dictionary = {
     h1: "我到底有多穷？",
     heroSubtitle: "输入你的收入或财富，看看你真正处于什么位置。",
     scrollToExplore: "向下滚动了解更多",
-    distributionTitle: "{flag} {country} — 财富分布",
+    distributionTitle: "{flag} {country}。财富分布",
     distributionSubtitle: "按人群划分的财富份额（2023 年）",
-    populationVsWealth: "人口对比财富 — {country}",
+    populationVsWealth: "人口对比财富。{country}",
     scaleOfConcentrationH2: "财富集中的程度",
     scaleOfConcentrationLead:
       "下面每个矩形代表一份财富，面积反映各群体真正拥有多少。看看谁拥有什么。",
     statisticsH2: "定义不平等的关键数字",
     whoActuallyPaysH2: "谁真正在交税？",
     whoActuallyPaysLead:
-      "实际税率与名义税率讲的是两个故事。把所有真正缴纳的税考虑进来——包括投资收益、资本利得以及公司架构的处理方式——税制在最富一端往往变得递减。",
+      "实际税率与名义税率讲的是两个故事。把所有真正缴纳的税考虑进来。包括投资收益、资本利得以及公司架构的处理方式。税制在最富一端往往变得递减。",
     centuryOfChangeH2: "百年变迁",
     centuryOfChangeLead:
-      "{country}的财富集中度是如何演变的——以及每一次转折背后的政策选择。",
+      "{country}的财富集中度是如何演变的。以及每一次转折背后的政策选择。",
     wagesKeepingUpH2: "工资跟上了吗？",
     wagesKeepingUpLead:
-      "工资、消费品价格与房价——全部以 2000 年为基准。当曲线分叉时，总有人被甩下。",
+      "工资、消费品价格与房价。全部以 2000 年为基准。当曲线分叉时，总有人被甩下。",
     seeBillionaireCta: "看看你需要多久才能赚到 {country}最富有的人那么多钱",
     seeBillionaireCtaButton: "试试亿万富豪对比 →",
     compareAcrossCountriesCta: "如果换一个国家，你的财富会排在第几？",
@@ -87,7 +87,7 @@ export const zhCn: Dictionary = {
     incomeLabelTemplate: "请输入以 {currency} 计的税前年收入",
     wealthLabelTemplate: "请输入以 {currency} 计的净资产",
     incomeHint: "税前包括工资、资本收入以及税前的养老金。",
-    wealthHint: "请输入“你个人”的份额——若与伴侣共同理财，请填一半。",
+    wealthHint: "请输入“你个人”的份额。若与伴侣共同理财，请填一半。",
     ageOptional: "你的年龄（可选）：",
     agePlaceholder: "如 30",
     knowYourAssets: "知道自己的资产明细？添加房产、投资等，让估算更精准",
@@ -199,7 +199,7 @@ export const zhCn: Dictionary = {
     entryThresholdTemplate: "再要 {amount} 即可达到 {label}",
     approxTemplate: "≈ {amount}",
     youAreHere: "你的位置",
-    youAreHereInGroup: "你 — 处于 {group}",
+    youAreHereInGroup: "你。处于 {group}",
     peopleMillionsTemplate: "约 {count} 百万人",
     peopleThousandsTemplate: "约 {count} 千人",
     peopleTemplate: "约 {count} 人",
@@ -438,9 +438,9 @@ export const zhCn: Dictionary = {
     },
     furtherReading: {
       heading: "延伸阅读",
-      body: "如果本站让你产生了兴趣，那些塑造了它的书籍才是更深入的阅读 —— Piketty、Saez 与 Zucman、Wilkinson、Milanović 等。我们把经典书目整理到了 Bookshop.org 的一个书单里；该平台会把每笔交易的一部分分给独立书店，而不是亚马逊。",
+      body: "如果本站让你产生了兴趣，那些塑造了它的书籍才是更深入的阅读：Piketty、Saez 与 Zucman、Wilkinson、Milanović 等。我们把经典书目整理到了 Bookshop.org 的一个书单里；该平台会把每笔交易的一部分分给独立书店。",
       ctaLabel: "查看书单",
-      disclosure: "联盟链接 —— 购书也会支持本项目。",
+      disclosure: "联盟链接。购书也会支持本项目。",
     },
   },
   sources: {
@@ -459,18 +459,18 @@ export const zhCn: Dictionary = {
       "免费、私密。一份精心设计的 PDF，把你的数字放进一个世纪的背景里。",
     landingLeadHeading: "里面有什么",
     landingLeadBody:
-      "为你的国家和你的数字量身定制的多页 PDF。你的位置、差距的样貌、过去一百年数据的走向 —— 设计成像研究简报，而不是营销邮件。",
-    landingFreeBadge: "免费 — 无需注册、无需付费、不收邮箱",
+      "为你的国家和你的数字量身定制的多页 PDF。你的位置、差距的样貌、过去一百年数据的走向。设计成像研究简报，而不是营销邮件。",
+    landingFreeBadge: "免费。无需注册、无需付费、不收邮箱",
     landingCta: "生成我的报告",
     landingFeatureWealthTitle: "精确百分位",
     landingFeatureWealthBody:
-      "基于 WID.world 数据并使用帕累托插值，把你精准放在分布上 —— 而不是塞进五档分桶。",
+      "基于 WID.world 数据并使用帕累托插值，把你精准放在分布上。而不是塞进五档分桶。",
     landingFeatureContextTitle: "国家级背景",
     landingFeatureContextBody:
       "把你的数字与国家中位数、平均值，以及前 10%、前 1%、前 0.1% 入门门槛进行对比。",
     landingFeaturePrivateTitle: "完全私密",
     landingFeaturePrivateBody:
-      "整份报告都在你的浏览器中生成。你输入的内容不会离开你的设备 —— 没有服务器、没有分析。",
+      "整份报告都在你的浏览器中生成。你输入的内容不会离开你的设备。没有服务器、没有分析。",
     landingExampleTitle: "像研究简报一样制作",
     landingExampleBody:
       "六页篇幅、八种语言、按国家定制的数据：封面展示你的百分位、所在位置可视化、背景对照表、一个世纪变化段落、收入对财富差距、以及结尾的方法论说明。带引用、可分享。",
@@ -483,7 +483,7 @@ export const zhCn: Dictionary = {
     wizardModeEstimate: "帮我估算一下",
     wizardKnownLabel: "你的净资产",
     wizardKnownPlaceholder: "如 250000",
-    wizardKnownHint: "请输入「你个人」的份额 —— 若与伴侣共同理财，请填一半。",
+    wizardKnownHint: "请输入「你个人」的份额。若与伴侣共同理财，请填一半。",
     wizardEstimateIntro:
       "把适用的内容填进去。留空的视为零。我们会把资产相加、负债相减，并把总和作为你的净资产。",
     wizardStepProperty: "房产",
@@ -540,23 +540,23 @@ export const zhCn: Dictionary = {
       "财富的集中度远超过收入。后 50% 通常只持有全国财富的 1%–5%，却拿到全国收入的 15%–20%。财富会复利增长，而劳动收入不会。",
     pdfSection5Title: "5. 这意味着什么",
     pdfSection5Body:
-      "百分位描述的是位置，不是判决。你所在的位置反映了累积的资本、终生储蓄、继承与结构性机会 —— 而非个人价值。这些数据用于让人理解，不是用于排名。",
+      "百分位描述的是位置，不是判决。你所在的位置反映了累积的资本、终生储蓄、继承与结构性机会。而非个人价值。这些数据用于让人理解，不是用于排名。",
     pdfCrossCountryTitle: "同样的财富，不同的国家",
     pdfCrossCountryBody:
-      "你的数字含义并不固定 —— 跨过国界，它的位置就会改变。下面是同一笔净资产在其他国家意味着什么。",
+      "你的数字含义并不固定。跨过国界，它的位置就会改变。下面是同一笔净资产在其他国家意味着什么。",
     pdfCrossCountryColCountry: "国家",
     pdfCrossCountryColPercentile: "你的百分位",
     pdfCrossCountryColBracket: "档位",
     pdfScaleGapTitle: "差距的尺度",
     pdfScaleGapBody:
-      "不平等很难被「感受」到，是因为差距是对数级的。下面的柱状图采用对数刻度 —— 每根柱子约为前一根的 10 倍。你所在国家的最富有者，比全国平均财富多出几个数量级的零。",
+      "不平等很难被「感受」到，是因为差距是对数级的。下面的柱状图采用对数刻度。每根柱子约为前一根的 10 倍。你所在国家的最富有者，比全国平均财富多出几个数量级的零。",
     pdfScaleLabelYou: "你",
     pdfScaleLabelMedian: "中位数财富",
     pdfScaleLabelMean: "平均财富",
     pdfScaleLabelTop1Avg: "前 1% 平均",
     pdfScaleLabelRichest: "国家最富有者",
     pdfScaleRatioTemplate: "你财富的 {ratio} 倍",
-    pdfScaleNote: "对数刻度 —— 柱长度并非线性。",
+    pdfScaleNote: "对数刻度。柱长度并非线性。",
     pdfWealthShareTitle: "人口 vs 财富份额",
     pdfWealthShareLegendPopulation: "人口",
     pdfWealthShareLegendWealth: "财富",
@@ -566,8 +566,8 @@ export const zhCn: Dictionary = {
     pdfTipTitle: "让它保持免费",
     pdfTipBody:
       "本报告免费。本站保持免费、无广告。如果它有用，一笔小额支持能覆盖托管费用，并允许我们继续添加新的国家。",
-    pdfTipQrCaption: "通过 Ko-fi 打赏 —— 扫码或访问 ko-fi.com/yrunhaar",
-    pdfFooterAttribution: "howpoorami.org — 把财富不平等可视化",
+    pdfTipQrCaption: "通过 Ko-fi 打赏。扫码或访问 ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org。把财富不平等可视化",
     pdfPageLabel: "第",
   },
 };

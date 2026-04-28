@@ -4,14 +4,14 @@ export const de: Dictionary = {
   meta: {
     siteName: "Wie arm bin ich?",
     homeTitle:
-      "Wie arm bin ich? — Sieh, wo du in der globalen Vermögensverteilung stehst",
+      "Wie arm bin ich? Sieh, wo du in der globalen Vermögensverteilung stehst",
     homeDescription:
-      "Finde heraus, wo du wirklich in der Vermögensverteilung stehst. Gib dein Einkommen oder Nettovermögen ein und vergleiche dich mit den reichsten — und ärmsten — Menschen deines Landes. Interaktive Charts für über 30 Länder.",
-    homeOgTitle: "Wie arm bin ich? — Wo stehst du wirklich?",
+      "Finde heraus, wo du wirklich in der Vermögensverteilung stehst. Gib dein Einkommen oder Nettovermögen ein und vergleiche dich mit den reichsten. Und ärmsten. Menschen deines Landes. Interaktive Charts für über 30 Länder.",
+    homeOgTitle: "Wie arm bin ich? Wo stehst du wirklich?",
     homeOgDescription:
       "Hältst du dich für Mittelschicht? Gib dein Einkommen ein und sieh, wo du wirklich in der Vermögensverteilung stehst. Interaktive Daten für über 30 Länder.",
     countryTitleTemplate:
-      "Wie arm bin ich in {country}? — Vermögensverteilung & Ungleichheit",
+      "Wie arm bin ich in {country}? Vermögensverteilung & Ungleichheit",
     countryDescriptionTemplate:
       "Sieh, wo du in der Vermögensverteilung von {country} stehst. Vergleiche dein Einkommen und Nettovermögen mit den oberen 1 %, 10 % und unteren 50 %. Interaktive Charts mit Daten von WID.world und OECD.",
     countryOgTitleTemplate: "Wie arm bin ich in {country}?",
@@ -19,30 +19,30 @@ export const de: Dictionary = {
       "Gib dein Einkommen ein und sieh, wo du wirklich in der Vermögensverteilung von {country} stehst. Interaktive Daten zur Ungleichheit, basierend auf WID.world.",
 
     compareTitle:
-      "Wie lange, um einen Milliardär einzuholen? — Gehalt vs. Megavermögen",
+      "Wie lange, um einen Milliardär einzuholen? Gehalt vs. Megavermögen",
     compareDescription:
       "Wie viele Jahre, Lebensspannen oder ganze Epochen bräuchtest du, um so viel zu verdienen wie ein Milliardär? Gib dein Gehalt ein und stell Megavermögen ins Verhältnis.",
     compareCountryTitleTemplate:
-      "Wie lange, um die reichste Person in {country} einzuholen? — Milliardärsvergleich",
+      "Wie lange, um die reichste Person in {country} einzuholen? Milliardärsvergleich",
     compareCountryDescriptionTemplate:
       "Wie viele Jahre bräuchtest du, um so viel zu verdienen wie die reichste Person in {country}?{richestSuffix} Gib dein Gehalt ein und find es heraus.",
 
     compareCountriesTitle:
-      "Vergleiche dein Vermögen in 30 Ländern — Länder-Vermögensrechner",
+      "Vergleiche dein Vermögen in 30 Ländern. Länder-Vermögensrechner",
     compareCountriesDescription:
       "Wie würde dein Vermögen oder Einkommen in einem anderen Land abschneiden? Gib einen Betrag ein und sieh dein Perzentil in über 30 Ländern auf einen Blick.",
 
-    aboutTitle: "Über — Wie arm bin ich?",
+    aboutTitle: "Über. Wie arm bin ich?",
     aboutDescription:
       "Wie arm bin ich? ist ein kostenloses Open-Source-Tool, das globale Vermögensungleichheit auf Basis von Daten aus WID.world, OECD und SWIID visualisiert.",
-    faqTitle: "FAQ — Wie arm bin ich?",
+    faqTitle: "FAQ. Wie arm bin ich?",
     faqDescription:
-      "Häufige Fragen zu Wie arm bin ich? — Daten, Berechnungen und was die Perzentile wirklich bedeuten.",
-    methodologyTitle: "Methodik — Wie arm bin ich?",
+      "Häufige Fragen zu Wie arm bin ich? Daten, Berechnungen und was die Perzentile wirklich bedeuten.",
+    methodologyTitle: "Methodik. Wie arm bin ich?",
     methodologyDescription:
       "Hinter den Kulissen von Wie arm bin ich?: Datenquellen, Perzentilschätzung, Altersanpassung und KKP-Umrechnung.",
     reportTitle:
-      "Kostenloser persönlicher Vermögensungleichheit-Bericht — Jetzt erstellen",
+      "Kostenloser persönlicher Vermögensungleichheit-Bericht. Jetzt erstellen",
     reportDescription:
       "Erstelle ein kostenloses, sauber gestaltetes PDF mit deinem persönlichen Vermögens-Perzentil, länderspezifischen Diagrammen, Trends aus einem Jahrhundert und Kontext zu deiner Zahl. Keine Anmeldung, keine Zahlung, vollständig privat.",
   },
@@ -59,22 +59,22 @@ export const de: Dictionary = {
     heroSubtitle:
       "Gib dein Einkommen oder Vermögen ein und entdecke, wo du wirklich stehst.",
     scrollToExplore: "Scrolle für mehr",
-    distributionTitle: "{flag} {country} — Vermögensverteilung",
+    distributionTitle: "{flag} {country}. Vermögensverteilung",
     distributionSubtitle: "Vermögensanteil nach Bevölkerungsgruppen (2023)",
-    populationVsWealth: "Bevölkerung vs. Vermögen — {country}",
+    populationVsWealth: "Bevölkerung vs. Vermögen. {country}",
     scaleOfConcentrationH2: "Das Ausmaß der Konzentration",
     scaleOfConcentrationLead:
       "Jedes Rechteck steht für Vermögen. Die Fläche zeigt, wie viel jede Gruppe tatsächlich besitzt. Sieh, wem was gehört.",
     statisticsH2: "Die Zahlen hinter der Ungleichheit",
     whoActuallyPaysH2: "Wer zahlt wirklich?",
     whoActuallyPaysLead:
-      "Effektive Steuersätze erzählen eine andere Geschichte als nominale. Wenn man alle tatsächlich gezahlten Steuern einbezieht — inklusive Kapitalerträge, Veräußerungsgewinne und Unternehmensstrukturen — wird das System an der Spitze oft regressiv.",
+      "Effektive Steuersätze erzählen eine andere Geschichte als nominale. Wenn man alle tatsächlich gezahlten Steuern einbezieht. Inklusive Kapitalerträge, Veräußerungsgewinne und Unternehmensstrukturen. Wird das System an der Spitze oft regressiv.",
     centuryOfChangeH2: "Ein Jahrhundert des Wandels",
     centuryOfChangeLead:
-      "Wie sich die Vermögenskonzentration in {country} entwickelt hat — und welche politischen Entscheidungen jeden Wandel ausgelöst haben.",
+      "Wie sich die Vermögenskonzentration in {country} entwickelt hat. Und welche politischen Entscheidungen jeden Wandel ausgelöst haben.",
     wagesKeepingUpH2: "Halten die Löhne mit?",
     wagesKeepingUpLead:
-      "Löhne, Verbraucherpreise und Immobilienpreise — alle auf das Jahr 2000 indexiert. Wenn die Linien auseinanderlaufen, fällt jemand zurück.",
+      "Löhne, Verbraucherpreise und Immobilienpreise. Alle auf das Jahr 2000 indexiert. Wenn die Linien auseinanderlaufen, fällt jemand zurück.",
     seeBillionaireCta:
       "Sieh, wie lange du brauchst, um so viel zu verdienen wie die reichste Person in {country}",
     seeBillionaireCtaButton: "Milliardärsvergleich ausprobieren →",
@@ -97,7 +97,7 @@ export const de: Dictionary = {
     incomeHint:
       "Brutto bedeutet Löhne, Kapitaleinkünfte und Renten vor Steuern.",
     wealthHint:
-      "Trage DEINEN persönlichen Anteil ein — wenn du Finanzen mit Partner:in teilst, halbieren.",
+      "Trage DEINEN persönlichen Anteil ein. Wenn du Finanzen mit Partner:in teilst, halbieren.",
     ageOptional: "Dein Alter (optional):",
     agePlaceholder: "z. B. 30",
     knowYourAssets:
@@ -214,7 +214,7 @@ export const de: Dictionary = {
     entryThresholdTemplate: "{amount} bis zu {label}",
     approxTemplate: "≈ {amount}",
     youAreHere: "Du bist hier",
-    youAreHereInGroup: "Du — in {group}",
+    youAreHereInGroup: "Du. In {group}",
     peopleMillionsTemplate: "~{count} Mio. Personen",
     peopleThousandsTemplate: "~{count} Tsd. Personen",
     peopleTemplate: "~{count} Personen",
@@ -250,7 +250,7 @@ export const de: Dictionary = {
     noDataHint:
       "Probiere eine große Volkswirtschaft wie USA, Großbritannien, Frankreich, Deutschland oder Japan.",
     salaryLabelTemplate:
-      "Gib dein Brutto-Jahreseinkommen ({currency}) ein — oder wir nutzen den Median",
+      "Gib dein Brutto-Jahreseinkommen ({currency}) ein. Oder wir nutzen den Median",
     usingMedianTemplate:
       "Verwende Median-Bruttoeinkommen: {amount}/Jahr",
     privacyNote: "Deine Daten bleiben im Browser.",
@@ -460,9 +460,9 @@ export const de: Dictionary = {
     },
     furtherReading: {
       heading: "Weiterlesen",
-      body: "Wenn die Seite deine Neugier geweckt hat, sind die Bücher, die sie geprägt haben, die tiefere Lektüre — Piketty, Saez und Zucman, Wilkinson, Milanović und andere. Die kanonischen Titel haben wir in einer Liste auf Bookshop.org zusammengestellt, das einen Teil jeder Bestellung an unabhängige Buchhandlungen weitergibt statt an Amazon.",
+      body: "Wenn die Seite deine Neugier geweckt hat, sind die Bücher, die sie geprägt haben, die tiefere Lektüre. Piketty, Saez und Zucman, Wilkinson, Milanović und andere. Die kanonischen Titel haben wir in einer Liste auf Bookshop.org zusammengestellt, das einen Teil jeder Bestellung an unabhängige Buchhandlungen weitergibt.",
       ctaLabel: "Leseliste ansehen",
-      disclosure: "Affiliate-Links — Käufe unterstützen auch dieses Projekt.",
+      disclosure: "Affiliate-Links. Käufe unterstützen auch dieses Projekt.",
     },
   },
   sources: {
@@ -482,18 +482,18 @@ export const de: Dictionary = {
       "Kostenlos. Privat. Ein sauber gestaltetes PDF, das deine Zahl in ein Jahrhundert Kontext einordnet.",
     landingLeadHeading: "Was drin ist",
     landingLeadBody:
-      "Ein mehrseitiges PDF, zugeschnitten auf dein Land und deine Zahl. Wo du stehst, wie die Lücken aussehen, was die Daten im letzten Jahrhundert gemacht haben — gestaltet wie ein Forschungsbrief, nicht wie eine Marketingmail.",
-    landingFreeBadge: "Kostenlos — keine Anmeldung, keine Zahlung, keine E-Mail",
+      "Ein mehrseitiges PDF, zugeschnitten auf dein Land und deine Zahl. Wo du stehst, wie die Lücken aussehen, was die Daten im letzten Jahrhundert gemacht haben. Gestaltet wie ein Forschungsbrief, nicht wie eine Marketingmail.",
+    landingFreeBadge: "Kostenlos. Keine Anmeldung, keine Zahlung, keine E-Mail",
     landingCta: "Meinen Bericht erstellen",
     landingFeatureWealthTitle: "Dein exaktes Perzentil",
     landingFeatureWealthBody:
-      "Pareto-interpolierte WID.world-Daten platzieren dich präzise auf der Verteilung — nicht in einer Fünf-Stufen-Box.",
+      "Pareto-interpolierte WID.world-Daten platzieren dich präzise auf der Verteilung. Nicht in einer Fünf-Stufen-Box.",
     landingFeatureContextTitle: "Länderkontext",
     landingFeatureContextBody:
       "Wie deine Zahl im Vergleich zum nationalen Median, Mittelwert und den Eintrittsschwellen für die oberen 10 %, 1 % und 0,1 % steht.",
     landingFeaturePrivateTitle: "Vollständig privat",
     landingFeaturePrivateBody:
-      "Der gesamte Bericht wird in deinem Browser erstellt. Nichts, was du eingibst, verlässt dein Gerät — keine Server, keine Analytics.",
+      "Der gesamte Bericht wird in deinem Browser erstellt. Nichts, was du eingibst, verlässt dein Gerät. Keine Server, keine Analytics.",
     landingExampleTitle: "Wie ein Forschungsbrief gebaut",
     landingExampleBody:
       "Sechs Seiten, acht Sprachen, länderspezifische Daten: Cover mit deinem Headline-Perzentil, Wo-du-stehst-Visual, Vermögens-Kontext-Tabelle, Jahrhundert-des-Wandels-Absatz, Einkommen-vs-Vermögen-Lücke und ein Methodik-Block am Ende. Mit Quellen und teilbar.",
@@ -508,7 +508,7 @@ export const de: Dictionary = {
     wizardKnownLabel: "Dein Nettovermögen",
     wizardKnownPlaceholder: "z. B. 250000",
     wizardKnownHint:
-      "Trag deinen persönlichen Anteil ein — wenn du Finanzen mit Partner:in teilst, halbieren.",
+      "Trag deinen persönlichen Anteil ein. Wenn du Finanzen mit Partner:in teilst, halbieren.",
     wizardEstimateIntro:
       "Trag ein, was zutrifft. Was du auslässt, wird als null gewertet. Wir addieren Vermögenswerte, ziehen Schulden ab und nehmen das Ergebnis als dein Nettovermögen.",
     wizardStepProperty: "Immobilien",
@@ -567,23 +567,23 @@ export const de: Dictionary = {
       "Vermögen ist deutlich konzentrierter als Einkommen. Die unteren 50 % halten typischerweise 1–5 % des Nationalvermögens, beziehen aber 15–20 % des Nationaleinkommens. Vermögen vermehrt sich exponentiell; Arbeitseinkommen tut das nicht.",
     pdfSection5Title: "5. Was das bedeutet",
     pdfSection5Body:
-      "Perzentile beschreiben eine Position, kein Urteil. Wo du stehst, spiegelt akkumuliertes Kapital, Lebenseinkommen, Erbschaft und strukturelle Chancen wider — nicht persönlichen Wert. Die Daten sollen informieren, nicht ranken.",
+      "Perzentile beschreiben eine Position, kein Urteil. Wo du stehst, spiegelt akkumuliertes Kapital, Lebenseinkommen, Erbschaft und strukturelle Chancen wider. Nicht persönlichen Wert. Die Daten sollen informieren, nicht ranken.",
     pdfCrossCountryTitle: "Gleiches Vermögen, anderes Land",
     pdfCrossCountryBody:
-      "Deine Zahl bedeutet nicht überall dasselbe — ihr Rang verschiebt sich mit jeder Grenze. So sähe das gleiche Vermögen anderswo aus.",
+      "Deine Zahl bedeutet nicht überall dasselbe. Ihr Rang verschiebt sich mit jeder Grenze. So sähe das gleiche Vermögen anderswo aus.",
     pdfCrossCountryColCountry: "Land",
     pdfCrossCountryColPercentile: "Dein Perzentil",
     pdfCrossCountryColBracket: "Gruppe",
     pdfScaleGapTitle: "Das Ausmaß der Lücke",
     pdfScaleGapBody:
-      "Ungleichheit ist schwer zu fühlen, weil die Lücke logarithmisch ist. Die Balken unten laufen auf einer Log-Skala — jeder ist etwa 10× der vorherige. Die reichste Person in deinem Land liegt mehrere Dekaden von Nullen über dem nationalen Durchschnittsvermögen.",
+      "Ungleichheit ist schwer zu fühlen, weil die Lücke logarithmisch ist. Die Balken unten laufen auf einer Log-Skala. Jeder ist etwa 10× der vorherige. Die reichste Person in deinem Land liegt mehrere Dekaden von Nullen über dem nationalen Durchschnittsvermögen.",
     pdfScaleLabelYou: "Du",
     pdfScaleLabelMedian: "Median-Vermögen",
     pdfScaleLabelMean: "Durchschnittsvermögen",
     pdfScaleLabelTop1Avg: "Schnitt der oberen 1 %",
     pdfScaleLabelRichest: "Reichste Person des Landes",
     pdfScaleRatioTemplate: "{ratio}× dein Vermögen",
-    pdfScaleNote: "Logarithmische Skala — die Balken sind nicht linear.",
+    pdfScaleNote: "Logarithmische Skala. Die Balken sind nicht linear.",
     pdfWealthShareTitle: "Bevölkerung vs. Vermögensanteil",
     pdfWealthShareLegendPopulation: "Bevölkerung",
     pdfWealthShareLegendWealth: "Vermögen",
@@ -593,8 +593,8 @@ export const de: Dictionary = {
     pdfTipTitle: "Halt es kostenlos",
     pdfTipBody:
       "Dieser Bericht ist kostenlos. Die Seite bleibt kostenlos und werbefrei. Wenn er nützlich war, deckt ein kleiner Tipp das Hosting und ermöglicht weitere Länder.",
-    pdfTipQrCaption: "Tippen via Ko-fi — scanne den Code oder besuche ko-fi.com/yrunhaar",
-    pdfFooterAttribution: "howpoorami.org — Vermögensungleichheit, visualisiert",
+    pdfTipQrCaption: "Tippen via Ko-fi. Scanne den Code oder besuche ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org. Vermögensungleichheit, visualisiert",
     pdfPageLabel: "Seite",
   },
 };

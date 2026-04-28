@@ -4,14 +4,14 @@ export const ja: Dictionary = {
   meta: {
     siteName: "私はどれだけ貧しい？",
     homeTitle:
-      "私はどれだけ貧しい？— 世界の富のなかでの自分の立ち位置を知る",
+      "私はどれだけ貧しい？ 世界の富のなかでの自分の立ち位置を知る",
     homeDescription:
       "資産分布のなかで自分が本当にどこに位置するのかを確かめましょう。所得や純資産を入力すると、自国の最富裕層・最貧困層と比較できます。30 か国以上に対応したインタラクティブなチャート。",
-    homeOgTitle: "私はどれだけ貧しい？— 自分の立ち位置を見る",
+    homeOgTitle: "私はどれだけ貧しい？ 自分の立ち位置を見る",
     homeOgDescription:
       "中流だと思っていますか？所得を入力して、資産分布のなかで本当はどこにいるのかを確かめましょう。30 か国以上に対応したインタラクティブデータ。",
     countryTitleTemplate:
-      "{country}での「私はどれだけ貧しい？」— 資産分布と不平等",
+      "{country}での「私はどれだけ貧しい？」 資産分布と不平等",
     countryDescriptionTemplate:
       "{country}の資産分布のなかで自分の位置を確認しましょう。所得や純資産を上位 1%、上位 10%、下位 50% と比較できます。WID.world と OECD のデータに基づくインタラクティブなチャート。",
     countryOgTitleTemplate: "{country}での「私はどれだけ貧しい？」",
@@ -19,29 +19,29 @@ export const ja: Dictionary = {
       "所得を入力して、{country}の資産分布のなかで本当の位置を確かめましょう。WID.world に基づくインタラクティブな不平等データ。",
 
     compareTitle:
-      "億万長者に追いつくには？— 年収 vs. 巨大資産",
+      "億万長者に追いつくには？ 年収 vs. 巨大資産",
     compareDescription:
       "億万長者と同じ額を稼ぐには、何年、何世代、あるいは何時代分かかるのか。年収を入力して、巨大資産を実感としてとらえ直しましょう。",
     compareCountryTitleTemplate:
-      "{country}の最富裕者に追いつくには？— 億万長者比較",
+      "{country}の最富裕者に追いつくには？ 億万長者比較",
     compareCountryDescriptionTemplate:
       "{country}の最富裕者と同じ額を稼ぐには、何年かかるか。{richestSuffix}年収を入力して試算しましょう。",
 
     compareCountriesTitle:
-      "30 か国であなたの資産を比較 — 国別資産計算ツール",
+      "30 か国であなたの資産を比較。国別資産計算ツール",
     compareCountriesDescription:
       "別の国だったら、あなたの資産や所得は何位に来るのか。金額を入力して、30 か国以上のパーセンタイルを並べて確かめましょう。",
 
-    aboutTitle: "概要 — 私はどれだけ貧しい？",
+    aboutTitle: "概要。私はどれだけ貧しい？",
     aboutDescription:
       "「私はどれだけ貧しい？」は、WID.world・OECD・SWIID のデータをもとに世界の資産格差を可視化する、無料・オープンソースのツールです。",
-    faqTitle: "よくある質問 — 私はどれだけ貧しい？",
+    faqTitle: "よくある質問。私はどれだけ貧しい？",
     faqDescription:
       "「私はどれだけ貧しい？」のよくある質問：データ、計算、そしてパーセンタイルが本当に意味するもの。",
-    methodologyTitle: "手法 — 私はどれだけ貧しい？",
+    methodologyTitle: "手法。私はどれだけ貧しい？",
     methodologyDescription:
       "「私はどれだけ貧しい？」の手法：データソース、パーセンタイル推定、年齢調整、PPP 換算。",
-    reportTitle: "無料パーソナル資産格差レポート — 今すぐ作成",
+    reportTitle: "無料パーソナル資産格差レポート。今すぐ作成",
     reportDescription:
       "個人の資産パーセンタイル、国別チャート、世紀規模の不平等トレンド、数字の背景がまとまった、デザインされた無料 PDF を生成。登録不要、支払い不要、完全プライベート。",
   },
@@ -58,9 +58,9 @@ export const ja: Dictionary = {
     heroSubtitle:
       "所得または資産を入力して、自分が本当にどこにいるのかを知りましょう。",
     scrollToExplore: "スクロールしてもっと見る",
-    distributionTitle: "{flag} {country} — 資産分布",
+    distributionTitle: "{flag} {country}。資産分布",
     distributionSubtitle: "人口グループごとの資産シェア（2023 年）",
-    populationVsWealth: "人口と資産の比較 — {country}",
+    populationVsWealth: "人口と資産の比較。{country}",
     scaleOfConcentrationH2: "資産集中の規模",
     scaleOfConcentrationLead:
       "下の各長方形が「資産」を表します。面積は各グループが実際に保有している量を示します。誰が何を持っているのか見てください。",
@@ -73,7 +73,7 @@ export const ja: Dictionary = {
       "{country}の資産集中度がどのように移り変わってきたのか、そして各転換を生んだ政策的選択を見ましょう。",
     wagesKeepingUpH2: "賃金は追いついている？",
     wagesKeepingUpLead:
-      "賃金、消費者物価、住宅価格 — すべて 2000 年を基準にしています。線が乖離するとき、誰かが取り残されています。",
+      "賃金、消費者物価、住宅価格。すべて 2000 年を基準にしています。線が乖離するとき、誰かが取り残されています。",
     seeBillionaireCta:
       "{country}で最も裕福な人と同じ額を稼ぐのに、どれくらいかかるか見てみましょう",
     seeBillionaireCtaButton: "億万長者比較を試す →",
@@ -94,7 +94,7 @@ export const ja: Dictionary = {
     wealthLabelTemplate: "{currency} 建ての純資産を入力",
     incomeHint: "税引前は給与・資本所得・年金などの税引前合計を指します。",
     wealthHint:
-      "「あなた本人」の取り分を入力してください — 配偶者と家計を共有している場合は半額を入力。",
+      "「あなた本人」の取り分を入力してください。配偶者と家計を共有している場合は半額を入力。",
     ageOptional: "あなたの年齢（任意）：",
     agePlaceholder: "例：30",
     knowYourAssets:
@@ -210,7 +210,7 @@ export const ja: Dictionary = {
     entryThresholdTemplate: "{label} に到達するにはあと {amount}",
     approxTemplate: "≈ {amount}",
     youAreHere: "あなたの位置",
-    youAreHereInGroup: "あなた — {group}",
+    youAreHereInGroup: "あなた。{group}",
     peopleMillionsTemplate: "約 {count} 百万人",
     peopleThousandsTemplate: "約 {count} 千人",
     peopleTemplate: "約 {count} 人",
@@ -245,7 +245,7 @@ export const ja: Dictionary = {
     noDataHint:
       "アメリカ・イギリス・フランス・ドイツ・日本など主要経済国を選んでみてください。",
     salaryLabelTemplate:
-      "税引前年収を {currency} で入力 — または中央値を使用します",
+      "税引前年収を {currency} で入力。または中央値を使用します",
     usingMedianTemplate: "全国の税引前所得中央値を使用：{amount}/年",
     privacyNote: "データはブラウザ内に留まります。",
     currencyLabel: "通貨：",
@@ -453,10 +453,10 @@ export const ja: Dictionary = {
     },
     furtherReading: {
       heading: "さらに読む",
-      body: "サイトが興味を引いたなら、その土台となった本は最良の深掘り素材です — Piketty、Saez と Zucman、Wilkinson、Milanović など。古典的なタイトルを Bookshop.org のリストにまとめました。Bookshop.org は売上の一部を Amazon ではなく独立系書店に還元します。",
+      body: "サイトが興味を引いたなら、その土台となった本は最良の深掘り素材です。Piketty、Saez と Zucman、Wilkinson、Milanović など。古典的なタイトルを Bookshop.org のリストにまとめました。売上の一部は独立系書店に還元されます。",
       ctaLabel: "リーディングリストを見る",
       disclosure:
-        "アフィリエイトリンク — 購入はこのプロジェクトの支援にもなります。",
+        "アフィリエイトリンク。購入はこのプロジェクトの支援にもなります。",
     },
   },
   sources: {
@@ -476,8 +476,8 @@ export const ja: Dictionary = {
       "無料・プライベート。あなたの数字を 1 世紀の文脈に置く、しっかり設計された PDF。",
     landingLeadHeading: "中身",
     landingLeadBody:
-      "あなたの国とあなたの数字に合わせた複数ページの PDF。あなたの位置、格差の様相、過去 100 年でデータがどう動いたか — マーケティングメールではなくリサーチノートのように読めるデザイン。",
-    landingFreeBadge: "無料 — 登録不要、支払い不要、メール不要",
+      "あなたの国とあなたの数字に合わせた複数ページの PDF。あなたの位置、格差の様相、過去 100 年でデータがどう動いたか。マーケティングメールではなくリサーチノートのように読めるデザイン。",
+    landingFreeBadge: "無料。登録不要、支払い不要、メール不要",
     landingCta: "レポートを作成",
     landingFeatureWealthTitle: "正確なパーセンタイル",
     landingFeatureWealthBody:
@@ -487,7 +487,7 @@ export const ja: Dictionary = {
       "あなたの数字を国の中央値・平均・上位 10%・1%・0.1% の閾値と並べて見せます。",
     landingFeaturePrivateTitle: "完全にプライベート",
     landingFeaturePrivateBody:
-      "レポート全体はブラウザ内で生成。入力した内容は端末から外に出ません — サーバーなし、解析なし。",
+      "レポート全体はブラウザ内で生成。入力した内容は端末から外に出ません。サーバーなし、解析なし。",
     landingExampleTitle: "リサーチノートのように作られています",
     landingExampleBody:
       "6 ページ、8 言語、国別データ：あなたのパーセンタイルを掲げる表紙、立ち位置のビジュアル、文脈テーブル、世紀の変化、所得対資産の格差、最後に方法論ノート。出典付きで共有可能。",
@@ -502,7 +502,7 @@ export const ja: Dictionary = {
     wizardKnownLabel: "あなたの純資産",
     wizardKnownPlaceholder: "例：250000",
     wizardKnownHint:
-      "あなた個人の取り分を入力してください — 配偶者と家計を共有しているなら半額を入力。",
+      "あなた個人の取り分を入力してください。配偶者と家計を共有しているなら半額を入力。",
     wizardEstimateIntro:
       "該当するものを記入。空欄はゼロとして扱います。資産を加算し、負債を減算した合計を純資産として使います。",
     wizardStepProperty: "不動産",
@@ -563,7 +563,7 @@ export const ja: Dictionary = {
       "パーセンタイルは位置を示すだけで、判決ではありません。あなたの位置は、蓄積された資本、生涯の貯蓄、相続、構造的機会を反映するものであって、人としての価値を測るものではありません。データは情報を与えるためにあり、序列をつけるためではありません。",
     pdfCrossCountryTitle: "同じ資産、違う国",
     pdfCrossCountryBody:
-      "あなたの数字の意味は固定ではありません — 国境を超えるたびに順位は変わります。同じ純資産が他の国ではどういう意味を持つかをここに示します。",
+      "あなたの数字の意味は固定ではありません。国境を超えるたびに順位は変わります。同じ純資産が他の国ではどういう意味を持つかをここに示します。",
     pdfCrossCountryColCountry: "国",
     pdfCrossCountryColPercentile: "あなたのパーセンタイル",
     pdfCrossCountryColBracket: "区分",
@@ -576,7 +576,7 @@ export const ja: Dictionary = {
     pdfScaleLabelTop1Avg: "上位 1% の平均",
     pdfScaleLabelRichest: "国内の最富裕者",
     pdfScaleRatioTemplate: "あなたの資産の {ratio} 倍",
-    pdfScaleNote: "対数スケール — バーの長さは線形ではありません。",
+    pdfScaleNote: "対数スケール。バーの長さは線形ではありません。",
     pdfWealthShareTitle: "人口 vs 資産シェア",
     pdfWealthShareLegendPopulation: "人口",
     pdfWealthShareLegendWealth: "資産",
@@ -586,8 +586,8 @@ export const ja: Dictionary = {
     pdfTipTitle: "これを無料のままに",
     pdfTipBody:
       "このレポートは無料です。サイトは無料・広告なしのままです。役に立ったなら、小さな投げ銭がホスティング費を賄い、新しい国の追加を可能にします。",
-    pdfTipQrCaption: "Ko-fi で投げ銭 — スキャン、または ko-fi.com/yrunhaar へ",
-    pdfFooterAttribution: "howpoorami.org — 資産格差を可視化",
+    pdfTipQrCaption: "Ko-fi で投げ銭。スキャン、または ko-fi.com/yrunhaar へ",
+    pdfFooterAttribution: "howpoorami.org。資産格差を可視化",
     pdfPageLabel: "ページ",
   },
 };

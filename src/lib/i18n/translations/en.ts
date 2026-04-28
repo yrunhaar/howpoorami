@@ -3,44 +3,44 @@ import type { Dictionary } from "../dictionary";
 export const en: Dictionary = {
   meta: {
     siteName: "How Poor Am I?",
-    homeTitle: "How Poor Am I? — See Where You Stand in Global Wealth",
+    homeTitle: "How Poor Am I? See Where You Stand in Global Wealth",
     homeDescription:
-      "Find out where you really stand in the wealth distribution. Enter your income or net wealth and discover how you compare to the richest — and poorest — people in your country. Interactive charts for 30+ countries.",
-    homeOgTitle: "How Poor Am I? — See Where You Stand",
+      "Find out where you really stand in the wealth distribution. Enter your income or net wealth and discover how you compare to the richest. And poorest. People in your country. Interactive charts for 30+ countries.",
+    homeOgTitle: "How Poor Am I? See Where You Stand",
     homeOgDescription:
       "Think you're middle class? Enter your income and find out where you really stand in the wealth distribution. Interactive data for 30+ countries.",
     countryTitleTemplate:
-      "How Poor Am I in {country}? — Wealth Distribution & Inequality",
+      "How Poor Am I in {country}? Wealth Distribution & Inequality",
     countryDescriptionTemplate:
       "See where you stand in {country}'s wealth distribution. Compare your income and net worth to the top 1%, top 10%, and bottom 50%. Interactive charts with data from WID.world and OECD.",
     countryOgTitleTemplate: "How Poor Am I in {country}?",
     countryOgDescriptionTemplate:
       "Enter your income and discover where you really stand in {country}'s wealth distribution. Interactive inequality data powered by WID.world.",
 
-    compareTitle: "How Long to Match a Billionaire? — Salary vs. Mega-Wealth",
+    compareTitle: "How Long to Match a Billionaire? Salary vs. Mega-Wealth",
     compareDescription:
       "How many years, lifetimes, or entire historical eras would it take to earn as much as a billionaire? Enter your salary and put mega-wealth into perspective.",
     compareCountryTitleTemplate:
-      "How Long to Match the Richest in {country}? — Billionaire Comparison",
+      "How Long to Match the Richest in {country}? Billionaire Comparison",
     compareCountryDescriptionTemplate:
       "How many years would it take you to earn as much as the richest person in {country}?{richestSuffix} Enter your salary and find out.",
 
     compareCountriesTitle:
-      "Compare Your Wealth Across 30 Countries — Cross-Country Wealth Calculator",
+      "Compare Your Wealth Across 30 Countries. Cross-Country Wealth Calculator",
     compareCountriesDescription:
       "How would your wealth or income rank in another country? Enter an amount and see your percentile in 30+ countries side by side.",
 
-    aboutTitle: "About — How Poor Am I?",
+    aboutTitle: "About. How Poor Am I?",
     aboutDescription:
       "How Poor Am I is a free, open-source tool that visualizes global wealth inequality using data from WID.world, OECD, and SWIID.",
-    faqTitle: "FAQ — How Poor Am I?",
+    faqTitle: "FAQ. How Poor Am I?",
     faqDescription:
-      "Frequently asked questions about How Poor Am I — the data, the calculations, and what the percentiles really mean.",
-    methodologyTitle: "Methodology — How Poor Am I?",
+      "Frequently asked questions about How Poor Am I. The data, the calculations, and what the percentiles really mean.",
+    methodologyTitle: "Methodology. How Poor Am I?",
     methodologyDescription:
-      "Inside the methodology behind How Poor Am I — data sources, percentile estimation, age adjustment, and PPP conversion.",
+      "Inside the methodology behind How Poor Am I. Data sources, percentile estimation, age adjustment, and PPP conversion.",
     reportTitle:
-      "Free Personal Wealth Inequality Report — Generate Yours Now",
+      "Free Personal Wealth Inequality Report. Generate Yours Now",
     reportDescription:
       "Generate a free, beautifully designed PDF report of your personal wealth percentile, with country-specific charts, a century of inequality trends, and what your number means in context. No signup, no payment, fully private.",
   },
@@ -57,22 +57,22 @@ export const en: Dictionary = {
     heroSubtitle:
       "Enter your income or wealth and discover where you really stand.",
     scrollToExplore: "Scroll to explore more",
-    distributionTitle: "{flag} {country} — Wealth Distribution",
+    distributionTitle: "{flag} {country}. Wealth Distribution",
     distributionSubtitle: "Wealth share by population group (2023)",
-    populationVsWealth: "Population vs. Wealth — {country}",
+    populationVsWealth: "Population vs. Wealth. {country}",
     scaleOfConcentrationH2: "The Scale of Concentration",
     scaleOfConcentrationLead:
       "Each rectangle below represents wealth. The area shows how much each group actually owns. Look at who has what.",
     statisticsH2: "The Numbers That Define Inequality",
     whoActuallyPaysH2: "Who Actually Pays?",
     whoActuallyPaysLead:
-      "Effective tax rates tell a different story than statutory rates. When you account for all taxes actually paid — including how investment income, capital gains, and corporate structures are treated — the system often becomes regressive at the very top.",
+      "Effective tax rates tell a different story than statutory rates. When you account for all taxes actually paid. Including how investment income, capital gains, and corporate structures are treated. The system often becomes regressive at the very top.",
     centuryOfChangeH2: "A Century of Change",
     centuryOfChangeLead:
-      "How wealth concentration in {country} has evolved — and what policy choices drove each shift.",
+      "How wealth concentration in {country} has evolved. And what policy choices drove each shift.",
     wagesKeepingUpH2: "Are Wages Keeping Up?",
     wagesKeepingUpLead:
-      "Wages, consumer prices, and house prices — all indexed to 2000. When the lines diverge, someone is falling behind.",
+      "Wages, consumer prices, and house prices. All indexed to 2000. When the lines diverge, someone is falling behind.",
     seeBillionaireCta:
       "See how long it would take you to earn as much as the richest person in {country}",
     seeBillionaireCtaButton: "Try the billionaire comparison →",
@@ -94,7 +94,7 @@ export const en: Dictionary = {
     incomeHint:
       "Pre-tax includes wages, capital income, and pensions before tax.",
     wealthHint:
-      "Enter YOUR personal share — if you share finances with a partner, enter half.",
+      "Enter YOUR personal share. If you share finances with a partner, enter half.",
     ageOptional: "Your age (optional):",
     agePlaceholder: "e.g. 30",
     knowYourAssets:
@@ -210,7 +210,7 @@ export const en: Dictionary = {
     entryThresholdTemplate: "{amount} to reach {label}",
     approxTemplate: "≈ {amount}",
     youAreHere: "You are here",
-    youAreHereInGroup: "You — in {group}",
+    youAreHereInGroup: "You. In {group}",
     peopleMillionsTemplate: "~{count}M people",
     peopleThousandsTemplate: "~{count}K people",
     peopleTemplate: "~{count} people",
@@ -245,7 +245,7 @@ export const en: Dictionary = {
       "Billionaire comparison data is not yet available for {country}.",
     noDataHint: "Try selecting a major economy like the US, UK, France, Germany, or Japan.",
     salaryLabelTemplate:
-      "Enter your gross (pre-tax) annual income ({currency}) — or we'll use the median",
+      "Enter your gross (pre-tax) annual income ({currency}). Or we'll use the median",
     usingMedianTemplate: "Using median pre-tax national income: {amount}/year",
     privacyNote: "Your data stays in your browser.",
     currencyLabel: "Currency:",
@@ -454,9 +454,9 @@ export const en: Dictionary = {
     },
     furtherReading: {
       heading: "Further reading",
-      body: "If the site sparked your curiosity, the books that informed it are the deeper read — Piketty, Saez & Zucman, Wilkinson, Milanović, and others. We've curated the canonical titles into a list at Bookshop.org, which sends a portion of every sale to independent bookstores rather than Amazon.",
+      body: "If the site sparked your curiosity, the books that informed it are the deeper read. Piketty, Saez & Zucman, Wilkinson, Milanović, and others. We've curated the canonical titles into a list at Bookshop.org, which sends a portion of every sale to independent bookstores.",
       ctaLabel: "Browse the reading list",
-      disclosure: "Affiliate links — purchases also help support this project.",
+      disclosure: "Affiliate links. Purchases also help support this project.",
     },
   },
   sources: {
@@ -476,18 +476,18 @@ export const en: Dictionary = {
       "Free. Private. A beautifully designed PDF that puts your number into a century of context.",
     landingLeadHeading: "What's inside",
     landingLeadBody:
-      "A multi-page PDF tailored to your country and your number. Where you stand, what the gaps look like, what the data has done over the last century — designed to read like a research brief, not a marketing email.",
-    landingFreeBadge: "Free — no signup, no payment, no email required",
+      "A multi-page PDF tailored to your country and your number. Where you stand, what the gaps look like, what the data has done over the last century. Designed to read like a research brief, not a marketing email.",
+    landingFreeBadge: "Free. No signup, no payment, no email required",
     landingCta: "Generate my report",
     landingFeatureWealthTitle: "Your percentile, exact",
     landingFeatureWealthBody:
-      "Pareto-interpolated WID.world data places you precisely on the distribution — not in a five-tier bucket.",
+      "Pareto-interpolated WID.world data places you precisely on the distribution. Not in a five-tier bucket.",
     landingFeatureContextTitle: "Country context",
     landingFeatureContextBody:
       "How your number compares to the national median, mean, and the entry thresholds for top 10%, top 1%, and top 0.1%.",
     landingFeaturePrivateTitle: "Fully private",
     landingFeaturePrivateBody:
-      "The entire report is generated in your browser. Nothing you type leaves your device — no servers, no analytics.",
+      "The entire report is generated in your browser. Nothing you type leaves your device. No servers, no analytics.",
     landingExampleTitle: "Built like a research brief",
     landingExampleBody:
       "Six pages, eight languages, country-specific data: a cover with your headline percentile, a where-you-stand visual, a wealth-in-context table, a century-of-change paragraph, the income-vs-wealth gap, and a closing methodology note. Source-cited and shareable.",
@@ -501,7 +501,7 @@ export const en: Dictionary = {
     wizardKnownLabel: "Your net worth",
     wizardKnownPlaceholder: "e.g. 250000",
     wizardKnownHint:
-      "Enter your personal share — if you share finances with a partner, enter your half.",
+      "Enter your personal share. If you share finances with a partner, enter your half.",
     wizardEstimateIntro:
       "Add what applies. Anything you skip is treated as zero. We add assets, subtract debts, and use the total as your net worth.",
     wizardStepProperty: "Property",
@@ -559,23 +559,23 @@ export const en: Dictionary = {
       "Wealth is far more concentrated than income. The bottom 50% typically holds 1–5% of national wealth while taking home 15–20% of national income. Wealth compounds; labor income does not.",
     pdfSection5Title: "5. What it means",
     pdfSection5Body:
-      "Percentiles describe a position, not a verdict. Where you stand reflects accumulated capital, lifetime savings, inheritance, and structural opportunity — not personal worth. The data is intended to inform, not to rank.",
+      "Percentiles describe a position, not a verdict. Where you stand reflects accumulated capital, lifetime savings, inheritance, and structural opportunity. Not personal worth. The data is intended to inform, not to rank.",
     pdfCrossCountryTitle: "Same wealth, different country",
     pdfCrossCountryBody:
-      "Your number isn't fixed in meaning — its rank shifts the moment the borders move. Here's what the same net worth would mean elsewhere.",
+      "Your number isn't fixed in meaning. Its rank shifts the moment the borders move. Here's what the same net worth would mean elsewhere.",
     pdfCrossCountryColCountry: "Country",
     pdfCrossCountryColPercentile: "Your percentile",
     pdfCrossCountryColBracket: "Bracket",
     pdfScaleGapTitle: "The scale of the gap",
     pdfScaleGapBody:
-      "Inequality is hard to feel because the gap is logarithmic. The bars below run on a log scale — each one is roughly 10× the previous. The richest in your country is several decades of zeros above national mean wealth.",
+      "Inequality is hard to feel because the gap is logarithmic. The bars below run on a log scale. Each one is roughly 10× the previous. The richest in your country is several decades of zeros above national mean wealth.",
     pdfScaleLabelYou: "You",
     pdfScaleLabelMedian: "Median wealth",
     pdfScaleLabelMean: "Mean wealth",
     pdfScaleLabelTop1Avg: "Top 1% average",
     pdfScaleLabelRichest: "Richest in country",
     pdfScaleRatioTemplate: "{ratio}× your wealth",
-    pdfScaleNote: "Logarithmic scale — bars are not linear.",
+    pdfScaleNote: "Logarithmic scale. Bars are not linear.",
     pdfWealthShareTitle: "Population vs. wealth share",
     pdfWealthShareLegendPopulation: "Population",
     pdfWealthShareLegendWealth: "Wealth",
@@ -585,8 +585,8 @@ export const en: Dictionary = {
     pdfTipTitle: "Keep this free",
     pdfTipBody:
       "This report is free. The site stays free and ad-free. If it was useful, a small tip helps cover hosting and keeps new countries getting added.",
-    pdfTipQrCaption: "Tip via Ko-fi — scan or visit ko-fi.com/yrunhaar",
-    pdfFooterAttribution: "howpoorami.org — wealth inequality, visualized",
+    pdfTipQrCaption: "Tip via Ko-fi. Scan or visit ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org. Wealth inequality, visualized",
     pdfPageLabel: "Page",
   },
 };

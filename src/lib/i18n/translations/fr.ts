@@ -4,14 +4,14 @@ export const fr: Dictionary = {
   meta: {
     siteName: "À quel point suis-je pauvre ?",
     homeTitle:
-      "À quel point suis-je pauvre ? — Voyez où vous vous situez dans la richesse mondiale",
+      "À quel point suis-je pauvre ? Voyez où vous vous situez dans la richesse mondiale",
     homeDescription:
-      "Découvrez où vous vous situez réellement dans la distribution de la richesse. Saisissez votre revenu ou votre patrimoine net et comparez-vous aux personnes les plus riches — et les plus pauvres — de votre pays. Graphiques interactifs pour plus de 30 pays.",
-    homeOgTitle: "À quel point suis-je pauvre ? — Voyez où vous vous situez",
+      "Découvrez où vous vous situez réellement dans la distribution de la richesse. Saisissez votre revenu ou votre patrimoine net et comparez-vous aux personnes les plus riches. Et les plus pauvres. De votre pays. Graphiques interactifs pour plus de 30 pays.",
+    homeOgTitle: "À quel point suis-je pauvre ? Voyez où vous vous situez",
     homeOgDescription:
       "Vous vous croyez de la classe moyenne ? Saisissez votre revenu et découvrez votre place réelle dans la distribution de la richesse. Données interactives pour plus de 30 pays.",
     countryTitleTemplate:
-      "À quel point suis-je pauvre en {country} ? — Distribution de la richesse et inégalités",
+      "À quel point suis-je pauvre en {country} ? Distribution de la richesse et inégalités",
     countryDescriptionTemplate:
       "Voyez où vous vous situez dans la distribution de la richesse en {country}. Comparez votre revenu et votre patrimoine au 1 % le plus riche, aux 10 % du haut et aux 50 % du bas. Graphiques interactifs avec des données de WID.world et de l'OCDE.",
     countryOgTitleTemplate: "À quel point suis-je pauvre en {country} ?",
@@ -19,30 +19,30 @@ export const fr: Dictionary = {
       "Saisissez votre revenu et découvrez votre place réelle dans la distribution de la richesse en {country}. Données interactives sur les inégalités, basées sur WID.world.",
 
     compareTitle:
-      "Combien de temps pour égaler un milliardaire ? — Salaire vs. méga-fortune",
+      "Combien de temps pour égaler un milliardaire ? Salaire vs. méga-fortune",
     compareDescription:
       "Combien d'années, de vies ou d'époques entières faudrait-il pour gagner autant qu'un milliardaire ? Saisissez votre salaire et mettez les méga-fortunes en perspective.",
     compareCountryTitleTemplate:
-      "Combien de temps pour égaler la personne la plus riche de {country} ? — Comparaison avec un milliardaire",
+      "Combien de temps pour égaler la personne la plus riche de {country} ? Comparaison avec un milliardaire",
     compareCountryDescriptionTemplate:
       "Combien d'années vous faudrait-il pour gagner autant que la personne la plus riche de {country} ?{richestSuffix} Saisissez votre salaire et découvrez-le.",
 
     compareCountriesTitle:
-      "Comparez votre richesse dans 30 pays — Calculateur multinational de richesse",
+      "Comparez votre richesse dans 30 pays. Calculateur multinational de richesse",
     compareCountriesDescription:
       "Comment votre richesse ou votre revenu se classerait-il dans un autre pays ? Saisissez un montant et voyez votre centile dans plus de 30 pays côte à côte.",
 
-    aboutTitle: "À propos — À quel point suis-je pauvre ?",
+    aboutTitle: "À propos. À quel point suis-je pauvre ?",
     aboutDescription:
       "À quel point suis-je pauvre ? est un outil gratuit et open source qui visualise les inégalités de richesse mondiales à partir des données de WID.world, l'OCDE et SWIID.",
-    faqTitle: "FAQ — À quel point suis-je pauvre ?",
+    faqTitle: "FAQ. À quel point suis-je pauvre ?",
     faqDescription:
-      "Foire aux questions sur À quel point suis-je pauvre ? — les données, les calculs et le sens réel des centiles.",
-    methodologyTitle: "Méthodologie — À quel point suis-je pauvre ?",
+      "Foire aux questions sur À quel point suis-je pauvre ? Les données, les calculs et le sens réel des centiles.",
+    methodologyTitle: "Méthodologie. À quel point suis-je pauvre ?",
     methodologyDescription:
       "Au cœur de la méthodologie d'À quel point suis-je pauvre ? : sources de données, estimation des centiles, ajustement par âge et conversion PPA.",
     reportTitle:
-      "Rapport gratuit sur les inégalités de richesse — Générez le vôtre",
+      "Rapport gratuit sur les inégalités de richesse. Générez le vôtre",
     reportDescription:
       "Générez un PDF gratuit et soigné de votre centile de richesse personnel, avec graphiques par pays, tendances séculaires et contexte de votre chiffre. Sans inscription, sans paiement, totalement privé.",
   },
@@ -59,23 +59,23 @@ export const fr: Dictionary = {
     heroSubtitle:
       "Saisissez votre revenu ou votre patrimoine et découvrez votre place réelle.",
     scrollToExplore: "Faites défiler pour en voir plus",
-    distributionTitle: "{flag} {country} — Distribution de la richesse",
+    distributionTitle: "{flag} {country}. Distribution de la richesse",
     distributionSubtitle:
       "Part de richesse par groupe de population (2023)",
-    populationVsWealth: "Population vs richesse — {country}",
+    populationVsWealth: "Population vs richesse. {country}",
     scaleOfConcentrationH2: "L'échelle de la concentration",
     scaleOfConcentrationLead:
       "Chaque rectangle représente la richesse. La surface montre ce que possède réellement chaque groupe. Voyez qui détient quoi.",
     statisticsH2: "Les chiffres qui définissent l'inégalité",
     whoActuallyPaysH2: "Qui paie vraiment ?",
     whoActuallyPaysLead:
-      "Les taux d'imposition effectifs racontent une autre histoire que les taux nominaux. En tenant compte de tous les impôts réellement payés — y compris la fiscalité des revenus du capital, des plus-values et des structures d'entreprise — le système devient souvent régressif tout en haut.",
+      "Les taux d'imposition effectifs racontent une autre histoire que les taux nominaux. En tenant compte de tous les impôts réellement payés. Y compris la fiscalité des revenus du capital, des plus-values et des structures d'entreprise. Le système devient souvent régressif tout en haut.",
     centuryOfChangeH2: "Un siècle de changements",
     centuryOfChangeLead:
-      "Comment la concentration de la richesse en {country} a évolué — et quelles décisions politiques ont produit chaque virage.",
+      "Comment la concentration de la richesse en {country} a évolué. Et quelles décisions politiques ont produit chaque virage.",
     wagesKeepingUpH2: "Les salaires suivent-ils ?",
     wagesKeepingUpLead:
-      "Salaires, prix à la consommation et prix de l'immobilier — tous indexés sur l'an 2000. Lorsque les courbes divergent, quelqu'un décroche.",
+      "Salaires, prix à la consommation et prix de l'immobilier. Tous indexés sur l'an 2000. Lorsque les courbes divergent, quelqu'un décroche.",
     seeBillionaireCta:
       "Voyez combien de temps il vous faudrait pour gagner autant que la personne la plus riche en {country}",
     seeBillionaireCtaButton: "Essayer la comparaison avec un milliardaire →",
@@ -98,7 +98,7 @@ export const fr: Dictionary = {
     incomeHint:
       "Le brut inclut salaires, revenus du capital et pensions avant impôt.",
     wealthHint:
-      "Saisissez VOTRE part personnelle — si vous partagez vos finances avec votre partenaire, indiquez la moitié.",
+      "Saisissez VOTRE part personnelle. Si vous partagez vos finances avec votre partenaire, indiquez la moitié.",
     ageOptional: "Votre âge (facultatif) :",
     agePlaceholder: "ex. 30",
     knowYourAssets:
@@ -216,7 +216,7 @@ export const fr: Dictionary = {
     entryThresholdTemplate: "{amount} pour atteindre {label}",
     approxTemplate: "≈ {amount}",
     youAreHere: "Vous êtes ici",
-    youAreHereInGroup: "Vous — dans {group}",
+    youAreHereInGroup: "Vous. Dans {group}",
     peopleMillionsTemplate: "~{count} M de personnes",
     peopleThousandsTemplate: "~{count} K de personnes",
     peopleTemplate: "~{count} personnes",
@@ -252,7 +252,7 @@ export const fr: Dictionary = {
     noDataHint:
       "Essayez une économie majeure comme les États-Unis, le Royaume-Uni, la France, l'Allemagne ou le Japon.",
     salaryLabelTemplate:
-      "Saisissez votre revenu annuel brut ({currency}) — ou nous utiliserons la médiane",
+      "Saisissez votre revenu annuel brut ({currency}). Ou nous utiliserons la médiane",
     usingMedianTemplate:
       "Utilisation du revenu national brut médian : {amount}/an",
     privacyNote: "Vos données restent dans votre navigateur.",
@@ -462,10 +462,10 @@ export const fr: Dictionary = {
     },
     furtherReading: {
       heading: "Pour aller plus loin",
-      body: "Si le site a piqué votre curiosité, les livres qui l'ont inspiré offrent la lecture en profondeur — Piketty, Saez et Zucman, Wilkinson, Milanović et d'autres. Les titres canoniques sont rassemblés dans une liste sur Bookshop.org, qui reverse une part de chaque achat à des librairies indépendantes plutôt qu'à Amazon.",
+      body: "Si le site a piqué votre curiosité, les livres qui l'ont inspiré offrent la lecture en profondeur. Piketty, Saez et Zucman, Wilkinson, Milanović et d'autres. Les titres canoniques sont rassemblés dans une liste sur Bookshop.org, qui reverse une part de chaque achat à des librairies indépendantes.",
       ctaLabel: "Voir la liste de lectures",
       disclosure:
-        "Liens d'affiliation — les achats soutiennent aussi ce projet.",
+        "Liens d'affiliation. Les achats soutiennent aussi ce projet.",
     },
   },
   sources: {
@@ -485,18 +485,18 @@ export const fr: Dictionary = {
       "Gratuit. Privé. Un PDF soigné qui replace votre chiffre dans un siècle de contexte.",
     landingLeadHeading: "Ce que contient le rapport",
     landingLeadBody:
-      "Un PDF en plusieurs pages, taillé pour votre pays et votre chiffre. Où vous vous situez, à quoi ressemblent les écarts, ce que les données ont fait depuis un siècle — pensé comme une note de recherche, pas comme un email marketing.",
-    landingFreeBadge: "Gratuit — sans inscription, sans paiement, sans email",
+      "Un PDF en plusieurs pages, taillé pour votre pays et votre chiffre. Où vous vous situez, à quoi ressemblent les écarts, ce que les données ont fait depuis un siècle. Pensé comme une note de recherche, pas comme un email marketing.",
+    landingFreeBadge: "Gratuit. Sans inscription, sans paiement, sans email",
     landingCta: "Générer mon rapport",
     landingFeatureWealthTitle: "Votre centile précis",
     landingFeatureWealthBody:
-      "Les données WID.world avec interpolation de Pareto vous placent précisément sur la distribution — pas dans un casier de cinq tranches.",
+      "Les données WID.world avec interpolation de Pareto vous placent précisément sur la distribution. Pas dans un casier de cinq tranches.",
     landingFeatureContextTitle: "Contexte par pays",
     landingFeatureContextBody:
       "Comment votre chiffre se compare à la médiane et à la moyenne nationales et aux seuils d'entrée du top 10 %, top 1 % et top 0,1 %.",
     landingFeaturePrivateTitle: "Totalement privé",
     landingFeaturePrivateBody:
-      "Tout le rapport est généré dans votre navigateur. Rien de ce que vous saisissez ne quitte votre appareil — pas de serveurs, pas d'analytique.",
+      "Tout le rapport est généré dans votre navigateur. Rien de ce que vous saisissez ne quitte votre appareil. Pas de serveurs, pas d'analytique.",
     landingExampleTitle: "Conçu comme une note de recherche",
     landingExampleBody:
       "Six pages, huit langues, données par pays : couverture avec votre centile, visuel de votre position, tableau de mise en contexte, paragraphe sur un siècle de changement, écart revenu-richesse et note méthodologique de clôture. Sources citées et partageable.",
@@ -511,7 +511,7 @@ export const fr: Dictionary = {
     wizardKnownLabel: "Votre patrimoine net",
     wizardKnownPlaceholder: "ex. 250000",
     wizardKnownHint:
-      "Saisissez votre part personnelle — si vous partagez les finances avec votre partenaire, indiquez la moitié.",
+      "Saisissez votre part personnelle. Si vous partagez les finances avec votre partenaire, indiquez la moitié.",
     wizardEstimateIntro:
       "Ajoutez ce qui s'applique. Ce que vous laissez vide compte comme zéro. Nous additionnons les actifs, retranchons les dettes, et utilisons le total comme votre patrimoine.",
     wizardStepProperty: "Logement",
@@ -570,23 +570,23 @@ export const fr: Dictionary = {
       "La richesse est bien plus concentrée que le revenu. Les 50 % du bas détiennent typiquement 1 à 5 % du patrimoine national mais perçoivent 15 à 20 % du revenu national. Le patrimoine se compose ; le revenu du travail, non.",
     pdfSection5Title: "5. Ce que cela signifie",
     pdfSection5Body:
-      "Les centiles décrivent une position, pas un verdict. Votre place reflète du capital accumulé, l'épargne d'une vie, l'héritage et l'opportunité structurelle — pas votre valeur personnelle. Les données sont là pour informer, pas pour classer.",
+      "Les centiles décrivent une position, pas un verdict. Votre place reflète du capital accumulé, l'épargne d'une vie, l'héritage et l'opportunité structurelle. Pas votre valeur personnelle. Les données sont là pour informer, pas pour classer.",
     pdfCrossCountryTitle: "Même patrimoine, autre pays",
     pdfCrossCountryBody:
-      "Votre chiffre n'a pas le même sens partout — son rang change dès qu'on franchit une frontière. Voici ce que représenterait le même patrimoine ailleurs.",
+      "Votre chiffre n'a pas le même sens partout. Son rang change dès qu'on franchit une frontière. Voici ce que représenterait le même patrimoine ailleurs.",
     pdfCrossCountryColCountry: "Pays",
     pdfCrossCountryColPercentile: "Votre centile",
     pdfCrossCountryColBracket: "Tranche",
     pdfScaleGapTitle: "L'échelle de l'écart",
     pdfScaleGapBody:
-      "L'inégalité est dure à percevoir parce que l'écart est logarithmique. Les barres ci-dessous sont en échelle logarithmique — chacune vaut environ 10× la précédente. La personne la plus riche de votre pays se situe plusieurs décennies de zéros au-dessus du patrimoine moyen national.",
+      "L'inégalité est dure à percevoir parce que l'écart est logarithmique. Les barres ci-dessous sont en échelle logarithmique. Chacune vaut environ 10× la précédente. La personne la plus riche de votre pays se situe plusieurs décennies de zéros au-dessus du patrimoine moyen national.",
     pdfScaleLabelYou: "Vous",
     pdfScaleLabelMedian: "Patrimoine médian",
     pdfScaleLabelMean: "Patrimoine moyen",
     pdfScaleLabelTop1Avg: "Moyenne du top 1 %",
     pdfScaleLabelRichest: "Personne la plus riche du pays",
     pdfScaleRatioTemplate: "{ratio}× votre patrimoine",
-    pdfScaleNote: "Échelle logarithmique — les barres ne sont pas linéaires.",
+    pdfScaleNote: "Échelle logarithmique. Les barres ne sont pas linéaires.",
     pdfWealthShareTitle: "Population vs. part de richesse",
     pdfWealthShareLegendPopulation: "Population",
     pdfWealthShareLegendWealth: "Richesse",
@@ -596,8 +596,8 @@ export const fr: Dictionary = {
     pdfTipTitle: "Gardons cela gratuit",
     pdfTipBody:
       "Ce rapport est gratuit. Le site reste gratuit et sans publicité. S'il vous a été utile, un petit pourboire couvre l'hébergement et permet d'ajouter de nouveaux pays.",
-    pdfTipQrCaption: "Pourboire via Ko-fi — scannez ou rendez-vous sur ko-fi.com/yrunhaar",
-    pdfFooterAttribution: "howpoorami.org — les inégalités de richesse, visualisées",
+    pdfTipQrCaption: "Pourboire via Ko-fi. Scannez ou rendez-vous sur ko-fi.com/yrunhaar",
+    pdfFooterAttribution: "howpoorami.org. Les inégalités de richesse, visualisées",
     pdfPageLabel: "Page",
   },
 };

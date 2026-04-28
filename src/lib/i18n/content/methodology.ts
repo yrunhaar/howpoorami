@@ -84,7 +84,7 @@ export interface MethodologyContent {
 const en: MethodologyContent = {
   h1: "Methodology",
   intro:
-    "This page explains the data sources, models, and assumptions behind How Poor Am I?. The goal is full transparency — every number you see in the tool can be traced back to its source and calculation.",
+    "This page explains the data sources, models, and assumptions behind How Poor Am I? The goal is full transparency. Every number you see in the tool can be traced back to its source and calculation.",
   wealthData: {
     heading: "Wealth Distribution Data",
     bodyTemplate:
@@ -120,7 +120,7 @@ const en: MethodologyContent = {
   percentileCalc: {
     heading: "Percentile Calculation",
     bodyTemplate:
-      "Once your estimated net wealth is computed, the tool places you in the distribution using {interpEmphasis} between the known wealth share boundaries. For example, if the bottom 50% holds 5% of total wealth and the middle 40% holds 35%, your position between those boundaries is interpolated linearly based on your estimated share. This is an approximation — real distributions are not perfectly linear between boundary points — but it provides a reasonable estimate given the available data.",
+      "Once your estimated net wealth is computed, the tool places you in the distribution using {interpEmphasis} between the known wealth share boundaries. For example, if the bottom 50% holds 5% of total wealth and the middle 40% holds 35%, your position between those boundaries is interpolated linearly based on your estimated share. This is an approximation. Real distributions are not perfectly linear between boundary points. But it provides a reasonable estimate given the available data.",
     interpEmphasis: "piecewise linear interpolation",
   },
   billionaireComparison: {
@@ -129,7 +129,7 @@ const en: MethodologyContent = {
       "The \"How Long Would It Take?\" mode uses the {forbesLink} list. Net worth figures are bundled into the site at build time for the wealthiest individual in each country.",
     forbesLinkLabel: "Forbes Real-Time Billionaires",
     bodyTwo:
-      "The \"years to earn\" calculation is deliberately simple: it divides the billionaire's net worth by your annual income with no adjustments for interest, compound growth, taxes, or inflation. This is intentional — the point is not financial planning but to viscerally illustrate the scale of the gap. When the answer is \"4 million years,\" whether it accounts for a 7% return rate is beside the point.",
+      "The \"years to earn\" calculation is deliberately simple: it divides the billionaire's net worth by your annual income with no adjustments for interest, compound growth, taxes, or inflation. This is intentional. The point is not financial planning but to viscerally illustrate the scale of the gap. When the answer is \"4 million years,\" whether it accounts for a 7% return rate is beside the point.",
   },
   taxData: {
     heading: "Tax Rate Data Sources",
@@ -163,7 +163,7 @@ const en: MethodologyContent = {
   dataFreshness: {
     heading: "Data Freshness",
     bodyTemplate:
-      "All data is bundled at build time and served statically — no external API calls are made when you use the tool. A single fetch script ({fetchScript}) pulls data from:",
+      "All data is bundled at build time and served statically. No external API calls are made when you use the tool. A single fetch script ({fetchScript}) pulls data from:",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "WID.world API", description: "wealth shares, income shares, mean/median wealth, Gini coefficients" },
@@ -173,7 +173,7 @@ const en: MethodologyContent = {
       { bold: "OECD / FRED", description: "wages, CPI, house price indices" },
     ],
     outro:
-      "Tax rate data is the exception — it comes from academic papers and is maintained manually with full source citations (see table above).",
+      "Tax rate data is the exception. It comes from academic papers and is maintained manually with full source citations (see table above).",
   },
   relatedNav: {
     backToCalculator: "Back to calculator",
@@ -184,7 +184,7 @@ const en: MethodologyContent = {
 const es: MethodologyContent = {
   h1: "Metodología",
   intro:
-    "Esta página explica las fuentes de datos, los modelos y los supuestos detrás de ¿Qué tan pobre soy?. El objetivo es la transparencia total — cada número que ves se puede rastrear hasta su fuente y su cálculo.",
+    "Esta página explica las fuentes de datos, los modelos y los supuestos detrás de ¿Qué tan pobre soy? El objetivo es la transparencia total. Cada número que ves se puede rastrear hasta su fuente y su cálculo.",
   wealthData: {
     heading: "Datos de distribución de la riqueza",
     bodyTemplate:
@@ -220,7 +220,7 @@ const es: MethodologyContent = {
   percentileCalc: {
     heading: "Cálculo del percentil",
     bodyTemplate:
-      "Una vez calculado tu patrimonio estimado, la herramienta te sitúa en la distribución mediante {interpEmphasis} entre los límites de cuotas conocidas. Por ejemplo, si el 50% inferior posee el 5% de la riqueza total y el 40% medio el 35%, tu posición entre esos límites se interpola linealmente. Es una aproximación — las distribuciones reales no son perfectamente lineales entre puntos — pero ofrece una estimación razonable con los datos disponibles.",
+      "Una vez calculado tu patrimonio estimado, la herramienta te sitúa en la distribución mediante {interpEmphasis} entre los límites de cuotas conocidas. Por ejemplo, si el 50% inferior posee el 5% de la riqueza total y el 40% medio el 35%, tu posición entre esos límites se interpola linealmente. Es una aproximación. Las distribuciones reales no son perfectamente lineales entre puntos. Pero ofrece una estimación razonable con los datos disponibles.",
     interpEmphasis: "interpolación lineal por tramos",
   },
   billionaireComparison: {
@@ -229,7 +229,7 @@ const es: MethodologyContent = {
       "El modo «¿Cuánto tiempo tardaría?» usa la lista {forbesLink}. Las cifras de patrimonio se incorporan al sitio en tiempo de compilación para la persona más rica de cada país.",
     forbesLinkLabel: "Forbes Real-Time Billionaires",
     bodyTwo:
-      "El cálculo de «años para ganar» es deliberadamente simple: divide el patrimonio del millonario entre tu ingreso anual sin ajustes por intereses, crecimiento compuesto, impuestos o inflación. Es intencional — el objetivo no es planificación financiera, sino ilustrar de manera visceral la magnitud de la brecha. Cuando la respuesta es «4 millones de años», un 7% de rentabilidad anual no cambia el mensaje.",
+      "El cálculo de «años para ganar» es deliberadamente simple: divide el patrimonio del millonario entre tu ingreso anual sin ajustes por intereses, crecimiento compuesto, impuestos o inflación. Es intencional. El objetivo no es planificación financiera, sino ilustrar de manera visceral la magnitud de la brecha. Cuando la respuesta es «4 millones de años», un 7% de rentabilidad anual no cambia el mensaje.",
   },
   taxData: {
     heading: "Fuentes de datos sobre tipos impositivos",
@@ -263,7 +263,7 @@ const es: MethodologyContent = {
   dataFreshness: {
     heading: "Frescura de los datos",
     bodyTemplate:
-      "Todos los datos se incorporan en tiempo de compilación y se sirven estáticamente — no se hacen llamadas externas al usar la herramienta. Un único script de obtención ({fetchScript}) extrae datos de:",
+      "Todos los datos se incorporan en tiempo de compilación y se sirven estáticamente. No se hacen llamadas externas al usar la herramienta. Un único script de obtención ({fetchScript}) extrae datos de:",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "API de WID.world", description: "cuotas de riqueza, cuotas de ingreso, riqueza media/mediana, coeficientes de Gini" },
@@ -273,7 +273,7 @@ const es: MethodologyContent = {
       { bold: "OCDE / FRED", description: "salarios, IPC, índices de precios de la vivienda" },
     ],
     outro:
-      "Los datos de tipos impositivos son la excepción — provienen de artículos académicos y se mantienen manualmente con citas completas (ver tabla arriba).",
+      "Los datos de tipos impositivos son la excepción. Provienen de artículos académicos y se mantienen manualmente con citas completas (ver tabla arriba).",
   },
   relatedNav: {
     backToCalculator: "Volver a la calculadora",
@@ -284,7 +284,7 @@ const es: MethodologyContent = {
 const de: MethodologyContent = {
   h1: "Methodik",
   intro:
-    "Diese Seite erklärt die Datenquellen, Modelle und Annahmen hinter Wie arm bin ich?. Das Ziel: vollständige Transparenz — jede Zahl im Tool lässt sich bis zur Quelle und Berechnung zurückverfolgen.",
+    "Diese Seite erklärt die Datenquellen, Modelle und Annahmen hinter Wie arm bin ich? Das Ziel: vollständige Transparenz. Jede Zahl im Tool lässt sich bis zur Quelle und Berechnung zurückverfolgen.",
   wealthData: {
     heading: "Daten zur Vermögensverteilung",
     bodyTemplate:
@@ -320,7 +320,7 @@ const de: MethodologyContent = {
   percentileCalc: {
     heading: "Perzentilberechnung",
     bodyTemplate:
-      "Sobald dein geschätztes Nettovermögen feststeht, verortet das Tool dich in der Verteilung mittels {interpEmphasis} zwischen den bekannten Stützstellen. Beispiel: Halten die unteren 50 % 5 % und die mittleren 40 % 35 % des Gesamtvermögens, wird deine Position dazwischen linear interpoliert. Das ist eine Annäherung — reale Verteilungen sind nicht exakt linear — liefert aber mit den verfügbaren Daten eine vernünftige Schätzung.",
+      "Sobald dein geschätztes Nettovermögen feststeht, verortet das Tool dich in der Verteilung mittels {interpEmphasis} zwischen den bekannten Stützstellen. Beispiel: Halten die unteren 50 % 5 % und die mittleren 40 % 35 % des Gesamtvermögens, wird deine Position dazwischen linear interpoliert. Das ist eine Annäherung. Reale Verteilungen sind nicht exakt linear. Liefert aber mit den verfügbaren Daten eine vernünftige Schätzung.",
     interpEmphasis: "stückweise lineare Interpolation",
   },
   billionaireComparison: {
@@ -329,7 +329,7 @@ const de: MethodologyContent = {
       "Der Modus „Wie lange würde es dauern?“ verwendet die Liste {forbesLink}. Vermögensangaben werden zur Build-Zeit für die reichste Person jedes Landes gebündelt.",
     forbesLinkLabel: "Forbes Real-Time Billionaires",
     bodyTwo:
-      "Die Berechnung „Jahre zum Verdienen“ ist bewusst einfach: das Vermögen des Milliardärs ÷ dein Jahreseinkommen, ohne Zinsen, Zinseszins, Steuern oder Inflation. Das ist Absicht — es geht nicht um Finanzplanung, sondern um eine fühlbare Darstellung der Lücke. Wenn die Antwort „4 Millionen Jahre“ lautet, ändert eine 7 %-Rendite nichts an der Aussage.",
+      "Die Berechnung „Jahre zum Verdienen“ ist bewusst einfach: das Vermögen des Milliardärs ÷ dein Jahreseinkommen, ohne Zinsen, Zinseszins, Steuern oder Inflation. Das ist Absicht. Es geht nicht um Finanzplanung, sondern um eine fühlbare Darstellung der Lücke. Wenn die Antwort „4 Millionen Jahre“ lautet, ändert eine 7 %-Rendite nichts an der Aussage.",
   },
   taxData: {
     heading: "Quellen für Steuerdaten",
@@ -363,7 +363,7 @@ const de: MethodologyContent = {
   dataFreshness: {
     heading: "Aktualität der Daten",
     bodyTemplate:
-      "Alle Daten werden zur Build-Zeit gebündelt und statisch ausgeliefert — bei Nutzung des Tools werden keine externen Aufrufe gemacht. Ein einziges Fetch-Skript ({fetchScript}) zieht Daten aus:",
+      "Alle Daten werden zur Build-Zeit gebündelt und statisch ausgeliefert. Bei Nutzung des Tools werden keine externen Aufrufe gemacht. Ein einziges Fetch-Skript ({fetchScript}) zieht Daten aus:",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "WID.world-API", description: "Vermögens- und Einkommensanteile, Mittel-/Median-Vermögen, Gini-Koeffizienten" },
@@ -373,7 +373,7 @@ const de: MethodologyContent = {
       { bold: "OECD / FRED", description: "Löhne, VPI, Hauspreisindizes" },
     ],
     outro:
-      "Steuerdaten sind die Ausnahme — sie stammen aus Fachpublikationen und werden manuell mit vollständigen Quellenangaben gepflegt (siehe Tabelle oben).",
+      "Steuerdaten sind die Ausnahme. Sie stammen aus Fachpublikationen und werden manuell mit vollständigen Quellenangaben gepflegt (siehe Tabelle oben).",
   },
   relatedNav: {
     backToCalculator: "Zurück zum Rechner",
@@ -384,7 +384,7 @@ const de: MethodologyContent = {
 const fr: MethodologyContent = {
   h1: "Méthodologie",
   intro:
-    "Cette page explique les sources de données, les modèles et les hypothèses derrière À quel point suis-je pauvre ?. Objectif : une transparence totale — chaque chiffre que vous voyez peut être retracé jusqu'à sa source et son calcul.",
+    "Cette page explique les sources de données, les modèles et les hypothèses derrière À quel point suis-je pauvre ? Objectif : une transparence totale. Chaque chiffre que vous voyez peut être retracé jusqu'à sa source et son calcul.",
   wealthData: {
     heading: "Données de distribution de la richesse",
     bodyTemplate:
@@ -420,7 +420,7 @@ const fr: MethodologyContent = {
   percentileCalc: {
     heading: "Calcul du centile",
     bodyTemplate:
-      "Une fois votre patrimoine net estimé calculé, l'outil vous place dans la distribution par {interpEmphasis} entre les frontières de parts connues. Par exemple, si les 50 % du bas détiennent 5 % de la richesse et les 40 % du milieu 35 %, votre position entre ces points est interpolée linéairement. C'est une approximation — les distributions réelles ne sont pas parfaitement linéaires entre les points — mais elle donne une estimation raisonnable avec les données disponibles.",
+      "Une fois votre patrimoine net estimé calculé, l'outil vous place dans la distribution par {interpEmphasis} entre les frontières de parts connues. Par exemple, si les 50 % du bas détiennent 5 % de la richesse et les 40 % du milieu 35 %, votre position entre ces points est interpolée linéairement. C'est une approximation. Les distributions réelles ne sont pas parfaitement linéaires entre les points. Mais elle donne une estimation raisonnable avec les données disponibles.",
     interpEmphasis: "interpolation linéaire par morceaux",
   },
   billionaireComparison: {
@@ -429,7 +429,7 @@ const fr: MethodologyContent = {
       "Le mode « Combien de temps faudrait-il ? » utilise la liste {forbesLink}. Les chiffres de patrimoine sont intégrés au site lors de la compilation pour la personne la plus riche de chaque pays.",
     forbesLinkLabel: "Forbes Real-Time Billionaires",
     bodyTwo:
-      "Le calcul « années pour gagner » est délibérément simple : le patrimoine du milliardaire ÷ votre revenu annuel, sans ajustement pour intérêt, intérêt composé, impôts ou inflation. C'est intentionnel — l'objectif n'est pas la planification financière mais d'illustrer l'ampleur de l'écart. Quand la réponse est « 4 millions d'années », un rendement de 7 % ne change pas le constat.",
+      "Le calcul « années pour gagner » est délibérément simple : le patrimoine du milliardaire ÷ votre revenu annuel, sans ajustement pour intérêt, intérêt composé, impôts ou inflation. C'est intentionnel. L'objectif n'est pas la planification financière mais d'illustrer l'ampleur de l'écart. Quand la réponse est « 4 millions d'années », un rendement de 7 % ne change pas le constat.",
   },
   taxData: {
     heading: "Sources des taux d'imposition",
@@ -463,7 +463,7 @@ const fr: MethodologyContent = {
   dataFreshness: {
     heading: "Fraîcheur des données",
     bodyTemplate:
-      "Toutes les données sont intégrées au build et servies statiquement — aucune requête externe n'est faite à l'usage. Un seul script de récupération ({fetchScript}) extrait les données de :",
+      "Toutes les données sont intégrées au build et servies statiquement. Aucune requête externe n'est faite à l'usage. Un seul script de récupération ({fetchScript}) extrait les données de :",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "API WID.world", description: "parts de richesse, parts de revenu, richesse moyenne/médiane, coefficients de Gini" },
@@ -473,7 +473,7 @@ const fr: MethodologyContent = {
       { bold: "OCDE / FRED", description: "salaires, IPC, indices des prix immobiliers" },
     ],
     outro:
-      "Les données fiscales font exception — elles proviennent d'articles académiques et sont maintenues manuellement avec citations complètes (voir tableau ci-dessus).",
+      "Les données fiscales font exception. Elles proviennent d'articles académiques et sont maintenues manuellement avec citations complètes (voir tableau ci-dessus).",
   },
   relatedNav: {
     backToCalculator: "Retour au calculateur",
@@ -484,7 +484,7 @@ const fr: MethodologyContent = {
 const zhCn: MethodologyContent = {
   h1: "方法说明",
   intro:
-    "本页解释「我到底有多穷？」背后的数据来源、模型与假设。目标是完全透明 — 工具中出现的每个数字都可以追溯到来源与计算方法。",
+    "本页解释「我到底有多穷？」背后的数据来源、模型与假设。目标是完全透明. 工具中出现的每个数字都可以追溯到来源与计算方法。",
   wealthData: {
     heading: "财富分布数据",
     bodyTemplate:
@@ -520,7 +520,7 @@ const zhCn: MethodologyContent = {
   percentileCalc: {
     heading: "百分位的计算",
     bodyTemplate:
-      "在估算出净资产后，工具采用 {interpEmphasis}，在已知的财富份额边界之间为你定位。例如，若底部 50% 占总财富的 5%、中间 40% 占 35%，则你处于这两个边界之间的位置按线性插值得出。这是一种近似 — 真实分布并不是严格线性的 — 但在已有数据下能给出合理估计。",
+      "在估算出净资产后，工具采用 {interpEmphasis}，在已知的财富份额边界之间为你定位。例如，若底部 50% 占总财富的 5%、中间 40% 占 35%，则你处于这两个边界之间的位置按线性插值得出。这是一种近似. 真实分布并不是严格线性的. 但在已有数据下能给出合理估计。",
     interpEmphasis: "分段线性插值",
   },
   billionaireComparison: {
@@ -529,7 +529,7 @@ const zhCn: MethodologyContent = {
       "「要多久？」模式使用 {forbesLink} 列表，构建时为各国最富的人打包好净资产数值。",
     forbesLinkLabel: "Forbes 实时亿万富豪榜",
     bodyTwo:
-      "「需要多少年」是有意为之的简单算法：把亿万富豪的净资产除以你的年收入，不考虑利息、复利、税收或通货膨胀。这是有意的 — 重点不是理财规划，而是让差距「可感」。当答案是「400 万年」时，是否考虑 7% 的年化收益其实无关紧要。",
+      "「需要多少年」是有意为之的简单算法：把亿万富豪的净资产除以你的年收入，不考虑利息、复利、税收或通货膨胀。这是有意的. 重点不是理财规划，而是让差距「可感」。当答案是「400 万年」时，是否考虑 7% 的年化收益其实无关紧要。",
   },
   taxData: {
     heading: "税率数据来源",
@@ -560,7 +560,7 @@ const zhCn: MethodologyContent = {
   dataFreshness: {
     heading: "数据时效性",
     bodyTemplate:
-      "所有数据在构建时打包并以静态形式提供 — 你使用工具时不会有任何外部 API 调用。一个抓取脚本（{fetchScript}）从以下来源拉取数据：",
+      "所有数据在构建时打包并以静态形式提供. 你使用工具时不会有任何外部 API 调用。一个抓取脚本（{fetchScript}）从以下来源拉取数据：",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "WID.world API", description: "财富份额、收入份额、平均/中位数财富、基尼系数" },
@@ -570,7 +570,7 @@ const zhCn: MethodologyContent = {
       { bold: "OECD / FRED", description: "工资、CPI、房价指数" },
     ],
     outro:
-      "税率数据是例外 — 它来自学术论文，由人工维护并附上完整引用（见上方表格）。",
+      "税率数据是例外. 它来自学术论文，由人工维护并附上完整引用（见上方表格）。",
   },
   relatedNav: {
     backToCalculator: "返回计算器",
@@ -581,7 +581,7 @@ const zhCn: MethodologyContent = {
 const ja: MethodologyContent = {
   h1: "手法",
   intro:
-    "このページでは「私はどれだけ貧しい？」のデータソース、モデル、前提を説明します。目標は完全な透明性 — ツールに表示されるすべての数値は、そのソースと計算までさかのぼれます。",
+    "このページでは「私はどれだけ貧しい？」のデータソース、モデル、前提を説明します。目標は完全な透明性. ツールに表示されるすべての数値は、そのソースと計算までさかのぼれます。",
   wealthData: {
     heading: "資産分布データ",
     bodyTemplate:
@@ -626,7 +626,7 @@ const ja: MethodologyContent = {
       "「どれだけかかる？」モードは {forbesLink} を使用します。各国の最も裕福な個人について、純資産の数値はビルド時にサイトへ組み込まれます。",
     forbesLinkLabel: "Forbes Real-Time Billionaires",
     bodyTwo:
-      "「稼ぐのに必要な年数」はあえて単純に計算します：億万長者の純資産 ÷ あなたの年収（金利・複利・税・インフレを一切考慮しない）。意図的です — 目的は資産運用の計画ではなく、格差の「規模感」を体感的に示すこと。答えが「400 万年」になるなら、年 7% の運用利回りを足しても話の本質は変わりません。",
+      "「稼ぐのに必要な年数」はあえて単純に計算します：億万長者の純資産 ÷ あなたの年収（金利・複利・税・インフレを一切考慮しない）。意図的です. 目的は資産運用の計画ではなく、格差の「規模感」を体感的に示すこと。答えが「400 万年」になるなら、年 7% の運用利回りを足しても話の本質は変わりません。",
   },
   taxData: {
     heading: "税率データの出典",
@@ -660,7 +660,7 @@ const ja: MethodologyContent = {
   dataFreshness: {
     heading: "データの鮮度",
     bodyTemplate:
-      "すべてのデータはビルド時にバンドルされ、静的に配信されます — 利用時に外部 API 呼び出しは行いません。単一のフェッチスクリプト（{fetchScript}）が以下のソースからデータを取得します：",
+      "すべてのデータはビルド時にバンドルされ、静的に配信されます. 利用時に外部 API 呼び出しは行いません。単一のフェッチスクリプト（{fetchScript}）が以下のソースからデータを取得します：",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "WID.world API", description: "資産シェア・所得シェア・平均/中央値資産・ジニ係数" },
@@ -681,7 +681,7 @@ const ja: MethodologyContent = {
 const pt: MethodologyContent = {
   h1: "Metodologia",
   intro:
-    "Esta página explica as fontes de dados, modelos e premissas por trás de Quão pobre eu sou?. O objetivo é total transparência — cada número que você vê pode ser rastreado até sua origem e cálculo.",
+    "Esta página explica as fontes de dados, modelos e premissas por trás de Quão pobre eu sou? O objetivo é total transparência. Cada número que você vê pode ser rastreado até sua origem e cálculo.",
   wealthData: {
     heading: "Dados de distribuição da riqueza",
     bodyTemplate:
@@ -717,7 +717,7 @@ const pt: MethodologyContent = {
   percentileCalc: {
     heading: "Cálculo do percentil",
     bodyTemplate:
-      "Com seu patrimônio líquido estimado calculado, a ferramenta o coloca na distribuição usando {interpEmphasis} entre os limites conhecidos de participação. Por exemplo, se os 50% inferiores detêm 5% da riqueza total e os 40% do meio detêm 35%, sua posição entre essas fronteiras é interpolada linearmente. É uma aproximação — distribuições reais não são perfeitamente lineares — mas oferece uma estimativa razoável dados os dados disponíveis.",
+      "Com seu patrimônio líquido estimado calculado, a ferramenta o coloca na distribuição usando {interpEmphasis} entre os limites conhecidos de participação. Por exemplo, se os 50% inferiores detêm 5% da riqueza total e os 40% do meio detêm 35%, sua posição entre essas fronteiras é interpolada linearmente. É uma aproximação. Distribuições reais não são perfeitamente lineares. Mas oferece uma estimativa razoável dados os dados disponíveis.",
     interpEmphasis: "interpolação linear por partes",
   },
   billionaireComparison: {
@@ -726,7 +726,7 @@ const pt: MethodologyContent = {
       "O modo \"Quanto tempo levaria?\" usa a lista {forbesLink}. Os valores de patrimônio são empacotados no site em tempo de build para a pessoa mais rica de cada país.",
     forbesLinkLabel: "Forbes Real-Time Billionaires",
     bodyTwo:
-      "O cálculo de \"anos para ganhar\" é deliberadamente simples: divide o patrimônio do bilionário pela sua renda anual, sem ajustes para juros, juros compostos, impostos ou inflação. É proposital — o ponto não é planejamento financeiro, mas ilustrar visceralmente a magnitude do abismo. Quando a resposta é \"4 milhões de anos\", saber se considera ou não 7% de retorno é irrelevante.",
+      "O cálculo de \"anos para ganhar\" é deliberadamente simples: divide o patrimônio do bilionário pela sua renda anual, sem ajustes para juros, juros compostos, impostos ou inflação. É proposital. O ponto não é planejamento financeiro, mas ilustrar visceralmente a magnitude do abismo. Quando a resposta é \"4 milhões de anos\", saber se considera ou não 7% de retorno é irrelevante.",
   },
   taxData: {
     heading: "Fontes dos dados de alíquotas",
@@ -760,7 +760,7 @@ const pt: MethodologyContent = {
   dataFreshness: {
     heading: "Atualização dos dados",
     bodyTemplate:
-      "Todos os dados são empacotados em tempo de build e servidos estaticamente — nenhuma chamada externa é feita ao usar a ferramenta. Um único script de fetch ({fetchScript}) puxa dados de:",
+      "Todos os dados são empacotados em tempo de build e servidos estaticamente. Nenhuma chamada externa é feita ao usar a ferramenta. Um único script de fetch ({fetchScript}) puxa dados de:",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "API WID.world", description: "participações de riqueza, participações de renda, riqueza média/mediana, coeficientes de Gini" },
@@ -770,7 +770,7 @@ const pt: MethodologyContent = {
       { bold: "OCDE / FRED", description: "salários, IPC, índices de preço de imóveis" },
     ],
     outro:
-      "Os dados de alíquotas são a exceção — vêm de artigos acadêmicos e são mantidos manualmente com citações completas (ver tabela acima).",
+      "Os dados de alíquotas são a exceção. Vêm de artigos acadêmicos e são mantidos manualmente com citações completas (ver tabela acima).",
   },
   relatedNav: {
     backToCalculator: "Voltar à calculadora",
@@ -781,7 +781,7 @@ const pt: MethodologyContent = {
 const it: MethodologyContent = {
   h1: "Metodologia",
   intro:
-    "Questa pagina spiega le fonti dati, i modelli e le ipotesi dietro a Quanto sono povero?. L'obiettivo è la massima trasparenza — ogni numero che vedi può essere ricondotto alla fonte e al calcolo.",
+    "Questa pagina spiega le fonti dati, i modelli e le ipotesi dietro a Quanto sono povero? L'obiettivo è la massima trasparenza. Ogni numero che vedi può essere ricondotto alla fonte e al calcolo.",
   wealthData: {
     heading: "Dati di distribuzione della ricchezza",
     bodyTemplate:
@@ -817,7 +817,7 @@ const it: MethodologyContent = {
   percentileCalc: {
     heading: "Calcolo del percentile",
     bodyTemplate:
-      "Una volta calcolato il tuo patrimonio netto stimato, lo strumento ti colloca nella distribuzione tramite {interpEmphasis} fra i confini noti delle quote di ricchezza. Esempio: se il 50% inferiore detiene il 5% della ricchezza totale e il 40% medio il 35%, la tua posizione fra quei punti viene interpolata linearmente. È un'approssimazione — le distribuzioni reali non sono perfettamente lineari — ma fornisce una stima ragionevole con i dati disponibili.",
+      "Una volta calcolato il tuo patrimonio netto stimato, lo strumento ti colloca nella distribuzione tramite {interpEmphasis} fra i confini noti delle quote di ricchezza. Esempio: se il 50% inferiore detiene il 5% della ricchezza totale e il 40% medio il 35%, la tua posizione fra quei punti viene interpolata linearmente. È un'approssimazione. Le distribuzioni reali non sono perfettamente lineari. Ma fornisce una stima ragionevole con i dati disponibili.",
     interpEmphasis: "interpolazione lineare a tratti",
   },
   billionaireComparison: {
@@ -826,7 +826,7 @@ const it: MethodologyContent = {
       "La modalità «Quanto tempo serve?» usa la lista {forbesLink}. I valori di patrimonio sono inclusi nel sito al build per la persona più ricca di ciascun paese.",
     forbesLinkLabel: "Forbes Real-Time Billionaires",
     bodyTwo:
-      "Il calcolo «anni per guadagnare» è deliberatamente semplice: divide il patrimonio del miliardario per il tuo reddito annuo, senza correzioni per interessi, capitalizzazione composta, tasse o inflazione. È voluto — l'obiettivo non è pianificazione finanziaria, ma rendere palpabile la dimensione del divario. Quando la risposta è «4 milioni di anni», che si consideri o meno un rendimento del 7% non cambia il senso.",
+      "Il calcolo «anni per guadagnare» è deliberatamente semplice: divide il patrimonio del miliardario per il tuo reddito annuo, senza correzioni per interessi, capitalizzazione composta, tasse o inflazione. È voluto. L'obiettivo non è pianificazione finanziaria, ma rendere palpabile la dimensione del divario. Quando la risposta è «4 milioni di anni», che si consideri o meno un rendimento del 7% non cambia il senso.",
   },
   taxData: {
     heading: "Fonti dei dati sulle aliquote",
@@ -860,7 +860,7 @@ const it: MethodologyContent = {
   dataFreshness: {
     heading: "Freschezza dei dati",
     bodyTemplate:
-      "Tutti i dati sono inseriti al build time e serviti staticamente — nessuna chiamata API esterna avviene durante l'uso. Un unico script di fetch ({fetchScript}) recupera i dati da:",
+      "Tutti i dati sono inseriti al build time e serviti staticamente. Nessuna chiamata API esterna avviene durante l'uso. Un unico script di fetch ({fetchScript}) recupera i dati da:",
     fetchScriptLabel: "scripts/fetch-all-data.mjs",
     sources: [
       { bold: "API WID.world", description: "quote di ricchezza, quote di reddito, ricchezza media/mediana, coefficienti di Gini" },
@@ -870,7 +870,7 @@ const it: MethodologyContent = {
       { bold: "OCSE / FRED", description: "salari, IPC, indici dei prezzi delle case" },
     ],
     outro:
-      "I dati sulle aliquote sono l'eccezione — provengono da articoli accademici e sono mantenuti manualmente con citazioni complete (vedi tabella sopra).",
+      "I dati sulle aliquote sono l'eccezione. Provengono da articoli accademici e sono mantenuti manualmente con citazioni complete (vedi tabella sopra).",
   },
   relatedNav: {
     backToCalculator: "Torna al calcolatore",
