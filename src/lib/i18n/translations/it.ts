@@ -191,6 +191,7 @@ export const it: Dictionary = {
     faq: "FAQ",
     methodology: "Metodologia",
     github: "GitHub",
+    support: "Offrimi un caffè",
     buildDateTemplate: "Dati al {date}",
   },
   charts: {

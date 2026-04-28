@@ -40,6 +40,13 @@ export interface AboutContent {
     readonly heading: string;
     readonly body: string;
   };
+  /** Optional Ko-fi support section. Body should make it clear that
+   *  contributions are voluntary and the site stays free + ad-free. */
+  readonly support: {
+    readonly heading: string;
+    readonly body: string;
+    readonly ctaLabel: string;
+  };
   readonly relatedNav: {
     readonly backToCalculator: string;
     readonly methodology: string;
@@ -104,6 +111,11 @@ const en: AboutContent = {
   privacy: {
     heading: "Privacy",
     body: "All computation happens entirely in your browser. Your income, wealth, and personal details are never sent to any server. There is no tracking, no analytics, and no cookies.",
+  },
+  support: {
+    heading: "Support this project",
+    body: "How Poor Am I? is free, open-source, and ad-free. Maintaining the data pipeline, adding new countries, and keeping translations fresh takes real time. If the site has helped you understand inequality better, a small contribution keeps it running and Bezos-free.",
+    ctaLabel: "Buy me a coffee",
   },
   relatedNav: {
     backToCalculator: "Back to calculator",
@@ -170,6 +182,11 @@ const es: AboutContent = {
     heading: "Privacidad",
     body: "Todos los cálculos ocurren íntegramente en tu navegador. Tus ingresos, tu riqueza y tus datos personales nunca se envían a ningún servidor. No hay seguimiento, ni analítica, ni cookies.",
   },
+  support: {
+    heading: "Apoya este proyecto",
+    body: "¿Qué tan pobre soy? es gratis, de código abierto y sin publicidad. Mantener el pipeline de datos, añadir nuevos países y conservar las traducciones cuesta tiempo real. Si el sitio te ha ayudado a entender mejor la desigualdad, una pequeña contribución lo mantiene funcionando y libre de Bezos.",
+    ctaLabel: "Invítame a un café",
+  },
   relatedNav: {
     backToCalculator: "Volver a la calculadora",
     methodology: "Metodología",
@@ -234,6 +251,11 @@ const de: AboutContent = {
   privacy: {
     heading: "Datenschutz",
     body: "Alle Berechnungen laufen vollständig im Browser. Dein Einkommen, dein Vermögen und persönliche Angaben werden niemals an einen Server gesendet. Kein Tracking, keine Analytics, keine Cookies.",
+  },
+  support: {
+    heading: "Dieses Projekt unterstützen",
+    body: "Wie arm bin ich? ist kostenlos, quelloffen und werbefrei. Die Datenpipeline zu pflegen, neue Länder hinzuzufügen und Übersetzungen aktuell zu halten kostet echte Zeit. Wenn dir die Seite geholfen hat, Ungleichheit besser zu verstehen, hilft ein kleiner Beitrag, sie am Laufen und Bezos-frei zu halten.",
+    ctaLabel: "Spendier mir einen Kaffee",
   },
   relatedNav: {
     backToCalculator: "Zurück zum Rechner",
@@ -300,6 +322,11 @@ const fr: AboutContent = {
     heading: "Vie privée",
     body: "Tous les calculs ont lieu intégralement dans votre navigateur. Votre revenu, votre patrimoine et vos données personnelles ne sont jamais envoyés à aucun serveur. Pas de pistage, pas d'analytique, pas de cookies.",
   },
+  support: {
+    heading: "Soutenir ce projet",
+    body: "À quel point suis-je pauvre ? est gratuit, open source et sans publicité. Maintenir le pipeline de données, ajouter de nouveaux pays et garder les traductions à jour prend un vrai temps. Si le site vous a aidé à mieux comprendre les inégalités, une petite contribution permet de le maintenir en ligne et libre de Bezos.",
+    ctaLabel: "Offrez-moi un café",
+  },
   relatedNav: {
     backToCalculator: "Retour à la calculatrice",
     methodology: "Méthodologie",
@@ -361,6 +388,11 @@ const zhCn: AboutContent = {
   privacy: {
     heading: "隐私",
     body: "所有运算均在你的浏览器内完成。你的收入、财富与个人信息绝不会上传到任何服务器。没有追踪、没有分析脚本、没有 Cookie。",
+  },
+  support: {
+    heading: "支持本项目",
+    body: "「我到底有多穷？」完全免费、开源、无广告。维护数据管线、新增国家、持续更新各语种翻译都需要真实的时间投入。如果本站让你更清楚地看见不平等，一杯咖啡的小额支持能帮它继续运行，并保持远离贝索斯式的商业化。",
+    ctaLabel: "请我喝杯咖啡",
   },
   relatedNav: {
     backToCalculator: "返回计算器",
@@ -427,6 +459,11 @@ const ja: AboutContent = {
     heading: "プライバシー",
     body: "すべての計算はブラウザ内で完結します。所得・資産・個人情報がサーバーに送られることはありません。トラッキングも、解析も、Cookie もありません。",
   },
+  support: {
+    heading: "このプロジェクトを支援する",
+    body: "「私はどれだけ貧しい？」は無料・オープンソース・広告なしです。データパイプラインの維持、新しい国の追加、翻訳のアップデートには実際の時間がかかります。サイトが格差の理解に役立ったなら、小さなサポートが運営を続け、ベゾス的な商業化を避ける助けになります。",
+    ctaLabel: "コーヒーをおごる",
+  },
   relatedNav: {
     backToCalculator: "計算ツールに戻る",
     methodology: "手法",
@@ -492,6 +529,11 @@ const pt: AboutContent = {
     heading: "Privacidade",
     body: "Todos os cálculos acontecem inteiramente no seu navegador. Sua renda, patrimônio e dados pessoais nunca são enviados a nenhum servidor. Sem rastreamento, sem analytics, sem cookies.",
   },
+  support: {
+    heading: "Apoie este projeto",
+    body: "Quão pobre eu sou? é gratuito, de código aberto e sem anúncios. Manter o pipeline de dados, adicionar novos países e conservar as traduções dá trabalho real. Se o site te ajudou a entender melhor a desigualdade, uma pequena contribuição mantém o projeto no ar — e livre da lógica do Bezos.",
+    ctaLabel: "Me pague um café",
+  },
   relatedNav: {
     backToCalculator: "Voltar à calculadora",
     methodology: "Metodologia",
@@ -556,6 +598,11 @@ const it: AboutContent = {
   privacy: {
     heading: "Privacy",
     body: "Tutti i calcoli avvengono interamente nel tuo browser. Reddito, patrimonio e dati personali non vengono mai inviati ad alcun server. Niente tracciamento, niente analytics, niente cookie.",
+  },
+  support: {
+    heading: "Sostieni questo progetto",
+    body: "Quanto sono povero? è gratuito, open source e senza pubblicità. Mantenere la pipeline dati, aggiungere nuovi paesi e tenere aggiornate le traduzioni richiede tempo reale. Se il sito ti ha aiutato a capire meglio la disuguaglianza, un piccolo contributo aiuta a tenerlo online e lontano dalla logica di Bezos.",
+    ctaLabel: "Offrimi un caffè",
   },
   relatedNav: {
     backToCalculator: "Torna al calcolatore",

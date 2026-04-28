@@ -186,6 +186,7 @@ export const ja: Dictionary = {
     faq: "よくある質問",
     methodology: "手法",
     github: "GitHub",
+    support: "コーヒーをおごる",
     buildDateTemplate: "データ更新日 {date}",
   },
   charts: {

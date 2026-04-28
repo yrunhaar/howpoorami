@@ -8,6 +8,8 @@ import { localePath } from "@/lib/i18n/urls";
 /** Build date stamped at module evaluation time (static export). */
 const BUILD_DATE = new Date().toISOString().split("T")[0];
 
+const KOFI_URL = "https://ko-fi.com/yrunhaar";
+
 export default function Footer() {
   const t = useDictionary();
   const { locale } = useLanguage();
@@ -23,7 +25,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto text-center">
         <nav
           aria-label="Footer navigation"
-          className="flex items-center justify-center gap-4 text-sm text-text-muted"
+          className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-text-muted"
         >
           {footerLinks.map((link, index) => (
             <span key={link.defaultPath} className="flex items-center gap-4">
@@ -52,6 +54,20 @@ export default function Footer() {
             {t.footer.github}
           </a>
         </nav>
+
+        {/* Subtle Ko-fi support link, deliberately set apart from the nav so
+            it doesn't read as "yet another page". A coffee glyph is enough
+            to hint at its purpose without shouting. */}
+        <a
+          href={KOFI_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-1.5 text-xs text-text-muted hover:text-accent-amber transition-colors duration-200"
+        >
+          <span aria-hidden="true">☕</span>
+          <span>{t.footer.support}</span>
+        </a>
+
         <p className="text-xs text-text-muted/60 mt-3">
           {interpolate(t.footer.buildDateTemplate, { date: BUILD_DATE })}
         </p>

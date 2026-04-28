@@ -190,6 +190,7 @@ export const pt: Dictionary = {
     faq: "Perguntas frequentes",
     methodology: "Metodologia",
     github: "GitHub",
+    support: "Me pague um café",
     buildDateTemplate: "Dados de {date}",
   },
   charts: {

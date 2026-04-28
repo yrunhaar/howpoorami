@@ -175,6 +175,7 @@ export const zhCn: Dictionary = {
     faq: "常见问题",
     methodology: "方法说明",
     github: "GitHub",
+    support: "请我喝杯咖啡",
     buildDateTemplate: "数据更新于 {date}",
   },
   charts: {

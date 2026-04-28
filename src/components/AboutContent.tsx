@@ -9,6 +9,8 @@ interface AboutContentProps {
   readonly locale: LocaleCode;
 }
 
+const KOFI_URL = "https://ko-fi.com/yrunhaar";
+
 /**
  * Renders the About page from a locale-specific content tree. The same
  * component is used by both the canonical `/about` route and the localized
@@ -110,6 +112,29 @@ export default function AboutContent({ content, locale }: AboutContentProps) {
           <p className="text-text-secondary leading-relaxed">
             {content.privacy.body}
           </p>
+        </section>
+
+        {/* Ko-fi support callout — visually distinct from regular sections so
+            it reads as a CTA. The amber accent matches the Ko-fi-ish warmth
+            without using their brand red (which clashes with the site palette). */}
+        <section className="mb-10">
+          <div className="rounded-2xl border border-accent-amber/30 bg-accent-amber/8 p-6 sm:p-8">
+            <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold mb-3">
+              {content.support.heading}
+            </h2>
+            <p className="text-text-secondary leading-relaxed mb-5">
+              {content.support.body}
+            </p>
+            <a
+              href={KOFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-accent-amber/20 hover:bg-accent-amber/30 text-accent-amber border border-accent-amber/40 px-5 py-2.5 text-sm font-semibold transition-colors duration-200"
+            >
+              <span aria-hidden="true">☕</span>
+              <span>{content.support.ctaLabel}</span>
+            </a>
+          </div>
         </section>
 
         <nav className="flex gap-6 text-sm" aria-label="Related pages">

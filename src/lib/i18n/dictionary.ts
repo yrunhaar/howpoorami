@@ -208,6 +208,9 @@ export interface Dictionary {
     readonly faq: string;
     readonly methodology: string;
     readonly github: string;
+    /** Short label for the Ko-fi support link, e.g. "Buy me a coffee".
+     *  Rendered with a leading ☕ emoji in the footer markup. */
+    readonly support: string;
     /** "Data built {date}" */
     readonly buildDateTemplate: string;
   };
