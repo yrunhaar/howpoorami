@@ -6,6 +6,24 @@ import { useTheme } from "@/components/ThemeProvider";
 import { useLanguage } from "@/components/LanguageProvider";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { localePath, stripLocale } from "@/lib/i18n/urls";
+import { isAllCountryCode } from "@/data/countries-extended";
+
+/**
+ * Home is "active" when the user is on the root or on a single-segment
+ * country page (e.g. `/us`, `/de`, `/fr`). It is NOT active for any other
+ * named top-level page (`/report`, `/about`, `/faq`, etc.).
+ *
+ * Previously this used an allow-list of paths to *exclude*, which broke
+ * silently every time a new top-level route was added (the most recent
+ * being `/report`). The country-code check is exhaustive: any path that
+ * isn't `/` or a known country slug doesn't trigger home.
+ */
+function isHomePath(path: string): boolean {
+  if (path === "/" || path === "") return true;
+  const segments = path.split("/").filter(Boolean);
+  if (segments.length !== 1) return false;
+  return isAllCountryCode(segments[0].toUpperCase());
+}
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -37,18 +55,10 @@ export default function Navigation() {
         <div className="flex items-center gap-0.5 sm:gap-1">
           {navItems.map((item) => {
             const href = localePath(locale, item.defaultPath);
-            const NON_COUNTRY_PATHS = [
-              "/about",
-              "/faq",
-              "/methodology",
-              "/how-long",
-              "/compare-countries",
-            ];
             const stripped = stripLocale(pathname || "/").path;
             const isActive =
               item.defaultPath === "/"
-                ? stripped === "/" ||
-                  !NON_COUNTRY_PATHS.some((p) => stripped.startsWith(p))
+                ? isHomePath(stripped)
                 : stripped.startsWith(item.defaultPath);
             return (
               <Link

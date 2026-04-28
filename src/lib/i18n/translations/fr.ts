@@ -557,6 +557,25 @@ export const fr: Dictionary = {
     pdfSection5Title: "5. Ce que cela signifie",
     pdfSection5Body:
       "Les centiles décrivent une position, pas un verdict. Votre place reflète du capital accumulé, l'épargne d'une vie, l'héritage et l'opportunité structurelle — pas votre valeur personnelle. Les données sont là pour informer, pas pour classer.",
+    pdfCrossCountryTitle: "Même patrimoine, autre pays",
+    pdfCrossCountryBody:
+      "Votre chiffre n'a pas le même sens partout — son rang change dès qu'on franchit une frontière. Voici ce que représenterait le même patrimoine ailleurs.",
+    pdfCrossCountryColCountry: "Pays",
+    pdfCrossCountryColPercentile: "Votre centile",
+    pdfCrossCountryColBracket: "Tranche",
+    pdfScaleGapTitle: "L'échelle de l'écart",
+    pdfScaleGapBody:
+      "L'inégalité est dure à percevoir parce que l'écart est logarithmique. Les barres ci-dessous sont en échelle logarithmique — chacune vaut environ 10× la précédente. La personne la plus riche de votre pays se situe plusieurs décennies de zéros au-dessus du patrimoine moyen national.",
+    pdfScaleLabelYou: "Vous",
+    pdfScaleLabelMedian: "Patrimoine médian",
+    pdfScaleLabelMean: "Patrimoine moyen",
+    pdfScaleLabelTop1Avg: "Moyenne du top 1 %",
+    pdfScaleLabelRichest: "Personne la plus riche du pays",
+    pdfScaleRatioTemplate: "{ratio}× votre patrimoine",
+    pdfScaleNote: "Échelle logarithmique — les barres ne sont pas linéaires.",
+    pdfWealthShareTitle: "Population vs. part de richesse",
+    pdfWealthShareLegendPopulation: "Population",
+    pdfWealthShareLegendWealth: "Richesse",
     pdfMethodologyTitle: "Méthodologie",
     pdfMethodologyBody:
       "Parts de richesse de WID.world (Comptes nationaux distributifs). Centiles via interpolation de Pareto entre les seuils publiés. Conversion monétaire avec les taux BCE ; PPA via la Banque mondiale. Toutes les données sont récupérées au build, aucune donnée utilisateur n'est envoyée à un serveur.",

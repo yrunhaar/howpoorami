@@ -547,6 +547,25 @@ export const en: Dictionary = {
     pdfSection5Title: "5. What it means",
     pdfSection5Body:
       "Percentiles describe a position, not a verdict. Where you stand reflects accumulated capital, lifetime savings, inheritance, and structural opportunity — not personal worth. The data is intended to inform, not to rank.",
+    pdfCrossCountryTitle: "Same wealth, different country",
+    pdfCrossCountryBody:
+      "Your number isn't fixed in meaning — its rank shifts the moment the borders move. Here's what the same net worth would mean elsewhere.",
+    pdfCrossCountryColCountry: "Country",
+    pdfCrossCountryColPercentile: "Your percentile",
+    pdfCrossCountryColBracket: "Bracket",
+    pdfScaleGapTitle: "The scale of the gap",
+    pdfScaleGapBody:
+      "Inequality is hard to feel because the gap is logarithmic. The bars below run on a log scale — each one is roughly 10× the previous. The richest in your country is several decades of zeros above national mean wealth.",
+    pdfScaleLabelYou: "You",
+    pdfScaleLabelMedian: "Median wealth",
+    pdfScaleLabelMean: "Mean wealth",
+    pdfScaleLabelTop1Avg: "Top 1% average",
+    pdfScaleLabelRichest: "Richest in country",
+    pdfScaleRatioTemplate: "{ratio}× your wealth",
+    pdfScaleNote: "Logarithmic scale — bars are not linear.",
+    pdfWealthShareTitle: "Population vs. wealth share",
+    pdfWealthShareLegendPopulation: "Population",
+    pdfWealthShareLegendWealth: "Wealth",
     pdfMethodologyTitle: "Methodology",
     pdfMethodologyBody:
       "Wealth shares from WID.world (Distributional National Accounts). Percentiles via Pareto-interpolation between published share boundaries. Currency conversions via ECB rates; PPP via World Bank. All data fetched at build time, no user data sent to any server.",

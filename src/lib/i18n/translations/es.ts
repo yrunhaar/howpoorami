@@ -554,6 +554,25 @@ export const es: Dictionary = {
     pdfSection5Title: "5. Qué significa",
     pdfSection5Body:
       "Los percentiles describen una posición, no un veredicto. Donde estás refleja capital acumulado, ahorros de toda la vida, herencias y oportunidades estructurales — no tu valor personal. Los datos están para informar, no para clasificar.",
+    pdfCrossCountryTitle: "Mismo patrimonio, otro país",
+    pdfCrossCountryBody:
+      "Tu cifra no significa lo mismo en todas partes — su rango cambia con cada frontera. Esto es lo que significaría el mismo patrimonio en otros países.",
+    pdfCrossCountryColCountry: "País",
+    pdfCrossCountryColPercentile: "Tu percentil",
+    pdfCrossCountryColBracket: "Tramo",
+    pdfScaleGapTitle: "La escala de la brecha",
+    pdfScaleGapBody:
+      "La desigualdad cuesta sentirla porque la brecha es logarítmica. Las barras de abajo están en escala logarítmica — cada una es aproximadamente 10× la anterior. La persona más rica de tu país está varias décadas de ceros por encima de la media nacional.",
+    pdfScaleLabelYou: "Tú",
+    pdfScaleLabelMedian: "Patrimonio mediano",
+    pdfScaleLabelMean: "Patrimonio medio",
+    pdfScaleLabelTop1Avg: "Promedio del 1% más rico",
+    pdfScaleLabelRichest: "Más rico del país",
+    pdfScaleRatioTemplate: "{ratio}× tu patrimonio",
+    pdfScaleNote: "Escala logarítmica — las barras no son lineales.",
+    pdfWealthShareTitle: "Población vs. cuota de riqueza",
+    pdfWealthShareLegendPopulation: "Población",
+    pdfWealthShareLegendWealth: "Riqueza",
     pdfMethodologyTitle: "Metodología",
     pdfMethodologyBody:
       "Cuotas de riqueza de WID.world (Cuentas Nacionales Distribucionales). Percentiles por interpolación de Pareto entre los límites publicados. Conversión de moneda con tipos del BCE; PPA del Banco Mundial. Todos los datos se obtienen al compilar; no se envían datos personales a ningún servidor.",

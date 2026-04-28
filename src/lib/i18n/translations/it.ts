@@ -555,6 +555,25 @@ export const it: Dictionary = {
     pdfSection5Title: "5. Cosa significa",
     pdfSection5Body:
       "I percentili descrivono una posizione, non un verdetto. Dove ti trovi riflette capitale accumulato, risparmi di una vita, eredità e opportunità strutturali — non il tuo valore personale. I dati servono a informare, non a classificare.",
+    pdfCrossCountryTitle: "Stesso patrimonio, paese diverso",
+    pdfCrossCountryBody:
+      "Il tuo numero non significa la stessa cosa ovunque — il suo rango cambia ad ogni confine. Ecco cosa significherebbe lo stesso patrimonio altrove.",
+    pdfCrossCountryColCountry: "Paese",
+    pdfCrossCountryColPercentile: "Tuo percentile",
+    pdfCrossCountryColBracket: "Fascia",
+    pdfScaleGapTitle: "La scala del divario",
+    pdfScaleGapBody:
+      "La disuguaglianza è difficile da sentire perché il divario è logaritmico. Le barre qui sotto sono in scala logaritmica — ognuna è circa 10× la precedente. La persona più ricca del tuo paese sta diversi decenni di zeri sopra la ricchezza media nazionale.",
+    pdfScaleLabelYou: "Tu",
+    pdfScaleLabelMedian: "Ricchezza mediana",
+    pdfScaleLabelMean: "Ricchezza media",
+    pdfScaleLabelTop1Avg: "Media del top 1%",
+    pdfScaleLabelRichest: "Persona più ricca del paese",
+    pdfScaleRatioTemplate: "{ratio}× la tua ricchezza",
+    pdfScaleNote: "Scala logaritmica — le barre non sono lineari.",
+    pdfWealthShareTitle: "Popolazione vs. quota di ricchezza",
+    pdfWealthShareLegendPopulation: "Popolazione",
+    pdfWealthShareLegendWealth: "Ricchezza",
     pdfMethodologyTitle: "Metodologia",
     pdfMethodologyBody:
       "Quote di ricchezza da WID.world (Distributional National Accounts). Percentili tramite interpolazione di Pareto fra le soglie pubblicate. Conversione valutaria con tassi BCE; PPP da Banca Mondiale. Tutti i dati raccolti al build, nessun dato utente inviato a server.",

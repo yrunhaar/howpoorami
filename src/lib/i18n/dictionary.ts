@@ -665,6 +665,31 @@ export interface Dictionary {
     /** "Section 5 — What it means" */
     readonly pdfSection5Title: string;
     readonly pdfSection5Body: string;
+
+    // Cross-country comparison page
+    readonly pdfCrossCountryTitle: string;
+    readonly pdfCrossCountryBody: string;
+    readonly pdfCrossCountryColCountry: string;
+    readonly pdfCrossCountryColPercentile: string;
+    readonly pdfCrossCountryColBracket: string;
+
+    // Scale-gap page (How Long? equivalent — visualizes orders of magnitude)
+    readonly pdfScaleGapTitle: string;
+    readonly pdfScaleGapBody: string;
+    readonly pdfScaleLabelYou: string;
+    readonly pdfScaleLabelMedian: string;
+    readonly pdfScaleLabelMean: string;
+    readonly pdfScaleLabelTop1Avg: string;
+    readonly pdfScaleLabelRichest: string;
+    /** "{ratio}× your wealth" — caption under each scale row */
+    readonly pdfScaleRatioTemplate: string;
+    /** "log scale" — note under the scale chart */
+    readonly pdfScaleNote: string;
+
+    // Wealth-share visualization (HPAMI-style)
+    readonly pdfWealthShareTitle: string;
+    readonly pdfWealthShareLegendPopulation: string;
+    readonly pdfWealthShareLegendWealth: string;
     /** "Methodology" — short closing block heading */
     readonly pdfMethodologyTitle: string;
     readonly pdfMethodologyBody: string;

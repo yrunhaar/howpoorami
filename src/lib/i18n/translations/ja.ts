@@ -547,6 +547,25 @@ export const ja: Dictionary = {
     pdfSection5Title: "5. これが意味するもの",
     pdfSection5Body:
       "パーセンタイルは位置を示すだけで、判決ではありません。あなたの位置は、蓄積された資本、生涯の貯蓄、相続、構造的機会を反映するものであって、人としての価値を測るものではありません。データは情報を与えるためにあり、序列をつけるためではありません。",
+    pdfCrossCountryTitle: "同じ資産、違う国",
+    pdfCrossCountryBody:
+      "あなたの数字の意味は固定ではありません — 国境を超えるたびに順位は変わります。同じ純資産が他の国ではどういう意味を持つかをここに示します。",
+    pdfCrossCountryColCountry: "国",
+    pdfCrossCountryColPercentile: "あなたのパーセンタイル",
+    pdfCrossCountryColBracket: "区分",
+    pdfScaleGapTitle: "格差のスケール",
+    pdfScaleGapBody:
+      "格差は対数的なので感覚として捉えにくい。下のバーは対数スケールで、ひとつ進むごとに約 10 倍。あなたの国の最富裕者は、平均資産より「ゼロが何個も多い」場所にいます。",
+    pdfScaleLabelYou: "あなた",
+    pdfScaleLabelMedian: "中央値資産",
+    pdfScaleLabelMean: "平均資産",
+    pdfScaleLabelTop1Avg: "上位 1% の平均",
+    pdfScaleLabelRichest: "国内の最富裕者",
+    pdfScaleRatioTemplate: "あなたの資産の {ratio} 倍",
+    pdfScaleNote: "対数スケール — バーの長さは線形ではありません。",
+    pdfWealthShareTitle: "人口 vs 資産シェア",
+    pdfWealthShareLegendPopulation: "人口",
+    pdfWealthShareLegendWealth: "資産",
     pdfMethodologyTitle: "方法論",
     pdfMethodologyBody:
       "資産シェアは WID.world（Distributional National Accounts）から。パーセンタイルは公表されたシェア境界間を Pareto 内挿。通貨換算は ECB レート、PPP は世界銀行を使用。すべてのデータはビルド時に取得し、ユーザーデータをサーバーに送信することはありません。",

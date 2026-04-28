@@ -555,6 +555,25 @@ export const de: Dictionary = {
     pdfSection5Title: "5. Was das bedeutet",
     pdfSection5Body:
       "Perzentile beschreiben eine Position, kein Urteil. Wo du stehst, spiegelt akkumuliertes Kapital, Lebenseinkommen, Erbschaft und strukturelle Chancen wider — nicht persönlichen Wert. Die Daten sollen informieren, nicht ranken.",
+    pdfCrossCountryTitle: "Gleiches Vermögen, anderes Land",
+    pdfCrossCountryBody:
+      "Deine Zahl bedeutet nicht überall dasselbe — ihr Rang verschiebt sich mit jeder Grenze. So sähe das gleiche Vermögen anderswo aus.",
+    pdfCrossCountryColCountry: "Land",
+    pdfCrossCountryColPercentile: "Dein Perzentil",
+    pdfCrossCountryColBracket: "Gruppe",
+    pdfScaleGapTitle: "Das Ausmaß der Lücke",
+    pdfScaleGapBody:
+      "Ungleichheit ist schwer zu fühlen, weil die Lücke logarithmisch ist. Die Balken unten laufen auf einer Log-Skala — jeder ist etwa 10× der vorherige. Die reichste Person in deinem Land liegt mehrere Dekaden von Nullen über dem nationalen Durchschnittsvermögen.",
+    pdfScaleLabelYou: "Du",
+    pdfScaleLabelMedian: "Median-Vermögen",
+    pdfScaleLabelMean: "Durchschnittsvermögen",
+    pdfScaleLabelTop1Avg: "Schnitt der oberen 1 %",
+    pdfScaleLabelRichest: "Reichste Person des Landes",
+    pdfScaleRatioTemplate: "{ratio}× dein Vermögen",
+    pdfScaleNote: "Logarithmische Skala — die Balken sind nicht linear.",
+    pdfWealthShareTitle: "Bevölkerung vs. Vermögensanteil",
+    pdfWealthShareLegendPopulation: "Bevölkerung",
+    pdfWealthShareLegendWealth: "Vermögen",
     pdfMethodologyTitle: "Methodik",
     pdfMethodologyBody:
       "Vermögensanteile von WID.world (Distributional National Accounts). Perzentile über Pareto-Interpolation zwischen den veröffentlichten Stützstellen. Währungsumrechnung über EZB-Kurse; KKP über Weltbank. Alle Daten zur Build-Zeit gezogen, keine Nutzerdaten an einen Server gesendet.",

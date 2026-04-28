@@ -555,6 +555,25 @@ export const pt: Dictionary = {
     pdfSection5Title: "5. O que isso significa",
     pdfSection5Body:
       "Percentis descrevem uma posição, não um veredicto. Onde você está reflete capital acumulado, poupança de uma vida, herança e oportunidade estrutural — não o seu valor pessoal. Os dados existem para informar, não para classificar.",
+    pdfCrossCountryTitle: "Mesmo patrimônio, outro país",
+    pdfCrossCountryBody:
+      "Seu número não significa a mesma coisa em todo lugar — o ranking muda assim que cruza uma fronteira. Aqui está o que o mesmo patrimônio significaria em outros países.",
+    pdfCrossCountryColCountry: "País",
+    pdfCrossCountryColPercentile: "Seu percentil",
+    pdfCrossCountryColBracket: "Faixa",
+    pdfScaleGapTitle: "A escala do abismo",
+    pdfScaleGapBody:
+      "A desigualdade é difícil de sentir porque o abismo é logarítmico. As barras abaixo estão em escala logarítmica — cada uma é cerca de 10× a anterior. A pessoa mais rica do seu país está várias décadas de zeros acima da riqueza média nacional.",
+    pdfScaleLabelYou: "Você",
+    pdfScaleLabelMedian: "Riqueza mediana",
+    pdfScaleLabelMean: "Riqueza média",
+    pdfScaleLabelTop1Avg: "Média do top 1%",
+    pdfScaleLabelRichest: "Pessoa mais rica do país",
+    pdfScaleRatioTemplate: "{ratio}× sua riqueza",
+    pdfScaleNote: "Escala logarítmica — as barras não são lineares.",
+    pdfWealthShareTitle: "População vs. participação na riqueza",
+    pdfWealthShareLegendPopulation: "População",
+    pdfWealthShareLegendWealth: "Riqueza",
     pdfMethodologyTitle: "Metodologia",
     pdfMethodologyBody:
       "Participações de riqueza do WID.world (Distributional National Accounts). Percentis via interpolação de Pareto entre os limites publicados. Conversão de moedas com taxas do BCE; PPC do Banco Mundial. Todos os dados obtidos em build-time, nenhum dado de usuário enviado a servidor.",

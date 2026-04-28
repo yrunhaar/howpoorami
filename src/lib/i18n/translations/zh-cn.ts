@@ -528,6 +528,25 @@ export const zhCn: Dictionary = {
     pdfSection5Title: "5. 这意味着什么",
     pdfSection5Body:
       "百分位描述的是位置，不是判决。你所在的位置反映了累积的资本、终生储蓄、继承与结构性机会 —— 而非个人价值。这些数据用于让人理解，不是用于排名。",
+    pdfCrossCountryTitle: "同样的财富，不同的国家",
+    pdfCrossCountryBody:
+      "你的数字含义并不固定 —— 跨过国界，它的位置就会改变。下面是同一笔净资产在其他国家意味着什么。",
+    pdfCrossCountryColCountry: "国家",
+    pdfCrossCountryColPercentile: "你的百分位",
+    pdfCrossCountryColBracket: "档位",
+    pdfScaleGapTitle: "差距的尺度",
+    pdfScaleGapBody:
+      "不平等很难被「感受」到，是因为差距是对数级的。下面的柱状图采用对数刻度 —— 每根柱子约为前一根的 10 倍。你所在国家的最富有者，比全国平均财富多出几个数量级的零。",
+    pdfScaleLabelYou: "你",
+    pdfScaleLabelMedian: "中位数财富",
+    pdfScaleLabelMean: "平均财富",
+    pdfScaleLabelTop1Avg: "前 1% 平均",
+    pdfScaleLabelRichest: "国家最富有者",
+    pdfScaleRatioTemplate: "你财富的 {ratio} 倍",
+    pdfScaleNote: "对数刻度 —— 柱长度并非线性。",
+    pdfWealthShareTitle: "人口 vs 财富份额",
+    pdfWealthShareLegendPopulation: "人口",
+    pdfWealthShareLegendWealth: "财富",
     pdfMethodologyTitle: "方法论",
     pdfMethodologyBody:
       "财富份额来自 WID.world 的分布式国民账户。百分位通过对已发布份额边界进行帕累托插值得到。汇率换算使用欧洲央行汇率，PPP 来自世界银行。所有数据在构建时获取，用户数据从不发往任何服务器。",
