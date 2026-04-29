@@ -26,11 +26,11 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   metadataBase: new URL("https://howpoorami.org"),
   title: {
-    default: "How Poor Am I? — See Where You Stand in Global Wealth",
+    default: "How Poor Am I? · See Where You Stand in Global Wealth",
     template: "%s | How Poor Am I?",
   },
   description:
-    "Find out where you really stand in the wealth distribution. Enter your income or net wealth and discover how you compare to the richest — and poorest — people in your country. Interactive charts for 30+ countries.",
+    "Find out where you really stand in the wealth distribution. Enter your income or net wealth and discover how you compare to the richest, and poorest, people in your country. Interactive charts for 30+ countries.",
   keywords: [
     "how poor am I",
     "wealth inequality",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "How Poor Am I? — See Where You Stand",
+    title: "How Poor Am I? · See Where You Stand",
     description:
       "Think you're middle class? Enter your income and find out where you really stand in the wealth distribution. Interactive data for 30+ countries.",
     siteName: "How Poor Am I?",
@@ -68,13 +68,13 @@ export const metadata: Metadata = {
         url: "https://howpoorami.org/og-image.png",
         width: 1200,
         height: 630,
-        alt: "How Poor Am I? — See where you stand in the global wealth distribution",
+        alt: "How Poor Am I? · See where you stand in the global wealth distribution",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "How Poor Am I? — The Wealth Gap Visualized",
+    title: "How Poor Am I? · The Wealth Gap Visualized",
     description:
       "Enter your income or wealth and see where you stand. Interactive wealth inequality data for 30+ countries.",
     images: ["https://howpoorami.org/og-image.png"],
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
  *   2. system preference if it's explicitly dark (prefers-color-scheme: dark),
  *   3. default to light.
  *
- * Only an explicit `prefers-color-scheme: dark` flips us into dark mode —
+ * Only an explicit `prefers-color-scheme: dark` flips us into dark mode 
  * otherwise (including the "no preference" case) we render light. This
  * matches the published default and avoids surprising users who haven't
  * configured a system theme.
@@ -115,7 +115,7 @@ const themeScript = `
   (function() {
     try {
       var stored = localStorage.getItem('theme');
-      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var theme = stored || 'light';
       document.documentElement.setAttribute('data-theme', theme);
     } catch(e) {
       document.documentElement.setAttribute('data-theme', 'light');
