@@ -23,6 +23,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border-subtle px-4 sm:px-6 lg:px-8 py-6">
       <div className="max-w-6xl mx-auto text-center">
+        <SisterProjects />
         <nav
           aria-label="Footer navigation"
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-text-muted"
@@ -73,5 +74,45 @@ export default function Footer() {
         </p>
       </div>
     </footer>
+  );
+}
+
+/**
+ * Cross-promotion strip linking the three sister apps in this family.
+ * The current site is shown as the active pill; the other two are clickable.
+ */
+function SisterProjects() {
+  const sites = [
+    { id: "howpoorami", emoji: "💸", label: "howpoorami.org", url: "https://howpoorami.org" },
+    { id: "howgreenami", emoji: "🌱", label: "howgreenami.org", url: "https://howgreenami.org" },
+    { id: "howaffordable", emoji: "🏠", label: "howaffordable.org", url: "https://howaffordable.org" },
+  ] as const;
+  const current = "howpoorami";
+
+  return (
+    <div className="mb-6 flex flex-wrap items-center justify-center gap-2 text-xs">
+      <span className="text-text-muted/70 mr-1">Sister projects:</span>
+      {sites.map((s) => {
+        const isCurrent = s.id === current;
+        const className = isCurrent
+          ? "inline-flex items-center gap-1 rounded-full border border-border-subtle bg-bg-card text-text-muted/70 px-3 py-1"
+          : "inline-flex items-center gap-1 rounded-full border border-border-subtle bg-bg-card hover:border-accent-periwinkle/50 hover:text-accent-periwinkle text-text-secondary px-3 py-1 transition-colors";
+        const inner = (
+          <>
+            <span aria-hidden="true">{s.emoji}</span>
+            <span>{s.label}</span>
+          </>
+        );
+        return isCurrent ? (
+          <span key={s.id} className={className} aria-current="page">
+            {inner}
+          </span>
+        ) : (
+          <a key={s.id} href={s.url} target="_blank" rel="noopener noreferrer" className={className}>
+            {inner}
+          </a>
+        );
+      })}
+    </div>
   );
 }
