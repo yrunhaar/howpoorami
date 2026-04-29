@@ -4,6 +4,7 @@ import { buildHreflangAlternates } from "@/lib/i18n/urls";
 import { getFaqContent } from "@/lib/i18n/content/faq";
 import { SITE_URL } from "@/lib/seo";
 import FaqContent from "@/components/FaqContent";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const t = getDictionary("en");
 
@@ -21,5 +22,10 @@ export const metadata: Metadata = {
 };
 
 export default function FaqPage() {
-  return <FaqContent content={getFaqContent("en")} locale="en" />;
+  return (
+    <>
+      <BreadcrumbJsonLd crumbs={[{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }]} />
+      <FaqContent content={getFaqContent("en")} locale="en" />
+    </>
+  );
 }

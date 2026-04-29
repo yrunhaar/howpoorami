@@ -4,6 +4,7 @@ import { buildHreflangAlternates } from "@/lib/i18n/urls";
 import { getAboutContent } from "@/lib/i18n/content/about";
 import { SITE_URL } from "@/lib/seo";
 import AboutContent from "@/components/AboutContent";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 const t = getDictionary("en");
 
@@ -21,5 +22,10 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutContent content={getAboutContent("en")} locale="en" />;
+  return (
+    <>
+      <BreadcrumbJsonLd crumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]} />
+      <AboutContent content={getAboutContent("en")} locale="en" />
+    </>
+  );
 }
