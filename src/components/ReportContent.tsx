@@ -155,9 +155,6 @@ function Landing({ onStart }: { readonly onStart: () => void }) {
         <h1 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl text-text-primary leading-tight">
           {t.report.landingTitle}
         </h1>
-        <p className="text-text-secondary text-lg sm:text-xl mt-4 max-w-2xl mx-auto">
-          {t.report.landingSubtitle}
-        </p>
         <span className="inline-block mt-6 text-xs font-semibold text-accent-amber bg-accent-amber/15 border border-accent-amber/30 rounded-full px-3 py-1.5">
           ☕ {t.report.landingFreeBadge}
         </span>

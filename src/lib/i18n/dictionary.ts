@@ -672,6 +672,24 @@ export interface Dictionary {
     readonly pdfCrossCountryColCountry: string;
     readonly pdfCrossCountryColPercentile: string;
     readonly pdfCrossCountryColBracket: string;
+    /** Trailing insight rendered after the country table. */
+    readonly pdfCrossCountryInsight: string;
+
+    // Cover narrative (replaces the old marketing subtitle on the cover).
+    /** "You are richer than {share}% of households in {country} — that puts you in the top half of the country distribution." */
+    readonly pdfCoverNarrativeAboveTemplate: string;
+    /** "You sit below the {country} median: {share}% of households here have less than you do." */
+    readonly pdfCoverNarrativeBelowTemplate: string;
+
+    // Practical takeaways block on the closing page.
+    readonly pdfTakeawaysTitle: string;
+    readonly pdfTakeawaysIntro: string;
+    /** Bullets keyed by user-segment. Selected dynamically in generate-pdf.ts. */
+    readonly pdfTakeawaysTopOnePct: string;
+    readonly pdfTakeawaysTopTen: string;
+    readonly pdfTakeawaysMiddle: string;
+    readonly pdfTakeawaysBottomHalf: string;
+    readonly pdfTakeawaysGlobalContext: string;
 
     // Scale-gap page (How Long? equivalent — visualizes orders of magnitude)
     readonly pdfScaleGapTitle: string;

@@ -406,16 +406,88 @@ function drawCover(
 
   ctx.cursorY = 140;
 
-  // Cover lower body — small framing paragraph so the page isn't sparse.
+  // Cover lower body — at-a-glance country snapshot strip plus a tight
+  // one-sentence interpretation. Replaces the previous marketing tagline
+  // and gives the cover real density without competing with the section
+  // headlines below.
+  drawCoverSnapshot(ctx, percentile);
+}
+
+/**
+ * Cover-page snapshot strip. Four small stat columns (median, mean, top
+ * 10% threshold, top 1% threshold) plus a one-sentence narrative
+ * interpreting the user's percentile in plain language.
+ */
+function drawCoverSnapshot(ctx: DrawContext, percentile: number): void {
+  const { doc, t, country, localeCountryName } = ctx;
+  const cc = country.currency;
+  const thresholds = getWealthThresholds(country);
+
+  type Cell = { readonly label: string; readonly value: number };
+  const cells: readonly Cell[] = [
+    { label: t.report.pdfContextLabelMedian, value: country.medianWealthPerAdult },
+    { label: t.report.pdfContextLabelMean, value: country.meanWealthPerAdult },
+    { label: t.report.pdfContextLabelTop10, value: thresholds.p90 },
+    { label: t.report.pdfContextLabelTop1, value: thresholds.p99 },
+  ];
+
+  const stripY = ctx.cursorY;
+  const stripH = 28;
+  const cellW = W / cells.length;
+
+  // Background card behind the four stats.
+  setFill(doc, [255, 255, 255]);
+  setStroke(doc, C.rule);
+  doc.setLineWidth(0.4);
+  doc.roundedRect(M, stripY, W, stripH, 2.5, 2.5, "FD");
+
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
+    const x = M + i * cellW;
+    if (i > 0) {
+      setStroke(doc, C.rule);
+      doc.setLineWidth(0.3);
+      doc.line(x, stripY + 4, x, stripY + stripH - 4);
+    }
+    setText(doc, C.muted);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(7.5);
+    const labelLines = doc.splitTextToSize(
+      cell.label,
+      cellW - 6,
+    ) as string[];
+    doc.text(labelLines.slice(0, 1), x + 4, stripY + 7);
+
+    const valueLocal = fromUSD(cell.value, cc);
+    setText(doc, C.ink);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(11);
+    doc.text(formatCurrency(valueLocal, cc, true), x + 4, stripY + 18);
+  }
+
+  ctx.cursorY = stripY + stripH + 8;
+
+  // One-sentence narrative tying the percentile to the country context.
+  const aboveMedian = percentile <= 50;
+  const richerThan = aboveMedian
+    ? (100 - percentile).toFixed(1)
+    : percentile.toFixed(1);
+  const narrative = aboveMedian
+    ? interpolate(t.report.pdfCoverNarrativeAboveTemplate, {
+        country: localeCountryName,
+        share: richerThan,
+      })
+    : interpolate(t.report.pdfCoverNarrativeBelowTemplate, {
+        country: localeCountryName,
+        share: richerThan,
+      });
+
   doc.setFont("helvetica", "italic");
-  doc.setFontSize(11);
+  doc.setFontSize(10.5);
   setText(doc, C.body);
-  const intro = doc.splitTextToSize(
-    t.report.landingSubtitle,
-    W,
-  ) as string[];
-  doc.text(intro, M, ctx.cursorY);
-  ctx.cursorY += intro.length * 6 + 8;
+  const lines = doc.splitTextToSize(narrative, W) as string[];
+  doc.text(lines, M, ctx.cursorY);
+  ctx.cursorY += lines.length * 5.5;
 }
 
 function drawWhereYouStand(
@@ -589,11 +661,16 @@ function drawCrossCountry(ctx: DrawContext, inputs: ReportInputs): void {
   // Header
   const tableY = ctx.cursorY + 2;
   const colCountry = M;
-  const colBracket = M + 56;
-  const colBar = M + 90;
+  const colBracket = M + 64;
+  const colBar = M + 98;
   const colBarW = W - (colBar - M) - 22;
   const colPercent = M + W;
   const rowH = 11;
+  // ISO-code chip dimensions (replaces emoji flag — jsPDF Helvetica
+  // can't render emoji glyphs, which produced garbled bytes in v1).
+  const chipW = 11;
+  const chipH = 6;
+  const chipPad = 2;
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(8.5);
@@ -620,11 +697,24 @@ function drawCrossCountry(ctx: DrawContext, inputs: ReportInputs): void {
     const accent = isYou ? C.amber : C.periwinkle;
     const y = tableY + 8 + i * rowH;
 
-    // Country name (bold for the user's own country)
+    // ISO-code chip + country name (bold for the user's own country).
+    // The chip replaces the unrenderable flag emoji from v1.
+    const chipY = y - chipH + 0.5;
+    setFill(doc, isYou ? C.amberSoft : C.bandSoft);
+    setStroke(doc, isYou ? C.amber : C.rule);
+    doc.setLineWidth(0.3);
+    doc.roundedRect(colCountry, chipY, chipW, chipH, 1.2, 1.2, "FD");
+    setText(doc, isYou ? C.amber : C.muted);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(7);
+    doc.text(code, colCountry + chipW / 2, chipY + chipH - 1.6, {
+      align: "center",
+    });
+
     setText(doc, C.ink);
     doc.setFont("helvetica", isYou ? "bold" : "normal");
     doc.setFontSize(10);
-    doc.text(`${c.flag} ${localized}`, colCountry, y);
+    doc.text(localized, colCountry + chipW + chipPad + 1, y);
 
     // Bracket
     setText(doc, C.body);
@@ -657,6 +747,10 @@ function drawCrossCountry(ctx: DrawContext, inputs: ReportInputs): void {
   }
 
   ctx.cursorY = tableY + 8 + codes.length * rowH + 8;
+
+  // Trailing insight paragraph — frames the percentile spread the user
+  // sees in the table.
+  paragraph(ctx, t.report.pdfCrossCountryInsight, { marginBottom: 4 });
 }
 
 /** Log-scale bars showing user / median / mean / top1% avg / richest. The
@@ -776,12 +870,42 @@ function drawScaleGap(ctx: DrawContext, netWorthUSD: number): void {
   ctx.cursorY += 8;
 }
 
+/**
+ * Practical takeaways page — picks 2 bullets from the dictionary based
+ * on the user's bracket (top 1, top 10, middle, bottom half) plus one
+ * fixed global-context bullet. Sits between the scale-gap page and the
+ * editorial closing page.
+ */
+function drawTakeaways(ctx: DrawContext, percentile: number): void {
+  const { t } = ctx;
+  newPage(ctx);
+
+  sectionHeading(ctx, "5", t.report.pdfTakeawaysTitle, C.lavender);
+  paragraph(ctx, t.report.pdfTakeawaysIntro, { marginBottom: 8 });
+
+  const bullets: string[] = [];
+  if (percentile <= 1) {
+    bullets.push(t.report.pdfTakeawaysTopOnePct);
+  } else if (percentile <= 10) {
+    bullets.push(t.report.pdfTakeawaysTopTen);
+  } else if (percentile <= 50) {
+    bullets.push(t.report.pdfTakeawaysMiddle);
+  } else {
+    bullets.push(t.report.pdfTakeawaysBottomHalf);
+  }
+  bullets.push(t.report.pdfTakeawaysGlobalContext);
+
+  for (const body of bullets) {
+    paragraph(ctx, "• " + body, { marginBottom: 6 });
+  }
+}
+
 async function drawClosingPage(ctx: DrawContext): Promise<void> {
   const { doc, t, localeCountryName } = ctx;
   newPage(ctx);
 
   // Combined editorial + methodology + small Ko-fi ribbon.
-  sectionHeading(ctx, "5", t.report.pdfSection3Title, C.amber);
+  sectionHeading(ctx, "6", t.report.pdfSection3Title, C.amber);
   paragraph(
     ctx,
     interpolate(t.report.pdfSection3BodyTemplate, {
@@ -790,10 +914,10 @@ async function drawClosingPage(ctx: DrawContext): Promise<void> {
     { marginBottom: 8 },
   );
 
-  sectionHeading(ctx, "6", t.report.pdfSection4Title, C.periwinkle);
+  sectionHeading(ctx, "7", t.report.pdfSection4Title, C.periwinkle);
   paragraph(ctx, t.report.pdfSection4Body, { marginBottom: 8 });
 
-  sectionHeading(ctx, "7", t.report.pdfSection5Title, C.sage);
+  sectionHeading(ctx, "8", t.report.pdfSection5Title, C.sage);
   paragraph(ctx, t.report.pdfSection5Body, { marginBottom: 8 });
 
   // Methodology block — small, set apart with a left rule.
@@ -900,6 +1024,7 @@ export async function generateReportPdf(inputs: ReportInputs): Promise<void> {
   drawWealthInContext(ctx, netWorthUSD);
   drawCrossCountry(ctx, inputs);
   drawScaleGap(ctx, netWorthUSD);
+  drawTakeaways(ctx, percentile);
   await drawClosingPage(ctx);
   drawFooter(ctx);
 

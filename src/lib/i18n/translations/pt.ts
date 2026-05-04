@@ -575,6 +575,25 @@ export const pt: Dictionary = {
     pdfCrossCountryColCountry: "País",
     pdfCrossCountryColPercentile: "Seu percentil",
     pdfCrossCountryColBracket: "Faixa",
+    pdfCrossCountryInsight:
+      "The same net worth puts you in radically different brackets across borders. That isn't a quirk of the math — it's a direct read of how unequally wealth is distributed inside each country, and how far apart national wealth ladders sit from each other in real terms.",
+    pdfCoverNarrativeAboveTemplate:
+      "You are richer than {share}% of adults in {country} — that puts you in the top half of the country's wealth distribution. The pages that follow break down what that ranking means in practice, how the gap looks at the top, and how the same number reads in other markets.",
+    pdfCoverNarrativeBelowTemplate:
+      "You sit below the {country} median: {share}% of adults here have less wealth than you do. The pages that follow show where the country's wealth actually concentrates, how the gap to the top compares, and where the same number would land in other markets.",
+    pdfTakeawaysTitle: "What this number is and isn't",
+    pdfTakeawaysIntro:
+      "Personal reads of your snapshot, given the percentile and the country context.",
+    pdfTakeawaysTopOnePct:
+      "You are inside the country's top 1% — the bracket that owns a disproportionate share of total wealth. Tax policy, capital-gains regimes, and inheritance rules apply differently to you than to the median household; your number is more a read on accumulated capital than on labor income.",
+    pdfTakeawaysTopTen:
+      "You are inside the country's top 10%. Most of the wealth gap to the very top is structural: equity ownership, real estate appreciation, and inherited capital, not salary differences.",
+    pdfTakeawaysMiddle:
+      "You sit in the country's middle 40%, the bracket where housing equity tends to dominate the balance sheet. Earnings can move you laterally; capital ownership is what moves you up the ladder.",
+    pdfTakeawaysBottomHalf:
+      "You sit in the country's bottom 50%. This bracket collectively holds a small slice of total wealth — usually under 5%, regardless of how rich the country looks on aggregate. The dominant constraints are housing and labor income.",
+    pdfTakeawaysGlobalContext:
+      "Wealth ranks shift dramatically across borders. The same number can be top 30% in one country and bottom 30% in another — the cross-country page above shows how. National rank is one frame, global rank is another, and they often disagree.",
     pdfScaleGapTitle: "A escala do abismo",
     pdfScaleGapBody:
       "A desigualdade é difícil de sentir porque o abismo é logarítmico. As barras abaixo estão em escala logarítmica. Cada uma é cerca de 10× a anterior. A pessoa mais rica do seu país está várias décadas de zeros acima da riqueza média nacional.",
