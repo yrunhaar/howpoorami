@@ -569,6 +569,26 @@ export const it: Dictionary = {
     pdfSection5Title: "5. Cosa significa",
     pdfSection5Body:
       "I percentili descrivono una posizione, non un verdetto. Dove ti trovi riflette capitale accumulato, risparmi di una vita, eredità e opportunità strutturali. Non il tuo valore personale. I dati servono a informare, non a classificare.",
+        pdfContextColGap: "Gap to enter",
+    pdfContextYearsToReachTemplate:
+      "At the country median annual income of {medianIncome} and a 20% savings rate, it would take roughly {yearsTopTen} years to save the gap into the top 10% and {yearsTopOne} years to enter the top 1%.",
+    pdfIncomeVsWealthTitle: "Income vs wealth: the double gap",
+    pdfIncomeVsWealthBody:
+      "Income is what you earn this year. Wealth is what you have accumulated, inherited, or borrowed against. Most countries are far more unequal in wealth than in income — the chart below shows both sides for your country.",
+    pdfIncomeVsWealthLegendIncome: "Income share",
+    pdfIncomeVsWealthLegendWealth: "Wealth share",
+    pdfIncomeVsWealthInsightTemplate:
+      "In {country}, the bottom 50% earns {bottom50Income}% of national income but holds only {bottom50Wealth}% of national wealth. The top 1% earns {top1Income}% of income and owns {top1Wealth}%. Wealth always concentrates more steeply than income — the gap between the two is the engine of long-run inequality.",
+    pdfHistoricalTitle: "How wealth concentration evolved",
+    pdfHistoricalBody:
+      "WID.world tracks national wealth distributions back several decades. Higher top-percentile lines mean wealth is more concentrated. Lower bottom-50% lines mean less of the country's wealth sits with the bottom half.",
+    pdfHistoricalSeriesTop1: "Top 1% wealth share",
+    pdfHistoricalSeriesTop10: "Top 10% wealth share",
+    pdfHistoricalSeriesBottom50: "Bottom 50% wealth share",
+    pdfHistoricalInsightTemplate:
+      "In {firstYear}, the top 1% in {country} held {firstShare}% of national wealth. By {lastYear}, that figure was {lastShare}% — a shift of {direction} {magnitude} percentage points over the period.",
+    pdfHistoricalNoData:
+      "No historical wealth-share series available for this country in the WID.world dataset. The cross-country and scale-gap pages above still apply at the snapshot level.",
     pdfCrossCountryTitle: "Stesso patrimonio, paese diverso",
     pdfCrossCountryBody:
       "Il tuo numero non significa la stessa cosa ovunque. Il suo rango cambia ad ogni confine. Ecco cosa significherebbe lo stesso patrimonio altrove.",

@@ -561,6 +561,26 @@ export const ja: Dictionary = {
     pdfSection5Title: "5. これが意味するもの",
     pdfSection5Body:
       "パーセンタイルは位置を示すだけで、判決ではありません。あなたの位置は、蓄積された資本、生涯の貯蓄、相続、構造的機会を反映するものであって、人としての価値を測るものではありません。データは情報を与えるためにあり、序列をつけるためではありません。",
+        pdfContextColGap: "Gap to enter",
+    pdfContextYearsToReachTemplate:
+      "At the country median annual income of {medianIncome} and a 20% savings rate, it would take roughly {yearsTopTen} years to save the gap into the top 10% and {yearsTopOne} years to enter the top 1%.",
+    pdfIncomeVsWealthTitle: "Income vs wealth: the double gap",
+    pdfIncomeVsWealthBody:
+      "Income is what you earn this year. Wealth is what you have accumulated, inherited, or borrowed against. Most countries are far more unequal in wealth than in income — the chart below shows both sides for your country.",
+    pdfIncomeVsWealthLegendIncome: "Income share",
+    pdfIncomeVsWealthLegendWealth: "Wealth share",
+    pdfIncomeVsWealthInsightTemplate:
+      "In {country}, the bottom 50% earns {bottom50Income}% of national income but holds only {bottom50Wealth}% of national wealth. The top 1% earns {top1Income}% of income and owns {top1Wealth}%. Wealth always concentrates more steeply than income — the gap between the two is the engine of long-run inequality.",
+    pdfHistoricalTitle: "How wealth concentration evolved",
+    pdfHistoricalBody:
+      "WID.world tracks national wealth distributions back several decades. Higher top-percentile lines mean wealth is more concentrated. Lower bottom-50% lines mean less of the country's wealth sits with the bottom half.",
+    pdfHistoricalSeriesTop1: "Top 1% wealth share",
+    pdfHistoricalSeriesTop10: "Top 10% wealth share",
+    pdfHistoricalSeriesBottom50: "Bottom 50% wealth share",
+    pdfHistoricalInsightTemplate:
+      "In {firstYear}, the top 1% in {country} held {firstShare}% of national wealth. By {lastYear}, that figure was {lastShare}% — a shift of {direction} {magnitude} percentage points over the period.",
+    pdfHistoricalNoData:
+      "No historical wealth-share series available for this country in the WID.world dataset. The cross-country and scale-gap pages above still apply at the snapshot level.",
     pdfCrossCountryTitle: "同じ資産、違う国",
     pdfCrossCountryBody:
       "あなたの数字の意味は固定ではありません。国境を超えるたびに順位は変わります。同じ純資産が他の国ではどういう意味を持つかをここに示します。",

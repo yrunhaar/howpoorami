@@ -38,6 +38,8 @@ import {
   findPercentile,
   getWealthThresholds,
   type CountryData,
+  type HistoricalPoint,
+  type ShareDistribution,
 } from "@/data/wealth-data";
 import { RICHEST_BY_COUNTRY } from "@/data/billionaires";
 import { toUSD, fromUSD } from "@/lib/currency";
@@ -627,6 +629,44 @@ function drawWealthInContext(ctx: DrawContext, netWorthUSD: number): void {
   }
 
   ctx.cursorY = tableY + (rows.length + 1) * rowH + 6;
+
+  // Years-to-reach footer: at the country median income with a 20%
+  // savings rate, how long would it take to close the gap to the top
+  // 10% / top 1% thresholds? Skip when the user is already above both
+  // thresholds (no gap to close).
+  const savingsRate = 0.20;
+  const annualSavingsLocal =
+    fromUSD(country.medianIncome, cc) * savingsRate;
+  if (annualSavingsLocal > 0) {
+    const top10GapLocal = Math.max(
+      0,
+      fromUSD(thresholds.p90, cc) - fromUSD(netWorthUSD, cc),
+    );
+    const top1GapLocal = Math.max(
+      0,
+      fromUSD(thresholds.p99, cc) - fromUSD(netWorthUSD, cc),
+    );
+    const yearsTopTen = top10GapLocal / annualSavingsLocal;
+    const yearsTopOne = top1GapLocal / annualSavingsLocal;
+    if (yearsTopTen > 0 || yearsTopOne > 0) {
+      const note = interpolate(t.report.pdfContextYearsToReachTemplate, {
+        medianIncome: formatCurrency(fromUSD(country.medianIncome, cc), cc, true),
+        yearsTopTen:
+          yearsTopTen <= 0
+            ? "0"
+            : yearsTopTen > 200
+              ? "200+"
+              : yearsTopTen.toFixed(0),
+        yearsTopOne:
+          yearsTopOne <= 0
+            ? "0"
+            : yearsTopOne > 500
+              ? "500+"
+              : yearsTopOne.toFixed(0),
+      });
+      paragraph(ctx, note, { marginBottom: 4 });
+    }
+  }
 }
 
 /** Pick 5 representative countries to compare against. The user's own
@@ -646,6 +686,219 @@ function bracketLabel(percentile: number, t: ReturnType<typeof getDictionary>): 
   if (percentile >= 90) return t.charts.top10;
   if (percentile >= 50) return t.charts.middle40;
   return t.charts.bottom50;
+}
+
+/**
+ * Income vs wealth — paired stacked bars showing the country's income
+ * distribution and wealth distribution side by side. Wealth always
+ * concentrates more steeply than income; this is the report's headline
+ * inequality story for the user's country.
+ */
+function drawIncomeVsWealth(ctx: DrawContext): void {
+  const { doc, t, country, localeCountryName } = ctx;
+  newPage(ctx);
+
+  sectionHeading(ctx, "2b", t.report.pdfIncomeVsWealthTitle, C.lavender);
+  paragraph(ctx, t.report.pdfIncomeVsWealthBody, { marginBottom: 8 });
+
+  // Two stacked bars: income shares (top) and wealth shares (bottom).
+  const segments = [
+    { key: "bottom50", label: t.charts.bottom50, color: C.sage, weight: (s: ShareDistribution) => s.bottom50 },
+    { key: "middle40", label: t.charts.middle40, color: C.periwinkle, weight: (s: ShareDistribution) => s.middle40 },
+    { key: "top10", label: t.charts.top10, color: C.amber, weight: (s: ShareDistribution) => Math.max(0, s.top10 - s.top1) },
+    { key: "top1", label: t.charts.top1, color: C.rose, weight: (s: ShareDistribution) => s.top1 },
+  ] as const;
+
+  const incomeSegments: readonly BarSegment[] = segments.map((s) => ({
+    label: s.label,
+    weight: s.weight(country.incomeShares),
+    color: s.color,
+  }));
+  const wealthSegments: readonly BarSegment[] = segments.map((s) => ({
+    label: s.label,
+    weight: s.weight(country.wealthShares),
+    color: s.color,
+  }));
+
+  const barH = 14;
+  const labelGap = 4;
+  const x = M;
+  const w = W;
+
+  // Income bar (top)
+  setText(doc, C.body);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9.5);
+  doc.text(t.report.pdfIncomeVsWealthLegendIncome, x, ctx.cursorY);
+  ctx.cursorY += labelGap;
+  stackedBar(ctx, x, ctx.cursorY, w, barH, incomeSegments);
+  ctx.cursorY += barH + 10;
+
+  // Wealth bar (below)
+  setText(doc, C.body);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9.5);
+  doc.text(t.report.pdfIncomeVsWealthLegendWealth, x, ctx.cursorY);
+  ctx.cursorY += labelGap;
+  stackedBar(ctx, x, ctx.cursorY, w, barH, wealthSegments);
+  ctx.cursorY += barH + 12;
+
+  // Inline insight paragraph with concrete numbers from this country.
+  const insight = interpolate(t.report.pdfIncomeVsWealthInsightTemplate, {
+    country: localeCountryName,
+    bottom50Income: country.incomeShares.bottom50.toFixed(1),
+    bottom50Wealth: country.wealthShares.bottom50.toFixed(1),
+    top1Income: country.incomeShares.top1.toFixed(1),
+    top1Wealth: country.wealthShares.top1.toFixed(1),
+  });
+  paragraph(ctx, insight, { marginBottom: 4 });
+}
+
+/**
+ * How concentration evolved — a small line chart with up to three series
+ * (top 1%, top 10%, bottom 50% wealth shares) drawn from WID.world's
+ * historical data. Falls back to a one-paragraph note when the country
+ * has no historical series in the dataset.
+ */
+function drawHistoricalConcentration(ctx: DrawContext): void {
+  const { doc, t, country, localeCountryName } = ctx;
+  newPage(ctx);
+
+  sectionHeading(ctx, "4b", t.report.pdfHistoricalTitle, C.amber);
+
+  const top1 = country.historicalWealthTop1;
+  const top10 = country.historicalWealthTop10;
+  const bottom50 = country.historicalWealthBottom50;
+  const allEmpty = top1.length === 0 && top10.length === 0 && bottom50.length === 0;
+
+  if (allEmpty) {
+    paragraph(ctx, t.report.pdfHistoricalNoData, { marginBottom: 4 });
+    return;
+  }
+
+  paragraph(ctx, t.report.pdfHistoricalBody, { marginBottom: 6 });
+
+  // Chart area
+  const chartX = M;
+  const chartY = ctx.cursorY;
+  const chartW = W;
+  const chartH = 80;
+  const padL = 18;
+  const padB = 12;
+
+  // Y axis: 0..100 (percent of national wealth)
+  const allPoints = [...top1, ...top10, ...bottom50];
+  const minYear = Math.min(...allPoints.map((p) => p.year));
+  const maxYear = Math.max(...allPoints.map((p) => p.year));
+  // Cap the y-axis at slightly above the max series value to use space.
+  const maxValue = Math.max(
+    ...allPoints.map((p) => p.share * 100),
+    50,
+  );
+  const yMax = Math.min(100, Math.ceil(maxValue / 10) * 10 + 5);
+
+  // Background card
+  setFill(doc, [255, 255, 255]);
+  setStroke(doc, C.rule);
+  doc.setLineWidth(0.3);
+  doc.roundedRect(chartX, chartY, chartW, chartH, 1.5, 1.5, "FD");
+
+  const xScale = (yr: number): number =>
+    chartX + padL + ((yr - minYear) / Math.max(1, maxYear - minYear)) *
+      (chartW - padL - 4);
+  const yScale = (val: number): number =>
+    chartY + chartH - padB - (val / yMax) * (chartH - padB - 6);
+
+  // Y gridlines + labels
+  setStroke(doc, C.rule);
+  doc.setLineWidth(0.2);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(7);
+  setText(doc, C.muted);
+  for (let v = 0; v <= yMax; v += 20) {
+    const y = yScale(v);
+    doc.line(chartX + padL, y, chartX + chartW - 4, y);
+    doc.text(`${v}%`, chartX + padL - 2, y + 1.5, { align: "right" });
+  }
+
+  // X axis tick labels — start, mid, end years.
+  const xTicks = [
+    minYear,
+    Math.round((minYear + maxYear) / 2),
+    maxYear,
+  ];
+  for (const yr of xTicks) {
+    doc.text(`${yr}`, xScale(yr), chartY + chartH - 2, { align: "center" });
+  }
+
+  // Draw a series as a poly-line.
+  const drawSeries = (
+    series: readonly HistoricalPoint[],
+    color: Color,
+    width = 0.7,
+  ): void => {
+    if (series.length === 0) return;
+    setStroke(doc, color);
+    doc.setLineWidth(width);
+    for (let i = 1; i < series.length; i++) {
+      const a = series[i - 1];
+      const b = series[i];
+      doc.line(
+        xScale(a.year),
+        yScale(a.share * 100),
+        xScale(b.year),
+        yScale(b.share * 100),
+      );
+    }
+  };
+
+  drawSeries(bottom50, C.sage, 0.9);
+  drawSeries(top10, C.periwinkle, 0.9);
+  drawSeries(top1, C.rose, 1.1);
+
+  ctx.cursorY = chartY + chartH + 4;
+
+  // Legend strip
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(8);
+  let legendX = chartX;
+  const legendY = ctx.cursorY;
+  const legendItems: readonly { color: Color; label: string }[] = [
+    { color: C.rose, label: t.report.pdfHistoricalSeriesTop1 },
+    { color: C.periwinkle, label: t.report.pdfHistoricalSeriesTop10 },
+    { color: C.sage, label: t.report.pdfHistoricalSeriesBottom50 },
+  ];
+  for (const item of legendItems) {
+    setFill(doc, item.color);
+    doc.rect(legendX, legendY, 6, 2, "F");
+    setText(doc, C.body);
+    doc.text(item.label, legendX + 8, legendY + 2);
+    legendX +=
+      8 +
+      (doc.getTextWidth(item.label) ?? item.label.length * 1.5) +
+      8;
+  }
+  ctx.cursorY = legendY + 8;
+
+  // Insight paragraph using the start- and end-points of the top1 series.
+  if (top1.length >= 2) {
+    const first = top1[0];
+    const last = top1[top1.length - 1];
+    const delta = (last.share - first.share) * 100;
+    const direction =
+      delta > 0.5 ? "+" : delta < -0.5 ? "−" : "≈";
+    const magnitude = Math.abs(delta).toFixed(1);
+    const insight = interpolate(t.report.pdfHistoricalInsightTemplate, {
+      country: localeCountryName,
+      firstYear: first.year.toString(),
+      firstShare: (first.share * 100).toFixed(1),
+      lastYear: last.year.toString(),
+      lastShare: (last.share * 100).toFixed(1),
+      direction,
+      magnitude,
+    });
+    paragraph(ctx, insight, { marginBottom: 4 });
+  }
 }
 
 function drawCrossCountry(ctx: DrawContext, inputs: ReportInputs): void {
@@ -1022,8 +1275,10 @@ export async function generateReportPdf(inputs: ReportInputs): Promise<void> {
   newPage(ctx);
   drawWhereYouStand(ctx, percentile);
   drawWealthInContext(ctx, netWorthUSD);
+  drawIncomeVsWealth(ctx);
   drawCrossCountry(ctx, inputs);
   drawScaleGap(ctx, netWorthUSD);
+  drawHistoricalConcentration(ctx);
   drawTakeaways(ctx, percentile);
   await drawClosingPage(ctx);
   drawFooter(ctx);

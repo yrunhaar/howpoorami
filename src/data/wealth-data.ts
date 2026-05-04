@@ -17,14 +17,14 @@ import rawDetailedShares from "../../data/raw/wid-detailed-shares.json";
 
 export type CountryCode = "US" | "GB" | "FR" | "DE" | "NL";
 
-interface ShareDistribution {
+export interface ShareDistribution {
   readonly top1: number;
   readonly top10: number;
   readonly middle40: number;
   readonly bottom50: number;
 }
 
-interface HistoricalPoint {
+export interface HistoricalPoint {
   readonly year: number;
   readonly share: number;
 }

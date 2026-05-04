@@ -541,6 +541,26 @@ export const zhCn: Dictionary = {
     pdfSection5Title: "5. 这意味着什么",
     pdfSection5Body:
       "百分位描述的是位置，不是判决。你所在的位置反映了累积的资本、终生储蓄、继承与结构性机会。而非个人价值。这些数据用于让人理解，不是用于排名。",
+        pdfContextColGap: "Gap to enter",
+    pdfContextYearsToReachTemplate:
+      "At the country median annual income of {medianIncome} and a 20% savings rate, it would take roughly {yearsTopTen} years to save the gap into the top 10% and {yearsTopOne} years to enter the top 1%.",
+    pdfIncomeVsWealthTitle: "Income vs wealth: the double gap",
+    pdfIncomeVsWealthBody:
+      "Income is what you earn this year. Wealth is what you have accumulated, inherited, or borrowed against. Most countries are far more unequal in wealth than in income — the chart below shows both sides for your country.",
+    pdfIncomeVsWealthLegendIncome: "Income share",
+    pdfIncomeVsWealthLegendWealth: "Wealth share",
+    pdfIncomeVsWealthInsightTemplate:
+      "In {country}, the bottom 50% earns {bottom50Income}% of national income but holds only {bottom50Wealth}% of national wealth. The top 1% earns {top1Income}% of income and owns {top1Wealth}%. Wealth always concentrates more steeply than income — the gap between the two is the engine of long-run inequality.",
+    pdfHistoricalTitle: "How wealth concentration evolved",
+    pdfHistoricalBody:
+      "WID.world tracks national wealth distributions back several decades. Higher top-percentile lines mean wealth is more concentrated. Lower bottom-50% lines mean less of the country's wealth sits with the bottom half.",
+    pdfHistoricalSeriesTop1: "Top 1% wealth share",
+    pdfHistoricalSeriesTop10: "Top 10% wealth share",
+    pdfHistoricalSeriesBottom50: "Bottom 50% wealth share",
+    pdfHistoricalInsightTemplate:
+      "In {firstYear}, the top 1% in {country} held {firstShare}% of national wealth. By {lastYear}, that figure was {lastShare}% — a shift of {direction} {magnitude} percentage points over the period.",
+    pdfHistoricalNoData:
+      "No historical wealth-share series available for this country in the WID.world dataset. The cross-country and scale-gap pages above still apply at the snapshot level.",
     pdfCrossCountryTitle: "同样的财富，不同的国家",
     pdfCrossCountryBody:
       "你的数字含义并不固定。跨过国界，它的位置就会改变。下面是同一笔净资产在其他国家意味着什么。",

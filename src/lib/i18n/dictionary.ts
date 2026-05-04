@@ -666,6 +666,28 @@ export interface Dictionary {
     readonly pdfSection5Title: string;
     readonly pdfSection5Body: string;
 
+    // Section 2 enhancement: absolute gap to tier + years-to-reach line.
+    /** Column header for the absolute monetary gap to enter a tier. */
+    readonly pdfContextColGap: string;
+    /** Footer line under the table: years-to-reach narrative. */
+    readonly pdfContextYearsToReachTemplate: string;
+
+    // Income vs wealth section (the "double gap").
+    readonly pdfIncomeVsWealthTitle: string;
+    readonly pdfIncomeVsWealthBody: string;
+    readonly pdfIncomeVsWealthLegendIncome: string;
+    readonly pdfIncomeVsWealthLegendWealth: string;
+    readonly pdfIncomeVsWealthInsightTemplate: string;
+
+    // Historical concentration section.
+    readonly pdfHistoricalTitle: string;
+    readonly pdfHistoricalBody: string;
+    readonly pdfHistoricalSeriesTop1: string;
+    readonly pdfHistoricalSeriesTop10: string;
+    readonly pdfHistoricalSeriesBottom50: string;
+    readonly pdfHistoricalInsightTemplate: string;
+    readonly pdfHistoricalNoData: string;
+
     // Cross-country comparison page
     readonly pdfCrossCountryTitle: string;
     readonly pdfCrossCountryBody: string;
