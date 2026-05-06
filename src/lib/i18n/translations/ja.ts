@@ -561,26 +561,26 @@ export const ja: Dictionary = {
     pdfSection5Title: "5. これが意味するもの",
     pdfSection5Body:
       "パーセンタイルは位置を示すだけで、判決ではありません。あなたの位置は、蓄積された資本、生涯の貯蓄、相続、構造的機会を反映するものであって、人としての価値を測るものではありません。データは情報を与えるためにあり、序列をつけるためではありません。",
-        pdfContextColGap: "Gap to enter",
+        pdfContextColGap: "到達までの差",
     pdfContextYearsToReachTemplate:
-      "At the country median annual income of {medianIncome} and a 20% savings rate, it would take roughly {yearsTopTen} years to save the gap into the top 10% and {yearsTopOne} years to enter the top 1%.",
-    pdfIncomeVsWealthTitle: "Income vs wealth: the double gap",
+      "国の年収中央値 {medianIncome}、貯蓄率 20% で計算すると、上位 10% に入るための差を埋めるのに約 {yearsTopTen} 年、上位 1% に入るには約 {yearsTopOne} 年かかります。",
+    pdfIncomeVsWealthTitle: "所得 vs. 資産：二重の格差",
     pdfIncomeVsWealthBody:
-      "Income is what you earn this year. Wealth is what you have accumulated, inherited, or borrowed against. Most countries are far more unequal in wealth than in income — the chart below shows both sides for your country.",
-    pdfIncomeVsWealthLegendIncome: "Income share",
-    pdfIncomeVsWealthLegendWealth: "Wealth share",
+      "所得は今年あなたが稼ぐ金額。資産は蓄積し、相続し、または担保に入れた金額です。多くの国では所得よりも資産のほうがはるかに不平等です。下のグラフはあなたの国における両方を示します。",
+    pdfIncomeVsWealthLegendIncome: "所得シェア",
+    pdfIncomeVsWealthLegendWealth: "資産シェア",
     pdfIncomeVsWealthInsightTemplate:
-      "In {country}, the bottom 50% earns {bottom50Income}% of national income but holds only {bottom50Wealth}% of national wealth. The top 1% earns {top1Income}% of income and owns {top1Wealth}%. Wealth always concentrates more steeply than income — the gap between the two is the engine of long-run inequality.",
-    pdfHistoricalTitle: "How wealth concentration evolved",
+      "{country} では下位 50% が国民所得の {bottom50Income}% を稼ぐ一方、国民資産は {bottom50Wealth}% しか保有していません。上位 1% は所得の {top1Income}% を稼ぎ、資産の {top1Wealth}% を保有しています。資産は常に所得よりも急峻に集中します。両者の差こそが長期的な不平等の原動力です。",
+    pdfHistoricalTitle: "資産集中はどう推移してきたか",
     pdfHistoricalBody:
-      "WID.world tracks national wealth distributions back several decades. Higher top-percentile lines mean wealth is more concentrated. Lower bottom-50% lines mean less of the country's wealth sits with the bottom half.",
-    pdfHistoricalSeriesTop1: "Top 1% wealth share",
-    pdfHistoricalSeriesTop10: "Top 10% wealth share",
-    pdfHistoricalSeriesBottom50: "Bottom 50% wealth share",
+      "WID.world は各国の資産分布を数十年さかのぼって追跡しています。上位パーセンタイルの線が高いほど資産はより集中しています。下位 50% の線が低いほど、国の資産のうち下半分が持つ割合は小さくなります。",
+    pdfHistoricalSeriesTop1: "上位 1% の資産シェア",
+    pdfHistoricalSeriesTop10: "上位 10% の資産シェア",
+    pdfHistoricalSeriesBottom50: "下位 50% の資産シェア",
     pdfHistoricalInsightTemplate:
-      "In {firstYear}, the top 1% in {country} held {firstShare}% of national wealth. By {lastYear}, that figure was {lastShare}% — a shift of {direction} {magnitude} percentage points over the period.",
+      "{firstYear} 年、{country} の上位 1% は国民資産の {firstShare}% を保有していました。{lastYear} 年にはその数字は {lastShare}% となり、期間中に {direction} {magnitude} ポイントの変化がありました。",
     pdfHistoricalNoData:
-      "No historical wealth-share series available for this country in the WID.world dataset. The cross-country and scale-gap pages above still apply at the snapshot level.",
+      "この国については WID.world に資産シェアの歴史的時系列データがありません。前述の国際比較と格差スケールのページは、現時点のスナップショットとして引き続き有効です。",
     pdfCrossCountryTitle: "同じ資産、違う国",
     pdfCrossCountryBody:
       "あなたの数字の意味は固定ではありません。国境を超えるたびに順位は変わります。同じ純資産が他の国ではどういう意味を持つかをここに示します。",
@@ -588,24 +588,24 @@ export const ja: Dictionary = {
     pdfCrossCountryColPercentile: "あなたのパーセンタイル",
     pdfCrossCountryColBracket: "区分",
     pdfCrossCountryInsight:
-      "The same net worth puts you in radically different brackets across borders. That isn't a quirk of the math — it's a direct read of how unequally wealth is distributed inside each country, and how far apart national wealth ladders sit from each other in real terms.",
+      "同じ純資産でも、国境を越えると属する階層は大きく変わります。これは数学の偶然ではなく、各国内で資産がどれほど不平等に分配されているか、そして各国の資産ラダーが実数ベースでどれほど離れているかをそのまま示しています。",
     pdfCoverNarrativeAboveTemplate:
-      "You are richer than {share}% of adults in {country} — that puts you in the top half of the country's wealth distribution. The pages that follow break down what that ranking means in practice, how the gap looks at the top, and how the same number reads in other markets.",
+      "あなたは {country} の成人のうち {share}% より裕福で、その国の資産分布の上半分に位置します。続くページでは、この順位が実際に何を意味するか、上位との差はどう見えるか、同じ数字が他の市場ではどう読めるかを順に示します。",
     pdfCoverNarrativeBelowTemplate:
-      "You sit below the {country} median: {share}% of adults here have less wealth than you do. The pages that follow show where the country's wealth actually concentrates, how the gap to the top compares, and where the same number would land in other markets.",
-    pdfTakeawaysTitle: "What this number is and isn't",
+      "あなたは {country} の中央値より下に位置します。ここでは成人の {share}% があなたより資産が少ない、ということです。続くページでは、その国の資産が実際にどこに集中しているか、上位との差はどの程度か、同じ数字が他の市場ではどこに位置するかを示します。",
+    pdfTakeawaysTitle: "この数字が示すもの、示さないもの",
     pdfTakeawaysIntro:
-      "Personal reads of your snapshot, given the percentile and the country context.",
+      "パーセンタイルと国のコンテクストから読み取れる、あなたのスナップショットの個別解釈です。",
     pdfTakeawaysTopOnePct:
-      "You are inside the country's top 1% — the bracket that owns a disproportionate share of total wealth. Tax policy, capital-gains regimes, and inheritance rules apply differently to you than to the median household; your number is more a read on accumulated capital than on labor income.",
+      "あなたはその国の上位 1% に入っています。総資産のうち不釣り合いに大きな割合を保有する層です。税制、キャピタルゲイン課税、相続ルールは中央値の世帯とはあなたに異なる形で適用されます。あなたの数字は労働所得というより、蓄積された資本の状態を映しています。",
     pdfTakeawaysTopTen:
-      "You are inside the country's top 10%. Most of the wealth gap to the very top is structural: equity ownership, real estate appreciation, and inherited capital, not salary differences.",
+      "あなたはその国の上位 10% に入っています。ここから上位までの差の大半は構造的なものです。株式の保有、不動産の値上がり、相続された資本によるもので、給料の違いではありません。",
     pdfTakeawaysMiddle:
-      "You sit in the country's middle 40%, the bracket where housing equity tends to dominate the balance sheet. Earnings can move you laterally; capital ownership is what moves you up the ladder.",
+      "あなたはその国の中位 40% に位置します。住宅エクイティがバランスシートを左右しがちな層です。給料は横方向に動かす力ですが、ラダーを上げるのは資本の保有です。",
     pdfTakeawaysBottomHalf:
-      "You sit in the country's bottom 50%. This bracket collectively holds a small slice of total wealth — usually under 5%, regardless of how rich the country looks on aggregate. The dominant constraints are housing and labor income.",
+      "あなたはその国の下位 50% に位置します。この層が総資産に占める割合は集計しても小さく、国全体がどれほど豊かに見えても通常 5% 未満にとどまります。主な制約は住宅と労働所得です。",
     pdfTakeawaysGlobalContext:
-      "Wealth ranks shift dramatically across borders. The same number can be top 30% in one country and bottom 30% in another — the cross-country page above shows how. National rank is one frame, global rank is another, and they often disagree.",
+      "資産の順位は国境をまたぐと大きく変わります。同じ数字でもある国では上位 30%、別の国では下位 30% にもなり得ます。国際比較のページがそれを示しています。国内ランキングは一つの枠、世界ランキングは別の枠で、しばしば食い違います。",
     pdfScaleGapTitle: "格差のスケール",
     pdfScaleGapBody:
       "格差は対数的なので感覚として捉えにくい。下のバーは対数スケールで、ひとつ進むごとに約 10 倍。あなたの国の最富裕者は、平均資産より「ゼロが何個も多い」場所にいます。",

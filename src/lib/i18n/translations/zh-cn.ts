@@ -541,26 +541,26 @@ export const zhCn: Dictionary = {
     pdfSection5Title: "5. 这意味着什么",
     pdfSection5Body:
       "百分位描述的是位置，不是判决。你所在的位置反映了累积的资本、终生储蓄、继承与结构性机会。而非个人价值。这些数据用于让人理解，不是用于排名。",
-        pdfContextColGap: "Gap to enter",
+        pdfContextColGap: "进入门槛的差距",
     pdfContextYearsToReachTemplate:
-      "At the country median annual income of {medianIncome} and a 20% savings rate, it would take roughly {yearsTopTen} years to save the gap into the top 10% and {yearsTopOne} years to enter the top 1%.",
-    pdfIncomeVsWealthTitle: "Income vs wealth: the double gap",
+      "按照该国年收入中位数 {medianIncome} 和 20% 的储蓄率计算，要把差距储蓄到能进入前 10% 大约需要 {yearsTopTen} 年，进入前 1% 则需要 {yearsTopOne} 年。",
+    pdfIncomeVsWealthTitle: "收入 vs 财富：双重差距",
     pdfIncomeVsWealthBody:
-      "Income is what you earn this year. Wealth is what you have accumulated, inherited, or borrowed against. Most countries are far more unequal in wealth than in income — the chart below shows both sides for your country.",
-    pdfIncomeVsWealthLegendIncome: "Income share",
-    pdfIncomeVsWealthLegendWealth: "Wealth share",
+      "收入是你今年挣到的钱。财富是你累积、继承或可用作抵押的资产。多数国家在财富上的不平等比收入上严重得多。下图展示了你所在国家的两个侧面。",
+    pdfIncomeVsWealthLegendIncome: "收入占比",
+    pdfIncomeVsWealthLegendWealth: "财富占比",
     pdfIncomeVsWealthInsightTemplate:
-      "In {country}, the bottom 50% earns {bottom50Income}% of national income but holds only {bottom50Wealth}% of national wealth. The top 1% earns {top1Income}% of income and owns {top1Wealth}%. Wealth always concentrates more steeply than income — the gap between the two is the engine of long-run inequality.",
-    pdfHistoricalTitle: "How wealth concentration evolved",
+      "在{country}，后 50% 拿到全国收入的 {bottom50Income}%，但只持有全国财富的 {bottom50Wealth}%。最富 1% 拿到收入的 {top1Income}%，持有财富的 {top1Wealth}%。财富的集中度始终高于收入，二者之间的差距才是长期不平等的引擎。",
+    pdfHistoricalTitle: "财富集中度的演变",
     pdfHistoricalBody:
-      "WID.world tracks national wealth distributions back several decades. Higher top-percentile lines mean wealth is more concentrated. Lower bottom-50% lines mean less of the country's wealth sits with the bottom half.",
-    pdfHistoricalSeriesTop1: "Top 1% wealth share",
-    pdfHistoricalSeriesTop10: "Top 10% wealth share",
-    pdfHistoricalSeriesBottom50: "Bottom 50% wealth share",
+      "WID.world 追踪各国数十年的财富分布。顶端百分位的线越高，财富越集中。后 50% 的线越低，意味着这个国家的财富留在下半部分的比例越小。",
+    pdfHistoricalSeriesTop1: "前 1% 的财富占比",
+    pdfHistoricalSeriesTop10: "前 10% 的财富占比",
+    pdfHistoricalSeriesBottom50: "后 50% 的财富占比",
     pdfHistoricalInsightTemplate:
-      "In {firstYear}, the top 1% in {country} held {firstShare}% of national wealth. By {lastYear}, that figure was {lastShare}% — a shift of {direction} {magnitude} percentage points over the period.",
+      "{firstYear} 年，{country}最富 1% 持有 {firstShare}% 的全国财富。到 {lastYear} 年，这个数字变成 {lastShare}%，期间变动 {direction} {magnitude} 个百分点。",
     pdfHistoricalNoData:
-      "No historical wealth-share series available for this country in the WID.world dataset. The cross-country and scale-gap pages above still apply at the snapshot level.",
+      "WID.world 数据集中没有该国的历史财富占比序列。前面的跨国比较页面与差距尺度页面在快照层面仍然适用。",
     pdfCrossCountryTitle: "同样的财富，不同的国家",
     pdfCrossCountryBody:
       "你的数字含义并不固定。跨过国界，它的位置就会改变。下面是同一笔净资产在其他国家意味着什么。",
@@ -568,24 +568,24 @@ export const zhCn: Dictionary = {
     pdfCrossCountryColPercentile: "你的百分位",
     pdfCrossCountryColBracket: "档位",
     pdfCrossCountryInsight:
-      "The same net worth puts you in radically different brackets across borders. That isn't a quirk of the math — it's a direct read of how unequally wealth is distributed inside each country, and how far apart national wealth ladders sit from each other in real terms.",
+      "同样的净资产，跨过国境会落入完全不同的档位。这不是数学上的怪异之处，而是直接呈现了每个国家内部财富分配有多不均，以及不同国家的财富阶梯在实际数字上相距多远。",
     pdfCoverNarrativeAboveTemplate:
-      "You are richer than {share}% of adults in {country} — that puts you in the top half of the country's wealth distribution. The pages that follow break down what that ranking means in practice, how the gap looks at the top, and how the same number reads in other markets.",
+      "你比{country}的成人多 {share}% 更富有，这把你放在该国财富分布的上半部分。接下来的几页会拆解这个排名在实务上意味着什么、与顶端的差距是什么样的，以及同样的数字在其他市场会被读成什么样。",
     pdfCoverNarrativeBelowTemplate:
-      "You sit below the {country} median: {share}% of adults here have less wealth than you do. The pages that follow show where the country's wealth actually concentrates, how the gap to the top compares, and where the same number would land in other markets.",
-    pdfTakeawaysTitle: "What this number is and isn't",
+      "你低于{country}的中位数：这里有 {share}% 的成人比你财富更少。接下来的几页会展示该国的财富真正集中在哪里、到顶端的差距怎么比较，以及同样的数字在其他市场会落在什么位置。",
+    pdfTakeawaysTitle: "这个数字代表什么、又不代表什么",
     pdfTakeawaysIntro:
-      "Personal reads of your snapshot, given the percentile and the country context.",
+      "结合百分位和该国背景，对你这一份快照的几条个性化解读。",
     pdfTakeawaysTopOnePct:
-      "You are inside the country's top 1% — the bracket that owns a disproportionate share of total wealth. Tax policy, capital-gains regimes, and inheritance rules apply differently to you than to the median household; your number is more a read on accumulated capital than on labor income.",
+      "你处在该国最富 1% 之内，这个档位持有的财富份额远超其人口比例。税收政策、资本利得制度和遗产规则对你与中位数家庭的适用方式不同；你的数字更多反映的是累积资本，而不是劳动收入。",
     pdfTakeawaysTopTen:
-      "You are inside the country's top 10%. Most of the wealth gap to the very top is structural: equity ownership, real estate appreciation, and inherited capital, not salary differences.",
+      "你处在该国前 10% 之内。从这里到最顶端的差距大多是结构性的：股权持有、房产升值、继承资本，而不是工资差异。",
     pdfTakeawaysMiddle:
-      "You sit in the country's middle 40%, the bracket where housing equity tends to dominate the balance sheet. Earnings can move you laterally; capital ownership is what moves you up the ladder.",
+      "你处在该国中间 40% 这个档位，住房净值通常主导着家庭资产负债表。收入能让你横向移动，但能让你沿着阶梯往上走的是资本所有权。",
     pdfTakeawaysBottomHalf:
-      "You sit in the country's bottom 50%. This bracket collectively holds a small slice of total wealth — usually under 5%, regardless of how rich the country looks on aggregate. The dominant constraints are housing and labor income.",
+      "你处在该国后 50%。这个档位整体只持有总财富中的一小块，通常不到 5%，无论这个国家整体看起来有多富。主要的约束是住房和劳动收入。",
     pdfTakeawaysGlobalContext:
-      "Wealth ranks shift dramatically across borders. The same number can be top 30% in one country and bottom 30% in another — the cross-country page above shows how. National rank is one frame, global rank is another, and they often disagree.",
+      "财富排名跨国差异极大。同一个数字在一个国家可能是前 30%，在另一个国家就成了后 30%：上面的跨国比较页就展示了这一点。国内排名是一个框架，全球排名是另一个，两者往往并不一致。",
     pdfScaleGapTitle: "差距的尺度",
     pdfScaleGapBody:
       "不平等很难被「感受」到，是因为差距是对数级的。下面的柱状图采用对数刻度。每根柱子约为前一根的 10 倍。你所在国家的最富有者，比全国平均财富多出几个数量级的零。",

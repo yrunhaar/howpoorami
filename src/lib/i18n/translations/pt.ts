@@ -569,26 +569,26 @@ export const pt: Dictionary = {
     pdfSection5Title: "5. O que isso significa",
     pdfSection5Body:
       "Percentis descrevem uma posição, não um veredicto. Onde você está reflete capital acumulado, poupança de uma vida, herança e oportunidade estrutural. Não o seu valor pessoal. Os dados existem para informar, não para classificar.",
-        pdfContextColGap: "Gap to enter",
+        pdfContextColGap: "Distância para entrar",
     pdfContextYearsToReachTemplate:
-      "At the country median annual income of {medianIncome} and a 20% savings rate, it would take roughly {yearsTopTen} years to save the gap into the top 10% and {yearsTopOne} years to enter the top 1%.",
-    pdfIncomeVsWealthTitle: "Income vs wealth: the double gap",
+      "Com a renda anual mediana do país de {medianIncome} e uma taxa de poupança de 20%, levaria cerca de {yearsTopTen} anos para fechar a distância até o top 10% e {yearsTopOne} anos para entrar no top 1%.",
+    pdfIncomeVsWealthTitle: "Renda vs. riqueza: a dupla distância",
     pdfIncomeVsWealthBody:
-      "Income is what you earn this year. Wealth is what you have accumulated, inherited, or borrowed against. Most countries are far more unequal in wealth than in income — the chart below shows both sides for your country.",
-    pdfIncomeVsWealthLegendIncome: "Income share",
-    pdfIncomeVsWealthLegendWealth: "Wealth share",
+      "Renda é o que você ganha neste ano. Riqueza é o que você acumulou, herdou ou usou como garantia. A maioria dos países é muito mais desigual em riqueza do que em renda. O gráfico abaixo mostra os dois lados para o seu país.",
+    pdfIncomeVsWealthLegendIncome: "Participação na renda",
+    pdfIncomeVsWealthLegendWealth: "Participação na riqueza",
     pdfIncomeVsWealthInsightTemplate:
-      "In {country}, the bottom 50% earns {bottom50Income}% of national income but holds only {bottom50Wealth}% of national wealth. The top 1% earns {top1Income}% of income and owns {top1Wealth}%. Wealth always concentrates more steeply than income — the gap between the two is the engine of long-run inequality.",
-    pdfHistoricalTitle: "How wealth concentration evolved",
+      "Em {country}, os 50% inferiores recebem {bottom50Income}% da renda nacional mas detêm só {bottom50Wealth}% da riqueza nacional. O top 1% recebe {top1Income}% da renda e possui {top1Wealth}%. A riqueza sempre se concentra mais que a renda: a distância entre as duas é o motor da desigualdade no longo prazo.",
+    pdfHistoricalTitle: "Como a concentração de riqueza evoluiu",
     pdfHistoricalBody:
-      "WID.world tracks national wealth distributions back several decades. Higher top-percentile lines mean wealth is more concentrated. Lower bottom-50% lines mean less of the country's wealth sits with the bottom half.",
-    pdfHistoricalSeriesTop1: "Top 1% wealth share",
-    pdfHistoricalSeriesTop10: "Top 10% wealth share",
-    pdfHistoricalSeriesBottom50: "Bottom 50% wealth share",
+      "O WID.world reconstrói as distribuições nacionais de riqueza por várias décadas. Linhas mais altas nos percentis do topo indicam riqueza mais concentrada. Linhas mais baixas nos 50% inferiores indicam que menos da riqueza do país está com a metade de baixo.",
+    pdfHistoricalSeriesTop1: "Participação de riqueza do top 1%",
+    pdfHistoricalSeriesTop10: "Participação de riqueza do top 10%",
+    pdfHistoricalSeriesBottom50: "Participação de riqueza dos 50% inferiores",
     pdfHistoricalInsightTemplate:
-      "In {firstYear}, the top 1% in {country} held {firstShare}% of national wealth. By {lastYear}, that figure was {lastShare}% — a shift of {direction} {magnitude} percentage points over the period.",
+      "Em {firstYear}, o top 1% em {country} detinha {firstShare}% da riqueza nacional. Em {lastYear}, esse número era de {lastShare}%: uma variação de {direction} {magnitude} pontos percentuais no período.",
     pdfHistoricalNoData:
-      "No historical wealth-share series available for this country in the WID.world dataset. The cross-country and scale-gap pages above still apply at the snapshot level.",
+      "Não há série histórica de participação de riqueza disponível para este país na base do WID.world. As páginas anteriores de comparação entre países e escala da distância continuam válidas no nível da fotografia atual.",
     pdfCrossCountryTitle: "Mesmo patrimônio, outro país",
     pdfCrossCountryBody:
       "Seu número não significa a mesma coisa em todo lugar. O ranking muda assim que cruza uma fronteira. Aqui está o que o mesmo patrimônio significaria em outros países.",
@@ -596,24 +596,24 @@ export const pt: Dictionary = {
     pdfCrossCountryColPercentile: "Seu percentil",
     pdfCrossCountryColBracket: "Faixa",
     pdfCrossCountryInsight:
-      "The same net worth puts you in radically different brackets across borders. That isn't a quirk of the math — it's a direct read of how unequally wealth is distributed inside each country, and how far apart national wealth ladders sit from each other in real terms.",
+      "O mesmo patrimônio te coloca em faixas radicalmente diferentes ao cruzar fronteiras. Não é uma esquisitice da matemática: é uma leitura direta de quão desigual é a distribuição de riqueza dentro de cada país, e de quão distantes estão entre si as escadas nacionais de riqueza em termos reais.",
     pdfCoverNarrativeAboveTemplate:
-      "You are richer than {share}% of adults in {country} — that puts you in the top half of the country's wealth distribution. The pages that follow break down what that ranking means in practice, how the gap looks at the top, and how the same number reads in other markets.",
+      "Você é mais rico que {share}% dos adultos em {country}: isso te coloca na metade superior da distribuição de riqueza do país. As páginas a seguir mostram o que essa posição significa na prática, como é a distância no topo e como o mesmo número se lê em outros mercados.",
     pdfCoverNarrativeBelowTemplate:
-      "You sit below the {country} median: {share}% of adults here have less wealth than you do. The pages that follow show where the country's wealth actually concentrates, how the gap to the top compares, and where the same number would land in other markets.",
-    pdfTakeawaysTitle: "What this number is and isn't",
+      "Você está abaixo da mediana de {country}: {share}% dos adultos aqui têm menos patrimônio que você. As páginas a seguir mostram onde a riqueza do país de fato se concentra, como se compara a distância até o topo e onde o mesmo número cairia em outros mercados.",
+    pdfTakeawaysTitle: "O que esse número é e o que não é",
     pdfTakeawaysIntro:
-      "Personal reads of your snapshot, given the percentile and the country context.",
+      "Leituras pessoais da sua fotografia, à luz do percentil e do contexto do país.",
     pdfTakeawaysTopOnePct:
-      "You are inside the country's top 1% — the bracket that owns a disproportionate share of total wealth. Tax policy, capital-gains regimes, and inheritance rules apply differently to you than to the median household; your number is more a read on accumulated capital than on labor income.",
+      "Você está no top 1% do país, a faixa que detém uma fatia desproporcional da riqueza total. Política tributária, regimes de ganho de capital e regras de herança se aplicam de forma diferente a você do que ao domicílio mediano; seu número fala mais de capital acumulado do que de renda do trabalho.",
     pdfTakeawaysTopTen:
-      "You are inside the country's top 10%. Most of the wealth gap to the very top is structural: equity ownership, real estate appreciation, and inherited capital, not salary differences.",
+      "Você está no top 10% do país. A maior parte da distância até o topo é estrutural: posse de ações, valorização imobiliária e capital herdado, não diferenças salariais.",
     pdfTakeawaysMiddle:
-      "You sit in the country's middle 40%, the bracket where housing equity tends to dominate the balance sheet. Earnings can move you laterally; capital ownership is what moves you up the ladder.",
+      "Você está nos 40% do meio do país, a faixa em que o patrimônio em imóvel residencial tende a dominar o balanço da família. A renda te move lateralmente; quem te sobe na escada é a posse de capital.",
     pdfTakeawaysBottomHalf:
-      "You sit in the country's bottom 50%. This bracket collectively holds a small slice of total wealth — usually under 5%, regardless of how rich the country looks on aggregate. The dominant constraints are housing and labor income.",
+      "Você está nos 50% inferiores do país. Essa faixa detém, no conjunto, uma fatia pequena da riqueza total: normalmente abaixo de 5%, por mais rico que o país pareça no agregado. Os limites dominantes são moradia e renda do trabalho.",
     pdfTakeawaysGlobalContext:
-      "Wealth ranks shift dramatically across borders. The same number can be top 30% in one country and bottom 30% in another — the cross-country page above shows how. National rank is one frame, global rank is another, and they often disagree.",
+      "Os rankings de riqueza mudam drasticamente entre países. O mesmo número pode ser top 30% em um país e 30% inferiores em outro: a página de comparação entre países mostra como. O ranking nacional é uma moldura, o ranking global é outra, e os dois costumam discordar.",
     pdfScaleGapTitle: "A escala do abismo",
     pdfScaleGapBody:
       "A desigualdade é difícil de sentir porque o abismo é logarítmico. As barras abaixo estão em escala logarítmica. Cada uma é cerca de 10× a anterior. A pessoa mais rica do seu país está várias décadas de zeros acima da riqueza média nacional.",
