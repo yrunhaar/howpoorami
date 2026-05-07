@@ -49,8 +49,23 @@ export const en: Dictionary = {
     howLong: "How Long?",
     compareCountries: "Compare",
     report: "Report",
+    map: "Map",
     languageSwitchAria: "Change language",
     themeToggleAria: "Toggle dark / light mode",
+  },
+  map: {
+    title: "World map of wealth distribution",
+    subtitle:
+      "Top 1% wealth share, median wealth, and mean wealth by country. Tap or click any country for the full breakdown — population vs wealth shares, the gap to entry tiers, and historical trajectory.",
+    metricTop1: "Top 1% share",
+    metricMedianWealth: "Median wealth (USD)",
+    metricMeanWealth: "Mean wealth (USD)",
+    legendLow: "Lower",
+    legendHigh: "Higher",
+    noDataLabel: "No data",
+    source: "Wealth shares and percentile thresholds from WID.world (World Inequality Database). Pareto-interpolated for sub-percentile estimates.",
+    previewTitle: "Where countries sit on the world map",
+    previewCta: "Open the full map",
   },
   home: {
     h1: "How Poor Am I?",

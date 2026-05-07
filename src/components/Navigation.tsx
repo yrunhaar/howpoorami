@@ -53,6 +53,7 @@ export default function Navigation() {
     { defaultPath: "/", label: t.nav.home },
     { defaultPath: "/how-long", label: t.nav.howLong },
     { defaultPath: "/compare-countries", label: t.nav.compareCountries },
+    { defaultPath: "/map", label: t.nav.map },
     { defaultPath: "/report", label: t.nav.report },
   ];
 

@@ -56,8 +56,24 @@ export interface Dictionary {
     readonly howLong: string;
     readonly compareCountries: string;
     readonly report: string;
+    readonly map: string;
     readonly languageSwitchAria: string;
     readonly themeToggleAria: string;
+  };
+
+  /** World map page (`/map`) strings. */
+  readonly map: {
+    readonly title: string;
+    readonly subtitle: string;
+    readonly metricTop1: string;
+    readonly metricMedianWealth: string;
+    readonly metricMeanWealth: string;
+    readonly legendLow: string;
+    readonly legendHigh: string;
+    readonly noDataLabel: string;
+    readonly source: string;
+    readonly previewTitle: string;
+    readonly previewCta: string;
   };
 
   /** Home page hero + section headings. */
